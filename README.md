@@ -1,16 +1,22 @@
 # Projeto
 
-Desenvolvido focado em alunos e professores universitários, nosso sistema é um sistema focado em auxiliar o aluno em seu planejamento de disciplinas do semestre, utilizando um sistema de recomendação que leva em consideração horário disponível do discente, grau de dificuldade médio da disciplina baseado em feedback de alunos anteriores, bem como a maior praticidade para divulgação de oportunidades de estágios, vagas de emprego, seletivas para projetos de pesquisa e extensão.
+Desenvolvido focado em discentes e professores universitários, nosso sistema é um sistema focado em auxiliar o aluno em seu planejamento de disciplinas do semestre, utilizando um sistema de recomendação que leva em consideração horário disponível do discente, grau de dificuldade médio da disciplina baseado em feedback de discentes anteriores, bem como a maior praticidade para divulgação de oportunidades de estágios, vagas de emprego, seletivas para projetos de pesquisa e extensão.
 
 ### Problemas a serem sanados
 
-1) Planejamento de disciplinas a serem cursadas neste período pelos discentes
-2) Maior transparência e facilidade na divulgação de vagas de projetos de pesquisa, extensão e vagas de emprego
+1) Sobrecarga de informações: Os discentes geralmente enfrentam a tarefa de analisar manualmente um grande número de disciplinas, horários e combinações possíveis para realizar a matrícula. Isso pode ser demorado e confuso, especialmente quando há várias restrições a serem consideradas, como pré-requisitos, conflitos de horários e disponibilidade de turnos.
+
+2) Planejamento inadequado: Os alunos podem enfrentar dificuldades ao tentar planejar adequadamente sua carga horária para garantir que estejam cumprindo todas as disciplinas necessárias para a conclusão do curso. Isso pode resultar em atrasos na formação ou até mesmo na escolha de disciplinas desnecessárias, levando a uma carga excessiva de trabalho em determinados semestres.
+
+3) Pouca transparência e dificulade na divulgação de vagas de projetos de pesquisa, extensão e vagas de emprego. Isso pode resultar na perda de oportunidades que se complementam ou atendem a seus interesses acadêmicos.
 
 ### Expectativas
 
-1) Sistema simples que proporcione maior simplicidade e auxilie fortemente no planejamento de curso dos discentes
-2) Facilitar a divulgação de oportunidades para os discentes
+1)  Espera-se que o sistema de recomendação agilize e simplifique o processo de seleção de disciplinas, fornecendo aos alunos recomendações personalizadas com base em suas preferências, disponibilidade de horários e necessidades acadêmicas. Isso deve resultar em uma matrícula mais eficiente, economizando tempo e esforço para os alunos.
+
+2) Maior visibilidade e descoberta de oportunidades: Espera-se que o sistema ajude os alunos a explorar uma variedade de oportunidades e combinações possíveis, proporcionando uma visão mais abrangente das opções disponíveis. Isso pode incluir a sugestão de disciplinas relacionadas aos interesses acadêmicos do aluno ou que complementem sua formação de maneira significativa, como pesquisa, extensão ou estágios.
+
+3) Feedback e iteração contínua: À medida que os alunos utilizam o sistema e fazem suas matrículas, espera-se que forneçam feedback sobre a eficácia das recomendações. Com base nesse feedback, o sistema pode ser aprimorado e refinado continuamente para oferecer recomendações cada vez mais precisas e relevantes.
 
 ## Personas
 
@@ -57,18 +63,20 @@ Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que
 
 ## Riscos
 
-1. **Risco 1** descrição do risco. *Severidade Baixa e Probabilidade Alta*.
+1. **Risco 1**: O sistema pode enfrentar problemas de compatibilidade ou inconsistência ao analisar o PDF enviado pelo aluno. Isso pode ocorrer devido a diferentes formatos de PDF, estruturas variadas ou erros de extração de dados.
+*Severidade Baixa e Probabilidade Alta*.
 
    Ações para mitigação do risco:
 
-   * Ação de mitigação 1.1.
+   * Implementar uma etapa de pré-processamento robusta que verifique e normalize os dados extraídos do PDF. Uso de NLP; Incluir o usuário na etapa de revisão e correção de dados extraídos.
 
-2. **Risco 2** descrição do risco. *Severidade Média e Probabilidade Alta*.
+2. **Risco 2**: O sistema pode recomendar combinações de disciplinas que não sejam viáveis para o aluno devido a conflitos de horários ou pré-requisitos não atendidos.
+*Severidade Média e Probabilidade Alta*.
 
    Ações para mitigação do risco:
 
-   * Ação de mitigação 2.1.
-   * Ação de mitigação 2.2.
+   * Implementar restrições no algoritmo de recomendação para garantir que as combinações propostas respeitem os horários e os pré-requisitos das disciplinas. Avaliar a melhor forma de obter os feedbacks sobre requisitos e complexidade da disciplina.
+   * Fornecer opção de revisar e ajustar recomendações durante o período de matrícula no sistema acadêmico.
 
 ## Componentes
 
@@ -111,7 +119,7 @@ Thalyssa de Almeida Monteiro <br />
 *tam@ic.ufal.br* <br />
 [Github Thalyssa](https://github.com/thalyssa)
 
-YANKA RAISSA RIBEIRO DA SILVA <br />
+Yanka Raíssa Ribeiro da Silva <br />
 *Cientista de Dados* <br />
 *yrrs@ic.ufal.br* <br />
 [Github Yanka](https://github.com/yrribeiro)
