@@ -78,10 +78,28 @@ Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que
    * Implementar restrições no algoritmo de recomendação para garantir que as combinações propostas respeitem os horários e os pré-requisitos das disciplinas. Avaliar a melhor forma de obter os feedbacks sobre requisitos e complexidade da disciplina.
    * Fornecer opção de revisar e ajustar recomendações durante o período de matrícula no sistema acadêmico.
 
+3. **Risco 3**: A API do sistema pode ficar disponível para acessos externos, possibilitando o acesso a dados sensíveis dos usuários.
+   *Severidade Alta e Probabilidade Alta*.
+
+      Ações para mitigação do risco:
+
+      * Implementar um serviço de autenticação na API, definindo e restringindo acesso aos endpoints via permissões de usuário de nível de autoridade.
+      * Permitir que somente usuários com nível de Administrador criem outros usuários administradores.
+
+4. **Risco 4**: A comunicação entre front, back e modelo de recomendação pode conter alguns dados sensíveis, a exposição desses dados pode levar a riscos de ataque man in the middle, ocasionando em furto de informações.
+   *Severidade Alta e Probabilidade Alta*.
+
+      Ações para mitigação do risco:
+
+      * Uso de criptografia para comunicação, cifrando os dados sensíveis, dificultando a leitura e interpretação dos mesmos.
+
 ## Componentes
 
 ### Aplicativo Web 
-Aplicativo web composto por interfaces feitas com o uso de React, NestJS para criação da API do Back-end e transações com o SGBD MySQL, além de interação com o modelo de aprendizado de máquina utilizado na recomendação de disciplinas dos usuários.
+Aplicativo web composto por interfaces feitas com o uso de React, NestJS para criação da API do Back-end e transações com o SGBD MySQL.
+
+### Algoritmo de classificação
+Algoritmo de aprendizado de máquina utilizado para recomendar as disciplinas para os alunos.
 
 ## Stakeholders
 
