@@ -1,6 +1,10 @@
 # Projeto
 
-Desenvolvido focado em discentes e coordenação de curso, nosso sistema é um sistema focado em auxiliar o aluno em seu planejamento de disciplinas do semestre, de modo que o mesmo consiga ter uma noção melhor de como se preparar para as disciplinas e dividir seus horários, com a intenção de que o mesmo consiga conciliar as atribuições na universidade juntamente com quaisquer outras atribuições que o mesmo possua fora da mesma, além de, a partir da utilização desse sistema, auxiliar o aluno a tentar ao máximo evitar o trancamento de curso, uma vez que o aconselhamento é focado em auxiliar o mesmo em sua formação, utilizando um sistema de aconselhamento que leva em consideração horário disponível do discente, grau de dificuldade médio da disciplina baseado em feedback de discentes anteriores, pré-requisitos de disciplinas, bem como a maior praticidade para divulgação de oportunidades de estágios, vagas de emprego, seletivas para projetos de pesquisa e extensão.
+Nosso sistema tem como foco conectar duas personas: O discente e o coordenador do curso, de forma que o primeiro possa ter auxílio no planejamento de seu semestre de acordo com suas necessidades e o segundo possa intervir caso perceba algum aluno atrasado no curso ou com dificuldades repetidas em determinada disciplina, além de ter um panorama geral dos dados envolvendo as matérias (taxa de aprovados/reprovados, quantidade de vagas ofertadas para a quantidade de alunos matriculados, etc.) e uma plataforma de fácil divulgação para oprtunidades como estágios, vagas de emprego e bolsas de pesquisa/extensão.
+
+O diferencial do projeto é o uso de aprendizagem de máquina para conseguir equilibrar suas atribuições da vida cotidiana, seus horários disponíveis e circunstâncias inesperadas (acidente, morte na família, demissão, gravidez), de forma que o horário gerado a cada semestre seja o mais conveniente possível para o discente, seja qual for a condição que ele se encontre, além de facilitar a sua comunicação com o coordenador do curso.
+
+O objetivo deste sistema é fornecer suporte ao discente para que ele consiga concluir sua formação acadêmica e ao coordenador, para que ele consiga mitigar as taxas de evasão em seu curso.
 
 ### Problemas a serem sanados
 
@@ -24,18 +28,17 @@ Desenvolvido focado em discentes e coordenação de curso, nosso sistema é um s
 
 ## Personas
 
-
 ### Discente
 
 O discente é a pessoa que está na universidade buscando cursar sua graduação da melhor maneira possível, ao mesmo tempo que pode estar interessado em oportunidades, sejam estas de estágio ou efetivo em empresas públicas e privadas ou em busca de oportunidades para contribuir com projetos de pesquisa e de extensão.
 
-Este espera conseguir cursar sua graduação de maneira que se atrase o mínimo possível, ao mesmo tempo que busca desenvolver melhor suas competências profissionais, de modo a adquirir experiência profissional. 
+O discente espera conseguir cursar a sua graduação em tempo hábil e desenvolver as competências necessárias para o caminho de vida que escolher (Carreira acadêmica, profissional CLT, empreendedor autônomo, etc.), porém é sujeito a diversos imprevistos que podem impedi-lo de atingir esse objetivo caso não tenha o suporte (financeiro, psicológico, organizacional,...) necessário.
 
 ### Coordenador de curso
 
-O coordenador do curso é o responsável por atuar nos processos mais burocráticos e na garantia de que o projeto pedagógico do curso seja cumprido da maneira que está estabelecido, dentre outras atribuições do mesmo estão a seleção de discentes para realização do ENADE, além de ter a responsabilidade de delegar professores às disciplinas ofertadas no curso, sendo assim, o mesmo possui preocupações com a execução efetiva do que está estabelecido no projeto do curso, além de dar orientações aos discentes sobre determinados acontecimentos durante sua graduação, sendo, também, resposável pela comunicação com os egressos, que, por sua vez, podem contribuir com oportunidades de estágio e emprego para discentes, além de poderem proporcionar palestras e formações para os alunos ainda no processo de graduação.
+O coordenador do curso é o responsável por atuar nos processos mais burocráticos e na garantia de que o projeto pedagógico seja cumprido o mais próximo possível de sua definição. Outras atribuições deste profissional incluem: seleção de discentes para realização do ENADE, delegação de professores às disciplinas ofertadas no curso, orientação aos discentes sobre acontecimentos durante a graduação e manter comunicação com os egressos para a busca de oportunidades para os atuais discentes, como por exemplo, vagas de estágio, palestras e formações.
 
-O coordenador espera conseguir efetuar suas atribuções de maneira simples, principalmente devido ao fato de que a função é muito burocrática, exigindo grande quantidade de tempo, além de ter preocupações com a execução correta do projeto pedagógico e de como as disciplinas ofertadas estão sendo lessionadas e como os discentes estão se sobressaindo nas mesmas.
+É do interesse deste profissional que o máximo de discentes possível conclua sua formação acadêmica, já que um número baixo de aprovações pode afetar a avaliação do curso perante o MEC e outras instituições avaliativas. Além disso, este profissional deve cumprir com diversas responsabilidades burocráticas e lidar com uma grande quantidade de dados dos discentes de seu curso.
 
 ## Marcos
 
