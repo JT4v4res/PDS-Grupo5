@@ -10,6 +10,8 @@ Desenvolvido focado em discentes e coordenação de curso, nosso sistema é um s
 
 3) Pouca transparência e dificulade na divulgação de vagas de projetos de pesquisa, extensão e vagas de emprego. Isso pode resultar na perda de oportunidades que se complementam ou atendem a seus interesses acadêmicos, pois, por mais que as vagas sejam disponibilizadas via email institucional, o mesmo costuma estar recheado de diversos emails, fazendo com que notificações acerca de vagas se percam em meio a outros tipos de mensagens recebidas.
 
+4) Alta burocracia: O coordenador pode enfrentar um processo muito lento, uma vez que a análise das informações acerca do aproveitamento de disciplinas e demais atividades pode demandar muito tempo do mesmo.
+
 ### Expectativas
 
 1)  Espera-se que o sistema de recomendação agilize e simplifique o processo de seleção de disciplinas, fornecendo aos alunos recomendações personalizadas com base em suas preferências, disponibilidade de horários e necessidades acadêmicas. Isso deve resultar em uma matrícula mais eficiente, economizando tempo e esforço para os alunos, além de auxiliar aos coordenadores de curso no processo de aconselhamento dos alunos, quando o mesmo se fizer necessário.
