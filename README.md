@@ -1,14 +1,12 @@
-# Projeto
+# Projeto: MAGI
 
 Entrar na universidade representa uma mudança de paradigma na vida de qualquer pessoa. Esse processo pode ser turbulento, uma vez que a carga de responsabilidades e autonomia que recai sobre o indivíduo nessa fase tende a ser um fator dificultante.
 
-No contexto acadêmico, o aumento da autonomia e das responsabilidades pode dificultar o planejamento adequado dos passos que o estudante deve tomar em sua vida acadêmica. Isso torna desafiadora a conciliação de seus compromissos acadêmicos com os externos, podendo levar à evasão do curso, algo que afeta diretamente o estudante e a universidade à qual está associado.
+No contexto acadêmico, o aumento da autonomia e das responsabilidades somado com a falta de informação apropriada pode dificultar o planejamento adequado dos passos que o estudante deve tomar em sua vida acadêmica. Isso torna desafiadora a conciliação de seus compromissos acadêmicos com os externos, podendo levar à evasão do curso, algo que afeta diretamente o estudante e a universidade à qual está associado.
 
-Nosso sistema tem como foco auxiliar o estudante, de forma que ele possa planejar seu semestre de acordo com suas necessidades de tempo e conciliação com atividades externas à universidade, bem como enfrentar imprevistos e dificuldades familiares. Além disso, fornecemos um panorama geral dos dados envolvendo as matérias, como taxa de aprovação, reprovação e quantidade de vagas ofertadas em relação ao número de alunos matriculados.
+Nosso sistema tem como foco auxiliar o estudante de forma que ele possa planejar seu semestre de acordo com suas necessidades de tempo e já tendo conhecimentos de como determinada disciplina funcionou nos períodos anteriores. Faremos isso fornecendo um panorama geral dos dados envolvendo as matérias, como taxa de aprovação, reprovação e quantidade de vagas ofertadas em relação ao número de alunos matriculados, além de espaço para a avaliação dos professores pelos próprios alunos.
 
-O diferencial do projeto é o uso de aprendizagem de máquina para conseguir equilibrar suas atribuições da vida cotidiana, seus horários disponíveis e circunstâncias inesperadas (acidente, morte na família, demissão, gravidez), de forma que o horário gerado a cada semestre seja o mais conveniente possível para o discente, seja qual for a condição que ele se encontre.
-
-O objetivo deste sistema é fornecer suporte ao discente para que ele consiga concluir sua formação acadêmica em um tempo que lhe seja cabível.
+O objetivo deste sistema é fornecer suporte ao discente para que ele consiga concluir sua formação acadêmica em um tempo que lhe seja cabível, usando as informações fornecidas para um melhor diagnóstico de suas necessidades.
 
 #### Consequências
 
@@ -18,7 +16,7 @@ O objetivo deste sistema é fornecer suporte ao discente para que ele consiga co
 
 ### Problemas a serem sanados
 
-1) Sobrecarga de informações: Os discentes geralmente enfrentam a tarefa de analisar manualmente um grande número de disciplinas, horários e combinações possíveis para realizar a matrícula. Isso pode ser demorado e confuso, especialmente quando há várias restrições a serem consideradas, como pré-requisitos, conflitos de horários e disponibilidade de turnos, além de eventuais outras tarefas que o mesmo possua fora da universidade como a parternidade ou maternidade, ou até mesmo uma gravidez.
+1) Sobrecarga de informações: Os discentes geralmente enfrentam a tarefa de analisar manualmente um grande número de disciplinas, horários e combinações possíveis para realizar a matrícula. Isso pode ser demorado e confuso, especialmente quando há várias restrições a serem consideradas, como pré-requisitos, conflitos de horários e disponibilidade de turnos, além de falta de informações específicas, como em relação à didática de um professor, seu formato de avaliação e taxa de aprovação naquela matéria quando foi lecionada por ele.
 
 2) Planejamento inadequado: Os alunos podem enfrentar dificuldades ao tentar planejar adequadamente sua carga horária para garantir que estejam cumprindo todas as disciplinas necessárias para a conclusão do curso. Isso pode resultar em atrasos na formação ou até mesmo na escolha de muitas disciplinas com elevado grau de dificuldade, levando a uma carga excessiva de trabalho em determinados semestres.
 
@@ -27,8 +25,6 @@ O objetivo deste sistema é fornecer suporte ao discente para que ele consiga co
 1)  Espera-se que o sistema de recomendação agilize e simplifique o processo de seleção de disciplinas, fornecendo aos alunos recomendações personalizadas com base em suas preferências, disponibilidade de horários e necessidades acadêmicas. Isso deve resultar em uma matrícula mais eficiente, economizando tempo e esforço para os alunos, além de auxiliar aos coordenadores de curso no processo de aconselhamento dos alunos, quando o mesmo se fizer necessário.
    
 2) Feedback e iteração contínua: À medida que os alunos utilizam o sistema e fazem suas matrículas, espera-se que forneçam feedback sobre a eficácia das recomendações. Com base nesse feedback, o sistema pode ser aprimorado e refinado continuamente para oferecer recomendações cada vez mais precisas e relevantes.
-
-3) Auxílio e redução do tempo de trabalho para coordenadores de curso: O coordenador de curso acumula funções muito burocráticas, que demandam tempo, principalmente quando precisa avaliar estatísticas acerca de inúmeras matérias, um sistema que forneça estatísticas mais precisas e resumidas, principalmente de disciplinas que estejam enfrentando "gargalo" no curso, devido ao seu alto grau de dificuldade, podem auxiliar o coordenador no planejamento semestral e na distribuição de docentes entre as disciplinas ofertadas no curso, oferencedo um direcionamento maior e reduzindo o tempo que o mesmo precisa para fazer tal análise, ainda mais levando em consideração um feedback fornecido diretamente pelos próprios discentes.
 
 ## Personas
 
@@ -41,25 +37,25 @@ O discente possui as seguintes características:
 - Dificuldades técnicas no curso
 - Dificuldade de colocação profissional
 - Desmotivação
-- Possível falta de apoio familiar
+- Falta de informações sobre como cursar devidamente cada disciplina, geralmente dependendo do contato com alunos mais experientes para obtê-las, o que nem sempre é possível
 
 ## Marcos
 
 Devemos entregar **pequenas versões frequentes**. 
 
-### Marco 1 - 20/12/2022
+### Marco 1 - 11/08/2023
 
 Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que isso aconteceu com base em `métricas para validar a hipótese do negócio`.
 
 #### Funcionalidades
 
-- [x] Funcionalidade 1.
+- [x] Protótipo da tela de professor/matéria.
 - [x] Funcionalidade 2.
 - [x] Funcionalidade 3.
 
 [Release Notes ](release_notes_1.md)
 
-### Marco 2 - 20/01/2023
+### Marco 2 - 18/08/2023
 
 Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que isso aconteceu com base em `métricas para validar a hipótese do negócio`.
 
@@ -107,9 +103,6 @@ Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que
 
 ### Aplicativo Web 
 Aplicativo web composto por interfaces feitas com o uso de React, NestJS para criação da API do Back-end e transações com o SGBD MySQL.
-
-### Algoritmo de classificação
-Algoritmo de aprendizado de máquina utilizado para recomendar as disciplinas para os alunos.
 
 ## Stakeholders
 
