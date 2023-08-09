@@ -1,55 +1,61 @@
-# Projeto
+# Projeto: MAGI
 
-Desenvolvido focado em discentes e professores universitários, nosso sistema é um sistema focado em auxiliar o aluno em seu planejamento de disciplinas do semestre, utilizando um sistema de recomendação que leva em consideração horário disponível do discente, grau de dificuldade médio da disciplina baseado em feedback de discentes anteriores, bem como a maior praticidade para divulgação de oportunidades de estágios, vagas de emprego, seletivas para projetos de pesquisa e extensão.
+Entrar na universidade representa uma mudança de paradigma na vida de qualquer pessoa. Esse processo pode ser turbulento, uma vez que a carga de responsabilidades e autonomia que recai sobre o indivíduo nessa fase tende a ser um fator dificultante.
+
+No contexto acadêmico, o aumento da autonomia e das responsabilidades somado com a falta de informação apropriada pode dificultar o planejamento adequado dos passos que o estudante deve tomar em sua vida acadêmica. Isso torna desafiadora a conciliação de seus compromissos acadêmicos com os externos, podendo levar à evasão do curso, algo que afeta diretamente o estudante e a universidade à qual está associado.
+
+Nosso sistema tem como foco auxiliar o estudante de forma que ele possa planejar seu semestre de acordo com suas necessidades de tempo e já tendo conhecimentos de como determinada disciplina funcionou nos períodos anteriores. Faremos isso fornecendo um panorama geral dos dados envolvendo as matérias, como taxa de aprovação, reprovação e quantidade de vagas ofertadas em relação ao número de alunos matriculados, além de espaço para a avaliação dos professores pelos próprios alunos.
+
+O objetivo deste sistema é fornecer suporte ao discente para que ele consiga concluir sua formação acadêmica em um tempo que lhe seja cabível, usando as informações fornecidas para um melhor diagnóstico de suas necessidades.
+
+#### Consequências
+
+- Evasão
+- Aumento de tempo do aluno na universidade
+- Desmotivação
 
 ### Problemas a serem sanados
 
-1) Sobrecarga de informações: Os discentes geralmente enfrentam a tarefa de analisar manualmente um grande número de disciplinas, horários e combinações possíveis para realizar a matrícula. Isso pode ser demorado e confuso, especialmente quando há várias restrições a serem consideradas, como pré-requisitos, conflitos de horários e disponibilidade de turnos.
+1) Sobrecarga de informações: Os discentes geralmente enfrentam a tarefa de analisar manualmente um grande número de disciplinas, horários e combinações possíveis para realizar a matrícula. Isso pode ser demorado e confuso, especialmente quando há várias restrições a serem consideradas, como pré-requisitos, conflitos de horários e disponibilidade de turnos, além de falta de informações específicas, como em relação à didática de um professor, seu formato de avaliação e taxa de aprovação naquela matéria quando foi lecionada por ele.
 
-2) Planejamento inadequado: Os alunos podem enfrentar dificuldades ao tentar planejar adequadamente sua carga horária para garantir que estejam cumprindo todas as disciplinas necessárias para a conclusão do curso. Isso pode resultar em atrasos na formação ou até mesmo na escolha de disciplinas desnecessárias, levando a uma carga excessiva de trabalho em determinados semestres.
-
-3) Pouca transparência e dificulade na divulgação de vagas de projetos de pesquisa, extensão e vagas de emprego. Isso pode resultar na perda de oportunidades que se complementam ou atendem a seus interesses acadêmicos.
+2) Planejamento inadequado: Os alunos podem enfrentar dificuldades ao tentar planejar adequadamente sua carga horária para garantir que estejam cumprindo todas as disciplinas necessárias para a conclusão do curso. Isso pode resultar em atrasos na formação ou até mesmo na escolha de muitas disciplinas com elevado grau de dificuldade, levando a uma carga excessiva de trabalho em determinados semestres.
 
 ### Expectativas
 
-1)  Espera-se que o sistema de recomendação agilize e simplifique o processo de seleção de disciplinas, fornecendo aos alunos recomendações personalizadas com base em suas preferências, disponibilidade de horários e necessidades acadêmicas. Isso deve resultar em uma matrícula mais eficiente, economizando tempo e esforço para os alunos.
-
-2) Maior visibilidade e descoberta de oportunidades: Espera-se que o sistema ajude os alunos a explorar uma variedade de oportunidades e combinações possíveis, proporcionando uma visão mais abrangente das opções disponíveis. Isso pode incluir a sugestão de disciplinas relacionadas aos interesses acadêmicos do aluno ou que complementem sua formação de maneira significativa, como pesquisa, extensão ou estágios.
-
-3) Feedback e iteração contínua: À medida que os alunos utilizam o sistema e fazem suas matrículas, espera-se que forneçam feedback sobre a eficácia das recomendações. Com base nesse feedback, o sistema pode ser aprimorado e refinado continuamente para oferecer recomendações cada vez mais precisas e relevantes.
+1)  Espera-se que o sistema de recomendação agilize e simplifique o processo de seleção de disciplinas, fornecendo aos alunos recomendações personalizadas com base em suas preferências, disponibilidade de horários e necessidades acadêmicas. Isso deve resultar em uma matrícula mais eficiente, economizando tempo e esforço para os alunos, além de auxiliar aos coordenadores de curso no processo de aconselhamento dos alunos, quando o mesmo se fizer necessário.
+   
+2) Feedback e iteração contínua: À medida que os alunos utilizam o sistema e fazem suas matrículas, espera-se que forneçam feedback sobre a eficácia das recomendações. Com base nesse feedback, o sistema pode ser aprimorado e refinado continuamente para oferecer recomendações cada vez mais precisas e relevantes.
 
 ## Personas
 
-
 ### Discente
 
-O discente é a pessoa que está na universidade buscando cursar sua graduação da melhor maneira possível, ao mesmo tempo que pode estar interessado em oportunidades, sejam estas de estágio ou efetivo em empresas públicas e privadas ou em busca de oportunidades para contribuir com projetos de pesquisa e de extensão.
+O discente é a pessoa que está na universidade buscando cursar sua graduação da melhor maneira possível.
 
-Este espera conseguir cursar sua graduação de maneira que se atrase o mínimo possível, ao mesmo tempo que busca desenvolver melhor suas competências profissionais, de modo a adquirir experiência profissional. 
-
-### Docente
-
-O docente é a pessoa que está na universidade buscando lessionar as aulas em suas disciplinas de forma que não prejudique a si mesmo e aos discentes, também é responsável pela produção acadêmica nos quaisquer laboratórios ao qual faça parte, necessitando, periodicamente, da seleção de discentes para atuação em seus projetos de pesquisa.
-
-O docente espera otimizar seu tempo da melhor maneira possível além da expectativa de divulgar de maneira simplificada as vagas disponíveis em seus projetos, bem como as seletivas para tal. 
+O discente possui as seguintes características:
+- Possivelmente imaturo
+- Dificuldades técnicas no curso
+- Dificuldade de colocação profissional
+- Desmotivação
+- Falta de informações sobre como cursar devidamente cada disciplina, geralmente dependendo do contato com alunos mais experientes para obtê-las, o que nem sempre é possível
 
 ## Marcos
 
 Devemos entregar **pequenas versões frequentes**. 
 
-### Marco 1 - 20/12/2022
+### Marco 1 - 11/08/2023
 
 Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que isso aconteceu com base em `métricas para validar a hipótese do negócio`.
 
 #### Funcionalidades
 
-- [x] Funcionalidade 1.
+- [x] Protótipo da tela de professor/matéria.
 - [x] Funcionalidade 2.
 - [x] Funcionalidade 3.
 
 [Release Notes ](release_notes_1.md)
 
-### Marco 2 - 20/01/2023
+### Marco 2 - 18/08/2023
 
 Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que isso aconteceu com base em `métricas para validar a hipótese do negócio`.
 
@@ -78,10 +84,25 @@ Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que
    * Implementar restrições no algoritmo de recomendação para garantir que as combinações propostas respeitem os horários e os pré-requisitos das disciplinas. Avaliar a melhor forma de obter os feedbacks sobre requisitos e complexidade da disciplina.
    * Fornecer opção de revisar e ajustar recomendações durante o período de matrícula no sistema acadêmico.
 
+3. **Risco 3**: A API do sistema pode ficar disponível para acessos externos, possibilitando o acesso a dados sensíveis dos usuários.
+   *Severidade Alta e Probabilidade Média*.
+
+      Ações para mitigação do risco:
+
+      * Implementar um serviço de autenticação na API, definindo e restringindo acesso aos endpoints via permissões de usuário de nível de autoridade.
+      * Permitir que somente usuários com nível de Administrador criem outros usuários administradores.
+
+4. **Risco 4**: A comunicação entre front, back e modelo de recomendação pode conter alguns dados sensíveis, a exposição desses dados pode levar a riscos de ataque man in the middle, ocasionando em furto de informações.
+   *Severidade Alta e Probabilidade Média*.
+
+      Ações para mitigação do risco:
+
+      * Uso de criptografia para comunicação, cifrando os dados sensíveis, dificultando a leitura e interpretação dos mesmos.
+
 ## Componentes
 
 ### Aplicativo Web 
-Aplicativo web composto por interfaces feitas com o uso de React, NestJS para criação da API do Back-end e transações com o SGBD MySQL, além de interação com o modelo de aprendizado de máquina utilizado na recomendação de disciplinas dos usuários.
+Aplicativo web composto por interfaces feitas com o uso de React, NestJS para criação da API do Back-end e transações com o SGBD MySQL.
 
 ## Stakeholders
 
