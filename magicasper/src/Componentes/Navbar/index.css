@@ -4,13 +4,11 @@ a{
   text-decoration: none;
 }
 
-h1,h2,h3{
-  padding-bottom: 20px;
+Link{
+  color: #333;
+  text-decoration: none;
 }
 
-p{
-  margin: 10px 0;
-}
 
 #navbar{
   align-items: center;
@@ -18,9 +16,14 @@ p{
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   overflow: auto;
   height: 80px;
+  text-align: center;
 }
 
 #navbar a{
+  color: #fff;
+}
+
+#navbar Link{
   color: #fff;
 }
 
@@ -48,6 +51,18 @@ p{
 
 #navbar ul li a:hover,
 #navbar ul li a.current{
+  background-color: #4444;
+}
+
+#navbar ul li Link{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar ul li Link:hover,
+#navbar ul li Link.current{
   background-color: #4444;
 }
 
