@@ -9,6 +9,7 @@ import { typeOrmConfig } from './core/infra/config/typeorm.config';
     TypeOrmModule.forRoot(typeOrmConfig),
     ProfessorModule,
     MateriaModule,
+
   ],
   controllers: [],
   providers: [],

@@ -24,7 +24,6 @@ export class CommentsGammificationMiddleware extends NestMiddleware {
       comment.comm == 'teacher'
         ? (community = await this.professorRepository.findOne(comment.commId))
         : (community = await this.materiaRepository.findOne(comment.commId));
-
       if (
         comment.totalValuations >= community.totalMembers * 0.5 &&
         comment.totalValuations < community.totalMembers * 0.8
