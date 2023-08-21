@@ -2,7 +2,7 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 
 @Injectable()
-export class CommentsGammificationMiddleware implements NestMiddleware {
+export class CommentsGammificationMiddleware extends NestMiddleware {
   async use(req: Request, res: Response, next: NextFunction) {
     const commentId = req.params.commentId;
 
@@ -24,7 +24,6 @@ export class CommentsGammificationMiddleware implements NestMiddleware {
       comment.comm == 'teacher'
         ? (community = await this.professorRepository.findOne(comment.commId))
         : (community = await this.materiaRepository.findOne(comment.commId));
-
       if (
         comment.totalValuations >= community.totalMembers * 0.5 &&
         comment.totalValuations < community.totalMembers * 0.8
