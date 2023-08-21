@@ -9,7 +9,6 @@ Link{
   text-decoration: none;
 }
 
-
 #navbar{
   align-items: center;
   background: linear-gradient(180deg, #8E64BF 16.15%, rgba(156, 34, 214, 0.00) 100%);
@@ -66,3 +65,17 @@ Link{
   background-color: #4444;
 }
 
+
+#navbar .setting-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10px;
+  padding-top: 15px;
+}
+
+.setting-icon svg{
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* color: #fff; */
+}

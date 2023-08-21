@@ -11,3 +11,19 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+
+ // let Component; 
+  // switch (window.location.pathname) {
+  //   case '/Home':
+  //     Component = <Home/>
+  //     break
+  //   case '/Perfil':
+  //     Component = <Perfil/>
+  //     break
+  //   case '/Disciplinas':
+  //     Component = <Disciplinas/>
+  //     break
+  //   default:
+  //     window.location.pathname = '/'
+  // }
