@@ -21,7 +21,6 @@
 }
 
 #Conteudo-Disciplinas .esforço {
-  font-size: 20px;
   display: inline;
   list-style: none;
 }
@@ -30,10 +29,15 @@
   margin: 5px;
   padding-left: 58px;
 }
+#Conteudo-Disciplinas .esforço li label{
+  font-size: 14px;
+}
 
 #Conteudo-Disciplinas .descrição-geral {
-  width: 310px;;
-  height: 350px;
+  width: 310px;
+  height: 358px;
+  max-height: 540px;
+  overflow:auto;
   display: flex;
   justify-content: center;
   background: #9B96CB;
@@ -43,21 +47,52 @@
   margin-right: 20px;
   margin-left: 58px;
   margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
-
 #Conteudo-Disciplinas .descrição-geral .container {
   text-align: justify;
   padding-top: 5px;
 }
 #Conteudo-Disciplinas .descrição-geral .container .descricao-materia{
-  /* background-color: aqua;  */
-  height: 25%;
+  /* background-color: aqua; */
+  height: 50%;
+  max-height: 40%;
+  overflow: auto;
 }
+
+
+/* Largura e cor da barra de rolagem */
+#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar, 
+#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
+  width: 5px; /* Largura da barra de rolagem */
+}
+
+/* Fundo da barra de rolagem */
+#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar-track,
+#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
+  background-color: #9B96CB;
+}
+
+/* Cor da alça da barra de rolagem */
+#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar-thumb,
+#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
+  background-color: #D3D2DA;
+}
+
+/* Mudar a cor da alça quando passar o mouse sobre ela */
+#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar-thumb:hover, 
+#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
+  background-color: #C9C9CF;
+  border-radius: 17px;
+}
+
 #Conteudo-Disciplinas .descrição-geral .container .codigo{
   float: left;
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 10%;
+  margin-top: 7%;
+  font-size: 14px;
 }
 
 #Conteudo-Disciplinas .descrição-geral .container .descricao-materia p{
@@ -69,12 +104,13 @@
 }
 
 #Conteudo-Disciplinas .descrição-geral .container .linha-vertical{
-  border-bottom: 3px;
-  width: 80%;
+  border-bottom: 1px;
+  width: 100%;
   border-bottom-style: solid;
   border-bottom-color: #5A3693;;
   align-items: center;
   margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 #Conteudo-Disciplinas .descrição-geral .professor-Label {
@@ -85,7 +121,7 @@
 }
 
 #Conteudo-Disciplinas .descrição-geral .lista-professor li{
-  margin: 15px;
+  margin: 10px;
   color: #FFF;
   margin-left: 40px;
 }
