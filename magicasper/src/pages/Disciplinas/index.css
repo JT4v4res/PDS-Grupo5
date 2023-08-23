@@ -25,3 +25,7 @@
 .icone-selecao svg{
   cursor: pointer;
 }
+.button a{
+  margin: 20px;
+  color: #FFF;
+}

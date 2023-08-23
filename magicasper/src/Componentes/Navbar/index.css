@@ -53,18 +53,11 @@ Link{
   background-color: #4444;
 }
 
-#navbar ul li Link{
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  display: block;
-  padding: 30px;
-  text-align: center;
-}
 
 #navbar ul li Link:hover,
 #navbar ul li Link.current{
   background-color: #4444;
 }
-
 
 #navbar .setting-icon{
   display: flex;

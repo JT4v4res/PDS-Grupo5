@@ -1,0 +1,98 @@
+#Conteudo-Disciplinas .label-principal {
+  display: flex;
+  align-items: center;
+  margin-left: 36px;
+}
+
+#Conteudo-Disciplinas .icone-selecao {
+  width: 20px;
+  height: 31.03px;
+  margin-right: 10px;
+  padding-top: 12px;
+}
+
+#Conteudo-Disciplinas label {
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+#Conteudo-Disciplinas .esforço {
+  font-size: 20px;
+  display: inline;
+  
+}
+
+
+#Conteudo-Disciplinas .esforço li {
+  margin: 5px;
+  padding-left: 72px;
+}
+
+/* Descrição geral canto esquerdo */
+#Conteudo-Disciplinas .descrição-geral {
+  width: 310px;;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  background: #9B96CB;
+  border-radius: 17px;
+  border: 1px solid #000;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-right: 20px;
+  margin-left: 72px;
+  margin-top: 65px;
+}
+
+#Conteudo-Disciplinas .descrição-geral .container {
+  text-align: justify;
+  padding-top: 5px;
+}
+#Conteudo-Disciplinas .descrição-geral .container .descricao-materia{
+  /* background-color: aqua;  */
+  height: 25%;
+}
+#Conteudo-Disciplinas .descrição-geral .container .codigo{
+  float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10%;
+}
+
+#Conteudo-Disciplinas .descrição-geral .container .descricao-materia p{
+  font-size: 10px;
+  color: #FFF;
+  margin-top: 20%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#Conteudo-Disciplinas .descrição-geral .container .linha-vertical{
+  border-bottom: 3px;
+  width: 80%;
+  border-bottom-style: solid;
+  border-bottom-color: #5A3693;;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#Conteudo-Disciplinas .descrição-geral .professor-Label {
+  margin: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#Conteudo-Disciplinas .descrição-geral .lista-professor li{
+  margin: 15px;
+  margin-left: 20px;
+}
+#Conteudo-Disciplinas .descrição-geral .lista-professor li a{
+  color: #FFF;
+  font-size: 10px;
+}
+
+#Conteudo-Disciplinas .descrição-geral .lista-professor li a:hover{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}  

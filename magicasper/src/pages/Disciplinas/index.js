@@ -1,12 +1,11 @@
 import './index.css';
 import {MdOutlineViewHeadline} from 'react-icons/md';
-// import mainLabel from './Componentes/mainLabel'
+import MateriaDetalhes from '../MateriasDetalhes'
 
 function Disciplinas (curso){
   curso = "Ciência da Computação"
   console.log(curso)
 return (
-  // <mainLabel/>
   <div id='Conteudo-Disciplinas'>
   <div className='Curso'>
     <ul className='label-principal'>
@@ -14,8 +13,9 @@ return (
       <li key={curso}><label>{curso}</label></li>
     </ul>
   </div>
-  <div>
-</div>
+  
+    <label className='button'><a href='/MateriaDetalhes'>Detalhes Matérias</a></label>
+
 </div>
 )
 };
