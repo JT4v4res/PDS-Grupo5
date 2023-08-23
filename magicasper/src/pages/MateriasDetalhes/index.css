@@ -1,14 +1,16 @@
 #Conteudo-Disciplinas .label-principal {
   display: flex;
   align-items: center;
+  margin-top: 15px;
   margin-left: 36px;
+  list-style: none;
 }
 
 #Conteudo-Disciplinas .icone-selecao {
   width: 20px;
   height: 31.03px;
-  margin-right: 10px;
-  padding-top: 12px;
+  margin-right: 5px;
+  padding-top: 7px;
 }
 
 #Conteudo-Disciplinas label {
@@ -21,16 +23,14 @@
 #Conteudo-Disciplinas .esforço {
   font-size: 20px;
   display: inline;
-  
+  list-style: none;
 }
-
 
 #Conteudo-Disciplinas .esforço li {
   margin: 5px;
-  padding-left: 72px;
+  padding-left: 58px;
 }
 
-/* Descrição geral canto esquerdo */
 #Conteudo-Disciplinas .descrição-geral {
   width: 310px;;
   height: 350px;
@@ -41,8 +41,8 @@
   border: 1px solid #000;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin-right: 20px;
-  margin-left: 72px;
-  margin-top: 65px;
+  margin-left: 58px;
+  margin-top: 20px;
 }
 
 #Conteudo-Disciplinas .descrição-geral .container {
@@ -86,7 +86,8 @@
 
 #Conteudo-Disciplinas .descrição-geral .lista-professor li{
   margin: 15px;
-  margin-left: 20px;
+  color: #FFF;
+  margin-left: 40px;
 }
 #Conteudo-Disciplinas .descrição-geral .lista-professor li a{
   color: #FFF;
@@ -95,4 +96,6 @@
 
 #Conteudo-Disciplinas .descrição-geral .lista-professor li a:hover{
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}  
+}
+
+/* Fim da div Conteudo-Disciplina*/
