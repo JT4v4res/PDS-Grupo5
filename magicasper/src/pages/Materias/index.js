@@ -1,6 +1,6 @@
+import SeletorCurso from '../../Componentes/Seletor-Curso';
 import './index.css';
 import "@fontsource/reem-kufi";
-import {MdOutlineViewHeadline} from 'react-icons/md';
 
 function verifyLabel(label){
   let imgPath = '';
@@ -21,8 +21,7 @@ function verifyLabel(label){
   )
 }
 
-function Materias (label, curso, materia, codigo, periodo){
-  curso = "Ciência da Computação"
+function Materias (label, materia, codigo, periodo){
   materia  = "Estrutura de Dados"
   codigo = "BP336CB"
   periodo = "2"
@@ -30,12 +29,7 @@ function Materias (label, curso, materia, codigo, periodo){
   // console.log(curso)
 return (
 <>
-  <div id='seletor-curso'>
-    <ul className='label-principal'>
-      <li className='icone-selecao'></li>
-      <li key={curso}><label>{curso}</label></li>
-    </ul>
-  </div>
+  <SeletorCurso/>
 
   <div id='barra-busca'/>
 
@@ -44,7 +38,6 @@ return (
     {/* <img src='../../img/categoria-programming.png' className='img-background-label'/> */}
     {verifyLabel(label)}
       <div id='conteudo-card-unitario'>
-        
         <label className='title' key={materia}>{materia}</label>
         <ul>
           <li key={codigo}><label className='code'>Código: {codigo}</label></li>

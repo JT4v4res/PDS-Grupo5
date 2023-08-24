@@ -1,4 +1,4 @@
-
+import "@fontsource/reem-kufi";
 import './index.css';
 
 import {MdOutlineViewHeadline} from 'react-icons/md';
