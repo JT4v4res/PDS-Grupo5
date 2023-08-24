@@ -21,7 +21,8 @@ function verifyLabel(label){
   )
 }
 
-function Materias (label, materia, codigo, periodo){
+function Materias (label, curso, materia, codigo, periodo){
+  curso = "Ciência da Computação"
   materia  = "Estrutura de Dados"
   codigo = "BP336CB"
   periodo = "2"
@@ -29,7 +30,7 @@ function Materias (label, materia, codigo, periodo){
   // console.log(curso)
 return (
 <>
-  <SeletorCurso/>
+  <SeletorCurso texto={curso}/>
 
   <div id='barra-busca'/>
 

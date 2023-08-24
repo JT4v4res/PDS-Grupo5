@@ -1,3 +1,7 @@
+#Conteudo-Disciplinas {
+  font-family: 'Reem Kufi';
+}
+
 #Conteudo-Disciplinas .label-principal {
   display: flex;
   align-items: center;
@@ -7,17 +11,25 @@
 }
 
 #Conteudo-Disciplinas .icone-selecao {
-  width: 20px;
+  width: 32px;
   height: 31.03px;
+  flex-shrink: 0;
   margin-right: 5px;
-  padding-top: 7px;
+  padding-top: 5px;
+  margin-top: 15px;
+  list-style: none;
+  align-items: center;
+  background: url(../../img/seletor-curso.png);
+  mix-blend-mode: soft-light;
+
 }
 
 #Conteudo-Disciplinas label {
   color: #FFF;
-  font-size: 20px;
+  font-size: 36px;
   font-weight: 400;
   cursor: pointer;
+
 }
 
 #Conteudo-Disciplinas .esforço {
@@ -30,7 +42,7 @@
   padding-left: 58px;
 }
 #Conteudo-Disciplinas .esforço li label{
-  font-size: 14px;
+  font-size: 24px;
 }
 
 #Conteudo-Disciplinas .descrição-geral {

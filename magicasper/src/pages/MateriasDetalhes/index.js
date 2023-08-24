@@ -13,7 +13,7 @@ return (
 <div id='Conteudo-Disciplinas'>
     <div className='materia'>
       <ul className='label-principal'>
-        <li className='icone-selecao'><MdOutlineViewHeadline/></li>
+        <li className='icone-selecao'></li>
         <li key={materia}><label>{materia}</label></li>
       </ul>
     </div>
