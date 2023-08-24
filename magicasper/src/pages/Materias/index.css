@@ -81,6 +81,11 @@
   margin-left: 28px;
 }
 
+.img-background-label {
+  background-image: url('../../img/categoria-programming.png');
+  background-size: cover;
+}
+
 #conteudo-card-unitario .title {
   color: #FFF;
   display: flex;

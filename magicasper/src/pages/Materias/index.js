@@ -2,11 +2,31 @@ import './index.css';
 import "@fontsource/reem-kufi";
 import {MdOutlineViewHeadline} from 'react-icons/md';
 
-function Materias (curso, materia, codigo, periodo){
+function verifyLabel(label){
+  let imgPath = '';
+
+  if (label === 'P'){ /*materia de programação*/
+    imgPath = '../../img/categoria-programming.png';
+  } else if (label === 'M'){ /*materia de matematica*/
+    imgPath = '../../img/categoria-math.png';
+  } else if (label === 'T'){ /*materia teorica/outras*/
+    imgPath = '../../img/categoria-theory.png';
+  }
+
+  return (
+    <div id='img-background-label'>
+      {/* {console.log(imgPath)} */}
+      <img src={imgPath}/>
+    </div>
+  )
+}
+
+function Materias (label, curso, materia, codigo, periodo){
   curso = "Ciência da Computação"
   materia  = "Estrutura de Dados"
   codigo = "BP336CB"
   periodo = "2"
+  label = "P"
   // console.log(curso)
 return (
 <>
@@ -21,7 +41,10 @@ return (
 
   <div id='container-cards'>
     <div id='card-unitario'>
+    {/* <img src='../../img/categoria-programming.png' className='img-background-label'/> */}
+    {verifyLabel(label)}
       <div id='conteudo-card-unitario'>
+        
         <label className='title' key={materia}>{materia}</label>
         <ul>
           <li key={codigo}><label className='code'>Código: {codigo}</label></li>
