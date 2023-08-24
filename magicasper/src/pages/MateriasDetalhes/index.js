@@ -20,7 +20,7 @@ return (
     <div className='esforço'>
         <li key={nivelEsforco}><label>Nível de esforço: {nivelEsforco[0]}</label></li>
     </div>
-    {/* <div className='descrição-geral'>
+    <div className='descrição-geral'>
       <div className='container'>
         <div className='descricao-materia'>
             <label className='codigo' key={codigo}>Código: {codigo}</label>
@@ -37,7 +37,7 @@ return (
           </ul>
         </div>
       </div>
-    </div> */}
+    </div>
 </div>
 )
 

@@ -1,5 +1,6 @@
 import './index.css';
 import { Link } from "react-router-dom"
+import "@fontsource/reem-kufi";
 import {MdOutlineSettings} from 'react-icons/md'
 
 function Navbar  () {

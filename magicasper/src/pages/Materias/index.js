@@ -9,27 +9,35 @@ function Materias (curso, materia, codigo, periodo){
   periodo = "2"
   // console.log(curso)
 return (
-<div id='Conteudo-Materias'>
-  <div className='Curso'>
+<>
+  <div id='seletor-curso'>
     <ul className='label-principal'>
-      <li className='icone-selecao'><MdOutlineViewHeadline/></li>
+      <li className='icone-selecao'></li>
       <li key={curso}><label>{curso}</label></li>
     </ul>
   </div>
-  <div id='botao-container'>
-    <label className='title' key={materia}>{materia}</label>
-    <ul>
-      <li key={codigo}><label className='code'>Código: {codigo}</label></li>
-      <li key={periodo}><label className='code'>Período: {periodo}</label></li>
-    </ul>
 
-    <div className='botao-sabermais'>
-    <label className='button'><a href='/MateriaDetalhes'>Saber mais</a></label>
+  <div id='barra-busca'/>
+
+  <div id='container-cards'>
+    <div id='card-unitario'>
+      <div id='conteudo-card-unitario'>
+        <label className='title' key={materia}>{materia}</label>
+        <ul>
+          <li key={codigo}><label className='code'>Código: {codigo}</label></li>
+          <li key={periodo}><label className='code'>Período: {periodo}</label></li>
+        </ul>
+        <label className='button'><a href='/MateriaDetalhes'>Saber mais</a></label>
+      </div>
     </div>
+    <div id='card-unitario'/>
+    <div id='card-unitario'/>
+    <div id='card-unitario'/>
+    <div id='card-unitario'/>
+    <div id='card-unitario'/>
   </div>
-</div>
+</>
 )
 };
-
 
 export default Materias

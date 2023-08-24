@@ -1,55 +1,88 @@
-#Conteudo-Materias li{
+#seletor-curso {
+  margin-top: 15px;
+  margin-left: 36px;
+  font-family: 'Reem Kufi';
+  display: flex;
+}
+
+.label-principal {
+  display: flex;
+}
+
+#seletor-curso li{
   float: left;
   padding-top: 10px;
   list-style: none;
 }
-#Conteudo-Materias .Curso{
-  margin-top: 15px;
-  margin-left: 36px;
-}
-#Conteudo-Materias .icone-selecao{
-  width: 20px;
+
+#seletor-curso .icone-selecao{
+  width: 32px;
   height: 31.03px;
   flex-shrink: 0;
   margin-right: 5px;
-  padding-top: 15px;
+  padding-top: 5px;
+  margin-top: 15px;
   list-style: none;
+  align-items: center;
+  background: url(../../img/seletor-curso.png);
+  mix-blend-mode: soft-light;
 }
 
-#Conteudo-Materias label{
+#seletor-curso label{
   color: #FFF;
   text-align: center;
-  font-size: 20px;
-
+  font-size: 36px;
   font-weight: 400;
-
   cursor: pointer;
+  font-style: normal;
+  line-height: normal;
 }
+
 .icone-selecao svg{
   cursor: pointer;
 }
 
-#botao-container {
-  width: 422px;
-  height: 305px;
-  max-height: 540px;
-  overflow:auto;
+#barra-busca {
   display: flex;
-  justify-content: center;
-  background: #9B96CB;
-  border-radius: 17px;
-  border: 1px solid #000;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-right: 20px;
-  margin-left: 58px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
+  width: 90%;
+  height: 30px;
+  padding: 8px 1142px 7px 97px;
+  align-items: center;
+  border-radius: 55px;
+  background: #D3D2DA;
+  margin-left: 73px;
+  margin-top: 25px;
 }
 
-#botao-container .title{
-  color: #FFF;
+#container-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 46px;
+  justify-content: center;
+}
+
+#card-unitario {
+  width: 422px;
+  height: 305px;
+  flex-shrink: 0;
   font-family: 'Reem Kufi';
+  margin-left: 55px;
+  margin-top: 33px;
+  text-align: justify;
+  border-radius: 17px;
+  border: 1px solid #000;
+  background: #9B96CB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#conteudo-card-unitario {
+  align-items: center;
+  margin-left: 28px;
+}
+
+#conteudo-card-unitario .title {
+  color: #FFF;
   display: flex;
   width: 366px;
   height: 53px;
@@ -64,5 +97,46 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-align: block;
+}
 
+#conteudo-card-unitario ul {
+  list-style: none;
+  padding: 12px;
+}
+
+#conteudo-card-unitario li {
+  width: 209.813px;
+  height: 24.024px;
+  padding: 12px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFF;
+  font-size: 23.262px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+}
+
+#conteudo-card-unitario .button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 149.777px;
+  height: 32.359px;
+  padding: 10px;
+  margin-top: 58px;
+  margin-left: 106px;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #A45DFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#conteudo-card-unitario .button a{
+  color: #F6F3F9;
 }
