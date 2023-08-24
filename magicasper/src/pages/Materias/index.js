@@ -1,9 +1,13 @@
 import './index.css';
+import "@fontsource/reem-kufi";
 import {MdOutlineViewHeadline} from 'react-icons/md';
 
-function Materias (curso){
+function Materias (curso, materia, codigo, periodo){
   curso = "Ciência da Computação"
-  console.log(curso)
+  materia  = "Estrutura de Dados"
+  codigo = "BP336CB"
+  periodo = "2"
+  // console.log(curso)
 return (
 <div id='Conteudo-Materias'>
   <div className='Curso'>
@@ -12,8 +16,16 @@ return (
       <li key={curso}><label>{curso}</label></li>
     </ul>
   </div>
-  <div className='botao-container'>
-    <label className='button'><a href='/MateriaDetalhes'>Detalhes Matérias</a></label>
+  <div id='botao-container'>
+    <label className='title' key={materia}>{materia}</label>
+    <ul>
+      <li key={codigo}><label className='code'>Código: {codigo}</label></li>
+      <li key={periodo}><label className='code'>Período: {periodo}</label></li>
+    </ul>
+
+    <div className='botao-sabermais'>
+    <label className='button'><a href='/MateriaDetalhes'>Saber mais</a></label>
+    </div>
   </div>
 </div>
 )
