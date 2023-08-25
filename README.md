@@ -50,8 +50,8 @@ Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que
 #### Funcionalidades
 
 - [x] Protótipo da tela de professor/matéria.
-- [x] Funcionalidade 2.
-- [x] Funcionalidade 3.
+- [x] CRUD de disciplinas.
+- [x] CRUD de professores.
 
 [Release Notes ](release_notes_1.md)
 
@@ -61,9 +61,7 @@ Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que
 
 #### Funcionalidades 
 
-- [x] Funcionalidade 1.
-- [x] Funcionalidade 2.
-- [ ] Funcionalidade 3.
+- [x] CRUD de comentários e média de classificação.
 
 [Release Notes ](release_notes_1.md)
 
