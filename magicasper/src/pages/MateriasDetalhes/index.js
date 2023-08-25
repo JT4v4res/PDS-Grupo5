@@ -41,7 +41,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
                                 {
                                     professores.map(prof => (
                                         <li>
-                                            {prof}
+                                            <a href='/'>{prof}</a>
                                         </li>
                                     ))
                                 }
@@ -58,6 +58,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
                     <div className='comments-block'>
                         <div className='single-comment'>
                             <div className='img-commenter'></div>
+                        
                             <p className='comment'>
                                 <i>Nome do comentarista: </i>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Nullam tempus pretium est, nec gravida felis tempus quis.
@@ -65,6 +66,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
                                 lectus vel ultricies malesuada, sapien augue placerat ex, ut blandit
                                 est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet.
                             </p>
+                            
                         </div>
 
                         <div className='horiz-divider-comment'/>

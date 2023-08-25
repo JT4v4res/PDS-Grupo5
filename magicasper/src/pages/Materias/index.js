@@ -3,20 +3,20 @@ import './index.css';
 import "@fontsource/reem-kufi";
 
 function verifyLabel(label){
-  let imgPath = '';
-
+  let imgPath = document.createElement('img');
+  imgPath.classList.add('P')
   if (label === 'P'){ /*materia de programação*/
-    imgPath = '../../img/categoria-programming.png';
+    imgPath.setAttribute('src', '../../img/categoria-programming.png');
   } else if (label === 'M'){ /*materia de matematica*/
     imgPath = '../../img/categoria-math.png';
   } else if (label === 'T'){ /*materia teorica/outras*/
     imgPath = '../../img/categoria-theory.png';
   }
 
+  console.log(imgPath)
   return (
     <div id='img-background-label'>
-      {/* {console.log(imgPath)} */}
-      <img src={imgPath}/>
+      <img src={imgPath.getAttribute(1)}/>
     </div>
   )
 }

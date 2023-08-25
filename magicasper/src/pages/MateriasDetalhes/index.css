@@ -93,16 +93,26 @@
   margin-top: 10px;
 }
 
+.professors-block li a{
+  color: #FFF;
+}
+
+.professors-block li a:hover{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .vertical-divider {
   width: 1px;
   height: 780.023px;
   background: #9B96CB;
 }
-
-#comments-n-materials-block .comments-block {
+#comments-n-materials-block {
   width: 950px;
   height: 491px;
   flex-shrink: 0;
+}
+
+#comments-n-materials-block .comments-block {
   margin-left: 20px;
   border-radius: 17px;
   border: 1px solid #000;
@@ -111,19 +121,29 @@
 }
 
 #comments-n-materials-block .comments-block .single-comment {
-  width: 752.677px;
-  height: 125.157px;
+  width: inherit;
+  height: 50%;
   display: flex;
-  flex-wrap: wrap;
   color: #FFF;
   text-align: justify;
   font-size: 20px;
   font-weight: 700;
 }
 
+#comments-n-materials-block .comments-block .single-comment .comment{
+  margin-left: 15px;
+  margin-top: 29px;
+  margin-right: 38px;;
+  margin-bottom: 80px;
+}
+
 .comments-block .single-comment .img-commenter{
-  width: 100.713px;
+  width: 500px;
   height: 100.972px;
+  margin-left: 33px;
+  margin-top: 51px;
+  margin-bottom: 98.3px;
+  margin-right: 10px;
   background: url(../../img/img-commenter.png) no-repeat;
 }
 
