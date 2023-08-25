@@ -1,149 +1,134 @@
-#Conteudo-Disciplinas {
+#page-content {
   font-family: 'Reem Kufi';
+  line-height: normal;
+  font-style: normal;
 }
 
-#Conteudo-Disciplinas .label-principal {
+#page-content .nivel-esforco {
   display: flex;
-  align-items: center;
-  margin-top: 15px;
-  margin-left: 36px;
-  list-style: none;
-}
-
-#Conteudo-Disciplinas .icone-selecao {
-  width: 32px;
-  height: 31.03px;
-  flex-shrink: 0;
-  margin-right: 5px;
-  padding-top: 5px;
-  margin-top: 15px;
-  list-style: none;
-  align-items: center;
-  background: url(../../img/seletor-curso.png);
-  mix-blend-mode: soft-light;
-
-}
-
-#Conteudo-Disciplinas label {
-  color: #FFF;
-  font-size: 36px;
-  font-weight: 400;
-  cursor: pointer;
-
-}
-
-#Conteudo-Disciplinas .esforço {
-  display: inline;
-  list-style: none;
-}
-
-#Conteudo-Disciplinas .esforço li {
-  margin: 5px;
-  padding-left: 58px;
-}
-#Conteudo-Disciplinas .esforço li label{
-  font-size: 24px;
-}
-
-#Conteudo-Disciplinas .descrição-geral {
-  width: 310px;
-  height: 358px;
-  max-height: 540px;
-  overflow:auto;
-  display: flex;
+  width: 212px;
+  height: 29px;
+  flex-direction: row;
   justify-content: center;
-  background: #9B96CB;
+  margin-left: 58px;
+  color: #FFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#cards .card-lateral-esq{
+  margin-right: 20px;
+}
+
+#page-content .card-lateral-esq {
+  width: 355px;
+  height: 730px;
+  flex-shrink: 0;
+  margin-top: 21px;
+  margin-left: 58px;
   border-radius: 17px;
   border: 1px solid #000;
+  background: #9B96CB;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-right: 20px;
-  margin-left: 58px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
-#Conteudo-Disciplinas .descrição-geral .container {
-  text-align: justify;
-  padding-top: 5px;
-}
-#Conteudo-Disciplinas .descrição-geral .container .descricao-materia{
-  /* background-color: aqua; */
-  height: 50%;
-  max-height: 40%;
-  overflow: auto;
 }
 
-
-/* Largura e cor da barra de rolagem */
-#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar, 
-#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
-  width: 5px; /* Largura da barra de rolagem */
-}
-
-/* Fundo da barra de rolagem */
-#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar-track,
-#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
-  background-color: #9B96CB;
-}
-
-/* Cor da alça da barra de rolagem */
-#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar-thumb,
-#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
-  background-color: #D3D2DA;
-}
-
-/* Mudar a cor da alça quando passar o mouse sobre ela */
-#Conteudo-Disciplinas .descrição-geral::-webkit-scrollbar-thumb:hover, 
-#Conteudo-Disciplinas .descrição-geral .container .descricao-materia::-webkit-scrollbar {
-  background-color: #C9C9CF;
-  border-radius: 17px;
-}
-
-#Conteudo-Disciplinas .descrição-geral .container .codigo{
-  float: left;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 7%;
-  font-size: 14px;
-}
-
-#Conteudo-Disciplinas .descrição-geral .container .descricao-materia p{
-  font-size: 10px;
+.description-block ul {
+  list-style: none;
+  display: flex;
+  width: 313px;
+  height: 245px;
+  flex-direction: column;
+  margin: 25px 22px 5px 20px;
+  justify-content: center;
+  flex-shrink: 0;
   color: #FFF;
-  margin-top: 20%;
-  margin-left: 20px;
-  margin-right: 20px;
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 400;
 }
 
-#Conteudo-Disciplinas .descrição-geral .container .linha-vertical{
-  border-bottom: 1px;
-  width: 100%;
-  border-bottom-style: solid;
-  border-bottom-color: #5A3693;;
-  align-items: center;
-  margin-bottom: 10px;
+.description-block li {
+  margin-top: 25px;
+}
+
+.horizontal-divider {
+  width: 313px;
+  height: 1px;
+  background: #5A3693;
+  margin: 75px 22px 5px 20px;
+}
+
+.professors-block {
+  width: 242px;
+  height: 251px;
+  margin: 39px 24px 55px 39px;
+}
+
+.professors-block h3 {
+  display: flex;
+  width: 232px;
+  height: 48.31px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.professors-block li {
+  width: 225px;
+  height: 33.607px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 400;
   margin-top: 10px;
 }
 
-#Conteudo-Disciplinas .descrição-geral .professor-Label {
-  margin: 20px;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  display: inline-block;
+.vertical-divider {
+  width: 1px;
+  height: 780.023px;
+  background: #9B96CB;
 }
 
-#Conteudo-Disciplinas .descrição-geral .lista-professor li{
-  margin: 10px;
+#comments-n-materials-block .comments-block {
+  width: 950px;
+  height: 491px;
+  flex-shrink: 0;
+  margin-left: 20px;
+  border-radius: 17px;
+  border: 1px solid #000;
+  background: #9B96CB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#comments-n-materials-block .comments-block .single-comment {
+  width: 752.677px;
+  height: 125.157px;
+  display: flex;
+  flex-wrap: wrap;
   color: #FFF;
-  margin-left: 40px;
-}
-#Conteudo-Disciplinas .descrição-geral .lista-professor li a{
-  color: #FFF;
-  font-size: 10px;
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-#Conteudo-Disciplinas .descrição-geral .lista-professor li a:hover{
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.comments-block .single-comment .img-commenter{
+  width: 100.713px;
+  height: 100.972px;
+  background: url(../../img/img-commenter.png) no-repeat;
 }
 
-/* Fim da div Conteudo-Disciplina*/
+.horiz-divider-comment {
+  width: 932.709px;
+  height: 1px;
+  background: #5A3693;
+}

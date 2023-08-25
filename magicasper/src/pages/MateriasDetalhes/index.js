@@ -1,47 +1,89 @@
 import "@fontsource/reem-kufi";
 import './index.css';
+import SeletorCurso from "../../Componentes/Seletor-Curso";
 
-import {MdOutlineViewHeadline} from 'react-icons/md';
 
-function MateriaDetalhes (materia, nivelEsforco, codigo, descrição, professores){
+export default function MateriaDetalhes (materia, nivelEsforco, codigo, descricao, professores){
   materia = "Estrutura de dados"
   nivelEsforco = ['Baixo', 'Médio', 'Alto']
   codigo = "BP336CB"
-  descrição = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed aliquam sem sodales Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend asid cinoyt bec Hissa.asid cinoyt bec Hissa."
-  professores = ['Ranilson', 'Willy Tiengo', 'Rodrigo Paes', 'Roberta Lopez']
-return (
-<div id='Conteudo-Disciplinas'>
-    <div className='materia'>
-      <ul className='label-principal'>
-        <li className='icone-selecao'></li>
-        <li key={materia}><label>{materia}</label></li>
-      </ul>
-    </div>
-    <div className='esforço'>
-        <li key={nivelEsforco}><label>Nível de esforço: {nivelEsforco[0]}</label></li>
-    </div>
-    <div className='descrição-geral'>
-      <div className='container'>
-        <div className='descricao-materia'>
-            <label className='codigo' key={codigo}>Código: {codigo}</label>
-            <p key={descrição}>{descrição}</p>
-        </div>
-        <div className='linha-vertical'></div>
-        <label className='professor-Label' >Professores</label>
-        <div className='lista-professor'>
-          <ul>
-            <li key={professores[0]}><a href='/'>{professores[0]}</a></li>
-            <li key={professores[1]}><a href='/'>{professores[1]}</a></li>
-            <li key={professores[2]}><a href='/'>{professores[2]}</a></li>
-            <li key={professores[3]}><a href='/'>{professores[3]}</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-</div>
-)
+  descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed aliquam sem sodales Nullam tempus pretium est, nec gravida felis tempus quis."
+  professores = ['Marcio Ribeiro', 'Roberta Lopes']
+    return (
+        <div id='page-content'>
+            <SeletorCurso texto={materia}/>
 
+            <div className='nivel-esforco'>
+                <h3 key={nivelEsforco}><label>Nível de esforço: {nivelEsforco[0]}</label></h3>
+            </div>
+
+            <div id='cards'>
+                <div className='card-lateral-esq'>
+                    <div className='description-block'>
+                        <ul>
+                            <li>
+                                Código: {codigo}
+                            </li>
+
+                            <li>
+                                {descricao}
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className='horizontal-divider'/>
+
+                    <div className='professors-block'>
+                        <ul>
+                            <h3>Professores</h3>
+
+                            <ul>
+                                {
+                                    professores.map(prof => (
+                                        <li>
+                                            {prof}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <div className='vertical-divider'/>
+
+                <div id='comments-n-materials-block'>
+                    <div className='comments-block'>
+                        <div className='single-comment'>
+                            <div className='img-commenter'></div>
+                            <p className='comment'>
+                                <i>Nome do comentarista: </i>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nullam tempus pretium est, nec gravida felis tempus quis.
+                                Sed aliquam sem sodales tempor eleifend. Suspendisse tincidunt,
+                                lectus vel ultricies malesuada, sapien augue placerat ex, ut blandit
+                                est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet.
+                            </p>
+                        </div>
+
+                        <div className='horiz-divider-comment'/>
+
+                        <div className='single-comment'>
+                            <div className='img-commenter'></div>
+                            <p className='comment'>
+                                <i>Nome do comentarista: </i>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nullam tempus pretium est, nec gravida felis tempus quis.
+                                Sed aliquam sem sodales tempor eleifend. Suspendisse tincidunt,
+                                lectus vel ultricies malesuada, sapien augue placerat ex, ut blandit
+                                est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    )
 };
-
-
-export default MateriaDetalhes;
