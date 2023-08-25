@@ -147,3 +147,67 @@
 }
 
 /* Fim da div Conteudo-Disciplina*/
+
+/*Início da div matrial-estudo*/
+
+#material-estudo {
+  font-family: 'Reem Kufi';
+}
+
+#material-estudo .main-box{
+  width: 955px;
+  height: 237px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 40px;
+  column-rule-style: solid;
+  border-radius: 17px;
+  border: 1px solid #000;
+  background: #9B96CB;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-right: 20px;
+  margin-left: 58px;
+}
+
+#material-estudo .material-label{
+  width: 494px;
+  height: 57px;
+  color: #FFF;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#material-estudo .lista-mat-expositivo{
+  color: #FFF;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#material-estudo .lista-literatura{
+  color: #FFF;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#material-estudo .lista-questoes{
+  color: #FFF;
+  padding: 20px;
+  font-size: 20px;
+}
+
+#material-estudo .lista-label{
+  color: #FFF;
+  font-size: 20px;
+  font-size: 20px;
+}
+
+/*Fim da div matrial-estudo*/
