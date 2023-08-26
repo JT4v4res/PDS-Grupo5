@@ -1,3 +1,7 @@
+a{
+  color:  #FFF;
+}
+
 #page-content {
   font-family: 'Reem Kufi';
   line-height: normal;
@@ -20,6 +24,7 @@
 #cards {
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: row; */
 }
 
 #cards .card-lateral-esq{
@@ -87,14 +92,9 @@
   width: 225px;
   height: 33.607px;
   flex-shrink: 0;
-  color: #FFF;
   font-size: 20px;
   font-weight: 400;
   margin-top: 10px;
-}
-
-.professors-block li a{
-  color: #FFF;
 }
 
 .professors-block li a:hover{
@@ -106,6 +106,10 @@
   height: 780.023px;
   background: #9B96CB;
 }
+/* Fim da div Conteudo-Disciplina*/
+
+
+/*Início da div matrial-estudo*/
 #comments-n-materials-block {
   width: 950px;
   height: 491px;
@@ -152,3 +156,58 @@
   height: 1px;
   background: #5A3693;
 }
+
+#card-material-estudo {
+  width: 955px;
+  height: 237px;
+  margin-top: 52px;
+  flex-shrink: 0;
+}
+
+#card-material-estudo .material-label{
+  width: 494px;
+  height: 57px;
+  font-size: 35px;
+  color: #FFF;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+#card-material-estudo .main-box{
+  background: #9B96CB;
+  border-radius: 17px;  
+  border: 1px solid #000;
+  color: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+#card-material-estudo .lista-de-materiais{
+  padding: 20px;
+  margin: 15px;
+  margin-top: 0px;
+  padding-top: 0px;
+  font-size: 20px;
+  
+}
+.lista-label{
+  padding-bottom: 10px;
+}
+
+.lista-de-materiais li {
+  margin-left: 30px;
+}
+.lista-de-materiais li a:hover{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/*Fim da div matrial-estudo*/
