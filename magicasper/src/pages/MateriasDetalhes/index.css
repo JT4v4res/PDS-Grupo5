@@ -27,6 +27,10 @@ a{
   /* flex-direction: row; */
 }
 
+#cards ul li a{
+  color: #FFF;
+}
+
 #cards .card-lateral-esq{
   margin-right: 20px;
 }
@@ -35,6 +39,7 @@ a{
   width: 355px;
   height: 730px;
   flex-shrink: 0;
+  padding-top: 20px;
   margin-top: 21px;
   margin-left: 58px;
   border-radius: 17px;
@@ -60,6 +65,12 @@ a{
 
 .description-block li {
   margin-top: 25px;
+}
+
+.description-block .lista-areasRelevantes{
+  margin-top: 7px;
+  margin-bottom: 1px;
+  font-size: 15px;
 }
 
 .horizontal-divider {
@@ -137,8 +148,7 @@ a{
 #comments-n-materials-block .comments-block .single-comment .comment{
   margin-left: 15px;
   margin-top: 29px;
-  margin-right: 38px;;
-  margin-bottom: 80px;
+  margin-right: 38px;
 }
 
 .comments-block .single-comment .img-commenter{
@@ -150,7 +160,25 @@ a{
   margin-right: 10px;
   background: url(../../img/img-commenter.png) no-repeat;
 }
-
+.container-button {
+  margin: 20px;
+  margin-top: 5px;
+  padding-left: 200px;
+}
+.button {
+  justify-content: center;
+  width: 149.777px;
+  height: 32.359px;
+  padding: 10px;
+  margin-top: 0px;
+  margin-left: 200px;
+  border-radius: 15px;
+  background: #A45DFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.button a{
+  color: #FFF;
+}
 .horiz-divider-comment {
   width: 932.709px;
   height: 1px;

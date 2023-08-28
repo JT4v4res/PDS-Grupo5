@@ -1,9 +1,10 @@
 import "@fontsource/reem-kufi";
 import './index.css';
 import SeletorCurso from "../../Componentes/Seletor-Curso";
+import AvaliacaoEstrela from "../../Componentes/Avaliacao-Estrela";
 
 
-export default function MateriaDetalhes (materia, nivelEsforco, codigo, descricao, professores, matExpositivo, literatura, questoes){
+export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRelevancia,descricao, professores, matExpositivo, literatura, questoes){
   materia = "Estrutura de dados"
   nivelEsforco = ['Baixo', 'Médio', 'Alto']
   codigo = "BP336CB"
@@ -12,10 +13,12 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
   matExpositivo = ['Material 1', "Material 2"]
   literatura = ['Material 1', 'Material 2']
   questoes = ['Questão 1', 'Questão 2']
+  areaRelevancia = ['Inteligencia Artificial', 'Análise de Algorítimos']
 
     return (
         <div id='page-content'>
             <SeletorCurso texto={materia}/>
+            {/* <AvaliacaoEstrela avalicao={5}/> */}
 
             <div className='nivel-esforco'>
                 <h3 key={nivelEsforco}><label>Nível de esforço: {nivelEsforco[0]}</label></h3>
@@ -25,10 +28,19 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
                 <div className='card-lateral-esq'>
                     <div className='description-block'>
                         <ul>
-                            <li>
+                            <li className='label-codigo'>
                                 Código: {codigo}
                             </li>
-
+                            <li>
+                                <label className='label-areaRelevante'>Áreas de relevancia: </label>
+                                {
+                                    areaRelevancia.map(areaRelevancia => (
+                                        <li className='lista-areasRelevantes'>
+                                            {areaRelevancia}
+                                        </li>
+                                    ))
+                                }
+                            </li>
                             <li>
                                 {descricao}
                             </li>
@@ -45,7 +57,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
                                 {
                                     professores.map(prof => (
                                         <li>
-                                            <a href='/'>{prof}</a>
+                                            <a href='/professorDetalhes'>{prof}</a>
                                         </li>
                                     ))
                                 }
@@ -85,7 +97,10 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, descrica
                                         est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet.
                                     </p>
                                 </div>
-
+                                <div className='container-button'>
+                                  <label className='button'><a href='/ComentariosTotal'>Saber mais</a></label>
+                                </div>
+                                
                             </div>
 
                         </div>
