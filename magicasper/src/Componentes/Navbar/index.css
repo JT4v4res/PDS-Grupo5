@@ -1,0 +1,75 @@
+
+a{
+  color: #333;
+  text-decoration: none;
+}
+
+Link{
+  color: #333;
+  text-decoration: none;
+}
+
+#navbar{
+  align-items: center;
+  background: linear-gradient(180deg, #8E64BF 16.15%, rgba(156, 34, 214, 0.00) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: auto;
+  height: 80px;
+  text-align: center;
+  font-family: 'Reem Kufi';
+}
+
+#navbar a{
+  color: #fff;
+}
+
+#navbar Link{
+  color: #fff;
+}
+
+#navbar .logo{
+  float: left;
+  padding-top: 24px;
+  padding-left:36px;
+}
+
+#navbar ul{
+  list-style: none;
+  float: right;
+}
+
+#navbar ul li{
+  float: left;
+}
+
+#navbar ul li a{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+  padding: 28px;
+  text-align: center;
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.current{
+  background-color: #4444;
+}
+
+
+#navbar ul li Link:hover,
+#navbar ul li Link.current{
+  background-color: #4444;
+}
+
+#navbar .setting-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:10px;
+  padding-top: 15px;
+}
+
+.setting-icon svg{
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* color: #fff; */
+}

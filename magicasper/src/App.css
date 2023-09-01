@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+/* Base de todas as telas*/
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1,7em;
+  background: var(--cor-principal, #5A3693);
+}

@@ -1,0 +1,13 @@
+
+#avaliacao{
+  width: 32px;
+  height: 31.03px;
+  flex-shrink: 0;
+  margin-right: 5px;
+  padding-top: 5px;
+  margin-top: 15px;
+  list-style: none;
+  align-items: center;
+  background: url(../../img/avaliacaoEstrela.png);
+  mix-blend-mode: soft-light;
+}
