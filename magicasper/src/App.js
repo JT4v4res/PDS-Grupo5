@@ -1,9 +1,11 @@
 import Navbar from './Componentes/Navbar';
+import SideBar from './Componentes/SideBar';
 import Materias from './pages/Materias';
 import Home from './pages/Home';
 import Perfil from './pages/Perfil';
 import MateriaDetalhes from './pages/MateriasDetalhes';
-import ComentariosTotal from './pages/comentariosTotal';
+import MateriaIndicadores from './pages/MateriaIndicadores';
+import MaterialEstudo from './pages/materialEstudo';
 import ProfessorDetalhes from './pages/professorDetalhes';
 import { Route, Routes } from "react-router-dom"
 import './App.css';
@@ -19,7 +21,9 @@ function App (){
         <Route path="/Materias" element={<Materias/>}/>
         <Route path="/MateriaDetalhes" element={<MateriaDetalhes/>}/>
         <Route path="/professorDetalhes" element={<ProfessorDetalhes/>}/>
-        <Route path="/ComentariosTotal" element={<ComentariosTotal/>}/>
+        <Route path="/materialEstudo" element={<MaterialEstudo/>}/>
+        <Route path="/materiaIndicadores" element={<MateriaIndicadores/>}/>
+        <Route path="/Sidebar" element={<SideBar/>}/>
       </Routes>
     </div>
   </>

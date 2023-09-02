@@ -1,13 +1,13 @@
 import './index.css';
 import SideBar from '../../Componentes/SideBar';
-
-function ProfessorDetalhes (){
+function MaterialEstudo (){
 return (
   <>
     <SideBar/>
-    <h1>Professores</h1>
+    <h1>MaterialEstudo</h1>
   </>
-  )
+)
+
 };
 
-export default ProfessorDetalhes;
+export default MaterialEstudo;

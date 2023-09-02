@@ -6,7 +6,6 @@ export default function SeletorCurso (props){
         <>
             <div id='seletor-curso'>
                 <ul className='label-principal'>
-                <li className='icone-selecao'></li>
                 <li key={props.texto}><label>{props.texto}</label></li>
                 </ul>
             </div>

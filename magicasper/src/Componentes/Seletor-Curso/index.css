@@ -15,19 +15,6 @@
     list-style: none;
   }
   
-  #seletor-curso .icone-selecao{
-    width: 32px;
-    height: 31.03px;
-    flex-shrink: 0;
-    margin-right: 5px;
-    padding-top: 5px;
-    margin-top: 15px;
-    list-style: none;
-    align-items: center;
-    background: url(../../img/seletor-curso.png);
-    mix-blend-mode: soft-light;
-  }
-  
   #seletor-curso label{
     color: #FFF;
     text-align: center;
