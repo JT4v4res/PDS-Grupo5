@@ -1,9 +1,11 @@
 .sidebar{
-  /* background-color: #2C2776; */
+  /* background-color: #000; */
   height: 50px;
-  display: flex;
+  width: 100px;
+  margin-top: 25px;
   padding-left: 36px;
   padding-top: 0.5rem;
+
   align-items: center;
   font-size: 2rem;
 }
@@ -21,7 +23,7 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 0;
+  top: 80px;
   transition: 850ms;
   left:-100%;
 }
@@ -48,7 +50,7 @@
   height: 100%;
   display: flex;
   border-radius:  4px;
-  padding: 0, 16px;
+  padding: 0px, 16px;
 }
 
 .nav-text a:hover{

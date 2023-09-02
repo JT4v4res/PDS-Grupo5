@@ -17,3 +17,8 @@
   justify-content: center;
   font-size: 3rem;
 }
+
+.page-content{
+  display:flex;
+  flex-wrap: wrap;
+}

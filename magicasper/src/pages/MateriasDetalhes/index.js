@@ -1,6 +1,5 @@
 import "@fontsource/reem-kufi";
 import './index.css';
-import SeletorCurso from "../../Componentes/Seletor-Curso";
 import SideBar from '../../Componentes/SideBar';
 
 export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRelevancia,descricao, professores, matExpositivo, literatura, questoes){
@@ -15,9 +14,17 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
   areaRelevancia = ['Inteligencia Artificial', 'Análise de Algorítimos']
 
     return (
-        <div id='page-content'>
-            <SideBar/>
-            <SeletorCurso texto={materia}/>
-        </div>
-    )
+        <>
+            <div className='page-content'>
+                <SideBar/>
+            </div>
+{/* 
+            <div className="materia-title">
+                <label>{materia}</label>
+            </div>
+            <div className="materia">
+                <label>Código: {codigo}</label>
+            </div> */}
+        </>
+    );
 };

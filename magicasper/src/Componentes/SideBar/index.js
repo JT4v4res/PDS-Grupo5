@@ -12,7 +12,6 @@ function SideBar() {
   return (
     <>
     <IconContext.Provider value={{color:'#ffff'}}>
-      <div>
         <div className='sidebar'>
           <Link to="#" className='menu-bar'>
             <FaIcons.FaBars onClick={showSidebar}/>
@@ -37,7 +36,6 @@ function SideBar() {
             })}
           </ul>
         </nav>
-      </div>
       </IconContext.Provider>
     </>
   )

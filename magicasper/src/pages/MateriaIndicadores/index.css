@@ -1,0 +1,17 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Reem Kufi';
+  line-height: normal;
+  font-style: normal;
+}
+
+.page-content{
+  display:flex;
+  flex-wrap: wrap;
+}
+#seletor-curso {
+  margin-left: 6px;
+}
