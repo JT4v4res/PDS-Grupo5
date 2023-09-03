@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  top: 80px;
+  top: 0px;
   transition: 850ms;
   left:-100%;
 }

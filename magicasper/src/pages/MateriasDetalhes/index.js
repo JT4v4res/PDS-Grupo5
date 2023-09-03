@@ -6,25 +6,67 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
   materia = "Estrutura de dados"
   nivelEsforco = ['Baixo', 'Médio', 'Alto']
   codigo = "BP336CB"
-  descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed aliquam sem sodales Nullam tempus pretium est, nec gravida felis tempus quis."
+  descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend. Suspendisse tincidunt, lectus vel ultricies malesuada, sapien augue placerat ex, ut blandit est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet."
   professores = ['Marcio Ribeiro', 'Roberta Lopes']
   matExpositivo = ['Material 1', "Material 2"]
   literatura = ['Material 1', 'Material 2']
   questoes = ['Questão 1', 'Questão 2']
-  areaRelevancia = ['Inteligencia Artificial', 'Análise de Algorítimos']
+  areaRelevancia = ['Programação Distribuida','Inteligencia Artificial', 'Análise de Algorítimos']
 
     return (
         <>
-            <div className='page-content'>
-                <SideBar/>
+        <div className='page-content'>
+            <SideBar/>
+        </div>
+        <div className="background">
+
+        {/* <div className="backgroud-elipse"></div> */}
+            <div className="info-page">
+                <div className="materia-title">
+                    <div className="linha-esq"></div>
+
+                    <div className="linha-acima"></div>
+                    <label>{materia}</label>
+
+                    <div className="linha-dir"></div>
+
+                    <div className="linha-abaixo"></div>
+                </div>
+                <div className="materia-codigo">
+                    <label>Código: {codigo}</label>
+                </div>
+                
+                <div className="descricao">
+                    <div>
+                        <p>{descricao}</p>
+                    </div>
+                </div>
+                
+                <div className="areas-relevancia">
+                    <div className="linha-esq"></div>
+
+                    <div className="linha-acima"></div> 
+                    <label>Áreas de Relevância</label>
+                    <div className="linha-dir"></div>
+
+                    <div className="linha-abaixo"></div>
+                </div>
+
+                <div className="cards">
+                    <ul className="lista-de-relevancia">
+                        {
+                            areaRelevancia.map(areaRelevancia => (
+                                <li>
+                                    <a href='/'>{areaRelevancia}</a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+
             </div>
-{/* 
-            <div className="materia-title">
-                <label>{materia}</label>
-            </div>
-            <div className="materia">
-                <label>Código: {codigo}</label>
-            </div> */}
+            
+        </div>
         </>
     );
 };
