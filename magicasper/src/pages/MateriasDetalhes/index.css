@@ -121,6 +121,7 @@
   fill: rgba(155, 150, 203, 0.70); 
   background-color: #9B96CBB2;
   float: left;
+  padding: 10px;
 }
 
 .cards li a{

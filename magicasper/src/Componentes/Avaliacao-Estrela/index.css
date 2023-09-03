@@ -1,13 +1,20 @@
 
 #avaliacao{
-  width: 32px;
-  height: 31.03px;
+  width: 3%;
+  height: 60px;
   flex-shrink: 0;
-  margin-right: 5px;
-  padding-top: 5px;
-  margin-top: 15px;
-  list-style: none;
+  margin-top: 25px;
   align-items: center;
-  background: url(../../img/avaliacaoEstrela.png);
   mix-blend-mode: soft-light;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url(../../img/avaliacaoEstrela.png) no-repeat;
+  mix-blend-mode: soft-light;
+  background-size: 50px 50px;
+}
+
+.icone-avaliacao {
+  list-style: none;
+
 }
