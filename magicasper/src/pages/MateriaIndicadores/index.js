@@ -62,7 +62,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, in
       </div>
       {/* Algum erro na lógica da coleta dos dados no arquivo data.js e no componente do graficoBarra */}
       <div className='graph-container'>
-          {/* <BarGraph/>  */}
+          <BarGraph/> 
       </div>
     </div>
   </div>

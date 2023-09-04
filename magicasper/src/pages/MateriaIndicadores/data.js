@@ -1,11 +1,11 @@
 export const dataGraph =
 [
   {
-    label: 'Primeiro semestre de 2022',
-    data: [5, 15, 22, 43, 55, 60]
+    label: '2022.1',
+    data: [5, 10, 2, 5.5, 8.2, 10]
   },
   {
-    label: 'Primeiro semestre de 2021',
-    data: [12, 26, 33, 38, 37, 23]
+    label: '2022.2',
+    data: [7.9, 5.5, 7.3, 8, 5.2, 9.2]
   }
 ]

@@ -25,25 +25,24 @@ ChartJS.register(
 
 function BarGraph(){
   const labels = ['1', '2', '3', '4', '5', '6', '7'];
-  let data;
+  let notas;
+  let data_geral;
   dataGraph.map((item, index) => {
-    return(data[index] = item.data)
+    return(notas[index] = item.data)
   });
-  data = {
+  data_geral = {
       labels,
       datasets: [
           {
               label: 'Dataset vermelho',
-              data: 
-                labels.map((() => Math.floor(Math.random() * 100))),
+              data: notas.data[0],
               backgroundColor: 'rgba(255, 99, 132, 0.5)',
               borderColor: 'red',
               borderWidth: 1
           },
           {
               label: 'Dataset azul',
-              data: 
-                labels.map((() => Math.floor(Math.random() * 100))),
+              data: notas.data[1],
               backgroundColor: 'rgba(53, 162, 235, 0.5)',
               borderColor: 'blue',
               borderWidth: 1
@@ -63,7 +62,7 @@ function BarGraph(){
     },
   };
 
-  <Bar options={options} data={data} />
+  <Bar options={options} data={data_geral} />
 }
 
 export default BarGraph;
