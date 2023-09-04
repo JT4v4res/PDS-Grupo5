@@ -2,6 +2,7 @@ import './index.css';
 import SideBar from '../../Componentes/SideBar';
 import AvaliacaoEstrela from '../../Componentes/Avaliacao-Estrela';
 import SeletorCurso from "../../Componentes/Seletor-Curso";
+import BarGraph from "../../Componentes/GraficoBarra";
 
 function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, informativos){
   materia = "Estrutura de dados"
@@ -58,6 +59,10 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, in
                     ))
                 }
           </ul>
+      </div>
+      {/* Algum erro na lógica da coleta dos dados no arquivo data.js e no componente do graficoBarra */}
+      <div className='graph-container'>
+          {/* <BarGraph/>  */}
       </div>
     </div>
   </div>
