@@ -15,7 +15,20 @@
 .title-content{
   display:flex;
   flex-wrap: wrap;
+  justify-content: center; /* Centraliza os elementos horizontalmente */
+  align-items: center;
 }
+
+#rating {
+  margin-top: 80px;
+}
+
+/* Estilo para estrelas preenchidas */
+.star-filled {
+  font-size: 32px; /* Tamanho das estrelas */
+  color: yellow; /* Cor das estrelas preenchidas */
+}
+
 .esforco {
   width: 252px;
   height: 43px;
