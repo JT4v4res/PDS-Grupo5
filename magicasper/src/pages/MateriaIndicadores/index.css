@@ -15,7 +15,7 @@
 .title-content{
   display:flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centraliza os elementos horizontalmente */
+  /* justify-content: center; Centraliza os elementos horizontalmente */
   align-items: center;
 }
 

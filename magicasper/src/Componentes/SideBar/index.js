@@ -11,32 +11,34 @@ function SideBar() {
   const showSidebar = () => setSidebar(!sidebar)
   return (
     <>
-    <IconContext.Provider value={{color:'#ffff'}}>
-        <div className='sidebar'>
-          <Link to="#" className='menu-bar'>
-            <FaIcons.FaBars onClick={showSidebar}/>
-          </Link>
-        </div>
-        <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>
-          <ul className='nav-menu-itens' onClick={showSidebar}>
-            <li className='navbar-toggle'>
-                <Link to= "#" className='menu-bars'>
-                  <AiIcons.AiOutlineClose/>
-                </Link>
-            </li>
-            {SidebarData.map((item, index) => {
-              return(
-                 <li key={index} className={item.cName}>
-                  <Link to={item.path}>
-                  {item.icon}
-                  <span>{item.title}</span>
+    <div id='fullsidebar'>
+      <IconContext.Provider value={{color:'#ffff'}}>
+          <div className='sidebar'>
+            <Link to="#" className='menu-bar'>
+              <FaIcons.FaBars onClick={showSidebar}/>
+            </Link>
+          </div>
+          <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>
+            <ul className='nav-menu-itens' onClick={showSidebar}>
+              <li className='navbar-toggle'>
+                  <Link to= "#" className='menu-bars'>
+                    <AiIcons.AiOutlineClose/>
                   </Link>
-                 </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </IconContext.Provider>
+              </li>
+              {SidebarData.map((item, index) => {
+                return(
+                  <li key={index} className={item.cName}>
+                    <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </IconContext.Provider>
+    </div>
     </>
   )
 }

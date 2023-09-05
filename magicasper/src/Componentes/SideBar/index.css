@@ -1,3 +1,6 @@
+#fullsidebar{
+  z-index:10;
+}
 .sidebar{
   /* background-color: #000; */
   height: 50px;
