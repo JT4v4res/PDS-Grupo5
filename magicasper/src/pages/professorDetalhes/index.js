@@ -1,6 +1,8 @@
 import './index.css';
 import SideBar from '../../Componentes/SideBar';
 import SeletorCurso from "../../Componentes/Seletor-Curso";
+import BarGraph from "../../Componentes/GraficoBarra";
+
 
 function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, tempoMinistrando, desc_professor, dadosIndicadoresProfessor){
   professor = 'Marcio Ribeiro'
@@ -10,7 +12,7 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
   desc_materia = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend.'
   desc_professor = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend.'
   tempoMinistrando = 4
-  dadosIndicadoresProfessor = ['52%  consideram o método de avaliação como formativo', '61%  afirmam que a didática é “adaptável”', '74%  reportaram  cobrança de presença' ]
+  dadosIndicadoresProfessor = ['52%  consideram o método de avaliação como "formativo"', '61%  afirmam que a didática é “adaptável”', '74%  reportaram  cobrança de presença' ]
   return (
     <>
     <div className='page-content'>
@@ -40,7 +42,28 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
               <p key={desc_professor}>{desc_professor}</p>
           </div>
         </div>
+
         <div className='vertical-line'></div>
+        
+        <div className='rigth-content'>
+          <div className='graph-container'>
+            {/* <BarGraph/>  */}
+          </div>
+          <div className='informacoes-relevantes'>
+            <label>Informações relevantes</label>
+            <div className='cards-2'>
+              <ul className="dados-indicadores">
+                    {
+                        dadosIndicadoresProfessor.map(dadosIndicadoresProfessor => (
+                            <li>
+                                <a href='/'>{dadosIndicadoresProfessor}</a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     </>

@@ -9,7 +9,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   materia = "Estrutura de dados"
   codigo = "BP336CB"
   nivelEsforco = ['Baixo', 'Médio', 'Alto']
-  ratingStar = 3
+  ratingStar = 3.5
   dadosIndicadores = ['Cerca de 80% dos alunos são aprovados na 1ª tentativa', '88%  não recomendam pegar  essa matéria se não viu o básico de programação', '50% afirmam que o seu professor foi didático', '44% dos usuários já concluíram essa matéria', '90% dos alunos recomendam essa matéria no inicio do curso', '97% afirmam que essa matéria requer muito tempo de dedicação']
   informativos = ['Mais de 70 alunos já avaliaram essa matéria', 'A última avaliação  foi feita em 10/10/2024']
   return (
@@ -63,8 +63,10 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
           </ul>
       </div>
       {/* Algum erro na lógica da coleta dos dados no arquivo data.js e no componente do graficoBarra */}
-      <div className='graph-container'>
-          {/* <BarGraph/>  */}
+      <div className='bottom-info'>
+        <div className='graph-container'>
+            {/* <BarGraph/>  */}
+        </div>
       </div>
     </div>
   </div>
