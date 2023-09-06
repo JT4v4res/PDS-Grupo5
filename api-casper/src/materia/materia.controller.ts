@@ -1,6 +1,7 @@
 import { Controller, Post, Body, Get, Put, Delete, Param, ParseIntPipe} from '@nestjs/common';
 import { MateriaService } from './materia.service';
 import { Materia } from './materia.entity';
+import { InsertResult, DeleteResult, UpdateResult } from 'typeorm';
 
 @Controller('materia')
 export class MateriaController {
@@ -22,17 +23,17 @@ export class MateriaController {
     }
 
     @Post()
-    createProfessor(@Body() materia: Materia) : Promise<void> {
-        return this.service.createProfessor(materia);
+    createMateria(@Body() materia: Materia) : Promise<InsertResult> {
+        return this.service.createMateria(materia);
     }
 
     @Put()
-    updateProfessor(@Body() materia: Materia) : Promise<void> {
-        return this.service.updateProfessor(materia);
+    updateMateria(@Body() materia: Materia) : Promise<UpdateResult> {
+        return this.service.updateMateria(materia);
     }
 
     @Delete(':materiaId')
-    deleteProfessor(@Param('materiaId', ParseIntPipe) materiaId: number) : Promise<void>{
-        return this.service.deleteProfessor(materiaId);
+    deleteMateria(@Param('materiaId', ParseIntPipe) materiaId: number) : Promise<DeleteResult>{
+        return this.service.deleteMateria(materiaId);
     }
 }
