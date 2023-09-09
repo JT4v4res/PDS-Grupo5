@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { Materia } from './materia.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CronogramaService } from 'src/cronograma/cronograma.service';
+import { Professor } from '../professor/professor.entity';
+import { InsertResult, DeleteResult, UpdateResult } from 'typeorm';
 
 @Injectable()
 export class MateriaService {
@@ -11,30 +12,72 @@ export class MateriaService {
         private materiaRepository: Repository<Materia>
     ){}
 
-    getMaterias() : Promise<Materia[]>{
-        return this.materiaRepository.find();
+    async getMaterias() : Promise<Materia[]>{
+        const materias: Materia[] = await this.materiaRepository.find();
+        if (!materias) {
+            throw new HttpException('Materias not found', HttpStatus.NOT_FOUND);
+        }
+        return materias;
     }
 
-    getMateriaPorId(id: number) : Promise<Materia> {
-        return this.materiaRepository.findOneBy({ id });
+    async getMateriaPorId(idMateria: number) : Promise<Materia> {
+        if (!idMateria) {
+            throw new HttpException(
+                'One parameteres are undefined or null',
+                HttpStatus.BAD_REQUEST,
+            );
+        }
+        const materia: Materia = await this.materiaRepository.findOneBy({id: idMateria})
+        if (!materia) {
+            throw new HttpException('Materia not found', HttpStatus.NOT_FOUND);
+        }
+        return materia;
     }
 
-    getMateriasPorProfessor(professorId: number) : Promise<Materia[]>{
-        //A Fazer, Cronograma guardará o registro das materias já ministradas
-        // com professores e matérias, é nescessário fazer um filtro para pegar 
-        // todas as matérias alocadas para determinado professor
-        return;
+    async getProfessoresPorMateria(idMateria: number) : Promise<Professor[]>{
+        const materia: Materia = await this.getMateriaPorId(idMateria);
+        if (!materia.professores) {
+            throw new HttpException('Professores not found', HttpStatus.NOT_FOUND);
+        }
+        return materia.professores;
     }
 
-    async createProfessor(materia: Materia) : Promise<void>{
+    async createMateria(materia: Partial<Materia>) : Promise<InsertResult>{
         await this.materiaRepository.insert(materia);
     }
 
-    async updateProfessor(materia: Materia) : Promise<void>{
-        await this.materiaRepository.update(materia.id, materia);
+    async updateMateria(materia: Partial<Materia>) : Promise<UpdateResult>{
+        const updated: UpdateResult = await this.materiaRepository.update({id: materia.id}, materia);
+        if (updated.affected === 0) {
+            throw new HttpException(
+                'Materia not edited',
+                HttpStatus.INTERNAL_SERVER_ERROR,
+            );
+        }
+        await updated;
     }
 
-    async deleteProfessor(id: number): Promise<void>{
-        await this.materiaRepository.delete(id);
+    async deleteMateria(idMateria: number): Promise<DeleteResult>{
+        const deleted: DeleteResult = await this.materiaRepository.delete({id: idMateria});
+        if (deleted.affected === 0) {
+            throw new HttpException(
+                'Materia not deleted',
+                HttpStatus.INTERNAL_SERVER_ERROR,
+            );
+        }
+        await deleted;
+    }
+    
+    async handleError(error: HttpException): Promise<void> {
+        throw new HttpException(
+            {
+                statusCode: error.getStatus(),
+                error: error.message,
+            },
+            error.getStatus(),
+            {
+                cause: error,
+            },
+        );
     }
 }

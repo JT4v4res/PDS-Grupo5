@@ -10,6 +10,7 @@ export class CommentsService {
     @InjectRepository(Comment)
     private readonly commentRepository: Repository<Comment>,
   ) {}
+  
   async getAllComments(qCommId: number): Promise<Comment[]> {
     if (!qCommId) {
       throw new HttpException(

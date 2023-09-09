@@ -1,9 +1,10 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Materia } from '../materia/materia.entity'
 
 @Entity()
 export class Comment extends BaseEntity {
   @PrimaryGeneratedColumn()
-  commentId: number;
+  id: number;
 
   @Column({ nullable: false, type: 'text' })
   commentText: string;
@@ -16,4 +17,7 @@ export class Comment extends BaseEntity {
 
   @Column({ nullable: false, type: 'int' })
   userId: number;
+
+  @ManyToOne(() => Materia, (comment) => comment.materia)
+  materia: Materia
 }
