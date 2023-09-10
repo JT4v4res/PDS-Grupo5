@@ -1,15 +1,14 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
-import { Materia } from 'src/materia/materia.entity';
+import { MateriaEntity } from '../materia/entity/materia.entity';
 
 @Entity()
 export class AreasAtuacao {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  area: string;
 
-    @Column()
-    area: string;
-    
-    @ManyToMany(() => Materia, (materia) => materia.areasAtuacao)
-    materias: Materia[];
+  @ManyToMany(() => MateriaEntity, (materia) => materia.areasAtuacao)
+  materias: MateriaEntity[];
 }
