@@ -5,6 +5,25 @@ import * as AiIcons from "react-icons/ai"
 import * as FaIcons from "react-icons/fa"
 import * as BsIcons from "react-icons/bs"
 import * as BiIcons from "react-icons/bi"
+import * as RiIcons from "react-icons/ri"
+
+const subNav = [
+  {
+    title: 'Professor 1',
+    path: '../../professorDetalhes',
+    icon: <BsIcons.BsPersonFill/>
+  },
+  {
+    title: 'Professor 1',
+    path: '../../professorDetalhes',
+    icon: <BsIcons.BsPersonFill/>
+  },
+  {
+    title: 'Professor 1',
+    path: '../../professorDetalhes',
+    icon: <BsIcons.BsPersonFill/>
+  },
+]
 
 export const SidebarData = [
   {
@@ -21,9 +40,11 @@ export const SidebarData = [
   },
   {
     title: 'Professores',
-    path: '../../professorDetalhes',
+    path: '#',
     icon: <BsIcons.BsPersonFill/>,
-    cName: 'nav-text'
+    iconClosed: <RiIcons.RiArrowDownSFill/>,
+    iconOpened: <RiIcons.RiArrowUpFill/>,
+    subNav
   },
   {
     title: 'Material de estudo',

@@ -1,5 +1,6 @@
 import Navbar from './Componentes/Navbar';
 import SideBar from './Componentes/SideBar';
+import SubMenu from './Componentes/SideBar';
 import Materias from './pages/Materias';
 import Home from './pages/Home';
 import Perfil from './pages/Perfil';
@@ -24,6 +25,7 @@ function App (){
         <Route path="/materialEstudo" element={<MaterialEstudo/>}/>
         <Route path="/materiaIndicadores" element={<MateriaIndicadores/>}/>
         <Route path="/Sidebar" element={<SideBar/>}/>
+        <Route path="/SubMenu" element={<SubMenu/>}/>
       </Routes>
     </div>
   </>

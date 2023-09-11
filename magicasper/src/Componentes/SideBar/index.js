@@ -5,13 +5,16 @@ import * as AiIcons from "react-icons/ai"
 import * as FaIcons from "react-icons/fa"
 import './index.css'
 import { IconContext } from 'react-icons/lib'
+import SubMenu from './Submenu';
 
-function SideBar() {
+
+const SideBar = ({professores}) => {
+  professores = ['Marcio Ribeiro', 'Roberta Lopez']
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar)
   return (
     <>
-    <div id='fullsidebar'>
+    <div id='fullsidebar'> 
       <IconContext.Provider value={{color:'#ffff'}}>
           <div className='sidebar'>
             <Link to="#" className='menu-bar'>
@@ -19,21 +22,14 @@ function SideBar() {
             </Link>
           </div>
           <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>
-            <ul className='nav-menu-itens' onClick={showSidebar}>
+            <ul className='nav-menu-itens'>
               <li className='navbar-toggle'>
                   <Link to= "#" className='menu-bars'>
-                    <AiIcons.AiOutlineClose/>
+                    <AiIcons.AiOutlineClose onClick={showSidebar}/>
                   </Link>
               </li>
               {SidebarData.map((item, index) => {
-                return(
-                  <li key={index} className={item.cName}>
-                    <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                    </Link>
-                  </li>
-                );
+                return <SubMenu item={item} key={index} />;
               })}
             </ul>
           </nav>
