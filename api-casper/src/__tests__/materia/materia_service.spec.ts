@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { MateriaService } from '../../materia/materia.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { CreateMateriaDto } from '../../materia/dto/create-materia.dto';
 import { UpdateMateriaDto } from '../../materia/dto/update-materia.dto';
 
@@ -43,7 +43,7 @@ const materiaEntityList: MateriaEntity[] = [
   }),
 ];
 
-const updatedMateria = new MateriaEntity({
+const updatedMateria: MateriaEntity = new MateriaEntity({
   codigo: 'COMP381',
   tipo: 'teoria',
   nome: 'teoria da computacao 2',
@@ -62,7 +62,7 @@ describe('MateriaService', (): void => {
           provide: getRepositoryToken(MateriaEntity),
           useValue: {
             find: jest.fn().mockResolvedValue(materiaEntityList),
-            findOneBy: jest.fn(),
+            findOneBy: jest.fn().mockResolvedValue(materiaEntityList[0]),
             create: jest.fn().mockReturnValue(materiaEntityList[0]),
             save: jest.fn().mockResolvedValue(materiaEntityList[0]),
             update: jest.fn().mockResolvedValue(updatedMateria),
@@ -89,8 +89,9 @@ describe('MateriaService', (): void => {
       const result: MateriaEntity[] = await materiaService.getMaterias();
 
       // Assert
+      expect(result).toBeDefined();
       expect(result).toEqual(materiaEntityList);
-      expect(typeof result).toEqual('object');
+      expect(result).toBeInstanceOf(Array<MateriaEntity>);
       expect(materiaRepository.find).toBeCalledTimes(1);
     });
 
@@ -103,8 +104,36 @@ describe('MateriaService', (): void => {
     });
   });
 
+  describe('getMateriasPorId', (): void => {
+    it('should return a Materia Entity list successfully', async (): Promise<void> => {
+      // Act
+      const result: MateriaEntity = await materiaService.getMateriaPorId(1);
+
+      // Assert
+      expect(result).toBeDefined();
+      expect(result).toEqual(materiaEntityList[0]);
+      expect(result).toBeInstanceOf(MateriaEntity);
+      expect(materiaRepository.findOneBy).toHaveBeenCalledTimes(1);
+      expect(materiaRepository.findOneBy).toHaveBeenCalledWith({
+        materiaId: 1,
+      });
+    });
+
+    it('should throw an exception', (): void => {
+      // Arrange
+      jest
+        .spyOn(materiaRepository, 'findOneBy')
+        .mockRejectedValueOnce(new Error());
+
+      // Assert
+      expect(
+        materiaRepository.findOneBy({ materiaId: 1 }),
+      ).rejects.toThrowError();
+    });
+  });
+
   describe('createMateria', (): void => {
-    it('should create a new materia successfully ', async (): Promise<void> => {
+    it('should create a new materia successfully and return it', async (): Promise<void> => {
       // Arrange
       const data: CreateMateriaDto = {
         codigo: 'COMP381',
@@ -117,7 +146,9 @@ describe('MateriaService', (): void => {
       const result: MateriaEntity = await materiaService.createMateria(data);
 
       // Assert
+      expect(result).toBeDefined();
       expect(result).toEqual(materiaEntityList[0]);
+      expect(result).toBeInstanceOf(MateriaEntity);
       expect(materiaRepository.create).toHaveBeenCalledTimes(1);
       expect(materiaRepository.save).toHaveBeenCalledTimes(1);
     });
@@ -149,10 +180,11 @@ describe('MateriaService', (): void => {
         descricao: 'disciplina com foco na maquina de turing e automatos',
       };
       // Act
-      const result = await materiaService.updateMateria(data);
+      const result: UpdateResult = await materiaService.updateMateria(data);
 
       // Arrange
       expect(result).toEqual(updatedMateria);
+      expect(result).toBeInstanceOf(MateriaEntity);
       expect(materiaRepository.update).toHaveBeenCalledTimes(1);
     });
 
@@ -178,7 +210,7 @@ describe('MateriaService', (): void => {
   describe('deleteMateria', (): void => {
     it('should delete a materia successfully', async (): Promise<void> => {
       // Act
-      const result = await materiaService.deleteMateria(1);
+      const result: DeleteResult = await materiaService.deleteMateria(1);
 
       // Assert
       expect(result).toBeUndefined();

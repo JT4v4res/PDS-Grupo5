@@ -11,9 +11,9 @@ import {
 import { MateriaService } from './materia.service';
 import { MateriaEntity } from './entity/materia.entity';
 import { DeleteResult, UpdateResult } from 'typeorm';
-import { Professor } from '../professor/professor.entity';
+import { ProfessorEntity } from '../professor/entity/professor.entity';
 import { CreateMateriaDto } from './dto/create-materia.dto';
-import { UpdateMateriaDto } from "./dto/update-materia.dto";
+import { UpdateMateriaDto } from './dto/update-materia.dto';
 
 @Controller('materia')
 export class MateriaController {
@@ -34,7 +34,7 @@ export class MateriaController {
   @Get('/professor/:professorId')
   async getProfessoresPorMateria(
     @Param('professorId', ParseIntPipe) professorId: number,
-  ): Promise<Professor[]> {
+  ): Promise<ProfessorEntity[]> {
     return await this.service.getProfessoresPorMateria(professorId);
   }
 
@@ -46,7 +46,9 @@ export class MateriaController {
   }
 
   @Put()
-  async updateMateria(@Body() materia: UpdateMateriaDto): Promise<UpdateResult> {
+  async updateMateria(
+    @Body() materia: UpdateMateriaDto,
+  ): Promise<UpdateResult> {
     return await this.service.updateMateria(materia);
   }
 

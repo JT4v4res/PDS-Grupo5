@@ -7,7 +7,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Professor } from '../../professor/professor.entity';
+import { ProfessorEntity } from '../../professor/entity/professor.entity';
 import { Usuario } from '../../usuario/usuario.entity';
 import { AreasAtuacao } from '../../area_atuacao/area_atuacao.entity';
 import { Avaliacao } from '../../avaliacao/avaliacao.entity';
@@ -29,9 +29,9 @@ export class MateriaEntity {
   @Column({ nullable: false })
   descricao: string;
 
-  @ManyToMany(() => Professor, (professor) => professor.materias)
+  @ManyToMany(() => ProfessorEntity, (professor) => professor.materias)
   @JoinTable()
-  professores: Professor[];
+  professores: ProfessorEntity[];
 
   @ManyToMany(() => AreasAtuacao, (area) => area.materias)
   @JoinTable()
