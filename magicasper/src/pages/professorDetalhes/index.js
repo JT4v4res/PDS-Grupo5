@@ -5,7 +5,7 @@ import BarGraph from "../../Componentes/GraficoBarra";
 
 
 function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, tempoMinistrando, desc_professor, dadosIndicadoresProfessor){
-  professor = 'Marcio Ribeiro'
+  professor = 'John Doe'
   materia = 'Estrutura de dados'
   codigo = 'DPEIM30'
   lattes = 'http://lattes.cnpq.br/9300936571715992'
