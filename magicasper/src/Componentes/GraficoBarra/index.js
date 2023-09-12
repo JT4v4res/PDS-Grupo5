@@ -1,68 +1,45 @@
-import React from 'react'
-import {dataGraph} from '../../pages/MateriaIndicadores/data'
-import './index.css'
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
 
-import { Bar } from 'react-chartjs-2';
+import React, { Component } from "react";
+import Chart from "react-apexcharts";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+class barGraph extends Component {
+  constructor(props) {
+    super(props);
 
-
-function BarGraph(){
-  const labels = ['1', '2', '3', '4', '5', '6', '7'];
-  let notas;
-  let data_geral;
-  dataGraph.map((item, index) => {
-    return(notas[index] = item.data)
-  });
-  data_geral = {
-      labels,
-      datasets: [
-          {
-              label: 'Dataset vermelho',
-              data: notas.data[0],
-              backgroundColor: 'rgba(255, 99, 132, 0.5)',
-              borderColor: 'red',
-              borderWidth: 1
-          },
-          {
-              label: 'Dataset azul',
-              data: notas.data[1],
-              backgroundColor: 'rgba(53, 162, 235, 0.5)',
-              borderColor: 'blue',
-              borderWidth: 1
-          },
-      ],
-  };
-  const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'bottom',
+    this.state = {
+      options: {
+        chart: {
+          id: "basic-bar"
         },
-        title: {
-            display: false,
-            text: 'Dataset',
-        },
-    },
-  };
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+      },
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
+      ]
+    };
+  }
 
-  <Bar options={options} data={data_geral} />
+  render() {
+    return (
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="bar"
+              width="500"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default BarGraph;
+export default barGraph;

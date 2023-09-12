@@ -18,7 +18,6 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
     <div className='title-content'>
       <SideBar/>
       <SeletorCurso texto={materia}/>
-      {/* <AvaliacaoEstrela/> */}
       <Rating rating={ratingStar}/>
       <div className='esforco'>
         <label key={nivelEsforco}>Nível de esforço: {nivelEsforco[2]}</label>
@@ -62,7 +61,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
       {/* Algum erro na lógica da coleta dos dados no arquivo data.js e no componente do graficoBarra */}
       <div className='bottom-info'>
         <div className='graph-container'>
-            {/* <BarGraph/>  */}
+            <BarGraph/> 
         </div>
       </div>
     </div>

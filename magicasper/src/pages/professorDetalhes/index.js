@@ -47,7 +47,7 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
         
         <div className='rigth-content'>
           <div className='graph-container'>
-            {/* <BarGraph/>  */}
+            <BarGraph/> 
           </div>
           <div className='informacoes-relevantes'>
             <label>Informações relevantes</label>
