@@ -2,8 +2,8 @@ import { Injectable, HttpStatus, HttpException } from '@nestjs/common';
 import { MateriaEntity } from './entity/materia.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Professor } from '../professor/professor.entity';
-import { InsertResult, DeleteResult, UpdateResult } from 'typeorm';
+import { ProfessorEntity } from '../professor/entity/professor.entity';
+import { DeleteResult, UpdateResult } from 'typeorm';
 import { CreateMateriaDto } from './dto/create-materia.dto';
 import { UpdateMateriaDto } from './dto/update-materia.dto';
 
@@ -38,7 +38,9 @@ export class MateriaService {
     return materia;
   }
 
-  async getProfessoresPorMateria(idMateria: number): Promise<Professor[]> {
+  async getProfessoresPorMateria(
+    idMateria: number,
+  ): Promise<ProfessorEntity[]> {
     const materia: MateriaEntity = await this.getMateriaPorId(idMateria);
     if (!materia.professores) {
       throw new HttpException('Professores not found', HttpStatus.NOT_FOUND);
@@ -67,7 +69,8 @@ export class MateriaService {
         HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
-    return await updated;
+
+    return updated;
   }
 
   async deleteMateria(idMateria: number): Promise<DeleteResult> {

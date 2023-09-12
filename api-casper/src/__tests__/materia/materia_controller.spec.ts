@@ -4,6 +4,7 @@ import { MateriaService } from '../../materia/materia.service';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
 import { CreateMateriaDto } from '../../materia/dto/create-materia.dto';
 import { UpdateMateriaDto } from '../../materia/dto/update-materia.dto';
+import { DeleteResult, UpdateResult } from 'typeorm';
 
 const materiaEntityList: MateriaEntity[] = [
   new MateriaEntity({
@@ -42,14 +43,14 @@ const materiaEntityList: MateriaEntity[] = [
   }),
 ];
 
-const newMateria = new MateriaEntity({
+const newMateria: MateriaEntity = new MateriaEntity({
   codigo: 'COMP381',
   tipo: 'teoria',
   nome: 'teoria da computacao',
   descricao: 'disciplina com foco na maquina de turing',
 });
 
-const updatedMateria = new MateriaEntity({
+const updatedMateria: MateriaEntity = new MateriaEntity({
   codigo: 'COMP381',
   tipo: 'teoria',
   nome: 'teoria da computacao 2',
@@ -88,13 +89,11 @@ describe('MateriaController', (): void => {
 
   describe('getMaterias', (): void => {
     it('should return a materia list entity successfully', async (): Promise<void> => {
-      // Arrange
-
       // Act
       const result: MateriaEntity[] = await materiaController.getMaterias();
       // Assert
       expect(result).toEqual(materiaEntityList);
-      expect(typeof result).toEqual('object');
+      expect(result).toBeInstanceOf(Array<MateriaEntity>);
       expect(materiaService.getMaterias).toBeCalledTimes(1);
     });
 
@@ -116,7 +115,7 @@ describe('MateriaController', (): void => {
 
       // Assert
       expect(result).toEqual(materiaEntityList[0]);
-      expect(typeof result).toEqual('object');
+      expect(result).toBeInstanceOf(MateriaEntity);
       expect(materiaService.getMateriaPorId).toBeCalledTimes(1);
       expect(materiaService.getMateriaPorId).toHaveBeenCalledWith(1);
     });
@@ -143,10 +142,11 @@ describe('MateriaController', (): void => {
       };
 
       // Act
-      const result = await materiaController.createMateria(body);
+      const result: MateriaEntity = await materiaController.createMateria(body);
 
       // Assert
       expect(result).toEqual(newMateria);
+      expect(result).toBeInstanceOf(MateriaEntity);
       expect(materiaService.createMateria).toHaveBeenCalledTimes(1);
       expect(materiaService.createMateria).toHaveBeenCalledWith(body);
     });
@@ -181,10 +181,12 @@ describe('MateriaController', (): void => {
       };
 
       // Act
-      const result = await materiaController.updateMateria(body);
+      const result: UpdateResult = await materiaController.updateMateria(body);
 
       // Assert
       expect(result).toEqual(updatedMateria);
+      expect(result).toBeDefined();
+      expect(result).toBeInstanceOf(MateriaEntity);
       expect(materiaService.updateMateria).toHaveBeenCalledTimes(1);
       expect(materiaService.updateMateria).toHaveBeenCalledWith(body);
     });
@@ -211,10 +213,12 @@ describe('MateriaController', (): void => {
   describe('deleteMateria', (): void => {
     it('should delete a materia successfully', async (): Promise<void> => {
       // Act
-      const result = await materiaController.deleteMateria(1);
+      const result: DeleteResult = await materiaController.deleteMateria(1);
 
       // Assert
       expect(result).toBeUndefined();
+      expect(materiaService.deleteMateria).toHaveBeenCalledTimes(1);
+      expect(materiaService.deleteMateria).toHaveBeenCalledWith(1);
     });
 
     it('should throw an exception', (): void => {

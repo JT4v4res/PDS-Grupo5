@@ -1,34 +1,53 @@
-import { Controller, Post, Body, Get, Put, Delete, Param, ParseIntPipe} from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  Put,
+  Delete,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { ProfessorService } from './professor.service';
-import { Professor } from './professor.entity';
-import { InsertResult, DeleteResult, UpdateResult } from 'typeorm';
+import { ProfessorEntity } from './entity/professor.entity';
+import { DeleteResult, UpdateResult } from "typeorm";
+import { CreateProfessorDto } from './dto/create-professor.dto';
+import { UpdateProfessorDto } from './dto/update-professor.dto';
 
 @Controller('professor')
 export class ProfessorController {
-    constructor(private service: ProfessorService) { }
+  constructor(private service: ProfessorService) {}
 
-    @Get()
-    getProfessores(): Promise<Professor[]> {
-        return this.service.getProfessores();
-    }
+  @Get()
+  async getProfessores(): Promise<ProfessorEntity[]> {
+    return await this.service.getProfessores();
+  }
 
-    @Get(':professorId')
-    getProfessorPorId(@Param('professorId', ParseIntPipe) professorId: number) : Promise<Professor> {
-        return this.service.getProfessorPorId(professorId);
-    }
+  @Get(':professorId')
+  async getProfessorPorId(
+    @Param('professorId', ParseIntPipe) professorId: number,
+  ): Promise<ProfessorEntity> {
+    return await this.service.getProfessorPorId(professorId);
+  }
 
-    @Post()
-    createProfessor(@Body() professor: Professor) : Promise<InsertResult> {
-        return this.service.createProfessor(professor);
-    }
+  @Post()
+  async createProfessor(
+    @Body() professor: CreateProfessorDto,
+  ): Promise<ProfessorEntity> {
+    return await this.service.createProfessor(professor);
+  }
 
-    @Put()
-    updateProfessor(@Body() professor: Professor) : Promise<UpdateResult> {
-        return this.service.updateProfessor(professor);
-    }
+  @Put()
+  async updateProfessor(
+    @Body() professor: UpdateProfessorDto,
+  ): Promise<UpdateResult> {
+    return await this.service.updateProfessor(professor);
+  }
 
-    @Delete(':professorId')
-    deleteProfessor(@Param('professorId', ParseIntPipe) professorId: number) : Promise<DeleteResult>{
-        return this.service.deleteProfessor(professorId);
-    }
+  @Delete(':professorId')
+  async deleteProfessor(
+    @Param('professorId', ParseIntPipe) professorId: number,
+  ): Promise<DeleteResult> {
+    return await this.service.deleteProfessor(professorId);
+  }
 }
