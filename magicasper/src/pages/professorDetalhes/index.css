@@ -1,0 +1,169 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Reem Kufi';
+  line-height: normal;
+  font-style: normal;
+}
+
+.professor-name {
+    margin-top: 25px;
+    margin-left: 6px;
+    margin-right: 5px;
+    font-family: Reem Kufi;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.lattes{
+  margin-left: 5.3%;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 22px;
+}
+.lattes a{
+  color: #fff;
+}
+.lattes a:hover{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color:rgba(155, 150, 203, 0.90);;
+}
+.main-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.left-content{
+  background-color: rgba(155, 150, 203, 0.90);
+  stroke-width: 1px;
+  width: 20%;
+  height: 729px;
+  flex-shrink: 0;
+  margin-left: 73px;
+  stroke: rgba(205, 29, 198, 0.20);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  padding: 25px;
+  margin-right: 15px;
+}
+
+.title-barra-inferior{
+  margin-left: 30%;
+  background: #CD1DC6;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 320px;
+  height: 1px;
+}
+
+.materia-info{
+  margin: 5px;
+  width: 313px;
+  height: 50%;
+  color: #FFF;
+  text-align: justify;
+  font-family: Reem Kufi;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.codigo-1{
+  margin: 0px;
+  margin-bottom: 15px;
+}
+.horiz-line {
+  width: 355px;
+  height: 1px;
+  background: #5A3693;
+}
+
+.professor-info{
+  color: #FFF;
+  text-align: justify;
+  font-family: Reem Kufi;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  width: 313px;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tempo-ministrado{
+  margin-bottom: 10px;
+}
+
+.vertical-line {
+  width: 1px;
+  height:  750px;
+  background: #9B96CB;
+}
+
+.rigth-content{
+  width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.graph-container{
+  width: 100%;
+  height: 365px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(164, 93, 255, 0.50) 0%, rgba(164, 93, 255, 0.00) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 48px;
+}
+.informacoes-relevantes{
+  width: 100%;
+  height: 58px;
+  text-align: center;
+  margin: 5px;
+}
+.informacoes-relevantes  .cards-2{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.cards-2 li{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  width: 200px;
+  height: 187px;
+  flex-shrink: 0;
+  fill: rgba(155, 150, 203, 0.70); 
+  background-color: #9B96CBB2;
+  float: left;
+  padding: 10px;
+  font-size: 20px;
+}
+.cards-2 li a{
+  color: #FFF;
+}
+.informacoes-relevantes label{
+  color: #FFF;
+  text-align: center;
+  font-family: Reem Kufi;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

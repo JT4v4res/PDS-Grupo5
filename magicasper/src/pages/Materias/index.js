@@ -1,6 +1,7 @@
 import SeletorCurso from '../../Componentes/Seletor-Curso';
 import './index.css';
 import "@fontsource/reem-kufi";
+import { Link } from "react-router-dom"
 
 function verifyLabel(label){
   let imgPath = document.createElement('img');
@@ -44,7 +45,9 @@ return (
           <li key={codigo}><label className='code'>Código: {codigo}</label></li>
           <li key={periodo}><label className='code'>Período: {periodo}</label></li>
         </ul>
-        <label className='button'><a href='/MateriaDetalhes'>Saber mais</a></label>
+        <label className='button'>
+          <Link to='/MateriaDetalhes'>Saber mais</Link>
+        </label>
       </div>
     </div>
     <div id='card-unitario'/>
