@@ -25,6 +25,7 @@ function MaterialEstudo (materia, codigo, textoBase){
           <div className='card-material-expositivo'>
             <div className='title-mat-expo'>
               <label>Materiais expositivos</label>
+              <div className='title-barra-inferior'/>
             </div>
             <div className='material-expositivo'>
               <p>{textoBase.split('\n').map((line, index) => (
@@ -36,6 +37,7 @@ function MaterialEstudo (materia, codigo, textoBase){
           <div className='card-questoes'>
             <div className='title-quest'>
               <label>Questões</label>
+              <div className='title-barra-inferior-2'/>
             </div>
             <div className='questoes'>
               <p>{textoBase.split('\n').map((line, index) => (
@@ -49,6 +51,7 @@ function MaterialEstudo (materia, codigo, textoBase){
           <div className='card-literat'>
             <div className='title-literat'>
               <label>Materiais na literatura</label>
+              <div className='title-barra-inferior-3'/>
             </div>
             <div className='materiais-literat'>
               <p>{textoBase.split('\n').map((line, index) => (
