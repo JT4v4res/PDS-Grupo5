@@ -51,6 +51,14 @@
   margin-right: 15px;
 }
 
+.title-barra-inferior{
+  margin-left: 30%;
+  background: #CD1DC6;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 320px;
+  height: 1px;
+}
+
 .materia-info{
   margin: 5px;
   width: 313px;

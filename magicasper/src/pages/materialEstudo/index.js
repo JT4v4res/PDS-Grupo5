@@ -1,6 +1,7 @@
 import './index.css';
 import SeletorCurso from '../../Componentes/Seletor-Curso';
 import SideBar from '../../Componentes/SideBar';
+import PontosBckgrd from '../../Componentes/PontosBckgrd';
 
 function MaterialEstudo (materia, codigo, textoBase){
   materia = "Estrutura de Dados"
@@ -57,9 +58,11 @@ function MaterialEstudo (materia, codigo, textoBase){
               <p>{textoBase.split('\n').map((line, index) => (
               <span key={index}>{line}</span>
               ))}</p>
+            {/* <PontosBckgrd/> */}
             </div>
           </div>
         </div>
+        
 
       </div>
     </>

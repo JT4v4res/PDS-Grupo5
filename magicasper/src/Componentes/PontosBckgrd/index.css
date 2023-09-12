@@ -1,0 +1,11 @@
+.pontos {
+    width: 227.559px;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.pontos svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

@@ -51,6 +51,7 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
           </div>
           <div className='informacoes-relevantes'>
             <label>Informações relevantes</label>
+            <div className='title-barra-inferior'/> 
             <div className='cards-2'>
               <ul className="dados-indicadores">
                     {

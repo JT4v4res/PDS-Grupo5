@@ -32,11 +32,8 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
       <div className='jornada-aluno'>
 
         <div className='title'>
-          <div className="linha-esq"></div>
-          <div className="linha-acima"></div>
           <label>Jornada do <span> aluno </span> </label>
-          <div className="linha-dir"></div>
-          <div className="linha-abaixo"></div>
+          <div className='title-barra-inferior'/>
         </div>
         <div className='cards'>
             <ul className="dados-indicadores">

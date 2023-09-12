@@ -23,33 +23,23 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
         {/* <div className="backgroud-elipse"></div> */}
             <div className="info-page">
                 <div className="materia-title">
-                    <div className="linha-esq"></div>
-
-                    <div className="linha-acima"></div>
                     <label>{materia}</label>
 
-                    <div className="linha-dir"></div>
 
-                    <div className="linha-abaixo"></div>
                 </div>
                 <div className="materia-codigo">
                     <label>Código: {codigo}</label>
                 </div>
-                
+
                 <div className="descricao">
                     <div>
                         <p>{descricao}</p>
                     </div>
                 </div>
-                
+
                 <div className="areas-relevancia">
-                    <div className="linha-esq"></div>
-
-                    <div className="linha-acima"></div> 
                     <label>Áreas de Relevância</label>
-                    <div className="linha-dir"></div>
-
-                    <div className="linha-abaixo"></div>
+                    {/* <div className='title-barra-inferior'/> */}
                 </div>
 
                 <div className="cards">
@@ -65,7 +55,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
                 </div>
 
             </div>
-            
+
         </div>
         </>
     );
