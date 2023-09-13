@@ -1,10 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
-import { MateriaEntity } from '../materia/entity/materia.entity';
+import { MateriaEntity } from '../../materia/entity/materia.entity';
 
 @Entity()
-export class AreasAtuacao {
+export class RelevantAreaEntity {
   @PrimaryGeneratedColumn()
-  id: number;
+  areaId: number;
 
   @Column()
   area: string;

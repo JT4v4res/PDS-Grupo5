@@ -4,6 +4,7 @@ import { ProfessorModule } from './professor/professor.module';
 import { MateriaModule } from './materia/materia.module';
 import { typeOrmConfig } from './core/infra/config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
+import { RelevantAreaModule } from './relevant_area/relevant_area.module';
 
 @Module({
   imports: [
@@ -13,8 +14,7 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forRoot(typeOrmConfig),
     ProfessorModule,
     MateriaModule,
+    RelevantAreaModule,
   ],
-  controllers: [],
-  providers: [],
 })
 export class AppModule {}
