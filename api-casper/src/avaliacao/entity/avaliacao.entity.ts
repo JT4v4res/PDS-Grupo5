@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn} from 'typeorm';
-import { Materia } from '../materia/materia.entity'
-import { Professor } from '../professor/professor.entity'
+import { MateriaEntity } from '../materia/entity/materia.entity'
+import { ProfessorEntity } from '../professor/entity/professor.entity'
 import { Usuario } from '../usuario/usuario.entity'
 
 @Entity()
@@ -12,11 +12,11 @@ export class Avaliacao {
     @ManyToOne(() => Usuario, (usuario) => usuario.avaliacoes)
     usuario : Usuario;
 
-    @ManyToOne(() => Materia, (materia) => materia.avaliacoes)
-    materia : Materia;
+    @ManyToOne(() => MateriaEntity, (materia) => materia.avaliacoes)
+    materia : MateriaEntity;
 
-    @ManyToOne(() => Professor, (professor) => professor.avaliacoes)
-    professor : Professor;
+    @ManyToOne(() => ProfessorEntity, (professor) => professor.avaliacoes)
+    professor : ProfessorEntity;
 
     @Column()
     semestre:string;
