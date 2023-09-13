@@ -14,12 +14,12 @@ const subNav = [
     icon: <BsIcons.BsPersonFill/>
   },
   {
-    title: 'Professor 1',
+    title: 'Professor 2',
     path: '../../professorDetalhes',
     icon: <BsIcons.BsPersonFill/>
   },
   {
-    title: 'Professor 1',
+    title: 'Professor 3',
     path: '../../professorDetalhes',
     icon: <BsIcons.BsPersonFill/>
   },

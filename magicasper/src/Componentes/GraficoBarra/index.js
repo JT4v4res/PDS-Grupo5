@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
-
+import './index.css'
 class barGraph extends Component {
   constructor(props) {
     super(props);
@@ -11,8 +11,24 @@ class barGraph extends Component {
         chart: {
           id: "basic-bar"
         },
+        zoom: {
+          enabled: true,
+          type: 'x',  
+          autoScaleYaxis: false,  
+          zoomedArea: {
+            fill: {
+              color: '#90CAF9',
+              opacity: 0.4
+            },
+            stroke: {
+              color: '#0D47A1',
+              opacity: 0.4,
+              width: 1
+            }
+          }
+      },
         xaxis: {
-          categories: [1,2,3,4],
+          categories: ['2022.1','2022.2','2023.1','2023.2'],
           labels: {
             style: {
               colors: '#FFFFFF',
@@ -28,7 +44,7 @@ class barGraph extends Component {
         },
         legend: {
           labels: {
-            colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+            colors: ['#9B96CBB2', '#9B96CBB2', '#9B96CBB2'],
           },
         },
         colors: [
@@ -37,15 +53,15 @@ class barGraph extends Component {
       },
       series: [
         {
-          name: "programação",
+          name: "maior nota",
           data: [3, 2, 3, 5]
         },
         {
-          name: "matemática",
+          name: "menor nota",
           data: [4, 4, 5, 1]
         },
         {
-          name: "teóricas/outras",
+          name: "média de notas",
           data: [7, 3, 2, 4]
         }
       ],
@@ -63,8 +79,9 @@ class barGraph extends Component {
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              width={900}
+              width='100%'
               height={365}
+              
             />
           </div>
         </div>
