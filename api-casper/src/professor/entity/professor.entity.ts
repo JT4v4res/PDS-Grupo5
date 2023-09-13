@@ -6,7 +6,7 @@ import {
   ManyToMany,
 } from 'typeorm';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
-import { Avaliacao } from '../../avaliacao/avaliacao.entity';
+import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 
 @Entity()
 export class ProfessorEntity {
@@ -22,8 +22,8 @@ export class ProfessorEntity {
   @Column({ length: 255 })
   lattes: string;
 
-  @OneToMany(() => Avaliacao, (avaliacao: Avaliacao) => avaliacao.professor)
-  avaliacoes: Avaliacao[];
+  @OneToMany(() => AvaliationEntity, (avaliacao: AvaliationEntity) => avaliacao.professor)
+  avaliacoes: AvaliationEntity[];
 
   @ManyToMany(
     () => MateriaEntity,

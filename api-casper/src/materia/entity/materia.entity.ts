@@ -8,9 +8,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
-import { Usuario } from '../../usuario/usuario.entity';
-import { AreasAtuacao } from '../../area_atuacao/area_atuacao.entity';
-import { Avaliacao } from '../../avaliacao/avaliacao.entity';
+import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.entity';
+import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 
 @Entity()
 export class MateriaEntity {
@@ -29,20 +28,16 @@ export class MateriaEntity {
   @Column({ nullable: false })
   descricao: string;
 
-  @ManyToMany(() => ProfessorEntity, (professor) => professor.materias)
+  @ManyToMany(() => RelevantAreaEntity, (professor) => professor.materias)
   @JoinTable()
   professores: ProfessorEntity[];
 
-  @ManyToMany(() => AreasAtuacao, (area) => area.materias)
+  @ManyToMany(() => RelevantAreaEntity, (area) => area.materias)
   @JoinTable()
-  areasAtuacao: AreasAtuacao[];
+  areasAtuacao: ProfessorEntity[];
 
-  @OneToMany(() => Avaliacao, (avaliacao) => avaliacao.materia)
-  avaliacoes: Avaliacao[];
-
-  @ManyToMany(() => Usuario, (usuario) => usuario.materias)
-  @JoinTable()
-  usuarios: Usuario[];
+  @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
+  avaliacoes: AvaliationEntity[];
 
   constructor(materia?: Partial<MateriaEntity>) {
     this.codigo = materia.codigo;
@@ -52,6 +47,5 @@ export class MateriaEntity {
     this.professores = materia.professores;
     this.areasAtuacao = materia.areasAtuacao;
     this.avaliacoes = materia.avaliacoes;
-    this.usuarios = materia.usuarios;
   }
 }

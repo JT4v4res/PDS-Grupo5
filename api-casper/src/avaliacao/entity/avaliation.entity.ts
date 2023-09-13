@@ -48,4 +48,20 @@ export class AvaliationEntity {
 
   @Column()
   recomenda_no_inicio: boolean;
+
+  constructor(avaliation?: Partial<AvaliationEntity>) {
+    this.avaliationId = avaliation.avaliationId;
+    this.passou_sem_final = avaliation.passou_sem_final;
+    this.dedicacao = avaliation.dedicacao;
+    this.metodologia = avaliation.metodologia;
+    this.periodo = avaliation.periodo;
+    this.didatica = avaliation.didatica;
+    this.materia = avaliation.materia;
+    this.nota_avaliacao = avaliation.nota_avaliacao;
+    this.nota_materia = avaliation.nota_materia;
+    this.presenca = avaliation.presenca;
+    this.professor = avaliation.professor;
+    this.recomenda_no_inicio = avaliation.recomenda_no_inicio;
+    this.semestre = avaliation.semestre;
+  }
 }

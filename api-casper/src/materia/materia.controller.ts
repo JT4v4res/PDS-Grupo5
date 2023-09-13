@@ -15,7 +15,7 @@ import { ProfessorEntity } from '../professor/entity/professor.entity';
 import { CreateMateriaDto } from './dto/create-materia.dto';
 import { UpdateMateriaDto } from './dto/update-materia.dto';
 
-@Controller('materia')
+@Controller('/materia')
 export class MateriaController {
   constructor(private service: MateriaService) {}
 
