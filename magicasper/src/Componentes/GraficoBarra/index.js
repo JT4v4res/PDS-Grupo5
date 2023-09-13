@@ -12,19 +12,49 @@ class barGraph extends Component {
           id: "basic-bar"
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+          categories: [1,2,3,4],
+          labels: {
+            style: {
+              colors: '#FFFFFF',
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: '#FFFFFF',
+            },
+          },
+        },
+        legend: {
+          labels: {
+            colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+          },
+        },
+        colors: [
+          '#2E56DB','#D9D9D9','#47BCC7',
+        ]
       },
       series: [
         {
-          name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
+          name: "programação",
+          data: [3, 2, 3, 5]
+        },
+        {
+          name: "matemática",
+          data: [4, 4, 5, 1]
+        },
+        {
+          name: "teóricas/outras",
+          data: [7, 3, 2, 4]
         }
-      ]
+      ],
+      selectedDataType: 'programação',
     };
   }
 
   render() {
+    const { options, series, selectedDataType } = this.state;
     return (
       <div className="app">
         <div className="row">
@@ -33,7 +63,8 @@ class barGraph extends Component {
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              width="500"
+              width={900}
+              height={365}
             />
           </div>
         </div>
