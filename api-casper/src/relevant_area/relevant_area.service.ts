@@ -57,13 +57,6 @@ export class RelevantAreaService {
       areaId: areaId,
     });
 
-    if (!deleted) {
-      throw new HttpException(
-        'Area not deleted!',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
-
     return deleted;
   }
 }

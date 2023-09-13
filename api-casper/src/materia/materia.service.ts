@@ -52,7 +52,6 @@ export class MateriaService {
     const newMateria: MateriaEntity = this.materiaRepository.create(materia);
     newMateria.professores = undefined;
     newMateria.avaliacoes = undefined;
-    newMateria.usuarios = undefined;
     newMateria.areasAtuacao = undefined;
     await this.materiaRepository.save(newMateria);
     return newMateria;
@@ -88,18 +87,5 @@ export class MateriaService {
     }
 
     return deleted;
-  }
-
-  async handleError(error: HttpException): Promise<void> {
-    throw new HttpException(
-      {
-        statusCode: error.getStatus(),
-        error: error.message,
-      },
-      error.getStatus(),
-      {
-        cause: error,
-      },
-    );
   }
 }
