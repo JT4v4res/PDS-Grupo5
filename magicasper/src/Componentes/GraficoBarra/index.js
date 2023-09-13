@@ -32,6 +32,9 @@ class barGraph extends Component {
           labels: {
             style: {
               colors: '#FFFFFF',
+              fontSize:  '20px',
+              fontWeight:  'bold',
+              fontFamily:  'Segoe UI',
             },
           },
         },
@@ -39,12 +42,29 @@ class barGraph extends Component {
           labels: {
             style: {
               colors: '#FFFFFF',
+              fontSize:  '20px',
+              fontWeight:  'bold',
+              fontFamily:  'Segoe UI',
             },
           },
         },
         legend: {
           labels: {
             colors: ['#9B96CBB2', '#9B96CBB2', '#9B96CBB2'],
+          },
+        },
+        title: {
+          text: 'Média de Notas',
+          align: 'Center',
+          margin: 10,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            fontSize:  '20px',
+            fontWeight:  'bold',
+            fontFamily:  'Segoe UI',
+            color:  '#D9D9D9'
           },
         },
         colors: [
