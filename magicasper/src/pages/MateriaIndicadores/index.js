@@ -7,7 +7,7 @@ import Rating from '../../Componentes/Rating';
 
 function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ratingStar, informativos){
   materia = "Estrutura de dados"
-  codigo = "BP336CB"
+  codigo = "COMP415"
   nivelEsforco = ['Baixo', 'Médio', 'Alto']
   ratingStar = 3.5
   dadosIndicadores = ['Cerca de 80% dos alunos são aprovados na 1ª tentativa', '88%  não recomendam pegar  essa matéria se não viu o básico de programação', '50% afirmam que o seu professor foi didático', '44% dos usuários já concluíram essa matéria', '90% dos alunos recomendam essa matéria no inicio do curso', '97% afirmam que essa matéria requer muito tempo de dedicação']

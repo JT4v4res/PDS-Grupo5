@@ -74,18 +74,17 @@ class barGraph extends Component {
       series: [
         {
           name: "maior nota",
-          data: [3, 2, 3, 5]
+          data: [7,4,4,8]
         },
         {
           name: "menor nota",
-          data: [4, 4, 5, 1]
+          data: [5, 3, 2, 7]
         },
         {
           name: "média de notas",
-          data: [7, 3, 2, 4]
+          data: [6, 3.5, 3, 7.5]
         }
       ],
-      selectedDataType: 'programação',
     };
   }
 

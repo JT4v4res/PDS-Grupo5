@@ -5,13 +5,10 @@ import SideBar from '../../Componentes/SideBar';
 export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRelevancia,descricao, professores, matExpositivo, literatura, questoes){
   materia = "Estrutura de dados"
   nivelEsforco = ['Baixo', 'Médio', 'Alto']
-  codigo = "BP336CB"
-  descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend. Suspendisse tincidunt, lectus vel ultricies malesuada, sapien augue placerat ex, ut blandit est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet."
+  codigo = "COMP415"
+  descricao = "As estruturas de dados definem a organização, métodos de acesso e opções de processamento para a informação manipulada pelo programa. A definição da organização interna de uma estrutura de dados é tarefa do projetista da estrutura, que define também qual a API2 para a estrutura, ou seja, qual o conjunto de procedimentos que podem ser usados para manipular os dados na estrutura."
   professores = ['Marcio Ribeiro', 'Roberta Lopes']
-  matExpositivo = ['Material 1', "Material 2"]
-  literatura = ['Material 1', 'Material 2']
-  questoes = ['Questão 1', 'Questão 2']
-  areaRelevancia = ['Programação Distribuida','Inteligencia Artificial', 'Análise de Algorítimos']
+  areaRelevancia = ['Programação Competitiva','Engenharia de Software', 'Análise de Algorítimos']
 
     return (
         <>

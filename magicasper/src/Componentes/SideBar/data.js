@@ -9,20 +9,20 @@ import * as RiIcons from "react-icons/ri"
 
 const subNav = [
   {
-    title: 'Professor 1',
+    title: 'Marcio Ribeiro',
     path: '../../professorDetalhes',
     icon: <BsIcons.BsPersonFill/>
   },
-  {
-    title: 'Professor 2',
-    path: '../../professorDetalhes',
-    icon: <BsIcons.BsPersonFill/>
-  },
-  {
-    title: 'Professor 3',
-    path: '../../professorDetalhes',
-    icon: <BsIcons.BsPersonFill/>
-  },
+  // {
+  //   title: 'Professor 2',
+  //   path: '../../professorDetalhes',
+  //   icon: <BsIcons.BsPersonFill/>
+  // },
+  // {
+  //   title: 'Professor 3',
+  //   path: '../../professorDetalhes',
+  //   icon: <BsIcons.BsPersonFill/>
+  // },
 ]
 
 export const SidebarData = [
