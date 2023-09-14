@@ -57,7 +57,7 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
                     {
                         dadosIndicadoresProfessor.map(dadosIndicadoresProfessor => (
                             <li>
-                                <a href='/'>{dadosIndicadoresProfessor}</a>
+                                <a href='#'>{dadosIndicadoresProfessor}</a>
                             </li>
                         ))
                     }

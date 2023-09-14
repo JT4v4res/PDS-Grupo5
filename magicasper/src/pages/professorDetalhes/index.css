@@ -36,11 +36,12 @@
 .main-content{
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 .left-content{
   background-color: rgba(155, 150, 203, 0.90);
   stroke-width: 1px;
-  width: 20%;
+  
   height: 729px;
   flex-shrink: 0;
   margin-left: 73px;
