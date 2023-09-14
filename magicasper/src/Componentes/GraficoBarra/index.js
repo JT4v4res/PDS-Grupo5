@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
-
+import './index.css'
 class barGraph extends Component {
   constructor(props) {
     super(props);
@@ -11,20 +11,86 @@ class barGraph extends Component {
         chart: {
           id: "basic-bar"
         },
+        zoom: {
+          enabled: true,
+          type: 'x',  
+          autoScaleYaxis: false,  
+          zoomedArea: {
+            fill: {
+              color: '#90CAF9',
+              opacity: 0.4
+            },
+            stroke: {
+              color: '#0D47A1',
+              opacity: 0.4,
+              width: 1
+            }
+          }
+      },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+          categories: ['2022.1','2022.2','2023.1','2023.2'],
+          labels: {
+            style: {
+              colors: '#FFFFFF',
+              fontSize:  '20px',
+              fontWeight:  'bold',
+              fontFamily:  'Segoe UI',
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: '#FFFFFF',
+              fontSize:  '20px',
+              fontWeight:  'bold',
+              fontFamily:  'Segoe UI',
+            },
+          },
+        },
+        legend: {
+          labels: {
+            colors: ['#9B96CBB2', '#9B96CBB2', '#9B96CBB2'],
+          },
+        },
+        title: {
+          text: 'Média de Notas',
+          align: 'Center',
+          margin: 10,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            fontSize:  '20px',
+            fontWeight:  'bold',
+            fontFamily:  'Segoe UI',
+            color:  '#D9D9D9'
+          },
+        },
+        colors: [
+          '#2E56DB','#D9D9D9','#47BCC7',
+        ]
       },
       series: [
         {
-          name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
+          name: "maior nota",
+          data: [3, 2, 3, 5]
+        },
+        {
+          name: "menor nota",
+          data: [4, 4, 5, 1]
+        },
+        {
+          name: "média de notas",
+          data: [7, 3, 2, 4]
         }
-      ]
+      ],
+      selectedDataType: 'programação',
     };
   }
 
   render() {
+    const { options, series, selectedDataType } = this.state;
     return (
       <div className="app">
         <div className="row">
@@ -33,7 +99,9 @@ class barGraph extends Component {
               options={this.state.options}
               series={this.state.series}
               type="bar"
-              width="500"
+              width='100%'
+              height={365}
+              
             />
           </div>
         </div>
