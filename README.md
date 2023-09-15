@@ -43,27 +43,47 @@ O discente possui as seguintes características:
 
 Devemos entregar **pequenas versões frequentes**. 
 
-### Marco 1 - 11/08/2023
-
-Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que isso aconteceu com base em `métricas para validar a hipótese do negócio`.
+### Marco 1 - 18/08/2023
 
 #### Funcionalidades
 
 - [x] Protótipo da tela de professor/matéria.
 - [x] CRUD de disciplinas.
 - [x] CRUD de professores.
+- [x] Criação dos endpoints para informações de disciplinas.
+- [x] Criação dos endpoints de professores.
 
-[Release Notes ](release_notes_1.md)
+### Marco 2 - 15/09/2023
 
-### Marco 2 - 18/08/2023
+#### Funcionalidades
 
-Acreditamos que esse `Marco 1` vai conseguir `resultado esperado`. Saberemos que isso aconteceu com base em `métricas para validar a hipótese do negócio`.
+- [x] Criação da tela de informações de disciplinas.
+- [x] Criação de endpoints da tela de usuário.
+- [x] Criação da tela de avaliação da matéria.
+- [x] Gráfico média notas por semestre
+- [x] Integração de front e back-end 
 
-#### Funcionalidades 
+### Marco 3 - 22/09/2023
 
-- [x] CRUD de comentários e média de classificação.
+#### Funcionalidades
 
-[Release Notes ](release_notes_1.md)
+- [ ] Criação da tela de usuário
+- [ ] Integração da tela de professores com os endpoints
+- [ ] Integração da tela de disciplinas com os endpoints
+- [ ] Documentação do projeto
+
+### Marco 4 - 29/09/2023
+
+#### Funcionalidades
+
+- [ ] Implementação da gamificação
+- [ ] Serviço de autenticação
+
+### Marco 5 - 17/10/2023
+
+#### Funcionalidades
+
+- [ ] Entrega da versão final do produto
 
 ## Riscos
 
