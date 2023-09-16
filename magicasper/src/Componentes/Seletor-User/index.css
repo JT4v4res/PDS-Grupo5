@@ -1,0 +1,12 @@
+.label-principal {
+  display: flex;
+}
+
+#seletor-user li{
+  float: left;
+  padding-top: 10px;
+  list-style: none;
+  font-size: 36px;
+  margin-bottom: 10px;
+
+}
