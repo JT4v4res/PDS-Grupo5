@@ -215,6 +215,9 @@
   color: #FFF;
 }
 
+.btn a:hover{
+  color: #rgba(150, 78, 244, 0.7);
+}
 .informativos{
   color: #FFF;
   text-align: center;
@@ -249,4 +252,63 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+.bottom-content{
+  width: 100%;
+  margin-top: 150px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+.bottom-content label{
+  margin-bottom: 40px;
+  color: #FFF;
+  font-family: Reem Kufi;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bottom-content span{
+  color: #CD1DC6;
+}
+.diciplinas-avaliar{
+  width: 60%;
+  height: 100%;
+  margin: 0px auto;
+  border-radius: 17px;
+  border: 1px solid rgba(205, 29, 198, 0.30);
+  background-color: rgba(155, 150, 203, 0.90);
+  filter: blur(0.5px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+.diciplinas-avaliar ul{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.diciplinas-avaliar li{
+  margin: 2% 5%;
+  list-style: none;
+  width: 22.90%;
+  height: 25%;
+  border-radius: 15px;
+  background-color: rgba(164, 93, 255, 0.70);
+  flex-shrink: 0;
+  padding: 15px 0px;
+  float: left;
+}
+.diciplinas-avaliar li a{
+
+  color: #FFF;
+}
+
+.diciplinas-avaliar li:hover{
+  background-color: rgba(150, 78, 244, 0.7); 
 }

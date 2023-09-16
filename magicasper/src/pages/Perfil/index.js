@@ -2,12 +2,12 @@ import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
 import { useRef } from 'react';
 
-function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas){
+function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
   pontuacao_user = 120
   materias_cursadas = 10
   materias_fazer = 20
-
+  diciplinas_avaliar =['Programação 1', 'Cálculo 1', 'Introdução a computação', 'Ciência de dados', 'Geometria analítica', 'Computação e ética']
   disciplinas_atual =[
     {
       nome: 'Teoria da Computação',
@@ -152,9 +152,7 @@ return (
             <a href='/#'>Ver Mais</a>
           </div>
         </div>
-
-
-        <div className='informativos'>
+      <div className='informativos'>
           <div className='left'>
             <div className='card-claro'>
                 <p>Avalie as matérias já cursadas Contribua para a comunidade e ganhe pontos por cada ação!</p>
@@ -167,7 +165,25 @@ return (
               </div>
           </div>
         </div>
-  
+        
+        <div className='bottom-content'>
+
+          <label><span>Disciplinas</span> a serem avaliadas</label>
+          
+          <div className='diciplinas-avaliar'>
+
+            <ul className='lista-disciplinas'>
+                      {
+                          diciplinas_avaliar.map(diciplinas_avaliar => (
+                              <li>
+                                  <a href='/#'>{diciplinas_avaliar}</a>
+                              </li>
+                          ))
+                      }
+            </ul>
+          </div>
+        </div>
+            
 
       </div>
     </div>
