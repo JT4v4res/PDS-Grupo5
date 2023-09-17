@@ -2,6 +2,17 @@ import SeletorCurso from '../../Componentes/Seletor-Curso';
 import './index.css';
 import "@fontsource/reem-kufi";
 import { Link } from "react-router-dom"
+import React from 'react';
+import api from "../../Componentes/apis";
+
+let data;
+
+api
+    .get('/materia')
+    .then((res) => {
+      data = res.data;
+      console.log('Res.data: ',res.data);
+    });
 
 function verifyLabel(label){
   let imgPath = document.createElement('img');
@@ -22,28 +33,31 @@ function verifyLabel(label){
   )
 }
 
-function Materias (label, curso, materia, codigo, periodo){
-  curso = "Ciência da Computação"
-  materia  = "Estrutura de Dados"
-  codigo = "BP336CB"
-  periodo = "2"
-  label = "P"
+function Materias (){
+  // curso = "Ciência da Computação"
+  // materia  = "Estrutura de Dados"
+  // codigo = "BP336CB"
+  // periodo = "2"
+  // label = "P"
   // console.log(curso)
+    console.log('data', data);
 return (
 <>
-  <SeletorCurso texto={curso}/>
+
+
+  <SeletorCurso texto={data[0].curso}/>
 
   <div id='barra-busca'/>
 
   <div id='container-cards'>
     <div id='card-unitario'>
     {/* <img src='../../img/categoria-programming.png' className='img-background-label'/> */}
-    {verifyLabel(label)}
+    {verifyLabel(data[0].label)}
       <div id='conteudo-card-unitario'>
-        <label className='title' key={materia}>{materia}</label>
+        <label className='title' key={data[0].nome}>{data[0].nome}</label>
         <ul>
-          <li key={codigo}><label className='code'>Código: {codigo}</label></li>
-          <li key={periodo}><label className='code'>Período: {periodo}</label></li>
+          <li key={data[0].codigo}><label className='code'>Código: {data[0].codigo}</label></li>
+          <li key={data[0].periodo}><label className='code'>Período: {data[0].periodo}</label></li>
         </ul>
         <label className='button'>
           <Link to='/MateriaDetalhes'>Saber mais</Link>

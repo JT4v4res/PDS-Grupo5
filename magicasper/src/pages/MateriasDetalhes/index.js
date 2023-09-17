@@ -1,13 +1,25 @@
 import "@fontsource/reem-kufi";
 import './index.css';
 import SideBar from '../../Componentes/SideBar';
+import api from "../../Componentes/apis";
+
+let data;
+
+api
+    .get(`/materia/${1}`)
+    .then((res) => {
+        data = res.data;
+        console.log(data);
+    }).catch((e) => {
+        console.log('erro: ', e);
+});
 
 export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRelevancia,descricao, professores, matExpositivo, literatura, questoes){
-  materia = "Estrutura de dados"
-  nivelEsforco = ['Baixo', 'Médio', 'Alto']
-  codigo = "BP336CB"
-  descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend. Suspendisse tincidunt, lectus vel ultricies malesuada, sapien augue placerat ex, ut blandit est mi sit amet ligula. Etiam posuere arcu ac tortor pretium aliquet."
-  professores = ['Marcio Ribeiro', 'Roberta Lopes']
+  materia = data.nome
+  nivelEsforco = data.nivelEsforco
+  codigo = data.codigo
+  descricao = data.descricao
+  professores = data.professores
   matExpositivo = ['Material 1', "Material 2"]
   literatura = ['Material 1', 'Material 2']
   questoes = ['Questão 1', 'Questão 2']

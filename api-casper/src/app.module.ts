@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProfessorModule } from './professor/professor.module';
 import { MateriaModule } from './materia/materia.module';
@@ -6,6 +6,13 @@ import { typeOrmConfig } from './core/infra/config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
 import { RelevantAreaModule } from './relevant_area/relevant_area.module';
 import { AvaliationModule } from './avaliacao/avaliation.module';
+import { RequestLoggerMiddleware } from './core/infra/middlewares/logger/logger.middleware';
+import { ProfessorController } from './professor/professor.controller';
+import { MateriaController } from './materia/materia.controller';
+import { RelevantAreaController } from './relevant_area/relevant_area.controller';
+import { AvaliationController } from './avaliacao/avaliation.controller';
+import { APP_FILTER } from '@nestjs/core';
+import { ValidationExceptionFilter } from './core/infra/middlewares/logger/exceptionfilter.filter';
 
 @Module({
   imports: [
@@ -18,5 +25,22 @@ import { AvaliationModule } from './avaliacao/avaliation.module';
     RelevantAreaModule,
     AvaliationModule,
   ],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: ValidationExceptionFilter,
+    },
+  ],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(RequestLoggerMiddleware)
+      .forRoutes(
+        ProfessorController,
+        MateriaController,
+        RelevantAreaController,
+        AvaliationController,
+      );
+  }
+}

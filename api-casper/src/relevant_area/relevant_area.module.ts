@@ -8,5 +8,6 @@ import { RelevantAreaService } from './relevant_area.service';
   imports: [TypeOrmModule.forFeature([RelevantAreaEntity])],
   controllers: [RelevantAreaController],
   providers: [RelevantAreaService],
+  exports: [TypeOrmModule],
 })
 export class RelevantAreaModule {}

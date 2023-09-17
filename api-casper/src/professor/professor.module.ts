@@ -8,5 +8,6 @@ import { ProfessorEntity } from './entity/professor.entity';
   imports: [TypeOrmModule.forFeature([ProfessorEntity])],
   controllers: [ProfessorController],
   providers: [ProfessorService],
+  exports: [TypeOrmModule, ProfessorService],
 })
 export class ProfessorModule {}

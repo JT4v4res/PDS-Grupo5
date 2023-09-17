@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Entity,
   Column,
   PrimaryColumn,
@@ -12,7 +13,7 @@ import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.ent
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 
 @Entity()
-export class MateriaEntity {
+export class MateriaEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   materiaId: number;
 
@@ -23,29 +24,31 @@ export class MateriaEntity {
   tipo: string;
 
   @Column({ nullable: false })
+  nivelEsforco: string;
+
+  @Column({ length: 1 })
+  label: string;
+
+  @Column()
+  curso: string;
+
+  @Column()
+  periodo: number;
+
+  @Column({ nullable: false })
   nome: string;
 
   @Column({ nullable: false })
   descricao: string;
 
-  @ManyToMany(() => RelevantAreaEntity, (professor) => professor.materias)
+  @ManyToMany(() => ProfessorEntity, (professor) => professor.materias)
   @JoinTable()
   professores: ProfessorEntity[];
 
   @ManyToMany(() => RelevantAreaEntity, (area) => area.materias)
   @JoinTable()
-  areasAtuacao: ProfessorEntity[];
+  areasAtuacao: RelevantAreaEntity[];
 
   @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
   avaliacoes: AvaliationEntity[];
-
-  constructor(materia?: Partial<MateriaEntity>) {
-    this.codigo = materia.codigo;
-    this.tipo = materia.tipo;
-    this.nome = materia.nome;
-    this.descricao = materia.descricao;
-    this.professores = materia.professores;
-    this.areasAtuacao = materia.areasAtuacao;
-    this.avaliacoes = materia.avaliacoes;
-  }
 }

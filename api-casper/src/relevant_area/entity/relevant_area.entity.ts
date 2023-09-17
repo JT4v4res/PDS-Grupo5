@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, ManyToMany, BaseEntity} from 'typeorm';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
 
 @Entity()
-export class RelevantAreaEntity {
+export class RelevantAreaEntity extends BaseEntity{
   @PrimaryGeneratedColumn()
   areaId: number;
 
@@ -12,9 +12,9 @@ export class RelevantAreaEntity {
   @ManyToMany(() => MateriaEntity, (materia) => materia.areasAtuacao)
   materias: MateriaEntity[];
 
-  constructor(relevantArea?: Partial<RelevantAreaEntity>) {
-    this.areaId = relevantArea.areaId;
-    this.area = relevantArea.area;
-    this.materias = relevantArea.materias;
-  }
+  // constructor(relevantArea?: Partial<RelevantAreaEntity>) {
+  //   this.areaId = relevantArea.areaId;
+  //   this.area = relevantArea.area;
+  //   this.materias = relevantArea.materias;
+  // }
 }
