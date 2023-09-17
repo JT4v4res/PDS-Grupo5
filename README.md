@@ -88,33 +88,22 @@ Devemos entregar **pequenas versões frequentes**.
 ## Riscos
 
 1. **Risco 1**: O sistema pode enfrentar problemas de compatibilidade ou inconsistência ao analisar o PDF enviado pelo aluno. Isso pode ocorrer devido a diferentes formatos de PDF, estruturas variadas ou erros de extração de dados.
-*Severidade Baixa e Probabilidade Alta*.
+   
+      *Severidade Baixa e Probabilidade Alta*.
 
-   Ações para mitigação do risco:
+      Ações para mitigação do risco:
 
-   * Implementar uma etapa de pré-processamento robusta que verifique e normalize os dados extraídos do PDF. Uso de NLP; Incluir o usuário na etapa de revisão e correção de dados extraídos.
+      * Implementar uma etapa de pré-processamento robusta que verifique e normalize os dados extraídos do PDF. Incluir o usuário na etapa de revisão e correção de dados extraídos.
 
-2. **Risco 2**: O sistema pode recomendar combinações de disciplinas que não sejam viáveis para o aluno devido a conflitos de horários ou pré-requisitos não atendidos.
-*Severidade Média e Probabilidade Alta*.
 
-   Ações para mitigação do risco:
-
-   * Implementar restrições no algoritmo de recomendação para garantir que as combinações propostas respeitem os horários e os pré-requisitos das disciplinas. Avaliar a melhor forma de obter os feedbacks sobre requisitos e complexidade da disciplina.
-   * Fornecer opção de revisar e ajustar recomendações durante o período de matrícula no sistema acadêmico.
-
-3. **Risco 3**: A API do sistema pode ficar disponível para acessos externos, possibilitando o acesso a dados sensíveis dos usuários.
-   *Severidade Alta e Probabilidade Média*.
+2. **Risco 2**: A comunicação entre front e back-end, além da exposição indesejada da API do sistema para acessos externos, possibilita o acesso a dados sensíveis dos usuários e riscos de ataque man in the middle, ocasionando furto de informações.
+   
+      *Severidade Alta e Probabilidade Média*.
 
       Ações para mitigação do risco:
 
       * Implementar um serviço de autenticação na API, definindo e restringindo acesso aos endpoints via permissões de usuário de nível de autoridade.
       * Permitir que somente usuários com nível de Administrador criem outros usuários administradores.
-
-4. **Risco 4**: A comunicação entre front, back e modelo de recomendação pode conter alguns dados sensíveis, a exposição desses dados pode levar a riscos de ataque man in the middle, ocasionando em furto de informações.
-   *Severidade Alta e Probabilidade Média*.
-
-      Ações para mitigação do risco:
-
       * Uso de criptografia para comunicação, cifrando os dados sensíveis, dificultando a leitura e interpretação dos mesmos.
 
 ## Componentes
