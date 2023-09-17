@@ -1,6 +1,8 @@
 import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
+import { Link } from "react-router-dom"
 import { useRef } from 'react';
+import * as FiIcons from "react-icons/fi"
 
 function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
@@ -72,10 +74,15 @@ return (
   <>
   <div className='user-info'>
     <div className='personal-info'>
-      <SeletorUser texto={user[0]}/>
-      <label>{user[1]}</label>
-      <label>{user[2]}</label>
-      <label>Semestre: {user[3]}</label>
+      <div className='userlogout'>
+         <SeletorUser texto={user[0]}/>
+         <FiIcons.FiLogOut className='icon-logout'/>
+      </div>
+      <div className='user-details'>
+        <label>{user[1]}</label>
+        <label>{user[2]}</label>
+        <label>Semestre: {user[3]}</label>
+      </div>
       <div className='btn'>
         {/* <input type="file" multiple ref={filesElement}></input> */}
         <button onClick={sendFile}>Histórico Analítico</button>
@@ -107,7 +114,7 @@ return (
 
       <div className='center-content'>
         <div className='matricula-info'>
-          <label>Matricula atual</label>
+          <label>Matrícula atual</label>
           <hr className='horiz-line-style'></hr>
           
           <div className='disciplina-matricula'>
@@ -176,7 +183,8 @@ return (
                       {
                           diciplinas_avaliar.map(diciplinas_avaliar => (
                               <li>
-                                  <a href='/#'>{diciplinas_avaliar}</a>
+                                {/* Ver como importar variavel */}
+                                <Link to={'./../AvaliacaoMateria'}>{diciplinas_avaliar}</Link>
                               </li>
                           ))
                       }

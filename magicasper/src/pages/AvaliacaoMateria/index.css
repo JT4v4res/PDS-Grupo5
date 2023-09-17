@@ -1,0 +1,76 @@
+.materia-title{
+ height: 35%;
+ align-items: center;
+ text-align: center;
+}
+.conteiner-top{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 25%;
+}
+.conteiner-top h2{
+  color: #D9D9D9;
+  text-align: center;
+  font-family: Reem Kufi;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.linha-lilas{
+  background:#9B96CB; 
+}
+.linha-rosa{
+  background: #CD1DC6; 
+}
+.main-content{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+.left-info{
+  color: #fff;
+  width: 20%;
+}
+.disciplina-info{
+  border-radius: 17px;
+  border: 1px solid rgba(205, 29, 198, 0.30);
+  background-color: rgba(155, 150, 203, 0.90);
+  width: 75%;
+  height: 18%;
+  margin: 7%;
+  padding: 3%;
+}
+.disciplina-info ul li{
+  list-style: none;
+  margin: 6%;
+}
+.disciplina-info label{
+  display: block;
+  margin-bottom: 3%;
+}
+
+.card-claro-form{
+  padding: 10px;
+  text-align: center;
+  align-items: center;
+  width: 75%;
+  height: 128px;
+  flex-shrink: 0;
+  margin: 7%;
+  margin-top: 120px;
+  background-color: rgba(205, 29, 198, 0.40);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+
+.form-side{
+  width: 70%;
+  border-radius: 17px;
+  background-color: rgba(155, 150, 203, 0.90);
+  stroke-width: 1px;
+  margin-top: 1.5%;
+  margin-left: 1%;
+  margin-bottom: 30px;
+  stroke: rgba(205, 29, 198, 0.20);
+}

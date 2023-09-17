@@ -1,0 +1,71 @@
+*{
+  color: #D9D9D9;
+  font-family: Reem Kufi;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.title-form{
+  text-align: center;
+  padding: 2%;
+}
+.title-form h3{
+ font-size: 32px;
+ padding: 0px;
+}
+.title-form p{
+  padding: 0px 15%;
+  font-size: 18px;
+}
+.questions{
+  margin: 2% 5%;
+}
+.form-group input{
+  margin-top: 18px;
+  margin-left: 10px;
+  display: block;
+}
+.resposta{
+  font-size: 18px;
+}
+.lista-form{
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-group{
+  margin-bottom: 3%;
+}
+.form-group .dropbox{
+  color: black;
+}
+.form-group option {
+  color: black;
+}
+.btn-form{
+  padding-left: 85%;
+  margin-bottom: 20px;
+}
+.item{
+  margin-left: 4%;
+  margin-right: 5%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+button{
+  border-radius: 15px;
+  background-color: #A45DFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 149.777px;
+  height: 32.359px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px; 
+  gap: 10px;
+  flex-shrink: 0; 
+  cursor: pointer;
+}
+button:hover{
+  background-color: #913efe;
+}

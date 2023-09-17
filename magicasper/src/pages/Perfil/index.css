@@ -20,6 +20,18 @@
   padding-left: 3%;
   width: 40%;
 }
+.userlogout{
+  display: flex;
+  flex-wrap: wrap;
+}
+.userlogout .icon-logout{
+  cursor: pointer;
+  margin-top:5%;
+  margin-left: 2%;
+}
+.userlogout .icon-logout:hover{
+  color: gray;
+}
 .btn{
   width: 30%;
   text-align: center;
@@ -207,6 +219,7 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  cursor: pointer;
   border-radius: 15px; 
   background-color: #A45DFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
@@ -215,9 +228,6 @@
   color: #FFF;
 }
 
-.btn a:hover{
-  color: #rgba(150, 78, 244, 0.7);
-}
 .informativos{
   color: #FFF;
   text-align: center;
@@ -247,6 +257,7 @@
   height: 128px;
   flex-shrink: 0; 
   background-color: rgba(205, 29, 198, 0.40);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
 }
 .card-claro p{
   flex-direction: column;
@@ -301,6 +312,7 @@
   border-radius: 15px;
   background-color: rgba(164, 93, 255, 0.70);
   flex-shrink: 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
   padding: 15px 0px;
   float: left;
 }
