@@ -1,6 +1,7 @@
 import Navbar from './Componentes/Navbar';
 import SideBar from './Componentes/SideBar';
 import SubMenu from './Componentes/SideBar';
+import Dropdown from './Componentes/Dropdown';
 import FormularioAvaliacao from './Componentes/FormularioAvaliacao';
 import Materias from './pages/Materias';
 import Home from './pages/Home';
@@ -31,7 +32,9 @@ function App (){
         <Route path="/Sidebar" element={<SideBar/>}/>
         <Route path="/SubMenu" element={<SubMenu/>}/>
         <Route path="/FormularioAvaliacao" element={<FormularioAvaliacao/>}/>
+        <Route path="/Dropdown" element={<Dropdown/>}/>
       </Routes>
+
     </div>
   </>
   );

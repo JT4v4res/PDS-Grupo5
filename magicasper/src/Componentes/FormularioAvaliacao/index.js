@@ -1,7 +1,22 @@
 import './index.css';
+import Dropdown from '../Dropdown';
 
+const items = [
+  {
+    id: 1,
+    value: 'Primeiro',
+  },
+  {
+    id: 2,
+    value: 'Segundo',
+  },
+  {
+    id: 3,
+    value: 'Terceiro',
+  },
+];
 const FormularioAvaliacao= ()=>{
-
+  
   return(
     <form>
       <div className='title-form'>
@@ -100,13 +115,7 @@ const FormularioAvaliacao= ()=>{
         </div>
         <div className='form-group'>
             <label for="q1">Em qual periodo  é recomendável pagar essa disciplina? </label><br></br>
-            <select className='dropbox' name="periodo" id="periodo" label='periodo' required>
-              <optgroup className='dropbox' label="periodo">
-                <option value="1">1ª</option>
-                <option value="2">2ª</option>
-                <option value="3">3ª</option>
-              </optgroup>
-            </select>
+            <Dropdown title="Período" items={items} />
         </div>
       </div>
     

@@ -10,7 +10,7 @@
   width: 25%;
 }
 .conteiner-top h2{
-  color: #D9D9D9;
+  color: #fff;
   text-align: center;
   font-family: Reem Kufi;
   font-size: 32px;
@@ -38,7 +38,7 @@
   border: 1px solid rgba(205, 29, 198, 0.30);
   background-color: rgba(155, 150, 203, 0.90);
   width: 75%;
-  height: 18%;
+  height: 155px;
   margin: 7%;
   padding: 3%;
 }
