@@ -55,7 +55,7 @@
 }
 
 /* Botão */
-button{
+.btn-form button{
   border-radius: 15px;
   background-color: #A45DFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -65,9 +65,13 @@ button{
   align-items: center;
   font-size: 16px; 
   gap: 10px;
+  color:#fff;
   flex-shrink: 0; 
   cursor: pointer;
 }
-button:hover{
+.btn-form button:hover{
   background-color: #913efe;
+}
+.btn-form a{
+  color: #fff;
 }

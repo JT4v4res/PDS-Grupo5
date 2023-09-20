@@ -34,6 +34,7 @@
 }
 .btn{
   width: 30%;
+  
   text-align: center;
   padding: 0px 15px;
   margin-left: 15px;
@@ -43,6 +44,7 @@
   font-size: 14px;
   background-color: #9B96CB;
   flex-shrink: 0;
+  height: 40px;
   /* width: 100%; */
   padding: 5% 10%;
   border-radius: 5px;

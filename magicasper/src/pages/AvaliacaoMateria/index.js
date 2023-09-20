@@ -17,13 +17,13 @@ function AvaliacaoMateria(disciplina){
     <>
       <div className='materia-title'>
         <div className='conteiner-top'>
-          <hr className='linha-lilas'></hr>
-          {
-            disciplina.map(disciplina => (
-                      <h2>{disciplina.nome}</h2>
-          ))
-          }
-          <hr className='linha-rosa'></hr>
+          <div className='linha-lilas'/>
+              {
+                disciplina.map(disciplina => (
+                          <h2>{disciplina.nome}</h2>
+              ))
+              }
+          <div className='linha-rosa'/>
         </div>
       </div>
       <div className='main-content'>
@@ -56,3 +56,4 @@ function AvaliacaoMateria(disciplina){
 }
 
 export default AvaliacaoMateria;
+

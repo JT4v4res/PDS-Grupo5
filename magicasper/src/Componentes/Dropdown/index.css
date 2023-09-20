@@ -51,7 +51,8 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  padding: 15px 20px 15px 20px;
+  height: 40px;
+  padding: 10px 20px 15px 20px;
   border: 0;
   border-bottom: 1px solid #ccc;
   width: 100%;
@@ -61,7 +62,7 @@
 }
 
 
-.dd-list-item button::hover, button::focus{
+.dd-list-item button:hover, .dd-list-item button:focus{
   cursor: pointer;
   font-weight: bold;
   background-color: #A45DFF;

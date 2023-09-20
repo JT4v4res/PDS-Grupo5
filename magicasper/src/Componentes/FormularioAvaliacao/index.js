@@ -1,18 +1,27 @@
 import './index.css';
 import Dropdown from '../Dropdown';
+import { Link } from "react-router-dom"
 
 const items = [
   {
     id: 1,
-    value: 'Primeiro',
+    value: '1ª',
   },
   {
     id: 2,
-    value: 'Segundo',
+    value: '2ª',
   },
   {
     id: 3,
-    value: 'Terceiro',
+    value: '3ª',
+  },
+  {
+    id: 4,
+    value: '4ª',
+  },
+  {
+    id: 5,
+    value: '5ª',
   },
 ];
 const FormularioAvaliacao= ()=>{
@@ -120,7 +129,7 @@ const FormularioAvaliacao= ()=>{
       </div>
     
       <div className='btn-form'>
-        <button type='submit'>Enviar</button>
+        <button type='submit'><Link to={'../../AvaliacaoGeral'}>Continuar</Link></button>
       </div>
     </form>
   )
