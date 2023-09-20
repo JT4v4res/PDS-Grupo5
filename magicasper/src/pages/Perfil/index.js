@@ -1,7 +1,7 @@
 import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
 import { Link } from "react-router-dom"
-import { useRef } from 'react';
+import React, { useState, useRef } from "react"; 
 import * as FiIcons from "react-icons/fi"
 
 function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
@@ -56,19 +56,19 @@ function Home (user, pontuacao_user, materias_cursadas, materias_fazer, discipli
       pontosRecebidos:10
     },
   ]
+  const [files, setFiles] = useState([]); // Alterei o nome de 'file' para 'files'
+  const inputFile = useRef(null);
 
-  const filesElement = useRef(null);
-  const sendFile = async () => {
-    const dataForm = new FormData();
-    for (const file of filesElement.current.files) {
-      dataForm.append('file', file);
-    }
-    const res = await fetch(`http://localhost:3000/perfil`, {
-      method: 'POST',
-      body: dataForm,
-    });
-    const data = await res.json();
-    console.log(data);
+  const handleChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFiles((prevFiles) => [
+      ...prevFiles,
+      { id: Date.now(), file: selectedFile }, // Adicionando um identificador único
+    ]);
+  };
+
+  const removeFile = (id) => {
+    setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
   };
 return (
   <>
@@ -83,10 +83,21 @@ return (
         <label>{user[2]}</label>
         <label>Semestre: {user[3]}</label>
       </div>
-      <div className='btn'>
-        {/* <input type="file" multiple ref={filesElement}></input> */}
-        <button onClick={sendFile}>Histórico Analítico</button>
-      </div>
+      <div className="btn">
+            <button onClick={() => inputFile.current.click()}>
+              <img src="https://www.svgrepo.com/show/12604/paper-clip.svg" alt="Anexar arquivo" />
+            </button>
+            <strong>Histórico Analítico</strong>
+
+            <input type="file" onChange={handleChange} ref={inputFile} />
+
+            {files.map((file) => (
+              <span key={file.id}>
+                {file.file.name}
+                <button onClick={() => removeFile(file.id)}> [ X ] </button>
+              </span>
+            ))}
+          </div>
     </div>
 
       <div className='info-points'>
