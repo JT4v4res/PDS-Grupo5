@@ -168,10 +168,6 @@ return (
                   </ul>
             </div>
           </div>
-         
-          <div className='btn'>
-            <a href='/#'>Ver Mais</a>
-          </div>
         </div>
       <div className='informativos'>
           <div className='left'>

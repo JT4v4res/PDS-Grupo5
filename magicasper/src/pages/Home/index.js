@@ -22,7 +22,6 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual, ma
       dificuldade: 'facil',
       pontosRecebidos:15
     },
-
   ]
   disciplinas_atual =[
     {

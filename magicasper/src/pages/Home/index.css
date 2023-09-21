@@ -45,6 +45,7 @@
 }
 .contribuicoesComunidade .acoesPontuadas{
   height: 350px;
+  overflow-y: scroll;
 }
 
 .rigth-side .progressoCurso{
