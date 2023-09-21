@@ -1,6 +1,7 @@
 import "@fontsource/reem-kufi";
 import './index.css';
 import SideBar from '../../Componentes/SideBar';
+import Navbar from '../../Componentes/Navbar';
 
 export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRelevancia,descricao, professores, matExpositivo, literatura, questoes){
   materia = "Estrutura de dados"
@@ -15,6 +16,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
 
     return (
         <>
+        <Navbar/>
         <div className='page-content'>
             <SideBar/>
         </div>

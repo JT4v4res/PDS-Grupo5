@@ -1,9 +1,9 @@
 import './index.css';
 import SideBar from '../../Componentes/SideBar';
-import AvaliacaoEstrela from '../../Componentes/Avaliacao-Estrela';
 import SeletorCurso from "../../Componentes/Seletor-Curso";
 import BarGraph from "../../Componentes/GraficoBarra";
 import Rating from '../../Componentes/Rating';
+import Navbar from '../../Componentes/Navbar';
 
 function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ratingStar, informativos){
   materia = "Estrutura de dados"
@@ -14,6 +14,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   informativos = ['Mais de 70 alunos já avaliaram essa matéria', 'A última avaliação  foi feita em 10/10/2024']
   return (
   <>
+  <Navbar/>
   <div className='page-content'>
     <div className='title-content'>
       <SideBar/>

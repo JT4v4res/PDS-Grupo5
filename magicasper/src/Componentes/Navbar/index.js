@@ -8,7 +8,7 @@ return <header>
         <nav id="navbar">
           <div className="container">
             <h1 className="logo">
-              <Link to="index.html">Magi Casper</Link>
+              <Link to="/MagicasperInicial">Magi Casper</Link>
             </h1>
             <ul>
               <li><Link to="/Home">Home</Link></li>

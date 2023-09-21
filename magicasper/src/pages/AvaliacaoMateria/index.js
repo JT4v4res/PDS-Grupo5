@@ -1,5 +1,6 @@
 import './index.css';
 import FormularioAvaliacao from '../../Componentes/FormularioAvaliacao';
+import Navbar from '../../Componentes/Navbar';
 
 
 function AvaliacaoMateria(disciplina){
@@ -15,6 +16,7 @@ function AvaliacaoMateria(disciplina){
   
   return(
     <>
+    <Navbar/>
       <div className='materia-title'>
         <div className='conteiner-top'>
           <div className='linha-lilas'/>

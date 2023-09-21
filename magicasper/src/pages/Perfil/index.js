@@ -3,6 +3,7 @@ import SeletorUser from '../../Componentes/Seletor-User';
 import { Link } from "react-router-dom"
 import React, { useState, useRef } from "react"; 
 import * as FiIcons from "react-icons/fi"
+import Navbar from '../../Componentes/Navbar';
 
 function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
@@ -72,6 +73,8 @@ function Home (user, pontuacao_user, materias_cursadas, materias_fazer, discipli
   };
 return (
   <>
+  <Navbar />
+
   <div className='user-info'>
     <div className='personal-info'>
       <div className='userlogout'>

@@ -1,4 +1,5 @@
 import './index.css';
+import Navbar from '../../Componentes/Navbar';
 import { useState } from "react";
 import Star from '../../Componentes/Star'
 import { Link } from "react-router-dom"
@@ -14,6 +15,7 @@ function AvaliacaoGeral(materia){
   return(
 
     <>
+      <Navbar/>
         <div className='materia-title'>
         <div className='conteiner-top'>
           <div className='linha-lilas'/>
