@@ -1,0 +1,98 @@
+.page-content {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh;
+}
+
+.img-container{
+    border-radius: 49px 0px 0px 49px;
+    border: 1px solid #000;
+    background: linear-gradient(180deg, rgba(101, 100, 191, 0.50) 15.21%, rgba(100, 149, 237, 0.00) 73.54%);
+    mix-blend-mode: multiply;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 25%;
+    height: 45%;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.img-container img{
+    height: 60%;
+    mix-blend-mode: soft-light;
+}
+
+.login-container {
+    border-radius: 0px 49px 49px 0px;
+    border: 1px solid #000;
+    background: #D4DCE9;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 25%;
+    height: 45%;
+}
+
+.login-container h2{
+    color: #5A3693;
+    font-family: Reem Kufi;
+    text-align: left;
+    font-size: 49px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90px;
+    margin-left: 25px;
+}
+
+.login-container #usuario {
+    display: flex;
+    width: 159px;
+    height: 79px;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    color: #5A3693;
+    text-align: center;
+    font-family: Reem Kufi;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90px; /* 375% */
+}
+
+.login-container #senha{
+    display: flex;
+    width: 159px;
+    height: 79px;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    color: #5A3693;
+    text-align: center;
+    font-family: Reem Kufi;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90px; /* 346.154% */
+}
+
+.button-box {
+    fill: #5A3693;
+    stroke-width: 1px;
+    stroke: #000;
+    backdrop-filter: blur(2px);
+}
+.login-container button{
+    display: flex;
+    width: 159px;
+    height: 79px;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    color: #D4DCE9;
+    text-align: center;
+    font-family: Reem Kufi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 90px; /* 450% */
+}
