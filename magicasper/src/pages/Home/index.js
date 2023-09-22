@@ -1,8 +1,9 @@
 import './index.css';
 import Navbar from '../../Componentes/Navbar';
 import BarGraph from "../../Componentes/GraficoBarra";
+import ProgressBar from "../../Componentes/ProgressBar"
 
-function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual, materias_fazer, pontuacoes_ganhas){
+function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
   UserData = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1", '4']
   pontuacao_user = 120
   materias_cursadas = 10
@@ -26,25 +27,41 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual, ma
   disciplinas_atual =[
     {
       nome: 'Teoria da Computação',
-      codigo: 'COMP321'
+      codigo: 'COMP321',
+      bgcolor: "#6a1b9a",
+      completed: 60 
     },
     {
       nome: 'Programação 2',
-      codigo: 'COMP321'
+      codigo: 'COMP321',
+      bgcolor: "#00695c", 
+      completed: 30
     },
     {
       nome: 'Matemática Discreta',
-      codigo: 'COMP321'
+      codigo: 'COMP321',
+      bgcolor: "#38a7ff", 
+      completed: 93
     },
     {
       nome: 'Sistemas distribuidos',
-      codigo: 'COMP321'
+      codigo: 'COMP321',
+      bgcolor: "#ef6c00", 
+      completed: 53
     },
     {
       nome: 'Lógica para Computação',
-      codigo: 'COMP321'
+      codigo: 'COMP321',
+      bgcolor: "#afcd00", 
+      completed: 73 
     },
   ]
+
+  BarraProgressoData = [
+    { bgcolor: "#6a1b9a", completed: 60 },
+  ];
+
+
   return (
   <>
     <Navbar/>
@@ -86,7 +103,11 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual, ma
       <div className='rigth-side'>
         <div className='progressoCurso'>
             <header>Seu progreso no curso <span>{UserData[1]}</span></header>
-            <div className='Desempenho'></div>
+            <div className='Desempenho'>
+                {BarraProgressoData.map((item, idx) => (
+                             <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
+                ))}
+            </div>
             <header>Disciplinas cursadas: {materias_cursadas}</header>
             <header>Restam: {materias_fazer}</header>
         </div>
@@ -98,6 +119,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual, ma
                           disciplinas_atual.map(disciplinas_atual => (
                               <li>
                                   {disciplinas_atual.nome}
+                                  <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual.bgcolor} completed={disciplinas_atual.completed} />
                               </li>
                           ))
                       }
