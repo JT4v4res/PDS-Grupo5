@@ -1,0 +1,63 @@
+.avaliation-box{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7%;
+  width: 957px;
+  height: 374px;
+  flex-shrink: 0;
+  background-color: rgba(155, 150, 203, 0.90);
+  text-align: center;
+  border-radius: 10px;
+}
+.avaliation-box .text{
+  font-family: Reem Kufi;
+  width: 957px;
+  height: 374px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 40px;
+}
+.text h1{
+  font-size: 30px;
+  padding-bottom: 0px;
+}
+.text p{
+  font-size: 25px;
+ 
+}
+.texto-menor{
+  padding: 0px 130px;
+}
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0px;
+  width: 149.777px;
+  height: 135px;
+}
+button:hover{
+  background-color: inherit;
+}
+
+.btn-av_geral {
+  width: 149.777px;
+  height: 35px;
+  text-align: center;
+  justify-content: center;
+  background-color: #A45DFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+  border-radius: 15px;
+  padding-top: 6px;
+  margin-left: 80%;
+}
+.btn-av_geral a{
+  color: #fff;
+}
+
+.btn-av_geral:hover{
+  cursor: pointer;
+  background-color: #9a52f8;
+
+}

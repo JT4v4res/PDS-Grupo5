@@ -1,0 +1,133 @@
+.geral{
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.esq-box{
+  width: 45%;
+  text-align: center;
+  align-items: center;
+  padding: 20% 5%;
+}
+.esq-box .titles{
+  margin-bottom: 4%;
+}
+.esq-box .linha-rosa{
+  width: 90%;
+}
+.esq-box  .titles h2{
+  color: #FFF;
+  text-align: center;
+  font-family: Reem Kufi;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.esq-box .titles header{
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Suez One;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.text-info{
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 40px;
+}
+.dir-box{
+  width: 55%;
+  border: 1px solid rgba(205, 29, 198, 0.20);
+  background-color: rgba(155, 150, 203, 0.90);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding-top: 5%;
+  padding-left: 3%;
+}
+.dir-box .card-azul{
+  width: 367px;
+  height: 128px;
+  flex-shrink: 0;
+  background-color: rgba(44, 39, 118, 0.80);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  justify-content: center;
+}
+.card-azul p{
+  padding-top: 10%;
+}
+
+.dir-box .card-azul-2{
+  width: 367px;
+  height: 128px;
+  flex-shrink: 0;
+  background-color: rgba(44, 39, 118, 0.80);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  justify-content: center;
+  margin-left: 50%;
+}
+.card-azul-2 p{
+  padding-top: 10%;
+}
+.dir-box .box-enter{
+  text-align: center;
+  padding: 5%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.dir-box .box-enter header{
+  text-align: center;
+  font-family: Reem Kufi;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 50px;
+}
+.box-enter .button{
+  background-color: #5A3693;
+  padding: 10px 30px;
+  width: 100px;
+  height: 50px;
+  flex-shrink: 0;
+  margin: 10%  2%;
+  border-radius: 10px;
+  display: inline;
+}
+.box-enter .button:hover{
+  background-color: #4d2194;
+
+}
+.box-enter .button a{
+  color: #FFF;
+}
+.footer-info .Linha-vertical{
+  height: 22px;/*Altura da linha*/
+  border-left: 2px solid;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.footer-info{
+  margin-top: 70px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-info a{
+  color:#FFF;
+}
+.footer-info a:hover{
+  color: #5A3693;
+}

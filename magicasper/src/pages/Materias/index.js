@@ -1,5 +1,6 @@
 import SeletorCurso from '../../Componentes/Seletor-Curso';
 import './index.css';
+import Navbar from '../../Componentes/Navbar';
 import "@fontsource/reem-kufi";
 import { Link } from "react-router-dom"
 import React from 'react';
@@ -43,9 +44,8 @@ function Materias (){
     console.log('data', data);
 return (
 <>
-
-
-  <SeletorCurso texto={data[0].curso}/>
+  <Navbar/>
+  <SeletorCurso texto={curso}/>
 
   <div id='barra-busca'/>
 

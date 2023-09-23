@@ -1,0 +1,362 @@
+*{
+  color: #FFF;
+  font-family: Reem Kufi;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.user-info{
+  font-size: 20px;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.user-info label{
+  display: block;
+}
+.personal-info{
+  margin: 0px 22px 15px;
+  padding-left: 3%;
+  width: 40%;
+}
+.userlogout{
+  display: flex;
+  flex-wrap: wrap;
+}
+.userlogout .icon-logout{
+  cursor: pointer;
+  margin-top:5%;
+  margin-left: 2%;
+}
+.userlogout .icon-logout:hover{
+  color: gray;
+}
+.btn{
+  width: 40%;
+  text-align: center;
+  /* padding: 0px 15px; */
+  margin-left: 15px;
+  margin-top: 20px;
+  background-color: #9B96CB;
+  border-radius: 10px;
+}
+.btn button{
+  font-size: 14px;
+  background-color: #9B96CB;
+  flex-shrink: 0;
+  height: 40px;
+  margin-right: 1px;
+  width: 10%;
+  /* padding: 1% 1%; */
+  border-radius: 5px;
+}
+.btn strong{
+  font-size: 16px;
+  width: 80%;
+}
+.btn:hover{
+  background-color: #8881c7;
+}
+.btn button img:hover{
+  cursor: pointer;
+}
+
+.btn button {
+  /* cursor: pointer; */
+  background: transparent;
+  border: 0;
+}
+ 
+.btn button:focus {
+  outline: none;
+}
+ 
+.btn button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+ .btn strong{
+  margin-left: 3px;
+ }
+.btn input[type=file] {
+  display: none;
+}
+
+.btn span{
+  display: block;
+}
+.btn span button{
+  margin: 0.24rem;
+  color: red;
+}
+.info-points{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  float: right;
+}
+
+.circle {
+  width: 26%;
+  margin: 30px;
+  height: 200px;
+  background-color: #2C2776;
+  border-radius: 50%;
+  fill: rgba(176, 190, 240, 0.00);
+  stroke: #2C2776;
+  
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.circle .conteudo{
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 15%;
+  margin-top: 25%;
+  justify-content: center;
+  align-items: center;
+  text-align: center
+}
+
+.conteudo span{
+  color: #CD1DC6;
+  margin-left: 0px;
+  font-family: Reem Kufi;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.center-content{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.matricula-info{
+  margin: 0px 22px 15px;
+  padding-left: 3%;
+  width: 50%;
+}
+.matricula-info label{
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.matricula-info hr{
+  width: 31%;
+}
+
+.disciplina-matricula{
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  /* filter: blur(2px); */
+}
+
+.disciplina-matricula li{
+  width: 45%;
+  flex-shrink: 0;
+  background-color: rgba(176, 190, 240, 0.90);
+  border: 1px solid #000;
+  border-color: #9B96CB;
+  border-radius: 10px;
+  list-style: none;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  text-align: center;
+  margin: 7px 7px;
+}
+.disciplina-matricula li a{
+  font-size: 28px;
+  color: #FFF;
+}
+.disciplina-matricula label{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.registro-pontuações {
+  margin-top: 30px;
+  width: 45%;
+  align-items: center;
+  display: block;
+  justify-content: center
+}
+.registro-pontuações label{
+  font-size: 36px;
+  text-align: center;
+}
+.registro-pontuações .horiz-line-style{
+  /* width: 30%; */
+}
+.acoesPontuadas{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.acoesPontuadas ul{
+  width: 100%;
+  height: 135px; 
+}
+.acoesPontuadas li{
+  width: 85%;
+  height: 100%;
+  list-style: none;
+  border-radius: 55px;
+  background-color: rgba(44, 39, 118, 0.60);
+  stroke-width: 1px;
+  stroke: #000;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: flex;
+  margin: 20px 5px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+.acoesPontuadas li a{
+  color: #FFF;
+  font-size: 26px;
+  list-style: none;
+  display: block;
+}
+.acoesPontuadas li label{
+  color: #FFF;
+  font-size: 20px;
+  list-style: none;
+  margin: 10px 2px;
+  display: block;
+}
+.acoesPontuadas .content-left{
+ width: 50%;
+ padding-left: 5%;
+}
+.acoesPontuadas .content-rigth{
+ width: 40%;
+}
+
+.acoesPontuadas .content-rigth label{
+  text-align: right;
+  align-items: end;
+  justify-content: end;
+ }
+.registro-pontuações .up{
+  display: block;
+  height: 550px;
+}
+.registro-pontuações .btn{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+  border-radius: 15px; 
+  background-color: #A45DFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+.informativos{
+  color: #FFF;
+  text-align: center;
+  font-family: Reem Kufi;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.informativos .left{
+  transform: rotate(-7.082deg); 
+  margin: 10px;
+  margin-left: 5%;
+}
+.informativos .rigth{
+  transform: rotate(10deg);
+  margin: 10px;
+  margin-left: 600px;
+  text-align: center;
+  justify-content: center;
+ }
+.card-claro{
+  padding: 10px;
+  text-align: center;
+  width: 367px;
+  height: 128px;
+  flex-shrink: 0; 
+  background-color: rgba(205, 29, 198, 0.40);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+.card-claro p{
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.bottom-content{
+  width: 100%;
+  margin-top: 150px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+.bottom-content label{
+  margin-bottom: 40px;
+  color: #FFF;
+  font-family: Reem Kufi;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bottom-content span{
+  color: #CD1DC6;
+}
+.diciplinas-avaliar{
+  width: 60%;
+  height: 100%;
+  margin: 0px auto;
+  border-radius: 17px;
+  border: 1px solid rgba(205, 29, 198, 0.30);
+  background-color: rgba(155, 150, 203, 0.90);
+  filter: blur(0.5px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+.diciplinas-avaliar ul{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.diciplinas-avaliar li{
+  margin: 2% 5%;
+  list-style: none;
+  width: 22.90%;
+  height: 25%;
+  border-radius: 15px;
+  background-color: rgba(164, 93, 255, 0.70);
+  flex-shrink: 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+  padding: 15px 0px;
+  float: left;
+}
+.diciplinas-avaliar li a{
+
+  color: #FFF;
+}
+
+.diciplinas-avaliar li:hover{
+  background-color: rgba(150, 78, 244, 0.7); 
+}

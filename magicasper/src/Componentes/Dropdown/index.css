@@ -1,0 +1,72 @@
+
+.dd-wrapper {
+  display: flex;
+  width: 20%;
+  min-height: 28px;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  background-color: rgb(217, 220, 224);
+}
+
+.dd-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  height: 38px;
+  width: 100%;
+  padding: 0 20px;
+}
+.dd-header__action p{ 
+  color: black;
+}
+.dd-header__title .dd-header__title--bold{
+  color: black;
+  font-size: 16px;
+
+}
+.dd-list {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin-top: 10px;
+}
+.dd-list li{
+ list-style-type: none;
+}
+
+.dd-list li:first-of-type button{
+  border-top: 1px solid #ccc;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.dd-list li:last-of-type button{
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+
+.dd-list-item button {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  height: 40px;
+  padding: 10px 20px 15px 20px;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+  background-color: rgb(217, 220, 224);
+  border-radius: 0px;
+}
+
+
+.dd-list-item button:hover, .dd-list-item button:focus{
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #A45DFF;
+}
+.dd-list-item span{
+  color: black;
+}

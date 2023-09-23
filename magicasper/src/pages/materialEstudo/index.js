@@ -1,6 +1,7 @@
 import './index.css';
 import SeletorCurso from '../../Componentes/Seletor-Curso';
 import SideBar from '../../Componentes/SideBar';
+import Navbar from '../../Componentes/Navbar';
 import PontosBckgrd from '../../Componentes/PontosBckgrd';
 
 function MaterialEstudo (materia, codigo, textoBase){
@@ -12,6 +13,7 @@ function MaterialEstudo (materia, codigo, textoBase){
   codigo = "BP336CB"
   return (
     <>
+      <Navbar/>
       <div className='page-content'>
         <div className='title-content'>
           <SideBar/>

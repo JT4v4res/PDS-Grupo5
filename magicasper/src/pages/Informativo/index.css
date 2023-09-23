@@ -1,0 +1,59 @@
+.card-claro-v1{
+  width: 560.333px;
+  height: 239.989px;
+  color: #FFF;
+  text-align: center;
+  font-family: Reem Kufi;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 90px;
+  padding: 10px 50px;
+  flex-shrink: 0; 
+  background-color: rgba(205, 29, 198, 0.40);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+
+.card-claro-v1 p{
+  margin-top: 10%;
+}
+
+.card-medio{
+  margin: 90px auto;
+  width: 477px;
+  height: 228px;
+  flex-shrink: 0;
+  background-color: #9B96CB;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+.card-medio p{
+  padding: 85px 0px;
+}
+.card-medio span{
+  color: #CD1DC6;
+}
+
+.card-medio  .linha-rosa{
+  margin: 0px auto;
+}
+.btn-return{
+  width: 149.777px;
+  height: 35px;
+  text-align: center;
+  justify-content: center;
+  background-color: #A45DFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+  border-radius: 15px;
+  padding-top: 6px;
+  margin: 0px auto;
+}
+.btn-return a{
+  color: #FFF;
+}

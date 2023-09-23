@@ -2,6 +2,7 @@ import './index.css';
 import SideBar from '../../Componentes/SideBar';
 import SeletorCurso from "../../Componentes/Seletor-Curso";
 import BarGraph from "../../Componentes/GraficoBarra";
+import Navbar from '../../Componentes/Navbar';
 
 
 function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, tempoMinistrando, desc_professor, dadosIndicadoresProfessor){
@@ -15,6 +16,8 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
   dadosIndicadoresProfessor = ['52%  consideram o método de avaliação como "formativo"', '61%  afirmam que a didática é “adaptável”', '74%  reportaram  cobrança de presença' ]
   return (
     <>
+    <Navbar />
+
     <div className='page-content'>
       <div className='title-content'>
         <SideBar/>

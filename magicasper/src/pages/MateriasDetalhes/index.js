@@ -1,6 +1,7 @@
 import "@fontsource/reem-kufi";
 import './index.css';
 import SideBar from '../../Componentes/SideBar';
+import Navbar from '../../Componentes/Navbar';
 import api from "../../Componentes/apis";
 
 let data;
@@ -27,6 +28,7 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
 
     return (
         <>
+        <Navbar/>
         <div className='page-content'>
             <SideBar/>
         </div>
@@ -34,10 +36,8 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
 
         {/* <div className="backgroud-elipse"></div> */}
             <div className="info-page">
-                <div className="materia-title">
+                <div className="materia-title-v1">
                     <label>{materia}</label>
-
-
                 </div>
                 <div className="materia-codigo">
                     <label>Código: {codigo}</label>
