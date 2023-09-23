@@ -1,8 +1,28 @@
 .page-content {
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     height: 100vh;
+}
+
+.magi-casper {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Suez One;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 25px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
 }
 
 .img-container{
@@ -11,8 +31,8 @@
     background: linear-gradient(180deg, rgba(101, 100, 191, 0.50) 15.21%, rgba(100, 149, 237, 0.00) 73.54%);
     mix-blend-mode: multiply;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 25%;
-    height: 45%;
+    width: 24%;
+    height: 105%;
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
@@ -28,15 +48,15 @@
     border: 1px solid #000;
     background: #D4DCE9;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 25%;
-    height: 45%;
+    width: 24%;
+    height: 105%;
 }
 
 .login-container h2{
     color: #5A3693;
     font-family: Reem Kufi;
     text-align: left;
-    font-size: 49px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 700;
     line-height: 90px;
@@ -53,7 +73,7 @@
     color: #5A3693;
     text-align: center;
     font-family: Reem Kufi;
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: 90px; /* 375% */
@@ -69,30 +89,80 @@
     color: #5A3693;
     text-align: center;
     font-family: Reem Kufi;
-    font-size: 26px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: 90px; /* 346.154% */
+    position: relative;
+}
+
+#senha .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    color: black;
+    width: 30%;
+    cursor: pointer;
+    padding-right: 30px;
 }
 
 .button-box {
-    fill: #5A3693;
+    background-color: #5A3693;
+    width: 22%;
+    height: 22%;
     stroke-width: 1px;
-    stroke: #000;
-    backdrop-filter: blur(2px);
-}
-.login-container button{
-    display: flex;
-    width: 159px;
-    height: 79px;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex-shrink: 0;
-    color: #D4DCE9;
+    align-items: center;
     text-align: center;
-    font-family: Reem Kufi;
-    font-size: 20px;
+    border-radius: 4px; /* Borda arredondada */
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 10px auto 10px auto;
+}
+
+.button-box button{
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    color: #D4DCE9;
+}
+
+.form-box {
+    margin: 0vw;
+    padding: 1vw;
+    position: relative;
+}
+
+.form-box label{
+    display: block;
+  text-align: center;
+  font-size: 20px;
+  /* margin: 0 0 1vh 0; */
+  color: #5A3693;
     font-style: normal;
     font-weight: 700;
-    line-height: 90px; /* 450% */
+}
+
+.form-box input{
+    /* display: block; */
+  width: 230%;
+  padding: 0.5rem 0.8rem 0.5rem 0.5rem;
+  margin: 0.2vw 0 0.5vw 0.8vw;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.help-text span{
+    display: block;
+    text-align: center;
+    padding: 2px;
+    color: #5A3693;
+    font-size: 15px;
+}
+
+.help-text span:hover{
+    text-decoration: underline;
 }
