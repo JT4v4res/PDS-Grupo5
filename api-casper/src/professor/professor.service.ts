@@ -38,6 +38,21 @@ export class ProfessorService {
     return professor;
   }
 
+  async getTeacherByName(teacher: string): Promise<ProfessorEntity> {
+    if (!teacher) {
+      throw new HttpException(
+        'One parameteres are undefined or null',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    const teacherFound: ProfessorEntity =
+      await this.professorRepository.findOneBy({ nome: teacher });
+    if (!teacherFound) {
+      throw new HttpException('Professor not found', HttpStatus.NOT_FOUND);
+    }
+    return teacherFound;
+  }
+
   async createProfessor(
     professor: CreateProfessorDto,
   ): Promise<ProfessorEntity> {

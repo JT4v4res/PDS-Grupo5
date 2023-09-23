@@ -17,7 +17,7 @@ import { UpdateMateriaDto } from './dto/update-materia.dto';
 
 @Controller('materia')
 export class MateriaController {
-  constructor(private service: MateriaService) {}
+  constructor(private readonly service: MateriaService) {}
 
   @Get()
   async getMaterias(): Promise<MateriaEntity[]> {
@@ -29,13 +29,6 @@ export class MateriaController {
     @Param('materiaId', ParseIntPipe) materiaId: number,
   ): Promise<MateriaEntity> {
     return await this.service.getMateriaPorId(materiaId);
-  }
-
-  @Get('/professor/:professorId')
-  async getProfessoresPorMateria(
-    @Param('professorId', ParseIntPipe) professorId: number,
-  ): Promise<ProfessorEntity[]> {
-    return await this.service.getProfessoresPorMateria(professorId);
   }
 
   @Post()

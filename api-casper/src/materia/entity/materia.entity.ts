@@ -1,4 +1,5 @@
 import {
+  BaseEntity,
   Entity,
   Column,
   PrimaryColumn,
@@ -8,12 +9,11 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
-import { Usuario } from '../../usuario/usuario.entity';
-import { AreasAtuacao } from '../../area_atuacao/area_atuacao.entity';
-import { Avaliacao } from '../../avaliacao/avaliacao.entity';
+import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.entity';
+import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 
 @Entity()
-export class MateriaEntity {
+export class MateriaEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   materiaId: number;
 
@@ -22,6 +22,18 @@ export class MateriaEntity {
 
   @Column({ enum: ['Obrigatória', 'Eletiva'], nullable: false })
   tipo: string;
+
+  @Column({ nullable: false })
+  nivelEsforco: string;
+
+  @Column({ length: 1 })
+  label: string;
+
+  @Column()
+  curso: string;
+
+  @Column()
+  periodo: number;
 
   @Column({ nullable: false })
   nome: string;
@@ -33,25 +45,10 @@ export class MateriaEntity {
   @JoinTable()
   professores: ProfessorEntity[];
 
-  @ManyToMany(() => AreasAtuacao, (area) => area.materias)
+  @ManyToMany(() => RelevantAreaEntity, (area) => area.materias)
   @JoinTable()
-  areasAtuacao: AreasAtuacao[];
+  areasAtuacao: RelevantAreaEntity[];
 
-  @OneToMany(() => Avaliacao, (avaliacao) => avaliacao.materia)
-  avaliacoes: Avaliacao[];
-
-  @ManyToMany(() => Usuario, (usuario) => usuario.materias)
-  @JoinTable()
-  usuarios: Usuario[];
-
-  constructor(materia?: Partial<MateriaEntity>) {
-    this.codigo = materia.codigo;
-    this.tipo = materia.tipo;
-    this.nome = materia.nome;
-    this.descricao = materia.descricao;
-    this.professores = materia.professores;
-    this.areasAtuacao = materia.areasAtuacao;
-    this.avaliacoes = materia.avaliacoes;
-    this.usuarios = materia.usuarios;
-  }
+  @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
+  avaliacoes: AvaliationEntity[];
 }
