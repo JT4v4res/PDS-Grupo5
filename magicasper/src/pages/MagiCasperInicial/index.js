@@ -29,7 +29,7 @@ function MagiCasperInicial(){
             </div>
           </div>
           <div className='card-azul-2'>
-            <p>Mantenha-se à frente da curva com insights de matérias e dicas dos colegas.</p>
+            <p>Mantenha-se antenado através de insights de matérias e dicas dos colegas.</p>
           </div>
           <div className='footer-info'> 
             <Link to={"#"}>Termos de Uso</Link>

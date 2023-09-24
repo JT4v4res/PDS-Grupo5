@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@fontsource/reem-kufi": "^5.0.8"
+    "@fontsource/reem-kufi": "^5.0.8",
+    "react-icons": "^4.11.0"
   }
 }
