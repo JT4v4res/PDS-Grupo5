@@ -79,15 +79,15 @@ const FormularioAvaliacao= ()=>{
             <label for="q1">Professor cobra presença?</label><br></br>
             <div className='lista-form'>
               <div className='item'>
-                <input type="radio" id="sim" name="tempo" value="sim"/>
+                <input type="radio" id="sim" name="presenca" value="sim"/>
                 <label  className='resposta' for="sim"> sim</label>
               </div>
               <div className='item'>
-                <input type="radio" id="ás vezes" name="tempo" value="ás vezes"/>
+                <input type="radio" id="ás vezes" name="presenca" value="ás vezes"/>
                 <label  className='resposta' for="ás vezes"> ás vezes</label>
               </div>
               <div className='item'>
-                <input type="radio" id="não" name="tempo" value="não"/>
+                <input type="radio" id="não" name="presenca" value="não"/>
                 <label  className='resposta' for="não"> não</label>
               </div>
             </div>
