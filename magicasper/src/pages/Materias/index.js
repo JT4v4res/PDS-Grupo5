@@ -34,13 +34,13 @@ function verifyLabel(label){
   )
 }
 
-function Materias (){
-  // curso = "Ciência da Computação"
+function Materias (curso){
+  curso = "Ciência da Computação"
   // materia  = "Estrutura de Dados"
   // codigo = "BP336CB"
   // periodo = "2"
   // label = "P"
-  // console.log(curso)
+  console.log(curso)
     console.log('data', data);
 return (
 <>
@@ -52,7 +52,7 @@ return (
   <div id='container-cards'>
     <div id='card-unitario'>
     {/* <img src='../../img/categoria-programming.png' className='img-background-label'/> */}
-    {verifyLabel(data[0].label)}
+    {/* {verifyLabel(data[0].label)} */}
       <div id='conteudo-card-unitario'>
         <label className='title' key={data[0].nome}>{data[0].nome}</label>
         <ul>
