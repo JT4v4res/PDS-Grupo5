@@ -17,7 +17,6 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
   return (
     <>
     <Navbar />
-
     <div className='page-content'>
       <div className='title-content'>
         <SideBar/>
