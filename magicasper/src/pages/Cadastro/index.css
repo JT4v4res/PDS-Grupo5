@@ -43,7 +43,7 @@
     mix-blend-mode: soft-light;
 }
 
-.login-container {
+.cadastro-container {
     border-radius: 0px 49px 49px 0px;
     border: 1px solid #000;
     background: #D4DCE9;
@@ -52,7 +52,7 @@
     height: 105%;
 }
 
-.login-container h2{
+.cadastro-container h2{
     color: #5A3693;
     font-family: Reem Kufi;
     text-align: left;
@@ -63,7 +63,7 @@
     margin-left: 25px;
 }
 
-.login-container #usuario {
+.cadastro-container #usuario {
     display: flex;
     width: 159px;
     height: 79px;
@@ -79,7 +79,7 @@
     line-height: 90px; /* 375% */
 }
 
-.login-container #senha{
+.cadastro-container #senha{
     display: flex;
     width: 159px;
     height: 79px;
@@ -166,3 +166,38 @@
 .help-text span:hover{
     text-decoration: underline;
 }
+
+.form-part {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .form-part.hide {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  .form-part.show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .toggle-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #007bff;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .toggle-button:hover {
+    background-color: #0056b3;
+  }

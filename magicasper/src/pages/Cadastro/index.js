@@ -1,39 +1,43 @@
-// import './index.css'
+import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import React, { useState } from 'react';
 
-export default function Login(){
-  const [username, setUsername] = useState('');
+export default function Cadastro(){
+  const [name, setName] = useState('');
+  const [mail, setMail] = useState('');
+  const [curso, setCurso] = useState('');
+  const [matricula, setMatricula] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const [showSecondPart, setShowSecondPart] = useState(false);
+  
+  const handleMatriculaChange = (event) => {
+    setMatricula(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Nome de usuário:', username);
-    console.log('Senha:', password);
+  const toggleSecondPart = () => {
+    setShowSecondPart(!showSecondPart);
   };
 
-  // const passwordInput = document.getElementById('password');
-  // const passwordToggle = document.querySelector('.password-toggle');
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
 
-  // passwordToggle.addEventListener('click', function () {
-  //   if (passwordInput.type === 'password') {
-  //     passwordInput.type = 'text';
-  //     passwordToggle.classList.remove('fa-eye');
-  //     passwordToggle.classList.add('fa-eye-slash');
-  //   } else {
-  //     passwordInput.type = 'password';
-  //     passwordToggle.classList.remove('fa-eye-slash');
-  //     passwordToggle.classList.add('fa-eye');
-  //   }
-  // });
+  const handleMailChange = (event) => {
+    setMail(event.target.value);
+  };
+
+  const handleCursoChange = (event) => {
+    setCurso(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   return(
     <>
@@ -50,53 +54,80 @@ export default function Login(){
           <img src={userLogo}/>
         </div>
 
-        <div className='login-container'>
+        <div className='cadastro-container'>
           <h2>Cadastro</h2>
           <div className='form-box'>
             <form onSubmit={handleSubmit}>
-              <div id='usuario'>
-                <label htmlFor="username">Nome</label>
-                <input
-                  type="text"
-                  id="username"
-                  value={username}
-                  onChange={handleUsernameChange}
-                  placeholder='Digite seu CPF ou e-mail'
-                  style={{ color: 'black' }}
-                />
-              </div>
-              <div id='usuario'>
-                <label htmlFor="username">E-mail</label>
-                <input
-                  type="text"
-                  id="username"
-                  value={username}
-                  onChange={handleUsernameChange}
-                  placeholder='Digite seu CPF ou e-mail'
-                  style={{ color: 'black' }}
-                />
-              </div>
-              <div id='senha'>
-                <label htmlFor="password">Senha</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                  placeholder='Digite sua senha'
-                  style={{ color: 'black' }}
-                />
-              {/* <FaEye class="password-toggle"/> */}
-              </div>
-              <div className='button-box'>
-                <button type="submit">Entrar</button>
-              </div>
-            </form>
-          </div>
 
-          <div className='help-text'>
-              <a href=''><span>Esqueci a senha</span></a>
-              <a href='/Cadastro'><span>Cadastre-se</span></a>
+              <div className={`form-part ${showSecondPart ? '' : 'show'}`}>
+                <div id='usuario'>
+                  <label htmlFor="username">Nome</label>
+                  <input
+                    type="text"
+                    id="username"
+                    value={name}
+                    onChange={handleNameChange}
+                    placeholder='Digite seu primeiro e segundo nome'
+                    style={{ color: 'black' }}
+                  />
+                </div>
+                <div id='usuario'>
+                  <label htmlFor="username">E-mail</label>
+                  <input
+                    type="mail"
+                    id="username"
+                    value={mail}
+                    onChange={handleMailChange}
+                    placeholder='Digite seu e-mail'
+                    style={{ color: 'black' }}
+                  />
+                </div>
+                <div id='usuario'>
+                  <label htmlFor="username">Curso</label>
+                  <input
+                    type="text"
+                    id="username"
+                    value={curso}
+                    onChange={handleCursoChange}
+                    placeholder='Digite seu curso'
+                    style={{ color: 'black' }}
+                  />
+                </div>
+              </div>
+
+              <div className={`form-part ${showSecondPart ? '' : 'hide' }`}>
+                <div id='usuario'>
+                  <label htmlFor="username">Matrícula</label>
+                  <input
+                    type="text"
+                    id="username"
+                    value={matricula}
+                    onChange={handleMatriculaChange}
+                    placeholder='Digite sua matrícula'
+                    style={{ color: 'black' }}
+                  />
+                </div>
+                <div id='senha'>
+                  <label htmlFor="password">Senha</label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    placeholder='Digite sua senha'
+                    style={{ color: 'black' }}
+                  />
+                </div>
+              </div>
+
+              <div className="toggle-button" onClick={toggleSecondPart}>
+                {showSecondPart ? '<O' : 'O>'}
+              </div>
+              {/* <FaEye class="password-toggle"/> */}
+              {/* <div className='button-box'>
+                <button type="submit">Entrar</button>
+              </div> */}
+            </form>
           </div>
 
         </div>
