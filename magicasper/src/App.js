@@ -16,7 +16,8 @@ import AvaliacaoGeral from './pages/AvaliacaoGeral'
 import Informativo from './pages/Informativo'
 import MagicasperInicial from './pages/MagiCasperInicial'
 import Login from './pages/Login'
-import CadastroUser from './pages/Cadastro'
+import PrimeiraParteCadastro from './pages/Cadastro'
+import SegundaParteCadastro from './Componentes/SegForm'
 
 
 import { Route, Routes } from "react-router-dom"
@@ -38,7 +39,8 @@ function App (){
         <Route path="/materiaIndicadores" element={<MateriaIndicadores/>}/>
         <Route path="/MagicasperInicial" element={<MagicasperInicial/>}/>
         <Route path='/Login' element={<Login/>}/>
-        <Route path='/Cadastro' element={<CadastroUser/>}/>
+        <Route path='/Cadastro' element={<PrimeiraParteCadastro/>}/>
+        <Route path='/Cadastroo' element={<SegundaParteCadastro/>}/>
         <Route path="/Sidebar" element={<SideBar/>}/>
         <Route path="/SubMenu" element={<SubMenu/>}/>
         <Route path="/FormularioAvaliacao" element={<FormularioAvaliacao/>}/>

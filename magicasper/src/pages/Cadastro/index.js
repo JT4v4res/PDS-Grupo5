@@ -1,27 +1,13 @@
 import './index.css'
 import userLogo from '../../img/img-commenter.png';
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
-export default function Cadastro(){
+export default function Cadastro(props){
   const [name, setName] = useState('');
   const [mail, setMail] = useState('');
   const [curso, setCurso] = useState('');
-  const [matricula, setMatricula] = useState('');
-  const [password, setPassword] = useState('');
-
-  const [showSecondPart, setShowSecondPart] = useState(false);
-  
-  const handleMatriculaChange = (event) => {
-    setMatricula(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const toggleSecondPart = () => {
-    setShowSecondPart(!showSecondPart);
-  };
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -36,6 +22,7 @@ export default function Cadastro(){
   };
 
   const handleSubmit = (event) => {
+    navigate('/Cadastroo')
     event.preventDefault();
   };
 
@@ -59,7 +46,6 @@ export default function Cadastro(){
           <div className='form-box'>
             <form onSubmit={handleSubmit}>
 
-              <div className={`form-part ${showSecondPart ? '' : 'show'}`}>
                 <div id='usuario'>
                   <label htmlFor="username">Nome</label>
                   <input
@@ -93,40 +79,10 @@ export default function Cadastro(){
                     style={{ color: 'black' }}
                   />
                 </div>
-              </div>
 
-              <div className={`form-part ${showSecondPart ? '' : 'hide' }`}>
-                <div id='usuario'>
-                  <label htmlFor="username">Matrícula</label>
-                  <input
-                    type="text"
-                    id="username"
-                    value={matricula}
-                    onChange={handleMatriculaChange}
-                    placeholder='Digite sua matrícula'
-                    style={{ color: 'black' }}
-                  />
-                </div>
-                <div id='senha'>
-                  <label htmlFor="password">Senha</label>
-                  <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                    placeholder='Digite sua senha'
-                    style={{ color: 'black' }}
-                  />
-                </div>
+              <div className='button-box'>
+                <button type="submit" variant='primary'>{'>'}</button>
               </div>
-
-              <div className="toggle-button" onClick={toggleSecondPart}>
-                {showSecondPart ? '<O' : 'O>'}
-              </div>
-              {/* <FaEye class="password-toggle"/> */}
-              {/* <div className='button-box'>
-                <button type="submit">Entrar</button>
-              </div> */}
             </form>
           </div>
 
