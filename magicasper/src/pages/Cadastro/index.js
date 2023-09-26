@@ -2,12 +2,14 @@ import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+// import { useForm } from 'react-hook-form';
 
 export default function Cadastro(props){
   const [name, setName] = useState('');
   const [mail, setMail] = useState('');
   const [curso, setCurso] = useState('');
   const navigate = useNavigate();
+  // const register = useForm();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -66,18 +68,23 @@ export default function Cadastro(props){
                     onChange={handleMailChange}
                     placeholder='Digite seu e-mail'
                     style={{ color: 'black' }}
+                    // ref={register({                      TODO
+                    //   required: 'Email is required.',
+                    //   pattern: {
+                    //     value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                    //     message: 'Email is not valid.'
+                    //   }
+                    // })}
                   />
                 </div>
                 <div id='usuario'>
-                  <label htmlFor="username">Curso</label>
-                  <input
-                    type="text"
-                    id="username"
-                    value={curso}
-                    onChange={handleCursoChange}
-                    placeholder='Digite seu curso'
-                    style={{ color: 'black' }}
-                  />
+                  <label htmlFor="usuario">Curso</label>
+                  <select id="dropdown" value={curso} onChange={handleCursoChange}>
+                    <option value="">Selecione uma opção...</option>
+                    <option value="opcao1">Ciência da Computação</option>
+                    <option value="opcao2">Engenharia de Computação</option>
+
+                  </select>
                 </div>
 
               <div className='button-box'>

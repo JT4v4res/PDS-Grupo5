@@ -2,11 +2,13 @@ import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+// import { useForm } from 'react-hook-form';
 
 export default function SegundoCadastro(props){
     const [matricula, setMatricula] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    // const register = useForm();
 
     const handleMatriculaChange = (event) => {
         setMatricula(event.target.value);
@@ -20,7 +22,6 @@ export default function SegundoCadastro(props){
         navigate('/Perfil')
         event.preventDefault();
     };
-    
 
   return(
     <>
@@ -62,6 +63,13 @@ export default function SegundoCadastro(props){
                     onChange={handlePasswordChange}
                     placeholder='Digite sua senha'
                     style={{ color: 'black' }}
+                    // ref={register({
+                    //   required: 'Password is required.',
+                    //   minLength: {
+                    //     value: 6,
+                    //     message: 'Password should have at-least 6 characters.'
+                    //   }
+                    // })}                               TODO
                 />
             </div>
 
