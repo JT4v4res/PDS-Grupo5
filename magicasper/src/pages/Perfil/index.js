@@ -146,7 +146,7 @@ return (
         </div>
         <div className='registro-pontuações'>
           <div className='up'>
-            <label>Ultimas pontuações Ganhas</label>
+            <label>Últimas pontuações ganhas</label>
             <hr className='horiz-line-style'></hr>
             <div className='acoesPontuadas'>
                 <ul className='lista-acoes-esq'>

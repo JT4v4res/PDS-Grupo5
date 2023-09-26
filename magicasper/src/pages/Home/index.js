@@ -102,7 +102,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
       </div>
       <div className='rigth-side'>
         <div className='progressoCurso'>
-            <header>Seu progreso no curso <span>{UserData[1]}</span></header>
+            <header>Seu progreso no curso<br></br><span>{UserData[1]}</span></header>
             <div className='Desempenho'>
                 {BarraProgressoData.map((item, idx) => (
                              <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
@@ -112,7 +112,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
             <header>Restam: {materias_fazer}</header>
         </div>
         <div className='DesempenhoDisciplina'>
-              <header>Desempenho por disciplina <span>{UserData[4]}ª Período</span> </header>
+              <header>Desempenho por disciplina<br></br><span>{UserData[4]}ª Período</span> </header>
               <div className='disciplinasAtual'>
                 <ul className='lista-disciplinas'>
                       {
