@@ -16,9 +16,14 @@
   display: block;
 }
 .personal-info{
-  margin: 0px 22px 15px;
+  margin: 0px 23px 15px;
   padding-left: 3%;
-  width: 40%;
+  width: 35%;
+}
+.trofeus{
+  padding-top: 20px;
+  font-size: 26px;
+  margin-right: 2px; 
 }
 .userlogout{
   display: flex;
@@ -93,15 +98,17 @@
   color: red;
 }
 .info-points{
-  width: 50%;
+  width: 60%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   float: right;
 }
 
 .circle {
-  width: 26%;
-  margin: 30px;
+  width: 200px;
+  margin: 15px;
   height: 200px;
   background-color: #2C2776;
   border-radius: 50%;
@@ -115,7 +122,7 @@
   font-size: 20px;
   align-items: center;
   justify-content: center;
-  margin: 15%;
+  margin: 10%;
   margin-top: 25%;
   justify-content: center;
   align-items: center;
@@ -177,7 +184,7 @@
   margin: 7px 7px;
 }
 .disciplina-matricula li a{
-  font-size: 28px;
+  font-size: 25px;
   color: #FFF;
 }
 .disciplina-matricula label{
@@ -212,7 +219,7 @@
   height: 135px; 
 }
 .acoesPontuadas li{
-  width: 85%;
+  width: 90%;
   height: 100%;
   list-style: none;
   border-radius: 55px;
@@ -241,11 +248,12 @@
   display: block;
 }
 .acoesPontuadas .content-left{
- width: 50%;
+ width: 60%;
  padding-left: 5%;
 }
 .acoesPontuadas .content-rigth{
  width: 40%;
+ padding-right: 5%;
 }
 
 .acoesPontuadas .content-rigth label{
