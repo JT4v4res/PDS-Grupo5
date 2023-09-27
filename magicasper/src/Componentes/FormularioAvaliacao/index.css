@@ -24,8 +24,9 @@
 .form-group input{
   margin-top: 18px;
   margin-left: 10px;
-  display: block;
+  display: block ;
 }
+
 .resposta{
   font-size: 18px;
 }
@@ -46,14 +47,21 @@
   padding-left: 85%;
   margin-bottom: 20px;
 }
+.lista-form {
+  justify-content: space-between;
+  padding-right: 2%;
+}
+
 .item{
-  margin-left: 4%;
-  margin-right: 5%;
+  /* margin-left: 4%; */
+  min-width: 7%;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
+.item input{
+  margin: 1% auto;
+}
 /* Botão */
 .btn-form button{
   border-radius: 15px;

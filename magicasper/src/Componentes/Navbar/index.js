@@ -4,7 +4,7 @@ import "@fontsource/reem-kufi";
 
 
 function Navbar  () {
-  const UserLogged = true; 
+  const UserLogged = false; 
 return <header>
         <nav id="navbar">
           <div className="container">
@@ -24,7 +24,7 @@ return <header>
                 }
               />
             </Routes>
-                    <ul>
+            <ul>
               <li><Link to="/Home">Home</Link></li>
               <li><Link to="/Perfil">Perfil</Link></li>
               <li><Link to="/Materias">Materias</Link></li>
