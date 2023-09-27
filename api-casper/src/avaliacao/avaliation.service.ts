@@ -61,13 +61,6 @@ export class AvaliationService {
       avaliationId: avaliationId,
     });
 
-    if (deleted) {
-      return deleted;
-    }
-
-    throw new HttpException(
-      "Can't delete the avaliation",
-      HttpStatus.INTERNAL_SERVER_ERROR,
-    );
+    return deleted;
   }
 }

@@ -8,6 +8,6 @@ import { AvaliationService } from './avaliation.service';
   imports: [TypeOrmModule.forFeature([AvaliationEntity])],
   controllers: [AvaliationController],
   providers: [AvaliationService],
-  exports: [AvaliationEntity],
+  exports: [TypeOrmModule],
 })
 export class AvaliationModule {}

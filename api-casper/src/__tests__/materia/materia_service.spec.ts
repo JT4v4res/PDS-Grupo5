@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { MateriaService } from '../../materia/materia.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
-import { DeleteResult, Repository, UpdateResult } from "typeorm";
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { CreateMateriaDto } from '../../materia/dto/create-materia.dto';
 import { UpdateMateriaDto } from '../../materia/dto/update-materia.dto';
 
@@ -11,7 +11,6 @@ const materiaEntityList: MateriaEntity[] = [
     materiaId: 1,
     codigo: 'COMP378',
     tipo: 'matematica',
-    usuarios: null,
     professores: null,
     avaliacoes: null,
     areasAtuacao: null,
@@ -22,7 +21,6 @@ const materiaEntityList: MateriaEntity[] = [
     materiaId: 2,
     codigo: 'COMP379',
     tipo: 'programacao',
-    usuarios: null,
     professores: null,
     avaliacoes: null,
     areasAtuacao: null,
@@ -34,7 +32,6 @@ const materiaEntityList: MateriaEntity[] = [
     materiaId: 3,
     codigo: 'COMP380',
     tipo: 'teoria',
-    usuarios: null,
     professores: null,
     avaliacoes: null,
     areasAtuacao: null,

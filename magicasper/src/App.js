@@ -4,6 +4,7 @@ import SubMenu from './Componentes/SideBar';
 import Dropdown from './Componentes/Dropdown';
 import FormularioAvaliacao from './Componentes/FormularioAvaliacao';
 import Star from './Componentes/Star';
+import ProgressBar from './Componentes/ProgressBar';
 import Materias from './pages/Materias';
 import Home from './pages/Home';
 import Perfil from './pages/Perfil';
@@ -47,10 +48,10 @@ function App (){
         <Route path="/Informativo" element={<Informativo/>}/>
         <Route path="/Dropdown" element={<Dropdown/>}/>
         <Route path="/Star" element={<Star/>}/>
+        <Route path="/ProgressBar" element={<ProgressBar/>}/>
       </Routes>
     </div>
-    <body>
-    </body>
+    
   </>
   );
 }

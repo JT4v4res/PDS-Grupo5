@@ -10,11 +10,11 @@ import {
 } from '@nestjs/common';
 import { ProfessorService } from './professor.service';
 import { ProfessorEntity } from './entity/professor.entity';
-import { DeleteResult, UpdateResult } from "typeorm";
+import { DeleteResult, UpdateResult } from 'typeorm';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
 
-@Controller('professor')
+@Controller('/professor')
 export class ProfessorController {
   constructor(private service: ProfessorService) {}
 
