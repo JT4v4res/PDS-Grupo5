@@ -27,9 +27,10 @@ import './App.css';
 
 function App (){
   return (
-  <>
+    <>
     <div className = "container">
       <Routes>
+        <Route path="/" element={<MagicasperInicial/>}/>
         <Route path="/Home" element={<Home/>}/>
         <Route path="/Perfil" element={<Perfil/>}/>
         <Route path="/Materias" element={<Materias/>}/>
@@ -39,7 +40,6 @@ function App (){
         <Route path="/professorDetalhes" element={<ProfessorDetalhes/>}/>
         <Route path="/materialEstudo" element={<MaterialEstudo/>}/>
         <Route path="/materiaIndicadores" element={<MateriaIndicadores/>}/>
-        <Route path="/MagicasperInicial" element={<MagicasperInicial/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Cadastro' element={<PrimeiraParteCadastro/>}/>
         <Route path='/Cadastroo' element={<SegundaParteCadastro/>}/>
@@ -53,7 +53,7 @@ function App (){
         <Route path="/Trofeus" element={<Trofeus/>}/>
       </Routes>
     </div>
-    
+
   </>
   );
 }

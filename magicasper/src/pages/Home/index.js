@@ -53,7 +53,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
       nome: 'Lógica para Computação',
       codigo: 'COMP321',
       bgcolor: "#afcd00", 
-      completed: 73 
+      completed: 73   
     },
   ]
 

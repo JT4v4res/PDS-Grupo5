@@ -18,7 +18,7 @@ return <header>
                     </h1>
                   ) : (
                     <h1 className="logo">
-                      <Link to="/MagicasperInicial">Magi Casper</Link>
+                      <Link to="/">Magi Casper</Link>
                     </h1>
                   )
                 }
