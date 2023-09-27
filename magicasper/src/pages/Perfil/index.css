@@ -20,6 +20,11 @@
   padding-left: 3%;
   width: 35%;
 }
+.trofeus{
+  padding-top: 20px;
+  font-size: 26px;
+  margin-right: 2px; 
+}
 .userlogout{
   display: flex;
   flex-wrap: wrap;
