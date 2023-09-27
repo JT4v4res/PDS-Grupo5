@@ -1,7 +1,6 @@
 import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import React, { useState } from 'react';
-import { FaEye } from 'react-icons/fa';
 
 export default function Login(){
   const [username, setUsername] = useState('');
