@@ -61,7 +61,7 @@ export default function Login(){
                   id="username"
                   value={username}
                   onChange={handleUsernameChange}
-                  placeholder='Digite seu CPF ou e-mail'
+                  placeholder='Digite sua matrícula ou e-mail'
                   style={{ color: 'black' }}
                 />
               </div>
