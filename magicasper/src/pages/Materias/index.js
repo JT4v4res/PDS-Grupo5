@@ -6,33 +6,15 @@ import { Link } from "react-router-dom"
 import React from 'react';
 import api from "../../Componentes/apis";
 
-let data;
+let data = ['Estrutura de Dados', 'COMP415', 'Alto', '2'];
 
-api
-    .get('/materia')
-    .then((res) => {
-      data = res.data;
-      console.log('Res.data: ',res.data);
-    });
+// api
+//     .get('/materia')
+//     .then((res) => {
+//       data = res.data;
+//       console.log('Res.data: ',res.data);
+//     });
 
-function verifyLabel(label){
-  let imgPath = document.createElement('img');
-  imgPath.classList.add('P')
-  if (label === 'P'){ /*materia de programação*/
-    imgPath.setAttribute('src', '../../img/categoria-programming.png');
-  } else if (label === 'M'){ /*materia de matematica*/
-    imgPath = '../../img/categoria-math.png';
-  } else if (label === 'T'){ /*materia teorica/outras*/
-    imgPath = '../../img/categoria-theory.png';
-  }
-
-  console.log(imgPath)
-  return (
-    <div id='img-background-label'>
-      <img src={imgPath.getAttribute(1)}/>
-    </div>
-  )
-}
 
 function Materias (curso){
   curso = "Ciência da Computação"
@@ -51,13 +33,11 @@ return (
 
   <div id='container-cards'>
     <div id='card-unitario'>
-    {/* <img src='../../img/categoria-programming.png' className='img-background-label'/> */}
-    {/* {verifyLabel(data[0].label)} */}
       <div id='conteudo-card-unitario'>
-        <label className='title' key={data[0].nome}>{data[0].nome}</label>
+        <label className='title' key={data[0]}>{data[0]}</label>
         <ul>
-          <li key={data[0].codigo}><label className='code'>Código: {data[0].codigo}</label></li>
-          <li key={data[0].periodo}><label className='code'>Período: {data[0].periodo}</label></li>
+          <li key={data[1]}><label className='code'>Código: {data[1]}</label></li>
+          <li key={data[3]}><label className='code'>Período: {data[3]}</label></li>
         </ul>
         <label className='button'>
           <Link to='/MateriaDetalhes'>Saber mais</Link>
