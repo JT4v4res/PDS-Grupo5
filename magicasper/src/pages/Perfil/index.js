@@ -4,10 +4,11 @@ import { Link } from "react-router-dom"
 import React, { useState, useRef } from "react"; 
 import * as FiIcons from "react-icons/fi"
 import Navbar from '../../Componentes/Navbar';
+import Trofeus from '../../Componentes/trofeus';
 
 function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
-  pontuacao_user = 120
+  pontuacao_user = 220
   materias_cursadas = 10
   materias_fazer = 20
   diciplinas_avaliar =['Programação 1', 'Cálculo 1', 'Introdução a computação', 'Ciência de dados', 'Geometria analítica', 'Computação e ética']
@@ -79,6 +80,7 @@ return (
     <div className='personal-info'>
       <div className='userlogout'>
          <SeletorUser texto={user[0]}/>
+         <Trofeus pontos={pontuacao_user}/>
          <FiIcons.FiLogOut className='icon-logout'/>
       </div>
       <div className='user-details'>
@@ -146,7 +148,7 @@ return (
         </div>
         <div className='registro-pontuações'>
           <div className='up'>
-            <label>Ultimas pontuações Ganhas</label>
+            <label>Últimas pontuações ganhas</label>
             <hr className='horiz-line-style'></hr>
             <div className='acoesPontuadas'>
                 <ul className='lista-acoes-esq'>

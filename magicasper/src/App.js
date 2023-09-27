@@ -5,6 +5,7 @@ import Dropdown from './Componentes/Dropdown';
 import FormularioAvaliacao from './Componentes/FormularioAvaliacao';
 import Star from './Componentes/Star';
 import ProgressBar from './Componentes/ProgressBar';
+import Trofeus from './Componentes/trofeus';
 import Materias from './pages/Materias';
 import Home from './pages/Home';
 import Perfil from './pages/Perfil';
@@ -49,6 +50,7 @@ function App (){
         <Route path="/Dropdown" element={<Dropdown/>}/>
         <Route path="/Star" element={<Star/>}/>
         <Route path="/ProgressBar" element={<ProgressBar/>}/>
+        <Route path="/Trofeus" element={<Trofeus/>}/>
       </Routes>
     </div>
     
