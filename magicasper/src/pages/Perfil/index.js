@@ -6,7 +6,7 @@ import * as FiIcons from "react-icons/fi"
 import Navbar from '../../Componentes/Navbar';
 import Trofeus from '../../Componentes/trofeus';
 
-function Home (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
+function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
   pontuacao_user = 220
   materias_cursadas = 10
@@ -72,6 +72,8 @@ function Home (user, pontuacao_user, materias_cursadas, materias_fazer, discipli
   const removeFile = (id) => {
     setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
   };
+  
+
 return (
   <>
   <Navbar />
@@ -99,7 +101,7 @@ return (
             {files.map((file) => (
               <span key={file.id}>
                 {file.file.name}
-                <button onClick={() => removeFile(file.id)}> [ X ] </button>
+                <button onClick={() => removeFile(file.id)}>X</button>
               </span>
             ))}
           </div>
@@ -211,4 +213,4 @@ return (
 )
 };
 
-export default Home;
+export default Perfil;
