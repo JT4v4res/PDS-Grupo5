@@ -47,5 +47,53 @@ export default function getMaterias() {
             professor: ['Xi Ji Ping'],
             curso: ['Ciência da Computação', 'Engenharia de Computação']
         },
+        {
+            nome: 'Compiladores',
+            codigo: 'COMP312',
+            periodo: '5',
+            nivelEsforco: 'Alto',
+            professor: ['Susane von Richtofen'],
+            curso: ['Ciência da Computação']
+        },
+        {
+            nome: 'Circuitos Digitais',
+            codigo: 'ECOM001',
+            periodo: '2',
+            nivelEsforco: 'Baixo',
+            professor: ['Carmem Miranda', 'Fred do Scooby Doo'],
+            curso: ['Engenharia de Computação']
+        },
+        {
+            nome: 'Física 2',
+            codigo: 'ECOM678',
+            periodo: '3',
+            nivelEsforco: 'Médio',
+            professor: ['Melody', 'Celso Russomano', 'Rihanna', 'Bob Marley'],
+            curso: ['Engenharia de Computação']
+        },
+        {
+            nome: 'Engenharia de Software',
+            codigo: 'COMP021',
+            periodo: '4',
+            nivelEsforco: 'Baixo',
+            professor: ['Chapolin Colorado', 'Chaves'],
+            curso: ['Engenharia de Computação']
+        },
+        {
+            nome: 'Probabilidade e Estatística',
+            codigo: 'ECOM012',
+            periodo: '4',
+            nivelEsforco: 'Alto',
+            professor: ['George Clooney'],
+            curso: ['Engenharia de Computação']
+        },
+        {
+            nome: 'Eletrônica',
+            codigo: 'ECOM035',
+            periodo: '6',
+            nivelEsforco: 'Baixo',
+            professor: ['Tutancamon', 'Bozo', 'Kurt Cobain'],
+            curso: ['Engenharia de Computação']
+        },
     ]
 }

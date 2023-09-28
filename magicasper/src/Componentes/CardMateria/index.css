@@ -23,7 +23,6 @@
   }
   
   #conteudo-card-unitario .title {
-    color: #FFF;
     display: flex;
     width: 85%;
     height: 23%;
@@ -34,16 +33,17 @@
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;
-    font-size: 36px;
+    font-size: 28px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     line-height: normal;
     text-align: block;
+    color: #5a3693;
   }
   
   #conteudo-card-unitario ul {
     list-style: none;
-    padding: 12px;
+    /* padding: 12px; */
   }
   
   #conteudo-card-unitario li {

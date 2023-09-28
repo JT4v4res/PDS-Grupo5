@@ -18,8 +18,7 @@ import BarraBusca from '../../Componentes/BarraBusca';
 //     });
 
 
-function Materias (curso){
-  curso = "Ciência da Computação"
+function Materias (){
   const [materias, setMaterias] = useState([]);
 
   useEffect(() => {

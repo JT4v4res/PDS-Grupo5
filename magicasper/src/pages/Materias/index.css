@@ -2,7 +2,34 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 46px;
+  margin: 0 auto;
   justify-content: center;
-  border: white;
+  max-height: 700px;
+  max-width: 90%;
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+  background-color: rgba(255, 255, 255, 0.1); /* Cor de fundo translúcido */
+  padding: 10px; /* Espaçamento interno opcional */
+  border: 1px solid #6b4b9f; /* Borda opcional */
+  border-radius: 8px; /* Borda arredondada opcional */
 }
+
+/* Barra de rolagem para navegadores baseados no Chromium (Google Chrome, Microsoft Edge) */
+.container-cards::-webkit-scrollbar {
+  width: 32px; /* Largura da barra de rolagem */
+  border-radius: 6px;
+}
+
+.container-cards::-webkit-scrollbar-thumb {
+  border-radius: 6px; /* Borda arredondada do indicador */
+}
+
+.container-cards::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Cor do indicador quando o mouse passa por cima */
+}
+
+/* Barra de rolagem para navegadores Firefox */
+.container-cards {
+  scrollbar-width: auto; /* Espessura da barra de rolagem (thin, auto, etc.) */
+  scrollbar-color: #888 transparent; /* Cor do indicador da barra de rolagem e cor do fundo (transparent para usar a cor padrão) */
+}
+
