@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  HttpException,
   Param,
   Post,
   Put,
@@ -13,8 +12,9 @@ import { AvaliationEntity } from './entity/avaliation.entity';
 import { CreateAvaliationDto } from './dto/create-avaliation.dto';
 import { UpdateAvaliationDto } from './dto/update-avaliation.dto';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { ReturnAvaliationDto } from './dto/return-avaliation.dto';
 
-@Controller('/avaliaton')
+@Controller('/avaliation')
 export class AvaliationController {
   constructor(private readonly avaliationService: AvaliationService) {}
 
@@ -23,18 +23,29 @@ export class AvaliationController {
     try {
       return await this.avaliationService.getAvaliations();
     } catch (e) {
-      await this.handleError(e);
+      console.log(e);
     }
   }
 
-  @Get(':id')
+  @Get('/avaliationId/:id')
   async getAvaliationsById(
-    @Param(':id') avaliationId: number,
+    @Param('id') avaliationId: number,
   ): Promise<AvaliationEntity> {
     try {
       return await this.avaliationService.getAvaliationsById(avaliationId);
     } catch (e) {
-      await this.handleError(e);
+      console.log(e);
+    }
+  }
+
+  @Get('/materia/:id')
+  async getAvaliationsByMateria(
+    @Param('id') materiaId: number,
+  ): Promise<ReturnAvaliationDto> {
+    try {
+      return await this.avaliationService.getAvaliationsByMateria(materiaId);
+    } catch (e) {
+      console.log(e);
     }
   }
 
@@ -45,7 +56,7 @@ export class AvaliationController {
     try {
       return await this.avaliationService.createAvaliation(avaliation);
     } catch (e) {
-      await this.handleError(e);
+      console.log(e.detail);
     }
   }
 
@@ -56,31 +67,16 @@ export class AvaliationController {
     try {
       return await this.avaliationService.updateAvaliation(avaliaton);
     } catch (e) {
-      await this.handleError(e);
+      console.log(e);
     }
   }
 
   @Delete(':id')
-  async deleteAvaliation(
-    @Param('id') avaliationId: number,
-  ): Promise<DeleteResult> {
+  async deleteAvaliation(@Param('id') avaliationId: number): Promise<void> {
     try {
       return await this.avaliationService.deleteAvaliation(avaliationId);
     } catch (e) {
-      await this.handleError(e);
+      console.log(e);
     }
-  }
-
-  async handleError(error: HttpException): Promise<void> {
-    throw new HttpException(
-      {
-        statusCode: error.getStatus(),
-        error: error.message,
-      },
-      error.getStatus(),
-      {
-        cause: error,
-      },
-    );
   }
 }

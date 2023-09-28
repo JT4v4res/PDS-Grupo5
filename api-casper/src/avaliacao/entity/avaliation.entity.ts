@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+} from 'typeorm';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
 
@@ -10,14 +18,22 @@ export class AvaliationEntity {
   @ManyToOne(
     () => MateriaEntity,
     (materia: MateriaEntity) => materia.avaliacoes,
+    {
+      cascade: true,
+      nullable: true,
+    },
   )
-  materia: MateriaEntity;
+  materia: MateriaEntity | null;
 
   @ManyToOne(
     () => ProfessorEntity,
     (professor: ProfessorEntity) => professor.avaliacoes,
+    {
+      cascade: true,
+      nullable: true,
+    },
   )
-  professor: ProfessorEntity;
+  professor: ProfessorEntity | null;
 
   @Column()
   semestre: string;
@@ -48,6 +64,18 @@ export class AvaliationEntity {
 
   @Column()
   recomenda_no_inicio: boolean;
+
+  @Column()
+  primeira_aprovacao: boolean;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @DeleteDateColumn({ nullable: true })
+  deletedAt: Date;
 
   // constructor(avaliation?: Partial<AvaliationEntity>) {
   //   this.avaliationId = avaliation.avaliationId;

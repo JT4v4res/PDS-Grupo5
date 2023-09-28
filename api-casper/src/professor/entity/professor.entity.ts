@@ -22,7 +22,10 @@ export class ProfessorEntity {
   @Column({ length: 255 })
   lattes: string;
 
-  @OneToMany(() => AvaliationEntity, (avaliacao: AvaliationEntity) => avaliacao.professor)
+  @OneToMany(
+    () => AvaliationEntity,
+    (avaliacao: AvaliationEntity) => avaliacao.professor,
+  )
   avaliacoes: AvaliationEntity[];
 
   @ManyToMany(

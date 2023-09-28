@@ -24,6 +24,25 @@ export class MateriaService {
     return materias;
   }
 
+  async getMateriasForValuation(idMateria: number): Promise<MateriaEntity> {
+    if (!idMateria) {
+      throw new HttpException(
+        'One parameteres are undefined or null',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    const materia: MateriaEntity = await this.materiaRepository.findOneBy({
+      materiaId: idMateria,
+    });
+
+    if (!materia) {
+      throw new HttpException('Materia not found', HttpStatus.NOT_FOUND);
+    }
+
+    return materia;
+  }
+
   async getMateriaPorId(idMateria: number): Promise<MateriaEntity> {
     if (!idMateria) {
       throw new HttpException(
