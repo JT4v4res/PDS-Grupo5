@@ -1,6 +1,7 @@
 import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import React, { useState } from 'react';
+import { Link} from 'react-router-dom';
 
 export default function Login(){
   const [username, setUsername] = useState('');
@@ -84,8 +85,8 @@ export default function Login(){
           </div>
 
           <div className='help-text'>
-              <a href=''><span>Esqueci a senha</span></a>
-              <a href='/Cadastro'><span>Cadastre-se</span></a>
+              <Link to='#'><span>Esqueci a senha</span></Link>
+              <Link to='/Cadastro'><span>Cadastre-se</span></Link>
           </div>
 
         </div>
