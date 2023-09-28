@@ -35,13 +35,13 @@ function verifyLabel(label){
 }
 
 function Materias (curso){
-  curso = "Ciência da Computação"
+  curso = data[0].curso;
   // materia  = "Estrutura de Dados"
   // codigo = "BP336CB"
   // periodo = "2"
   // label = "P"
   console.log(curso)
-    console.log('data', data);
+    console.log('data', data[0].curso);
 return (
 <>
   <Navbar/>
