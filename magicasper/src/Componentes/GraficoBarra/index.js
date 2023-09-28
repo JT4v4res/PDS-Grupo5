@@ -11,6 +11,11 @@ class barGraph extends Component {
         chart: {
           id: "basic-bar"
         },
+        menu: {
+          fill:{
+            color:'#2a064c',
+          }
+        },
         zoom: {
           enabled: true,
           type: 'x',  

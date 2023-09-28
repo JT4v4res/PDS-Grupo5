@@ -212,7 +212,7 @@
   flex-wrap: wrap;
   margin-top: 15px;
   height: 535px; 
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .acoesPontuadas ul{
   width: 100%;
@@ -344,7 +344,7 @@
   align-items: center;
   cursor: pointer;
   text-align: center;
-  overflow-y: scroll;  
+  overflow-y: auto;
 }
 .diciplinas-avaliar ul{
   margin-left: auto;
