@@ -1,0 +1,83 @@
+#card-unitario {
+    width: 422px;
+    height: 305px;
+    flex-shrink: 0;
+    font-family: 'Reem Kufi';
+    margin-left: 55px;
+    margin-top: 33px;
+    text-align: justify;
+    border-radius: 17px;
+    border: 1px solid #000;
+    background: #9B96CB;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  #conteudo-card-unitario {
+    align-items: center;
+    margin-left: 28px;
+  }
+  
+  .img-background-label {
+    background-image: url('../../img/categoria-programming.png');
+    background-size: cover;
+  }
+  
+  #conteudo-card-unitario .title {
+    display: flex;
+    width: 85%;
+    height: 23%;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: block;
+    color: #5a3693;
+  }
+  
+  #conteudo-card-unitario ul {
+    list-style: none;
+    /* padding: 12px; */
+  }
+  
+  #conteudo-card-unitario li {
+    width: 83%;
+    height: 24.024px;
+    padding: 12px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #FFF;
+    font-size: 23.262px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: block;
+  }
+  
+  #conteudo-card-unitario .button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 149.777px;
+    height: 32.359px;
+    padding: 10px;
+    margin-top: 10%;
+    margin-left: 106px;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #A45DFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  #conteudo-card-unitario .button a{
+    color: #F6F3F9;
+  }
