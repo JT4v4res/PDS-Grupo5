@@ -33,7 +33,7 @@ return (
   <div id='container-cards'>
     {materias.map(materia => {
       return (
-        <CardMateria
+        <CardMateria key={materia.codigo}
           materia={materia.nome}
           codigo={materia.codigo}
           periodo={materia.periodo}

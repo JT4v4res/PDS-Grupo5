@@ -3,38 +3,36 @@ import './index.css';
 import SideBar from '../../Componentes/SideBar';
 import Navbar from '../../Componentes/Navbar';
 import api from "../../Componentes/apis";
+import Exemplos from "../Materias/MateriasService";
 
-let data;
+let data = Exemplos;
 
-api
-    .get(`/materia/${1}`)
-    .then((res) => {
-        data = res.data;
-        console.log(data);
-    }).catch((e) => {
-        console.log('erro: ', e);
-});
+// api
+//     .get(`/materia/${1}`)
+//     .then((res) => {
+//         data = res.data;
+//         console.log(data);
+//     }).catch((e) => {
+//         console.log('erro: ', e);
+// });
 
-export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRelevancia,descricao, professores, matExpositivo, literatura, questoes){
-  materia = data.nome
-  nivelEsforco = data.nivelEsforco
-  codigo = data.codigo
-  descricao = data.descricao
-  professores = data.professores
-  matExpositivo = ['Material 1', "Material 2"]
-  literatura = ['Material 1', 'Material 2']
-  questoes = ['Questão 1', 'Questão 2']
-  areaRelevancia = ['Programação Distribuida','Inteligencia Artificial', 'Análise de Algorítimos']
+export default function MateriaDetalhes (){
+  let materia = data.nome
+  let nivelEsforco = data.nivelEsforco
+  let codigo = data.codigo
+  let descricao = data.descricao
+  let professores = data.professores
+  let matExpositivo = data.matExpositivo
+  let literatura = data.literatura
+  let questoes = data.questoes
+  let areaRelevancia = data.areaRelevancia
 
     return (
         <>
         <Navbar/>
         <div className='page-content'>
             <SideBar/>
-        </div>
-        <div className="background">
 
-        {/* <div className="backgroud-elipse"></div> */}
             <div className="info-page">
                 <div className="materia-title-v1">
                     <label>{materia}</label>

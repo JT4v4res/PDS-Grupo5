@@ -12,7 +12,7 @@ export default function CardMateria (props){
                 <li key={props.periodo}><label className='code'>Período: {props.periodo}</label></li>
                 </ul>
                 <label className='button'>
-                <Link to='/MateriaDetalhes'>Saber mais</Link>
+                <Link to={`/MateriaDetalhes/${props.codigo}`}>Saber mais</Link>
                 </label>
             </div>
         </div>

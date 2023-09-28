@@ -5,7 +5,11 @@ export default function getMaterias() {
             periodo: '2',
             nivelEsforco: 'Alto',
             professor: ['Rodrigo Faro', 'Jessie J', 'Zé Pilintra'],
-            curso: ['Ciência da Computação', 'Engenharia de Computação']
+            curso: ['Ciência da Computação', 'Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Programação Competitiva','Engenharia de Software', 'Análise de Algoritmos']
         },
         {
             nome: 'Teoria dos Grafos',
@@ -13,7 +17,11 @@ export default function getMaterias() {
             periodo: '3',
             nivelEsforco: 'Médio',
             professor: ['Bob Marley', 'Anitta'],
-            curso: ['Ciência da Computação', 'Engenharia de Computação']
+            curso: ['Ciência da Computação', 'Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Programação Distribuida','Inteligencia Artificial']
         },
         {
             nome: 'Matemática Discreta',
@@ -21,7 +29,11 @@ export default function getMaterias() {
             periodo: '1',
             nivelEsforco: 'Médio',
             professor: ['Lince Negra'],
-            curso: ['Ciência da Computação', 'Engenharia de Computação']
+            curso: ['Ciência da Computação', 'Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Criptografia','Redes de Computadores', 'Análise de Algoritmos']
         },
         {
             nome: 'Sistemas Operacionais',
@@ -29,7 +41,11 @@ export default function getMaterias() {
             periodo: '5',
             nivelEsforco: 'Baixo',
             professor: ['Sidney Magal'],
-            curso: ['Ciência da Computação', 'Engenharia de Computação']
+            curso: ['Ciência da Computação', 'Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Programação Distribuida','Redes de Computadores', 'Embarcados']
         },
         {
             nome: 'Sistemas Digitais',
@@ -37,7 +53,11 @@ export default function getMaterias() {
             periodo: 'ELETIVA',
             nivelEsforco: 'Baixo',
             professor: ['Gugu Liberato'],
-            curso: ['Engenharia de Computação']
+            curso: ['Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Embarcados','Robótica', 'Sensores']
         },
         {
             nome: 'Cálculo 2',
@@ -45,7 +65,11 @@ export default function getMaterias() {
             periodo: 'ELETIVA',
             nivelEsforco: 'Alto',
             professor: ['Xi Ji Ping'],
-            curso: ['Ciência da Computação', 'Engenharia de Computação']
+            curso: ['Ciência da Computação', 'Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['-','Inteligencia Artificial', 'Análise de Algorítimos']
         },
         {
             nome: 'Compiladores',
@@ -53,7 +77,11 @@ export default function getMaterias() {
             periodo: '5',
             nivelEsforco: 'Alto',
             professor: ['Susane von Richtofen'],
-            curso: ['Ciência da Computação']
+            curso: ['Ciência da Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Programação Distribuida','Inteligencia Artificial', 'Engenheria de Software']
         },
         {
             nome: 'Circuitos Digitais',
@@ -61,7 +89,11 @@ export default function getMaterias() {
             periodo: '2',
             nivelEsforco: 'Baixo',
             professor: ['Carmem Miranda', 'Fred do Scooby Doo'],
-            curso: ['Engenharia de Computação']
+            curso: ['Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Robótica','Embarcados', 'Eletrônica']
         },
         {
             nome: 'Física 2',
@@ -69,7 +101,11 @@ export default function getMaterias() {
             periodo: '3',
             nivelEsforco: 'Médio',
             professor: ['Melody', 'Celso Russomano', 'Rihanna', 'Bob Marley'],
-            curso: ['Engenharia de Computação']
+            curso: ['Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Robótica','Física Computacional', '-']
         },
         {
             nome: 'Engenharia de Software',
@@ -77,7 +113,11 @@ export default function getMaterias() {
             periodo: '4',
             nivelEsforco: 'Baixo',
             professor: ['Chapolin Colorado', 'Chaves'],
-            curso: ['Engenharia de Computação']
+            curso: ['Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Desenvolvimento Web','Programação alto nível', '-']
         },
         {
             nome: 'Probabilidade e Estatística',
@@ -85,7 +125,11 @@ export default function getMaterias() {
             periodo: '4',
             nivelEsforco: 'Alto',
             professor: ['George Clooney'],
-            curso: ['Engenharia de Computação']
+            curso: ['Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Ciência de Dados','Inteligencia Artificial', 'Big Data']
         },
         {
             nome: 'Eletrônica',
@@ -93,7 +137,11 @@ export default function getMaterias() {
             periodo: '6',
             nivelEsforco: 'Baixo',
             professor: ['Tutancamon', 'Bozo', 'Kurt Cobain'],
-            curso: ['Engenharia de Computação']
+            curso: ['Engenharia de Computação'],
+            matExpositivo: ['Material 1', "Material 2"],
+            literatura:['Material 1', 'Material 2'],
+            questoes: ['Questão 1', 'Questão 2'],
+            areaRelevancia: ['Embarcados','Robótica', 'Programação baixo nível']
         },
     ]
 }
