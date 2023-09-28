@@ -1,4 +1,10 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsInt,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+} from 'class-validator';
 
 export class CreateAvaliationDto {
   @IsNotEmpty()
@@ -40,4 +46,20 @@ export class CreateAvaliationDto {
   @IsNotEmpty()
   @IsBoolean()
   recomenda_no_inicio: boolean;
+
+  @IsNotEmpty()
+  @IsBoolean()
+  isTeacher?: boolean;
+
+  @IsNotEmpty()
+  @IsBoolean()
+  isMateria?: boolean;
+
+  @IsNotEmpty()
+  @IsInt()
+  relationshipId: number;
+
+  @IsNotEmpty()
+  @IsBoolean()
+  primeira_aprovacao: boolean;
 }
