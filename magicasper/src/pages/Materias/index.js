@@ -28,9 +28,7 @@ function Materias (curso){
 return (
 <>
   <Navbar/>
-  <SeletorCurso texto={curso}/>
-
-  {/* <div id='barra-busca'/> */}
+  <SeletorCurso texto={'Catálogo de matérias'}/>
   <BarraBusca setMaterias={setMaterias}/>
 
   <div id='container-cards'>

@@ -53,3 +53,7 @@
 .courseDropdown option {
     color: black;
 }
+
+.result-count{
+    margin: 15px;
+}

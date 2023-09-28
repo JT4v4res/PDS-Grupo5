@@ -1,14 +1,15 @@
   .label-principal {
     display: flex;
+    margin-left: 25px;
   }
-  
-  #seletor-curso li{
+
+  #seletor-curso li {
     float: left;
     padding-top: 10px;
     list-style: none;
   }
-  
-  #seletor-curso label{
+
+  #seletor-curso label {
     color: #FFF;
     text-align: center;
     font-size: 36px;
@@ -17,7 +18,7 @@
     font-style: normal;
     line-height: normal;
   }
-  
-  .icone-selecao svg{
+
+  .icone-selecao svg {
     cursor: pointer;
   }

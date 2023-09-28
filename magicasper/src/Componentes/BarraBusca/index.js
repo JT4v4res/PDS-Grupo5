@@ -1,23 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './index.css';
 import { InputGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/esm/Form'
-import Col from 'react-bootstrap/Button';
-import Row from "react-bootstrap/Row";
-// import { InputGroup,  FormControl, Button, Form, Col } from 'react-bootstrap';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import getMaterias from "../../pages/Materias/MateriasService";
 
 function BarraBusca(props) {
     const [search, setSearch] = useState('');
+    const [selectedCourse, setSelectedCourse] = useState('');
+    const [resultCount, setResultCount] = useState(0); // Estado para armazenar o número de resultados
+    const [results, setResults] = useState([]); // Estado para armazenar os resultados
+
+    useEffect(() => {
+        // Atualize o contador de resultados sempre que a pesquisa for bem-sucedida
+        setResultCount(results.length);
+    }, [results]);
 
     function handleOnSubmit(event) {
         event.preventDefault();
         const materias = getMaterias();
-        const results = materias.filter(materia => materia.nome.toLowerCase().indexOf(search) !== -1);
+        let filteredResults = materias;
+
+        if (selectedCourse && selectedCourse != 'Filtrar por curso...'){
+            filteredResults = materias.filter(materia => materia.curso.includes(selectedCourse));
+        }
+
+        if (search){
+            filteredResults = filteredResults.filter(materia => materia.nome.toLowerCase().indexOf(search) !== -1);
+
+        }
+
         props.setMaterias(results);
+        setResults(filteredResults);
+    }
+
+    function handleCourseChange(event) {
+        setSelectedCourse(event.target.value);
     }
 
     function handleSearchChange(event) {
@@ -35,8 +55,8 @@ function BarraBusca(props) {
                         onChange={handleSearchChange}
                     />
                     <Form.Group controlId="courseDropdown">
-                        <Form.Control as="select" className="courseDropdown">
-                            <option>Selecione um curso (opcional)</option>
+                        <Form.Control as="select" className="courseDropdown" onChange={handleCourseChange}>
+                            <option>Filtrar por curso...</option>
                             <option>Ciência da Computação</option>
                             <option>Engenharia de Computação</option>
                         </Form.Control>
@@ -46,6 +66,9 @@ function BarraBusca(props) {
                             <FontAwesomeIcon icon={faSearch} />
                         </Button>
                     </InputGroup>
+                </div>
+                <div className="result-count">
+                    {resultCount !== 0 ? `Resultados encontrados: ${resultCount}` : ""}
                 </div>
             </Form>
         </div>
