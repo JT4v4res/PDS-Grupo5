@@ -27,10 +27,14 @@
   height: 1px;
 }
 
-#rating {
-  margin-top: 80px;
+.rating {
+  margin-top: 30px;
 }
 
+.title-content .label-principal{
+  margin: 0px;
+  margin-top: 15px;
+}
 /* Estilo para estrelas preenchidas */
 .star-filled {
   font-size: 32px; /* Tamanho das estrelas */
@@ -99,7 +103,9 @@
   align-items: center;
   text-align: center;
 }
-
+.dados-indicadores{
+  padding-left: 60px;
+}
 .jornada-aluno {
   width: 50%;
   height: 100%;

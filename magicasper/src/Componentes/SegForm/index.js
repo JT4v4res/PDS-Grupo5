@@ -25,7 +25,7 @@ export default function SegundoCadastro(props){
 
   return(
     <>
-      <div className='page-content'>
+      <div className='page-content-1'>
         <div className='magi-casper'>
           <h1>
             Magi Casper

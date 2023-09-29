@@ -30,10 +30,10 @@ export default function Cadastro(props){
 
   return(
     <>
-      <div className='page-content'>
+      <div className='page-content-2'>
         <div className='magi-casper'>
           <h1>
-            Magi Casper
+            Magi Casper 
           </h1>
         </div>
 

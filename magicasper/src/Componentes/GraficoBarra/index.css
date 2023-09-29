@@ -1,0 +1,12 @@
+.apexcharts-toolbar{
+  color: black;
+  size: 10px;
+}
+
+.apexcharts-menu{
+  background-color:rgb(58, 15, 98);
+}
+
+.apexcharts-menu apexcharts-menu-open{
+  background-color: black;
+}

@@ -10,7 +10,7 @@
 
 .professor-name {
     margin-top: 25px;
-    margin-left: 6px;
+    /* margin-left: 6px; */
     margin-right: 5px;
     font-family: Reem Kufi;
     font-size: 36px;
@@ -74,7 +74,13 @@
   margin-bottom: 15px;
   margin-top: 20px;
 }
+.materia-info .nome-materia .label-principal{
+  margin: 0px;
+}
 
+.materia-info .nome-materia #seletor-curso{
+  margin: 0px;
+}
 .codigo-1{
   margin: 0px;
   margin-bottom: 15px;
