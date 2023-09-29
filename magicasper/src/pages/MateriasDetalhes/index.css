@@ -25,6 +25,7 @@
 .page-content{
   display:flex;
   flex-wrap: wrap;
+  background-color: #CD1DC6;
 }
 .info-page{
   /* background-color:blueviolet; */

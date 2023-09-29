@@ -29,9 +29,9 @@ export default function MateriaDetalhes (materia, nivelEsforco, codigo, areaRele
     return (
         <>
         <Navbar/>
-        <div className='page-content'>
-            <SideBar/>
-        </div>
+    
+        <SideBar/>
+   
         <div className="background">
 
         {/* <div className="backgroud-elipse"></div> */}

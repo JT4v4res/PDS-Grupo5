@@ -38,7 +38,7 @@ export default function Login(){
 
   return(
     <>
-      <div className='page-content'>
+      <div className='page-content-3'>
         <div className='magi-casper'>
           <h1>
             Magi Casper
