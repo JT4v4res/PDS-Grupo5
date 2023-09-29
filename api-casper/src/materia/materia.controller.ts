@@ -10,8 +10,6 @@ import {
 } from '@nestjs/common';
 import { MateriaService } from './materia.service';
 import { MateriaEntity } from './entity/materia.entity';
-import { DeleteResult, UpdateResult } from 'typeorm';
-import { ProfessorEntity } from '../professor/entity/professor.entity';
 import { CreateMateriaDto } from './dto/create-materia.dto';
 import { UpdateMateriaDto } from './dto/update-materia.dto';
 
@@ -41,14 +39,14 @@ export class MateriaController {
   @Put()
   async updateMateria(
     @Body() materia: UpdateMateriaDto,
-  ): Promise<UpdateResult> {
+  ): Promise<MateriaEntity> {
     return await this.service.updateMateria(materia);
   }
 
   @Delete(':materiaId')
   async deleteMateria(
     @Param('materiaId', ParseIntPipe) materiaId: number,
-  ): Promise<DeleteResult> {
+  ): Promise<void> {
     return await this.service.deleteMateria(materiaId);
   }
 }

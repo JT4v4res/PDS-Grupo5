@@ -7,6 +7,9 @@ import {
   JoinTable,
   OneToMany,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from 'typeorm';
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
 import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.entity';
@@ -40,6 +43,15 @@ export class MateriaEntity extends BaseEntity {
 
   @Column({ nullable: false })
   descricao: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
 
   @ManyToMany(() => ProfessorEntity, (professor) => professor.materias)
   @JoinTable()
