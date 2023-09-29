@@ -11,7 +11,7 @@ import { AvaliationService } from './avaliation.service';
 import { AvaliationEntity } from './entity/avaliation.entity';
 import { CreateAvaliationDto } from './dto/create-avaliation.dto';
 import { UpdateAvaliationDto } from './dto/update-avaliation.dto';
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { UpdateResult } from 'typeorm';
 import { ReturnAvaliationDto } from './dto/return-avaliation.dto';
 
 @Controller('/avaliation')

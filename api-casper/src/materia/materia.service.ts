@@ -3,7 +3,6 @@ import { MateriaEntity } from './entity/materia.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProfessorEntity } from '../professor/entity/professor.entity';
-import { DeleteResult, UpdateResult } from 'typeorm';
 import { CreateMateriaDto } from './dto/create-materia.dto';
 import { UpdateMateriaDto } from './dto/update-materia.dto';
 import { ProfessorService } from '../professor/professor.service';
@@ -85,35 +84,32 @@ export class MateriaService {
     return newMateria;
   }
 
-  async updateMateria(materia: UpdateMateriaDto): Promise<UpdateResult> {
-    const updated: UpdateResult = await this.materiaRepository.update(
-      { materiaId: materia.materiaId },
-      materia,
+  async updateMateria(materia: UpdateMateriaDto): Promise<MateriaEntity> {
+    const materiaToUpdt: MateriaEntity = await this.getMateriaPorId(
+      materia.materiaId,
     );
-    if (updated.affected === 0) {
-      throw new HttpException(
-        'Materia not edited',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
 
-    return updated;
+    const teacher: ProfessorEntity =
+      await this.professorService.getTeacherByName(materia.professor);
+
+    materiaToUpdt.professores.push(teacher);
+
+    return await this.materiaRepository.save(materiaToUpdt);
   }
 
-  async deleteMateria(idMateria: number): Promise<DeleteResult> {
-    const deleted: DeleteResult = await this.materiaRepository.delete({
+  async deleteMateria(idMateria: number): Promise<void> {
+    const deleted: MateriaEntity = await this.materiaRepository.findOneBy({
       materiaId: idMateria,
     });
 
-    if (deleted) {
-      if (deleted.affected === 0) {
-        throw new HttpException(
-          'Materia not deleted',
-          HttpStatus.INTERNAL_SERVER_ERROR,
-        );
-      }
+    if (!deleted) {
+      throw new HttpException(
+        `Materia with ID ${idMateria} not found`,
+        HttpStatus.NOT_FOUND,
+      );
     }
 
-    return deleted;
+    deleted.deletedAt = new Date();
+    await this.materiaRepository.save(deleted);
   }
 }

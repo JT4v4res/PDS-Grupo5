@@ -153,7 +153,7 @@ export class AvaliationService {
 
     if (!avaliation) {
       throw new HttpException(
-        `User with ID ${avaliationId} not found`,
+        `Avaliation with ID ${avaliationId} not found`,
         HttpStatus.NOT_FOUND,
       );
     }
