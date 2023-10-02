@@ -1,46 +1,42 @@
 import './index.css';
 import FormularioAvaliacao from '../../Componentes/FormularioAvaliacao';
 import Navbar from '../../Componentes/Navbar';
+// import { getPost, getPosts } from "./api";
+import { disciplinas } from "./data";
+import {useParams} from "react-router-dom"
 
 
-function AvaliacaoMateria(disciplina){
+function AvaliacaoMateria(){
 
-  disciplina =[
-    {
-      nome: 'Programação 1',
-      codigo: 'Comp445',
-      professor: 'Ferreira',
-      semestre: '2024.1'
-    }
-  ]
+  const {Materiaid} = useParams();
   
+  let post;
+
+  disciplinas.forEach(element => {
+    if(element.id === Materiaid){
+        // console.log('Id da avaliação:', Materiaid)
+        // console.log("element: ",element)
+        post = element;
+    }
+  });
+
   return(
     <>
     <Navbar/>
       <div className='materia-title'>
         <div className='conteiner-top'>
           <div className='linha-lilas'/>
-              {
-                disciplina.map(disciplina => (
-                          <h2>{disciplina.nome}</h2>
-              ))
-              }
+              <h2>{post.nome}</h2>
           <div className='linha-rosa'/>
         </div>
       </div>
       <div className='main-content'>
         <div className='left-info'>
-          <div className='disciplina-info'>
-                <ul className='detail-disciplinas'>
-                          {
-                              disciplina.map(disciplina => (
-                                  <li>
-                                      <label>Código: {disciplina.codigo}</label>
-                                      <label>Professor: {disciplina.professor}</label>
-                                      <label>Semestre: {disciplina.semestre}</label>
-                                  </li>
-                              ))
-                          }
+          <div className='post-info'>
+                <ul className='detail-posts'>
+                  <li><label>Código: {post.codigo}</label><br></br></li>
+                  <li><label>Professor: {post.professor}</label><br></br></li>
+                  <li><label>Semestre: {post.semestre}</label></li>
                 </ul>
           </div>
           <div className='card-claro-form'>

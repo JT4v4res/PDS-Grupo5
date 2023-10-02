@@ -1,8 +1,8 @@
 import './index.css';
 import Dropdown from '../Dropdown';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link,useParams} from 'react-router-dom';
+import {diciplinas_avaliar} from './data'
 const items = [
   {
     id: 1,
@@ -26,6 +26,18 @@ const items = [
   },
 ];
 const FormularioAvaliacao= ({history})=>{
+  const {Materiaid} = useParams();
+
+  diciplinas_avaliar.forEach(element => {
+  if(diciplinas_avaliar.id === Materiaid){
+    console.log('Id da avaliação:', Materiaid)
+    console.log("element: ",element)
+    diciplinas_avaliar = element;
+    console.log('post: ', diciplinas_avaliar)
+}
+
+});
+
   const [formData, setFormData] = useState({
     didatica: '',
     tempo: '',
@@ -76,7 +88,7 @@ const FormularioAvaliacao= ({history})=>{
       </div>
       <div className='questions'>
         <div className='form-group'>
-            <label for="q1">Didática do professor</label><br></br>
+            <label >Didática do professor</label><br></br>
             <div className='lista-form'>
             <div className='item'>
               <input
@@ -110,7 +122,7 @@ const FormularioAvaliacao= ({history})=>{
                   onChange={handleChange}
                 />
                 {/* <input type="radio" id="adaptável" name="didatica" value="adaptável"/> */}
-                <label  className='resposta' for="monótona">adaptável</label>
+                <label  className='resposta' for="adaptável">adaptável</label>
               </div>
               <div className='item'>
                 <input
@@ -139,7 +151,7 @@ const FormularioAvaliacao= ({history})=>{
             </div>
         </div>
         <div className='form-group'>
-            <label for="q1">Quanto tempo de dedicação a disciplina necessita?</label><br></br>
+            <label >Quanto tempo de dedicação a disciplina necessita?</label><br></br>
             <div className='lista-form'>
               <div className='item'>
                   <input
@@ -178,7 +190,7 @@ const FormularioAvaliacao= ({history})=>{
             </div>
         </div>
         <div className='form-group'>
-            <label for="q1">Professor cobra presença?</label><br></br>
+            <label>Professor cobra presença?</label><br></br>
             <div className='lista-form'>
               <div className='item'>
                 <input
@@ -218,7 +230,7 @@ const FormularioAvaliacao= ({history})=>{
         </div>
 
         <div className='form-group'>
-            <label for="q1">Métodos de avaliação</label><br></br>
+            <label>Métodos de avaliação</label><br></br>
             <div className='lista-form'>
               <div className='item'>
                   <input
@@ -252,7 +264,7 @@ const FormularioAvaliacao= ({history})=>{
                         checked={formData.avaliacao === 'adaptável'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="monótona">adaptável</label>
+                <label  className='resposta' for="adaptável">adaptável</label>
               </div>
               <div className='item'>
                   <input
@@ -290,7 +302,7 @@ const FormularioAvaliacao= ({history})=>{
             </div>
         </div>
         <div className='form-group'>
-            <label for="q1">Em qual periodo  é recomendável pagar essa disciplina? </label><br></br>
+            <label>Em qual periodo  é recomendável pagar essa disciplina? </label><br></br>
             {/* <select
           name="periodo"
           value={formData.periodo}
@@ -301,7 +313,7 @@ const FormularioAvaliacao= ({history})=>{
       </div>
     
       <div className='btn-form'>
-        <button type='submit'><Link to={'../../AvaliacaoGeral'}>Continuar</Link></button>
+        <button type='submit'><Link to={`../../AvaliacaoGeral/${Materiaid}`}>Continuar</Link></button>
       </div>
     </form>
   )
