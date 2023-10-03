@@ -30,10 +30,10 @@ const FormularioAvaliacao= ({history})=>{
 
   diciplinas_avaliar.forEach(element => {
   if(diciplinas_avaliar.id === Materiaid){
-    console.log('Id da avaliação:', Materiaid)
-    console.log("element: ",element)
+    // console.log('Id da avaliação:', Materiaid)
+    // console.log("element: ",element)
     diciplinas_avaliar = element;
-    console.log('post: ', diciplinas_avaliar)
+    // console.log('post: ', diciplinas_avaliar)
 }
 
 });
@@ -258,7 +258,7 @@ const FormularioAvaliacao= ({history})=>{
               <div className='item'>
                   <input
                         type="radio"
-                        id="adaptável"
+                        id="adptável"
                         name="avaliacao"
                         value="adaptável"
                         checked={formData.avaliacao === 'adaptável'}

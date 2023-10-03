@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
 const SidebarLink = styled(Link)`
@@ -42,12 +42,14 @@ const DropdownLink = styled(Link)`
 
 const SubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
+  const { Materiaid } = useParams();
 
   const showSubnav = () => setSubnav(!subnav);
 
+  console.log("O ID ESTÀ SUBMENU ",`${item.path}${Materiaid}`)
   return (
     <>
-      <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
+      <SidebarLink to={`${item.path}${Materiaid}`} onClick={item.subNav && showSubnav}>
         <div>
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
@@ -63,7 +65,7 @@ const SubMenu = ({ item }) => {
       {subnav &&
         item.subNav.map((item, index) => {
           return (
-            <DropdownLink to={item.path} key={index}>
+            <DropdownLink to={`${item.path}${Materiaid}`} key={index}>
               {item.icon}
               <SidebarLabel>{item.title}</SidebarLabel>
             </DropdownLink>

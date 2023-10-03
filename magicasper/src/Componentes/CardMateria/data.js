@@ -1,16 +1,3 @@
-export const dataGraph =
-[
-  {
-    label: '2022.1',
-    data: [5, 10, 2, 5.5, 8.2, 10]
-  },
-  {
-    label: '2022.2',
-    data: [7.9, 5.5, 7.3, 8, 5.2, 9.2]
-  }
-]
-
-
 export const getMateriasDetalhes =[ {
   Materiaid: "001",
   nome: 'Estrutura de Dados',
@@ -20,7 +7,7 @@ export const getMateriasDetalhes =[ {
   nivelEsforco: 'Alto',
   professor: ['Rodrigo Faro', 'Jessie J', 'Zé Pilintra'],
   curso: ['Ciência da Computação', 'Engenharia de Computação'],
-  matExpositivo : ['Ufrj Youtube Channel', "UNIVESP slideplayer e Youtube"],
+  matExpositivo : ['Material 1', "Material 2"],
   literatura : [' “Introduction to Algorithms”, de Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest e Clifford Stein', '“Algorithms Unlocked”, de Thomas H. Cormen', '“The Algorithm Design Manual”, de Steven S. Skiena'],
   questoes : ['Huxley [Prática]', 'HakerRank [Prática]', 'computersciencemaster [Teoria]'],
   areaRelevancia : ['Ótimização de Recursos','Inteligencia Artificial', 'Análise de complexidade de Algorítimos']
@@ -91,7 +78,7 @@ export const getMateriasDetalhes =[ {
   professor: ['Xi Ji Ping'],
   curso: ['Ciência da Computação', 'Engenharia de Computação'],
   matExpositivo : ["e-Aulas da USP Youtube Channel", "UNIVESP Youtube Channel"],
-  literatura : ['Cálculo: Volume 2, Jon Rogawski, Colin Adams · 2018', 'Cálculo - vol. II, James Stweart · 2017'],
+  literatura : ['Sistemas Digitais: Fundamentos e Aplicações, Thomas Floyd · 2009', 'Sistemas Digitais, Frank Vahid · 2009'],
   questoes : ['UFMG - 1° Sem. 2004 - Exame Especial',' Unicamp - 2° Sem. 2008 - P1 (com gabarito)', 'Unicamp - 2° Sem. 2016 - P1 - Turma Manhã (com gabarito)'],
   areaRelevancia : ['Inteligencia Artificial','Análise de Algorítimos', 'Hardware']
 },

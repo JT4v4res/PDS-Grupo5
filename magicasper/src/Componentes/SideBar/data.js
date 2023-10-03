@@ -28,19 +28,19 @@ const subNav = [
 export const SidebarData = [
   {
     title: 'Detalhes',
-    path: '../../MateriaDetalhes',
+    path: '/MateriaDetalhes/',
     icon: <BiIcons.BiSolidDetail/>,
     cName: 'nav-text'
   },
   {
     title: 'Indicadores',
-    path: '../../MateriaIndicadores',
+    path: `/MateriaIndicadores/`,
     icon: <FaIcons.FaDatabase/>,
     cName: 'nav-text'
   },
   {
     title: 'Professores',
-    path: '#',
+    path: '/professorDetalhes/',
     icon: <BsIcons.BsPersonFill/>,
     iconClosed: <RiIcons.RiArrowDownSFill/>,
     iconOpened: <RiIcons.RiArrowUpFill/>,
@@ -48,7 +48,7 @@ export const SidebarData = [
   },
   {
     title: 'Material de estudo',
-    path: '../../materialEstudo',
+    path: '../../materialEstudo/',
     icon: <AiIcons.AiFillBook/>,
     cName: 'nav-text'
   },

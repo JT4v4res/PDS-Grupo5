@@ -42,8 +42,8 @@
 }
 
 .esforco {
-  width: 252px;
-  height: 43px;
+  width: 260px;
+  height: 50px;
   float: right;
   display: flex;
   flex-shrink: 0;
@@ -52,12 +52,14 @@
   margin-right: 28px;
   border: 1px solid #CD1DC6;
   background: rgba(205, 29, 198, 0.20);
+  justify-content: center;
+  align-items: center;
 }
 
 .esforco label{
   display: flex;
-  width: 230px;
-  height: 29px;
+  width: 260px;
+  height: 50px;
   margin-top: 7px;
   margin-bottom: 7px;
   margin-left: 12px;

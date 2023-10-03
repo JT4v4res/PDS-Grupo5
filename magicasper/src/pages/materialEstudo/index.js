@@ -3,9 +3,20 @@ import SeletorCurso from '../../Componentes/Seletor-Curso';
 import SideBar from '../../Componentes/SideBar';
 import Navbar from '../../Componentes/Navbar';
 import PontosBckgrd from '../../Componentes/PontosBckgrd';
+import {getMateriasDetalhes} from '../MateriaIndicadores/data'
+import {useParams} from "react-router-dom"
 
 function MaterialEstudo (materia, codigo, textoBase){
-  materia = "Estrutura de Dados"
+  const {Materiaid} = useParams();
+  let post;
+  getMateriasDetalhes.forEach(element => {
+      if(element.Materiaid === Materiaid){
+          console.log('Id da avaliação:', Materiaid)
+          console.log("element: ",element)
+          post = element;
+      }
+  });
+  materia = post.nome
   textoBase = "Lorem ipsum dolor sit amet\n" +
   "consectetur adipiscing elit,\n" +
   "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n" +
@@ -21,7 +32,7 @@ function MaterialEstudo (materia, codigo, textoBase){
         </div>
 
         <div className='codigo'>
-          <label>Código: {codigo}</label>
+          <label>Código: {post.codigo}</label>
         </div>
 
         <div className='superior-block'>
@@ -31,9 +42,11 @@ function MaterialEstudo (materia, codigo, textoBase){
               <div className='title-barra-inferior'/>
             </div>
             <div className='material-expositivo'>
-              <p>{textoBase.split('\n').map((line, index) => (
-                <span key={index}>{line}</span>
-              ))}</p>
+              <p>
+                {post.matExpositivo.map((line, index) =>(
+                  <span key={index}>{line}</span>
+                ))}
+              </p>
             </div>
           </div>
 
@@ -43,9 +56,11 @@ function MaterialEstudo (materia, codigo, textoBase){
               <div className='title-barra-inferior-2'/>
             </div>
             <div className='questoes'>
-              <p>{textoBase.split('\n').map((line, index) => (
-              <span key={index}>{line}</span>
-              ))}</p>
+            <p>
+                {post.questoes.map((line, index) =>(
+                  <span key={index}>{line}</span>
+                ))}
+              </p>
             </div>
           </div>
         </div>
@@ -57,9 +72,11 @@ function MaterialEstudo (materia, codigo, textoBase){
               <div className='title-barra-inferior-3'/>
             </div>
             <div className='materiais-literat'>
-              <p>{textoBase.split('\n').map((line, index) => (
-              <span key={index}>{line}</span>
-              ))}</p>
+               <p>
+                {post.literatura.map((line, index) =>(
+                  <span key={index}>{line}</span>
+                ))}
+              </p>
             {/* <PontosBckgrd/> */}
             </div>
           </div>
