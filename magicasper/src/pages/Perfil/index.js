@@ -1,17 +1,62 @@
 import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
-import { Link } from "react-router-dom"
+import { Link ,   useParams} from "react-router-dom"
 import React, { useState, useRef } from "react"; 
 import * as FiIcons from "react-icons/fi"
 import Navbar from '../../Componentes/Navbar';
 import Trofeus from '../../Componentes/trofeus';
 
 function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
+  const { Materiaid } = useParams();
+  console.log("Id no perfil: ",Materiaid)
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
   pontuacao_user = 220
   materias_cursadas = 10
   materias_fazer = 20
-  diciplinas_avaliar =['Programação 1', 'Cálculo 1', 'Introdução a computação', 'Ciência de dados', 'Geometria analítica', 'Computação e ética']
+  diciplinas_avaliar =[
+    {
+      id: '001',
+      nome: 'Programação 1',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '002',
+      nome: 'Cálculo 1',
+      codigo: 'Comp445',
+      professor: 'Matheus',
+      semestre: '2024.1'
+    },
+    {
+      id: '003',
+      nome: 'Introdução a computação',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '004',
+      nome: 'Ciência de dados',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '005',
+      nome: 'Geometria Analitica',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '006',
+      nome:  'Computação e ética',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+  ]
   disciplinas_atual =[
     {
       nome: 'Teoria da Computação',
@@ -74,6 +119,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
   };
   
 
+  console.log("ID:", Materiaid)
 return (
   <>
   <Navbar />
@@ -197,16 +243,13 @@ return (
                       {
                           diciplinas_avaliar.map(diciplinas_avaliar => (
                               <li>
-                                {/* Ver como importar variavel */}
-                                <Link to={'./../AvaliacaoMateria'}>{diciplinas_avaliar}</Link>
+                                <Link to={`./../AvaliacaoMateria/${diciplinas_avaliar.id}`}>{diciplinas_avaliar.nome}</Link>
                               </li>
                           ))
-                      }
+                        }
             </ul>
           </div>
         </div>
-            
-
       </div>
     </div>
   </>

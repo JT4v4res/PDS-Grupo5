@@ -3,12 +3,24 @@ import SideBar from '../../Componentes/SideBar';
 import SeletorCurso from "../../Componentes/Seletor-Curso";
 import BarGraph from "../../Componentes/GraficoBarra";
 import Navbar from '../../Componentes/Navbar';
-
+import {useParams} from "react-router-dom"
+import {getMateriasDetalhes} from '../MateriaIndicadores/data'
 
 function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, tempoMinistrando, desc_professor, dadosIndicadoresProfessor){
-  professor = 'John Doe'
-  materia = 'Estrutura de dados'
-  codigo = 'DPEIM30'
+  const {Materiaid} = useParams();
+    let post;
+    console.log("esse:", getMateriasDetalhes)
+    console.log("Id url:", Materiaid)
+    getMateriasDetalhes.forEach(element => {
+        if(element.Materiaid === Materiaid){
+            console.log('Id da avaliação:', Materiaid)
+            console.log("element: ",element)
+            post = element;
+        }
+    });
+  professor =  post.professor[0]
+  materia = post.nome
+  codigo = post.codigo
   lattes = 'http://lattes.cnpq.br/9300936571715992'
   desc_materia = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend.'
   desc_professor = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend.'

@@ -43,7 +43,7 @@
   color: #fff;
   width: 20%;
 }
-.disciplina-info{
+.post-info{
   border-radius: 17px;
   border: 1px solid rgba(205, 29, 198, 0.30);
   background-color: rgba(155, 150, 203, 0.90);
@@ -52,11 +52,14 @@
   margin: 7%;
   padding: 3%;
 }
-.disciplina-info ul li{
-  list-style: none;
-  margin: 6%;
+.post-info li{
+  height: 30px;
 }
-.disciplina-info label{
+.post-info ul li{
+  list-style: none;
+  margin: 5%;  
+}
+.post-info label{
   display: block;
   margin-bottom: 3%;
 }

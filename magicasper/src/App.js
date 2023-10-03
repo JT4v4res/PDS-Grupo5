@@ -32,14 +32,14 @@ function App (){
       <Routes>
         <Route path="/" element={<MagicasperInicial/>}/>
         <Route path="/Home" element={<Home/>}/>
-        <Route path="/Perfil" element={<Perfil/>}/>
-        <Route path="/Materias" element={<Materias/>}/>
-        <Route path="/MateriaDetalhes" element={<MateriaDetalhes/>}/>
-        <Route path="/AvaliacaoMateria" element={<AvaliacaoMateria/>}/>
-        <Route path='/AvaliacaoGeral' element={<AvaliacaoGeral/>}/>
-        <Route path="/professorDetalhes" element={<ProfessorDetalhes/>}/>
-        <Route path="/materialEstudo" element={<MaterialEstudo/>}/>
-        <Route path="/materiaIndicadores" element={<MateriaIndicadores/>}/>
+        <Route path="/Perfil/*" element={<Perfil/>}/>
+        <Route path="/AvaliacaoMateria/:Materiaid/*" element={<AvaliacaoMateria/>}/>
+        <Route path="/Materias/*" element={<Materias/>}/>
+        <Route path="/MateriaDetalhes/:Materiaid/*" element={<MateriaDetalhes/>}/>
+        <Route path='/AvaliacaoGeral/:Materiaid/*' element={<AvaliacaoGeral/>}/>
+        <Route path="/professorDetalhes/:Materiaid/*" element={<ProfessorDetalhes/>}/>
+        <Route path="/materialEstudo/:Materiaid/*" element={<MaterialEstudo/>}/>
+        <Route path="/materiaIndicadores/:Materiaid/*" element={<MateriaIndicadores/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Cadastro' element={<PrimeiraParteCadastro/>}/>
         <Route path='/Cadastroo' element={<SegundaParteCadastro/>}/>

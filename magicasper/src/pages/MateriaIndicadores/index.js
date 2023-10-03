@@ -4,11 +4,26 @@ import SeletorCurso from "../../Componentes/Seletor-Curso";
 import BarGraph from "../../Componentes/GraficoBarra";
 import Rating from '../../Componentes/Rating';
 import Navbar from '../../Componentes/Navbar';
+import {getMateriasDetalhes} from './data'
+import {useParams} from "react-router-dom"
+
 
 function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ratingStar, informativos){
-  materia = "Estrutura de dados"
-  codigo = "BP336CB"
-  nivelEsforco = ['Baixo', 'Médio', 'Alto']
+
+  const {Materiaid} = useParams();
+  let post;
+  // console.log("esse:", getMateriasDetalhes)
+  console.log("Id url indicadores:", Materiaid)
+  getMateriasDetalhes.forEach(element => {
+      if(element.Materiaid === Materiaid){
+          console.log('Id da avaliação:', Materiaid)
+          console.log("element: ",element)
+          post = element;
+      }
+  });
+  materia = post.nome
+  codigo =  post.codigo
+  nivelEsforco = post.nivelEsforco
   ratingStar = 3.5
   dadosIndicadores = ['Cerca de 80% dos alunos são aprovados na 1ª tentativa', '88%  não recomendam pegar  essa matéria se não viu o básico de programação', '50% afirmam que o seu professor foi didático', '44% dos usuários já concluíram essa matéria', '90% dos alunos recomendam essa matéria no inicio do curso', '97% afirmam que essa matéria requer muito tempo de dedicação']
   informativos = ['Mais de 70 alunos já avaliaram essa matéria', 'A última avaliação  foi feita em 10/10/2024']
@@ -21,7 +36,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
       <SeletorCurso texto={materia}/>
       <Rating rating={ratingStar}/>
       <div className='esforco'>
-        <label key={nivelEsforco}>Nível de esforço: {nivelEsforco[2]}</label>
+        <label key={nivelEsforco}>Nível de esforço: {nivelEsforco}</label>
       </div>
       
     </div>
@@ -40,7 +55,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
                   {
                       dadosIndicadores.map(dadosIndicadores => (
                           <li>
-                              <a href='/'>{dadosIndicadores}</a>
+                              {dadosIndicadores}
                           </li>
                       ))
                   }
@@ -53,7 +68,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
                 {
                     informativos.map(informativos => (
                         <li>
-                            <a href='/'>{informativos}</a>
+                            {informativos}
                         </li>
                     ))
                 }

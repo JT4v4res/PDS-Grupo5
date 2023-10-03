@@ -2,13 +2,69 @@ import './index.css';
 import Navbar from '../../Componentes/Navbar';
 import { useState } from "react";
 import Star from '../../Componentes/Star'
-import { Link } from "react-router-dom"
+import { Link,useParams } from "react-router-dom"
+
 
 const items = [...new Array(5).keys()];
 
-function AvaliacaoGeral(materia){
-  materia = 'Programação 1'
-  const [activeIndex, setActiveIndex] = useState();
+function AvaliacaoGeral(materias){
+
+  
+   materias =[
+    {
+      id: '001',
+      nome: 'Programação 1',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '002',
+      nome: 'Cálculo 1',
+      codigo: 'Comp445',
+      professor: 'Matheus',
+      semestre: '2024.1'
+    },
+    {
+      id: '003',
+      nome: 'Introdução a computação',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '004',
+      nome: 'Ciência de dados',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '005',
+      nome: 'Geometria Analitica',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+    {
+      id: '006',
+      nome:  'Computação e ética',
+      codigo: 'Comp445',
+      professor: 'Ferreira',
+      semestre: '2024.1'
+    },
+]
+const {Materiaid} = useParams();
+let materia;
+materias.forEach(element => {
+  if(element.id === Materiaid){
+      console.log('Id da avaliação:', Materiaid)
+      console.log("element: ",element)
+      materia = element;
+      console.log('post: ', materia)
+  }
+});
+const [activeIndex, setActiveIndex] = useState();
   const onClickStar = (index) => {
     setActiveIndex((oldState) => (oldState === index ? undefined : index));
   };
@@ -19,7 +75,7 @@ function AvaliacaoGeral(materia){
         <div className='materia-title'>
         <div className='conteiner-top'>
           <div className='linha-lilas'/>
-            <h2>{materia}</h2>
+            <h2>{materia.nome}</h2>
           <div className='linha-rosa'/>
         </div>
         </div>

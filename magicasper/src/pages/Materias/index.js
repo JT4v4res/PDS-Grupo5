@@ -34,9 +34,19 @@ return (
     {materias.map(materia => {
       return (
         <CardMateria
+          MateriaId={materia.MateriaId}
           materia={materia.nome}
           codigo={materia.codigo}
           periodo={materia.periodo}
+          MateriaId={materia.Materiaid}
+          descricao = {materia.descricao}
+          nivelEsforco = {materia.nivelEsforco}
+          professor ={materia.professor}
+          curso = {materia.curso}
+          matExpositivo = {materia.matExpositivo}
+          literatura = {materia.literatura}
+          questoes ={materia.questoes}
+          areaRelevancia={materia.areaRelevancia}
         />
       )
     })}
