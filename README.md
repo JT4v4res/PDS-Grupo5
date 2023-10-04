@@ -133,7 +133,7 @@ César Henrique Cicero <br />
 [Github César]()
 
 João Vitor Santos Tavares <br />
-*Gerente do projeto e Desenvolvedor Back-end* <br />
+*Gerente do projeto e Desenvolvedor Fullstack* <br />
 *jvst@ic.ufal.br* <br />
 [Github João Tavares](https://github.com/JT4v4res)
 
@@ -143,7 +143,7 @@ Paloma da Silva Lacerda dos Santos <br />
 [Github Paloma](https://github.com/palomallacerda)
 
 Thalyssa de Almeida Monteiro <br />
-*Desenvolvedora Front-end* <br />
+*Desenvolvedora Fullstack* <br />
 *tam@ic.ufal.br* <br />
 [Github Thalyssa](https://github.com/thalyssa)
 
