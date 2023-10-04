@@ -13,6 +13,7 @@ import { RelevantAreaController } from './relevant_area/relevant_area.controller
 import { AvaliationController } from './avaliacao/avaliation.controller';
 import { APP_FILTER } from '@nestjs/core';
 import { ValidationExceptionFilter } from './core/infra/middlewares/logger/exceptionfilter.filter';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ValidationExceptionFilter } from './core/infra/middlewares/logger/excep
     MateriaModule,
     RelevantAreaModule,
     AvaliationModule,
+    UserModule,
   ],
   providers: [
     {
