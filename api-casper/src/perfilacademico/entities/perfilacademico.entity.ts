@@ -47,8 +47,8 @@ export class PerfilacademicoEntity {
         (materia: MateriaEntity) => materia.codigo)
     disciplinas_matriculado: MateriaEntity[];
 
-    @Column()
-    notas: string[];
+    // @Column()
+    // notas: string[];
 
     @Column()
     progresso: number;
