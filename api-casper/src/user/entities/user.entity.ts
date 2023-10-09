@@ -20,6 +20,9 @@ export class UserEntity {
     @Column()
     senha: string;
 
+    @Column()
+    userType: string;
+
     @OneToMany(() => PerfilacademicoEntity, (perfil: PerfilacademicoEntity) => perfil.matricula)
     perfis: PerfilacademicoEntity[];
 

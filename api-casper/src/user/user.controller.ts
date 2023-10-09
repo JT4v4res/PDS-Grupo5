@@ -1,25 +1,33 @@
-import { Controller, 
-  Get, 
-  Post, 
-  Body, 
-  Put, 
-  Param, 
-  Delete, 
-  ParseIntPipe} from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserEntity } from './entities/user.entity';
+import { UserLoginDto } from './dto/user-login.dto';
 
 @Controller('/user')
 export class UserController {
   constructor(private service: UserService) {}
 
   //Testar
-  @Post()
-  createUser(@Body() createUserDto: CreateUserDto) {
+  @Post('/cadastro')
+  async createUser(@Body() createUserDto: CreateUserDto) {
     return this.service.createUser(createUserDto);
+  }
+
+  @Post('/login')
+  async login(@Body() userLogin: UserLoginDto) {
+    return await this.service.signIn(userLogin.nome, userLogin.senha);
   }
 
   //Testar
@@ -32,23 +40,21 @@ export class UserController {
   @Get(':userId')
   async getUserbyId(
     @Param('userId', ParseIntPipe) userId: number,
-    ): Promise<UserEntity> {
+  ): Promise<UserEntity> {
     return await this.service.getUserbyId(userId);
   }
 
   //Testar
   @Put()
-  async updateUser(
-    @Body() user: UpdateUserDto,
-  ): Promise<UpdateResult> {
+  async updateUser(@Body() user: UpdateUserDto): Promise<UpdateResult> {
     return await this.service.updateUser(user);
   }
 
   //Testar
   @Delete(':userId')
   async deleteUser(
-    @Param('userId', ParseIntPipe) userId: number):
-    Promise<DeleteResult> {
+    @Param('userId', ParseIntPipe) userId: number,
+  ): Promise<DeleteResult> {
     return await this.service.deleteUser(userId);
   }
 }
