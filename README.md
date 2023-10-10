@@ -148,6 +148,6 @@ Thalyssa de Almeida Monteiro <br />
 [Github Thalyssa](https://github.com/thalyssa)
 
 Yanka Raíssa Ribeiro da Silva <br />
-*Cientista de Dados* <br />
+*Desenvolvedora Front-End* <br />
 *yrrs@ic.ufal.br* <br />
 [Github Yanka](https://github.com/yrribeiro)
