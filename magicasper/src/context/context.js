@@ -10,7 +10,7 @@ export const AuthProvider = ({children}) => {
     const [userType, setUserType] = useState('');
 
     async function signIn(email, password){
-        await api.post("api-casper:8080/auth", {
+        await api.post("localhost:8080/user/login", {
             email: email,
             password: password,
         })

@@ -1,11 +1,14 @@
 import './index.css'
 import userLogo from '../../img/img-commenter.png';
-import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {AuthProvider} from "../../context/context";
 
 export default function Login(){
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const {signed, signIn} = useContext(AuthProvider);
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -17,8 +20,12 @@ export default function Login(){
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Nome de usuário:', username);
-    console.log('Senha:', password);
+
+    signIn(username, password);
+
+    if (signed !== null && signed !== undefined) {
+      navigate('/Home');
+    }
   };
 
   // const passwordInput = document.getElementById('password');
