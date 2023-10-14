@@ -10,7 +10,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
   const { Materiaid } = useParams();
   console.log("Id no perfil: ",Materiaid)
   user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
-  pontuacao_user = 220
+  pontuacao_user = 320
   materias_cursadas = 10
   materias_fazer = 20
   diciplinas_avaliar =[
@@ -89,15 +89,15 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
       pontosRecebidos:10
     },
     {
-      dataAvaliacao:'12/04/2024',
-      disciplina:'Cálculo 2',
+      dataAvaliacao:'1/07/2024',
+      disciplina:'Ciência de dados',
       nota: 5,
       dificuldade: 'facil',
       pontosRecebidos:15
     },
     {
-      dataAvaliacao:'12/04/2024',
-      disciplina:'Cálculo 1',
+      dataAvaliacao:'08/04/2024',
+      disciplina:'Física 1',
       nota: 4,
       dificuldade: 'média',
       pontosRecebidos:10

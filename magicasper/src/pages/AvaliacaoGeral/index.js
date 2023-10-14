@@ -3,7 +3,7 @@ import Navbar from '../../Componentes/Navbar';
 import { useState } from "react";
 import Star from '../../Componentes/Star'
 import { Link,useParams } from "react-router-dom"
-
+// Tela de avaliação geral que aparecerá as estrelas pro usuário avaliar
 
 const items = [...new Array(5).keys()];
 
