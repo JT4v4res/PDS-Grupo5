@@ -1,6 +1,6 @@
 import './index.css'
 import { Link } from "react-router-dom"
-
+// Tela inicial do sistema, será usada para o usuário entrar nas telas de login/cadastro
 function MagiCasperInicial(){
   return(
     <>

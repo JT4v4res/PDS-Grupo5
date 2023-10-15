@@ -5,11 +5,12 @@ import Navbar from '../../Componentes/Navbar';
 import api from "../../Componentes/apis";
 import {useParams} from "react-router-dom"
 import {getMateriasDetalhes}  from '../../Componentes/CardMateria/data';
+// Primeira tela dos detalhes da matéria aparecendo descrição damatéria e áreas de relevancia
 
 let data;
 
 api
-    .get(`/materia/${1}`)
+    .get(`/MateriaDetalhes/:Materiaid/${1}`)
     .then((res) => {
         data = res.data;
         console.log(data);

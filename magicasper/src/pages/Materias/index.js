@@ -8,14 +8,14 @@ import getMaterias  from './MateriasService';
 import CardMateria from '../../Componentes/CardMateria';
 import BarraBusca from '../../Componentes/BarraBusca';
 
-// let data;
+let data;
 
-// api
-//     .get('/materia')
-//     .then((res) => {
-//       data = res.data;
-//       console.log('Res.data: ',res.data);
-//     });
+api
+    .get(`/Materias/:Materiaid/${1}`)
+    .then((res) => {
+      data = res.data;
+      console.log('Res.data: ',res.data);
+    });
 
 
 function Materias (){
@@ -38,7 +38,6 @@ return (
           materia={materia.nome}
           codigo={materia.codigo}
           periodo={materia.periodo}
-          MateriaId={materia.Materiaid}
           descricao = {materia.descricao}
           nivelEsforco = {materia.nivelEsforco}
           professor ={materia.professor}

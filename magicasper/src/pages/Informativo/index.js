@@ -1,6 +1,7 @@
 import './index.css'
 import { Link } from "react-router-dom"
 import Navbar from '../../Componentes/Navbar';
+//Tela de informação que aparece após o ususário avaliar a disciplina
 
 function Informativo(){
   return(

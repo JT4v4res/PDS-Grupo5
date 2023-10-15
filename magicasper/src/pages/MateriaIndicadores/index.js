@@ -6,6 +6,15 @@ import Rating from '../../Componentes/Rating';
 import Navbar from '../../Componentes/Navbar';
 import {getMateriasDetalhes} from './data'
 import {useParams} from "react-router-dom"
+import api from "../../Componentes/apis";
+let data
+api
+    .get(`/materiaIndicadores/:Materiaid/${1}`)
+    .then((res) => {
+        data = res.data;
+    }).catch((e) => {
+        console.log('error: ', e);
+});
 
 
 function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ratingStar, informativos){
@@ -24,9 +33,9 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   materia = post.nome
   codigo =  post.codigo
   nivelEsforco = post.nivelEsforco
-  ratingStar = 3.5
-  dadosIndicadores = ['Cerca de 80% dos alunos são aprovados na 1ª tentativa', '88%  não recomendam pegar  essa matéria se não viu o básico de programação', '50% afirmam que o seu professor foi didático', '44% dos usuários já concluíram essa matéria', '90% dos alunos recomendam essa matéria no inicio do curso', '97% afirmam que essa matéria requer muito tempo de dedicação']
-  informativos = ['Mais de 70 alunos já avaliaram essa matéria', 'A última avaliação  foi feita em 10/10/2024']
+  ratingStar = post.ratingStar
+  dadosIndicadores = post.dadosIndicadores
+  informativos = post.informativos
   return (
   <>
   <Navbar/>

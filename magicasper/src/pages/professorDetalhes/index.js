@@ -5,6 +5,21 @@ import BarGraph from "../../Componentes/GraficoBarra";
 import Navbar from '../../Componentes/Navbar';
 import {useParams} from "react-router-dom"
 import {getMateriasDetalhes} from '../MateriaIndicadores/data'
+import api from "../../Componentes/apis";
+
+// Tela que aparecerá as informações de cada professor na disciplina
+
+let data;
+
+api
+    .get(`/professorDetalhes/:Materiaid/${1}`)
+    .then((res) => {
+        data = res.data;
+        console.log(data);
+    }).catch((e) => {
+        console.log('erro: ', e);
+});
+
 
 function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, tempoMinistrando, desc_professor, dadosIndicadoresProfessor){
   const {Materiaid} = useParams();

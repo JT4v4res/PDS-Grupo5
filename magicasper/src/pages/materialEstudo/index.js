@@ -2,9 +2,19 @@ import './index.css';
 import SeletorCurso from '../../Componentes/Seletor-Curso';
 import SideBar from '../../Componentes/SideBar';
 import Navbar from '../../Componentes/Navbar';
+import api from "../../Componentes/apis";
 import PontosBckgrd from '../../Componentes/PontosBckgrd';
 import {getMateriasDetalhes} from '../MateriaIndicadores/data'
 import {useParams} from "react-router-dom"
+let data;
+
+api
+    .get(`/materialEstudo/:Materiaid/${1}`)
+    .then((res) => {
+        data = res.data;
+    }).catch((e) => {
+        console.log('error: ', e);
+});
 
 function MaterialEstudo (materia, codigo, textoBase){
   const {Materiaid} = useParams();
