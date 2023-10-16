@@ -38,6 +38,12 @@ export class PerfilacademicoController {
     return await this.service.updatePerfil(perfil);
   }
 
+  @Put()
+  async attPontuacao(@Body() perfil: UpdatePerfilacademicoDto): Promise<UpdateResult> {
+
+    return await this.service.attPontuacao(perfil);
+  }
+
   @Delete(':perfilID')
   async deletePerfil(@Param('perfilID', ParseIntPipe) perfilID: number) {
     return await this.service.deletePerfil(perfilID);

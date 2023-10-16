@@ -14,6 +14,7 @@ import { AvaliationController } from './avaliacao/avaliation.controller';
 import { APP_FILTER } from '@nestjs/core';
 import { ValidationExceptionFilter } from './core/infra/middlewares/logger/exceptionfilter.filter';
 import { UserModule } from './user/user.module';
+import { NotasModule } from './notas/notas.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { UserModule } from './user/user.module';
     RelevantAreaModule,
     AvaliationModule,
     UserModule,
+    NotasModule,
   ],
   providers: [
     {

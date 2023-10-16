@@ -34,12 +34,12 @@ export class ProfessorEntity {
   )
   materias: MateriaEntity[];
 
-  // constructor(professor?: Partial<ProfessorEntity>) {
-  //   this.id = professor.id;
-  //   this.nome = professor.nome;
-  //   this.descricao = professor.descricao;
-  //   this.lattes = professor.lattes;
-  //   this.avaliacoes = professor.avaliacoes;
-  //   this.materias = professor.materias;
-  // }
+  constructor(professor?: Partial<ProfessorEntity>) {
+     this.id = professor.id;
+     this.nome = professor.nome;
+     this.descricao = professor.descricao;
+     this.lattes = professor.lattes;
+     this.avaliacoes = professor.avaliacoes;
+     this.materias = professor.materias;
+   }
 }

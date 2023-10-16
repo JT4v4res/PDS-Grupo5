@@ -77,6 +77,19 @@ export class PerfilacademicoService {
     return updated;
   }
 
+  async attPontuacao(id: number): Promise<PerfilacademicoEntity> {
+
+    const updated: this.perfilAcademicoRepository.findOneBy(id);
+
+    if(!updated){
+      throw new HttpException('Perfil not edited', HttpStatus.INTERNAL_SERVER_ERROR,);
+    }
+
+    updated.pontuacao += 1;
+
+    return await this.perfilAcademicoRepository.save(updated);
+  }
+
   async deletePerfil(idPerfil: number): Promise<DeleteResult> {
 
     const deleted: DeleteResult = await this.perfilAcademicoRepository.delete({id: idPerfil});

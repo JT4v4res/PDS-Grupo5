@@ -59,8 +59,27 @@ export class MateriaEntity extends BaseEntity {
 
   @ManyToMany(() => RelevantAreaEntity, (area) => area.materias)
   @JoinTable()
-  areasAtuacao: RelevantAreaEntity[];
+  areasRelevantes: RelevantAreaEntity[];
 
   @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
   avaliacoes: AvaliationEntity[];
+
+  constructor(materia?:Partial<MateriaEntity>){
+    super();
+    this.materiaId = materia?.materiaId;
+    this.codigo = materia?.codigo;
+    this.tipo = materia?.tipo;
+    this.nivelEsforco = materia?.nivelEsforco;
+    this.label = materia?.label;
+    this.curso = materia?.curso;
+    this.periodo = materia?.periodo;
+    this.nome = materia?.nome;
+    this.descricao = materia?.descricao;
+    this.createdAt = materia?.createdAt;
+    this.updatedAt = materia?.updatedAt;
+    this.deletedAt = materia?.deletedAt;
+    this.professores = materia?.professores;
+    this.areasRelevantes = materia?.areasRelevantes;
+    this.avaliacoes = materia?.avaliacoes;
+  }
 }

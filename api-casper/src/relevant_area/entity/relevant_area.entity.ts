@@ -9,12 +9,13 @@ export class RelevantAreaEntity extends BaseEntity{
   @Column()
   area: string;
 
-  @ManyToMany(() => MateriaEntity, (materia) => materia.areasAtuacao)
+  @ManyToMany(() => MateriaEntity, (materia) => materia.areasRelevantes)
   materias: MateriaEntity[];
 
-  // constructor(relevantArea?: Partial<RelevantAreaEntity>) {
-  //   this.areaId = relevantArea.areaId;
-  //   this.area = relevantArea.area;
-  //   this.materias = relevantArea.materias;
-  // }
+  constructor(relevantArea?: Partial<RelevantAreaEntity>) {
+    super();
+    this.areaId = relevantArea.areaId;
+    this.area = relevantArea.area;
+    this.materias = relevantArea.materias;
+   }
 }

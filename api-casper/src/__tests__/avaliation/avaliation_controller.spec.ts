@@ -174,6 +174,8 @@ describe('AvaliationController', (): void => {
         recomenda_no_inicio: true,
         semestre: '2024.1',
         didatica: 8,
+        relationshipId: 3,
+        primeira_aprovacao: true,
       };
 
       // Act
@@ -201,6 +203,8 @@ describe('AvaliationController', (): void => {
         recomenda_no_inicio: true,
         semestre: '2024.1',
         didatica: 8,
+        relationshipId: 2,
+        primeira_aprovacao: false,
       };
 
       jest
@@ -227,6 +231,8 @@ describe('AvaliationController', (): void => {
         semestre: '2025.1',
         didatica: 8,
         avaliacaoId: 4,
+        relationshipId: 3,
+        primeira_aprovacao: true,
       };
 
       // Act
@@ -255,6 +261,8 @@ describe('AvaliationController', (): void => {
         semestre: '2025.1',
         didatica: 8,
         avaliacaoId: 4,
+        relationshipId: 3,
+        primeira_aprovacao: true,
       };
 
       jest
