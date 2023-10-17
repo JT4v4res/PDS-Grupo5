@@ -5,20 +5,18 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
     const [token, setToken] = useState('');
-    const [user, setUser] = useState('');
+    const [userId, setUserId] = useState(-2);
     const [signed, setSigned] = useState(false);
-    const [userType, setUserType] = useState('');
 
     async function signIn(email, password){
-        await api.post("localhost:8080/user/login", {
+        await api.post("/user/login", {
             email: email,
-            password: password,
+            senha: password,
         })
         .then((response) => {
             if (response !== undefined && response !== null) {
-                setToken(response.data.token);
-                setUser(response.data.user);
-                setUserType(response.data.userType);
+                setToken(response.data.access_token);
+                setUserId(response.data.id);
                 setSigned(true);
             } else {
                 alert('Usuário não encontrado!');
@@ -35,12 +33,11 @@ export const AuthProvider = ({children}) => {
 
     function logOut() {
         setToken('');
-        setUser('');
-        setUserType('');
+        setUserId(-2);
         setSigned(false);
     }
 
-    return (<AuthContext.Provider value={{signed: signed, user, authToken: token, signIn, logOut, userType: userType}}>
+    return (<AuthContext.Provider value={{signed: signed, userId: userId, authToken: token, signIn, logOut}}>
         {children}
     </AuthContext.Provider>)
 }

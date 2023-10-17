@@ -40,13 +40,14 @@ const DropdownLink = styled(Link)`
   }
 `;
 
-const SubMenu = ({ item }) => {
+const SubMenu = ({ item , data}) => {
   const [subnav, setSubnav] = useState(false);
   const { Materiaid } = useParams();
 
+  console.log(item, data, 'submenu')
   const showSubnav = () => setSubnav(!subnav);
 
-  console.log("O ID ESTÀ SUBMENU ",`${item.path}${Materiaid}`)
+  console.log("O ID ESTÀ SUBMENU ",`${data}`)
   return (
     <>
       <SidebarLink to={`${item.path}${Materiaid}`} onClick={item.subNav && showSubnav}>

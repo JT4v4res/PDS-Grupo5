@@ -19,7 +19,7 @@ export default function SegundoCadastro(props){
     };
 
     const handleSubmit = (event) => {
-        navigate('/Perfil')
+        navigate('/Home')
         event.preventDefault();
     };
 

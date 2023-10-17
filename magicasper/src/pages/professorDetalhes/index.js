@@ -6,41 +6,49 @@ import Navbar from '../../Componentes/Navbar';
 import {useParams} from "react-router-dom"
 import {getMateriasDetalhes} from '../MateriaIndicadores/data'
 import api from "../../Componentes/apis";
+import {useEffect, useState} from "react";
 
 // Tela que aparecerá as informações de cada professor na disciplina
 
-let data;
-
-api
-    .get(`/professorDetalhes/:Materiaid/${1}`)
-    .then((res) => {
-        data = res.data;
-        console.log(data);
-    }).catch((e) => {
-        console.log('erro: ', e);
-});
-
-
 function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, tempoMinistrando, desc_professor, dadosIndicadoresProfessor){
   const {Materiaid} = useParams();
-    let post;
-    console.log("esse:", getMateriasDetalhes)
-    console.log("Id url:", Materiaid)
-    getMateriasDetalhes.forEach(element => {
-        if(element.Materiaid === Materiaid){
-            console.log('Id da avaliação:', Materiaid)
-            console.log("element: ",element)
-            post = element;
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+    const [materiaDesc, setMateria] = useState(null);
+
+    const dadosasync = async () => {
+        try {
+            const {data } = await api
+                .get(`/materia/${Materiaid}`)
+
+            setMateria(data);
+
+            const {professores} = data
+            setData(professores[0])
+        }catch (e) {
+            console.log('erro: ', e);
         }
-    });
-  professor =  post.professor[0]
-  materia = post.nome
-  codigo = post.codigo
-  lattes = 'http://lattes.cnpq.br/9300936571715992'
-  desc_materia = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend.'
-  desc_professor = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempus pretium est, nec gravida felis tempus quis. Sed aliquam sem sodales tempor eleifend.'
-  tempoMinistrando = 4
-  dadosIndicadoresProfessor = ['52%  consideram o método de avaliação como "formativo"', '61%  afirmam que a didática é “adaptável”', '74%  reportaram  cobrança de presença' ]
+
+    }
+
+    useEffect(() => {
+
+        dadosasync();
+    }, [Materiaid]);
+    if (data !== undefined && data !== null)
+    {
+        console.log('not null')
+
+        professor = data.nome;
+        materia = materiaDesc.nome;
+        codigo = materiaDesc.codigo;
+        lattes = data.lattes;
+        desc_materia = materiaDesc.descricao;
+        desc_professor = data.descricao;
+        tempoMinistrando = 4
+        dadosIndicadoresProfessor = [`${Math.floor((Math.random() * (100 - 30) + 1))}%  consideram o método de avaliação como "formativo"`,
+            `${Math.floor((Math.random() * (100 - 30) + 1))}%  afirmam que a didática é “adaptável”`,
+            `${Math.floor((Math.random() * (100 - 30) + 1))}%  reportaram  cobrança de presença` ]
   return (
     <>
     <Navbar />
@@ -50,7 +58,7 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
        <label className='professor-name' key={professor}>{professor}</label>
       </div>
       <div className='lattes'>
-        <a href={lattes} target='_blank' rel="noreferrer noopener nofollow">[Lattes]</a>
+        <a href={lattes} target='_blank' rel="noreferrer noopener nofollow">{lattes}</a>
       </div>
       <div className='main-content'>
         <div className='left-content'>
@@ -97,7 +105,10 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
       </div>
     </div>
     </>
-  )
+  )}
+    else{
+        return ('Carregando...');
+    }
 };
 
 export default ProfessorDetalhes;

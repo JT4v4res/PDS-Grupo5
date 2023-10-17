@@ -1,13 +1,13 @@
 import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import React, {useContext, useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import {AuthProvider} from "../../context/context";
+import {Link, Navigate, useNavigate} from 'react-router-dom';
+import {AuthContext} from "../../context/context";
 
 export default function Login(){
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const {signed, signIn} = useContext(AuthProvider);
+  const { signed, signIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
@@ -24,7 +24,7 @@ export default function Login(){
     signIn(username, password);
 
     if (signed !== null && signed !== undefined) {
-      navigate('/Home');
+      navigate('/Home')
     }
   };
 

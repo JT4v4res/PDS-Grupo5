@@ -1,17 +1,45 @@
-import React, {useState} from 'react'
-import { Link } from "react-router-dom"
+import React, {useEffect, useState} from 'react'
+import {Link, useParams} from "react-router-dom"
 import {SidebarData} from './data'
 import * as AiIcons from "react-icons/ai"
 import * as FaIcons from "react-icons/fa"
 import './index.css'
 import { IconContext } from 'react-icons/lib'
 import SubMenu from './Submenu';
+import api from "../../Componentes/apis";
 
 
-const SideBar = ({professores}) => {
-  professores = ['Marcio Ribeiro', 'Roberta Lopez']
+const SideBar = ({}) => {
+  // professores = ['Marcio Ribeiro', 'Roberta Lopez']
   const [sidebar, setSidebar] = useState(false);
+
+  const param = useParams()
+    console.log(param, 'param')
+    const {Materiaid} = useParams();
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+
+    const dadosasync = async () => {
+        try {
+            const {data } = await api
+                .get(`/materia/${Materiaid}`)
+
+            const {professores} = data
+            setData(professores[0])
+        }catch (e) {
+            console.log('erro: ', e);
+        }
+
+    }
+
+    useEffect(() => {
+
+
+        dadosasync();
+    }, [Materiaid]);
   const showSidebar = () => setSidebar(!sidebar)
+
+    console.log('data index sidebar', data)
   return (
     <>
     <div id='fullsidebar'> 
@@ -29,7 +57,7 @@ const SideBar = ({professores}) => {
                   </Link>
               </li>
               {SidebarData.map((item, index) => {
-                return <SubMenu item={item} key={index} />;
+                return <SubMenu item={item} data={data} key={index} />;
               })}
             </ul>
           </nav>

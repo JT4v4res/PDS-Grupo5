@@ -2,6 +2,7 @@ import './index.css'
 import userLogo from '../../img/img-commenter.png';
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import api from "../../Componentes/apis";
 // import { useForm } from 'react-hook-form';
 
 export default function Cadastro(props){
@@ -23,8 +24,8 @@ export default function Cadastro(props){
     setCurso(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    navigate('/Cadastroo')
+  const handleSubmit = async (event) => {
+    navigate('/Cadastroo');
     event.preventDefault();
   };
 

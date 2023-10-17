@@ -14,6 +14,7 @@ import {
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
 import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.entity';
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
+import {IsNotEmpty, IsString} from "class-validator";
 
 @Entity()
 export class MateriaEntity extends BaseEntity {
@@ -63,4 +64,16 @@ export class MateriaEntity extends BaseEntity {
 
   @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
   avaliacoes: AvaliationEntity[];
+
+  @Column({ nullable: true})
+  matExpositivo: string;
+
+  @Column({ nullable: true})
+  questions: string;
+
+  @Column({ nullable: true})
+  literatura: string;
+
+  @Column( {nullable: true})
+  areaRelevante: string;
 }
