@@ -51,11 +51,13 @@
   background-color: #9B96CB;
   flex-shrink: 0;
   height: 40px;
+  display: ;
   margin-right: 1px;
   width: 10%;
   /* padding: 1% 1%; */
   border-radius: 5px;
 }
+
 .btn strong{
   font-size: 16px;
   width: 80%;
@@ -63,7 +65,7 @@
 .btn:hover{
   background-color: #8881c7;
 }
-.btn button img:hover{
+.btn button:hover{
   cursor: pointer;
 }
 
@@ -71,6 +73,7 @@
   /* cursor: pointer; */
   background: transparent;
   border: 0;
+  width: 190px;
 }
  
 .btn button:focus {
@@ -80,11 +83,11 @@
 .btn button img {
   width: 20px;
   height: 20px;
-  margin-right: 40px;
+  margin-right: 10px;
   cursor: pointer;
 }
  .btn strong{
-  margin-left: 3px;
+  margin-left: 1px;
  }
 .btn input[type=file] {
   display: none;
