@@ -105,9 +105,10 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
   ]
   const [files, setFiles] = useState([]); // Alterei o nome de 'file' para 'files'
   const inputFile = useRef(null);
-
+  
   const handleChange = (e) => {
     const selectedFile = e.target.files[0];
+    console.log("Arquivo:", selectedFile)
     setFiles((prevFiles) => [
       ...prevFiles,
       { id: Date.now(), file: selectedFile }, // Adicionando um identificador único
@@ -139,8 +140,8 @@ return (
       <div className="btn">
             <button onClick={() => inputFile.current.click()}>
               <img src="https://www.svgrepo.com/show/12604/paper-clip.svg" alt="Anexar arquivo" />
+              <strong>Histórico Analítico</strong>
             </button>
-            <strong>Histórico Analítico</strong>
 
             <input type="file" onChange={handleChange} ref={inputFile} />
 
