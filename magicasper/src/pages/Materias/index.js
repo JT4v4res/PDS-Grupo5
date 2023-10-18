@@ -11,7 +11,7 @@ import BarraBusca from '../../Componentes/BarraBusca';
 let data;
 
 api
-    .get(`/Materias/:Materiaid/${1}`)
+    .get(`/materia`)
     .then((res) => {
       data = res.data;
       console.log('Res.data: ',res.data);
@@ -31,21 +31,21 @@ return (
   <BarraBusca setMaterias={setMaterias}/>
 
   <div id='container-cards'>
-    {materias.map(materia => {
+    {data.map(materia => {
       return (
         <CardMateria
-          MateriaId={materia.MateriaId}
+          MateriaId={materia.materiaId}
           materia={materia.nome}
           codigo={materia.codigo}
           periodo={materia.periodo}
           descricao = {materia.descricao}
           nivelEsforco = {materia.nivelEsforco}
-          professor ={materia.professor}
+          professor ={materia.professores}
           curso = {materia.curso}
-          matExpositivo = {materia.matExpositivo}
-          literatura = {materia.literatura}
-          questoes ={materia.questoes}
-          areaRelevancia={materia.areaRelevancia}
+          // matExpositivo = {materia.matExpositivo}
+          // literatura = {materia.literatura}
+          // questoes ={materia.questoes}
+          // areaRelevancia={materia.areaRelevancia}
         />
       )
     })}

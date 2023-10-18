@@ -4,7 +4,7 @@ import "@fontsource/reem-kufi";
 
 
 function Navbar  () {
-  const UserLogged = false; 
+  const UserLogged = true;
 return <header>
         <nav id="navbar">
           <div className="container">

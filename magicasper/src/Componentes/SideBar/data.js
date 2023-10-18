@@ -13,16 +13,6 @@ const subNav = [
     path: '../../professorDetalhes',
     icon: <BsIcons.BsPersonFill/>
   },
-  {
-    title: 'Professor 2',
-    path: '../../professorDetalhes',
-    icon: <BsIcons.BsPersonFill/>
-  },
-  {
-    title: 'Professor 3',
-    path: '../../professorDetalhes',
-    icon: <BsIcons.BsPersonFill/>
-  },
 ]
 
 export const SidebarData = [

@@ -38,15 +38,16 @@ export class UserService {
     throw new HttpException('Usuário já cadastrado!', HttpStatus.CONFLICT);
   }
 
-  async signIn(username: string, pass: string) {
+  async signIn(email: string, pass: string) {
     const user: UserEntity = await this.userRepository.findOneBy({
-      nome: username,
+      email: email,
     });
     if (user?.senha !== pass) {
       throw new UnauthorizedException();
     }
     const payload = { sub: user.id, username: user.nome };
     return {
+      id: user.id,
       access_token: await this.jwtService.signAsync(payload),
     };
   }

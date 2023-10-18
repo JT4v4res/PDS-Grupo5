@@ -2,23 +2,34 @@ import './index.css';
 import Navbar from '../../Componentes/Navbar';
 import BarGraph from "../../Componentes/GraficoBarra";
 import ProgressBar from "../../Componentes/ProgressBar"
+import {useContext} from "react";
+import {AuthContext} from "../../context/context";
+import {Navigate} from "react-router-dom";
 
 function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
-  UserData = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1", '4']
-  pontuacao_user = 120
+  const { signed } = useContext(AuthContext);
+
+  if (!signed) {
+    alert('Usuário não logado!');
+
+    return <Navigate to='/' />;
+  }
+
+  UserData = ["João Paulo", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1", '4']
+  pontuacao_user = 320
   materias_cursadas = 10
   materias_fazer = 20
   pontuacoes_ganhas =[
     {
-      dataAvaliacao:'12/04/2024',
-      disciplina:'Cálculo 1',
+      dataAvaliacao:'28/09/2023',
+      disciplina:'Inteligência artificial',
       nota: 4,
       dificuldade: 'média',
       pontosRecebidos:10
     },
     {
-      dataAvaliacao:'12/04/2024',
-      disciplina:'Cálculo 2',
+      dataAvaliacao:'28/09/2023',
+      disciplina:'Compiladores',
       nota: 5,
       dificuldade: 'facil',
       pontosRecebidos:15

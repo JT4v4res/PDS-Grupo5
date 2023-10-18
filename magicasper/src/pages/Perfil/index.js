@@ -9,7 +9,7 @@ import Trofeus from '../../Componentes/trofeus';
 function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   const { Materiaid } = useParams();
   console.log("Id no perfil: ",Materiaid)
-  user = ["Willy Wonka", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
+  user = ["João Paulo", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1"]
   pontuacao_user = 320
   materias_cursadas = 10
   materias_fazer = 20
@@ -82,22 +82,22 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
 
   pontuacoes_ganhas =[
     {
-      dataAvaliacao:'12/04/2024',
-      disciplina:'Cálculo 1',
+      dataAvaliacao:'28/09/2023',
+      disciplina:'Compiladores',
       nota: 4,
       dificuldade: 'média',
       pontosRecebidos:10
     },
     {
-      dataAvaliacao:'1/07/2024',
-      disciplina:'Ciência de dados',
+      dataAvaliacao:'28/09/2023',
+      disciplina:'Inteligência Artificial',
       nota: 5,
       dificuldade: 'facil',
       pontosRecebidos:15
     },
     {
-      dataAvaliacao:'08/04/2024',
-      disciplina:'Física 1',
+      dataAvaliacao:'28/09/2023',
+      disciplina:'Estruturas de Dados',
       nota: 4,
       dificuldade: 'média',
       pontosRecebidos:10

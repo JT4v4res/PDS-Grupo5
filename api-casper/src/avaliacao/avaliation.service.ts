@@ -18,7 +18,12 @@ export class AvaliationService {
   ) {}
 
   async getAvaliations(): Promise<AvaliationEntity[]> {
-    return await this.avaliationRepository.find();
+    return await this.avaliationRepository.find({
+      relations: {
+        materia: true,
+        professor: true,
+      },
+    });
   }
 
   async getAvaliationsById(avaliationId: number): Promise<AvaliationEntity> {

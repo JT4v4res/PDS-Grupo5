@@ -5,75 +5,89 @@ import Navbar from '../../Componentes/Navbar';
 import api from "../../Componentes/apis";
 import {useParams} from "react-router-dom"
 import {getMateriasDetalhes}  from '../../Componentes/CardMateria/data';
+import {useEffect, useState} from "react";
 // Primeira tela dos detalhes da matéria aparecendo descrição damatéria e áreas de relevancia
 
 let data;
 
-api
-    .get(`/MateriaDetalhes/:Materiaid/${1}`)
-    .then((res) => {
-        data = res.data;
-        console.log(data);
-    }).catch((e) => {
-        console.log('erro: ', e);
-});
-
 export default function MateriaDetalhes (){
-
     const {Materiaid} = useParams();
+
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const dadosasync = async () => {
+            const dados = await api
+                .get(`/materia/${Materiaid}`)
+                .then((res) => {
+                    setData(res.data);
+                    console.log('Resquest data: ', res.data);
+                }).catch((e) => {
+                    console.log('erro: ', e);
+                });
+            console.log('async')
+
+            console.log('Dados requisição: ', dados);
+            // setData(dados);
+        }
+
+        dadosasync();
+    }, [Materiaid]);
+
     let post;
     console.log("esse:", getMateriasDetalhes)
     console.log("Id url:", Materiaid)
-    getMateriasDetalhes.forEach(element => {
-        if(element.Materiaid === Materiaid){
-            console.log('Id da avaliação:', Materiaid)
-            console.log("element: ",element)
-            post = element;
-        }
-    });
 
     console.log("Post:", post)
-    return (
-        <>
-        <Navbar/>
-    
-        <SideBar/>
-   
-        <div className="background">
 
-        {/* <div className="backgroud-elipse"></div> */}
-            <div className="info-page">
-                <div className="materia-title-v1">
-                    <label>{post.nome}</label>
+    if (data !== undefined && data !== null) {
+        const relevant = [data.areaRelevante.split(',')]
+
+        return (
+            <>
+                <Navbar/>
+
+                <SideBar/>
+
+                <div className="background">
+
+                    {/* <div className="backgroud-elipse"></div> */}
+                    <div className="info-page">
+                        <div className="materia-title-v1">
+                            <label>{data.nome}</label>
+                        </div>
+                        <div className="materia-codigo">
+                            <label>Código: {data.codigo}</label>
+                        </div>
+
+                        <div className="descricao">
+                            <p>{data.descricao}</p>
+                        </div>
+
+                        <div className="areas-relevancia">
+                            <label>Áreas de Relevância</label>
+                            {/* <div className='title-barra-inferior'/> */}
+                        </div>
+
+                        <div className="cards">
+                            <ul className="lista-de-relevancia">
+                                {
+                                    relevant[0].map(areaRelevancia => (
+                                        <li style={{marginBottom: 30}}>
+                                            {areaRelevancia}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div className="materia-codigo">
-                    <label>Código: {post.codigo}</label>
-                </div>
-
-                <div className="descricao">
-                        <p>{post.descricao}</p>
-                </div>
-
-                <div className="areas-relevancia">
-                    <label>Áreas de Relevância</label>
-                    {/* <div className='title-barra-inferior'/> */}
-                </div>
-
-                <div className="cards">
-                    <ul className="lista-de-relevancia">
-                        {
-                            post.areaRelevancia.map(areaRelevancia => (
-                                <li>
-                                    {areaRelevancia}
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-
-            </div>
-
-        </div>
-        </>
-    );
+            </>
+        );
+    } else {
+        return ('Carregando...');
+    }
 };
