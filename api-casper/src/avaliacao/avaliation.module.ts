@@ -7,6 +7,7 @@ import { MateriaService } from '../materia/materia.service';
 import { ProfessorService } from '../professor/professor.service';
 import { MateriaModule } from '../materia/materia.module';
 import { ProfessorModule } from '../professor/professor.module';
+import { ProfessorEntity } from 'src/professor/entity/professor.entity';
 
 @Module({
   imports: [

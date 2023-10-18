@@ -6,8 +6,8 @@ import {
     OneToMany
   } from 'typeorm';
 
-import { MateriaEntity } from 'src/materia/entity/materia.entity';
-import { NotaEntity } from 'src/notas/entities/nota.entity';
+import { MateriaEntity } from '../../materia/entity/materia.entity';
+import { NotaEntity } from '../../notas/entities/nota.entity';
 
 @Entity()
 export class PerfilacademicoEntity {

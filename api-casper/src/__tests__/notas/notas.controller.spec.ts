@@ -3,7 +3,6 @@ import { NotasController } from '../../notas/notas.controller';
 import { NotasService } from '../../notas/notas.service';
 import { NotaEntity } from 'src/notas/entities/nota.entity';
 
-
 const NotasEntityList: NotaEntity[] = [
   new NotaEntity({
     notaId: 1,
@@ -61,7 +60,15 @@ describe('NotasController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [NotasController],
-      providers: [NotasService],
+      providers: [{
+        provide: NotasService,
+        useValue: {
+          getNotas: jest.fn().mockResolvedValue(NotasEntityList),
+          createNota: jest.fn().mockResolvedValue(newNota),
+          getNotaById: jest.fn().mockResolvedValue(NotaEntity[0]),
+          updateNota: jest.fn().mockResolvedValue(updatedNota),
+          deleteNota: jest.fn().mockResolvedValue(null),}
+      }],
     }).compile();
 
     notasController = module.get<NotasController>(NotasController);
@@ -71,5 +78,33 @@ describe('NotasController', () => {
     expect(notasController).toBeDefined();
   });
 
+
+  describe('getNotas', (): void => {
+    it('should return a list of notas successfully', async (): Promise<void> => {
+      // Act
+      const result: NotaEntity[] =
+        await notasController.getNotas();
+
+      // Assert
+      expect(result).toEqual(NotasEntityList);
+      expect(result).toBeInstanceOf(Array<NotaEntity>);
+    });
+  });
+
+  describe('createNota', (): void => {
+
+  });
+
+  describe('getNotaById', (): void => {
+
+  });
+
+  describe('updateNota', (): void => {
+
+  });
+
+  describe('deleteNota', (): void => {
+    
+  });
   
 });

@@ -6,11 +6,12 @@ import { Controller,
   Param, 
   Delete,
   ParseIntPipe, } from '@nestjs/common';
-  import { DeleteResult, UpdateResult } from 'typeorm';
+import { DeleteResult, UpdateResult } from 'typeorm';
 import { PerfilacademicoService } from './perfilacademico.service';
 import { CreatePerfilacademicoDto } from './dto/create-perfilacademico.dto';
 import { UpdatePerfilacademicoDto } from './dto/update-perfilacademico.dto';
 import { PerfilacademicoEntity } from './entities/perfilacademico.entity';
+
 
 @Controller('/perfilacademico')
 export class PerfilacademicoController {
@@ -39,9 +40,9 @@ export class PerfilacademicoController {
   }
 
   @Put()
-  async attPontuacao(@Body() perfil: UpdatePerfilacademicoDto): Promise<UpdateResult> {
+  async attPontuacao(@Body() perfil: UpdatePerfilacademicoDto): Promise<PerfilacademicoEntity> {
 
-    return await this.service.attPontuacao(perfil);
+    return await this.service.attPontuacao(perfil.id);
   }
 
   @Delete(':perfilID')

@@ -62,6 +62,7 @@ export class MateriaEntity extends BaseEntity {
   areasRelevantes: RelevantAreaEntity[];
 
   @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
+  @JoinTable()
   avaliacoes: AvaliationEntity[];
 
   constructor(materia?:Partial<MateriaEntity>){

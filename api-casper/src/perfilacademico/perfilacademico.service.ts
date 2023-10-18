@@ -79,7 +79,7 @@ export class PerfilacademicoService {
 
   async attPontuacao(id: number): Promise<PerfilacademicoEntity> {
 
-    const updated: this.perfilAcademicoRepository.findOneBy(id);
+    const updated = await this.perfilAcademicoRepository.findOneBy({id: id});
 
     if(!updated){
       throw new HttpException('Perfil not edited', HttpStatus.INTERNAL_SERVER_ERROR,);

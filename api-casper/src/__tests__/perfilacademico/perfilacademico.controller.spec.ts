@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PerfilacademicoController } from '../../perfilacademico/perfilacademico.controller';
 import { PerfilacademicoService } from '../../perfilacademico/perfilacademico.service';
-import { PerfilacademicoEntity } from 'src/perfilacademico/entities/perfilacademico.entity';
+import { PerfilacademicoEntity } from '../../perfilacademico/entities/perfilacademico.entity';
 
 const perfilacademicoList: PerfilacademicoEntity[] = [
   new PerfilacademicoEntity({
@@ -77,18 +77,28 @@ const updatedPerfilAcademico: PerfilacademicoEntity = new PerfilacademicoEntity(
 });
 
 describe('PerfilacademicoController', () => {
-  let controller: PerfilacademicoController;
+  let perfilAcademicocontroller: PerfilacademicoController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PerfilacademicoController],
-      providers: [PerfilacademicoService],
+      providers: [{
+        provide: PerfilacademicoService,
+        useValue:{
+          createPerfil: jest.fn().mockResolvedValue(newPerfilacademico),
+          getPerfis: jest.fn().mockResolvedValue(perfilacademicoList),
+          getPerfilById: jest.fn().mockResolvedValue(perfilacademicoList[0]),
+          updatePerfil: jest.fn().mockResolvedValue(updatedPerfilAcademico),
+          attPontuacao: jest.fn().mockResolvedValue(1),
+          deletePerfil: jest.fn().mockResolvedValue(null),
+        }
+      }],
     }).compile();
 
-    controller = module.get<PerfilacademicoController>(PerfilacademicoController);
+    perfilAcademicocontroller = module.get<PerfilacademicoController>(PerfilacademicoController);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(perfilAcademicocontroller).toBeDefined();
   });
 });

@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { NotaEntity } from './entities/nota.entity'
-import { NotasService } from './notas.service';
+import { NotasService } from '../../src/notas/notas.service';
 import { CreateNotaDto } from './dto/create-nota.dto';
 import { UpdateNotaDto } from './dto/update-nota.dto';
 
@@ -14,7 +14,7 @@ export class NotasController {
   }
 
   @Post()
-  create(@Body() createNotaDto: CreateNotaDto) {
+  createNota(@Body() createNotaDto: CreateNotaDto) {
     return this.notasService.createNota(createNotaDto);
   }
 
@@ -24,12 +24,12 @@ export class NotasController {
   }
 
   @Patch(':id')
-  updateNota(@Param('id') id: string, @Body() updateNotaDto: UpdateNotaDto) {
-    return this.notasService.updateNota(+id, updateNotaDto);
+  updateNota(@Param('id') id: string) {
+    return this.notasService.updateNota(+id);
   }
 
   @Delete(':id')
-  deleteNota(@Param('id') id: string) {
-    return this.notasService.deleteNota(+id);
+  deleteNota(@Param('id') id: number) {
+    return this.notasService.deleteNota(:id);
   }
 }

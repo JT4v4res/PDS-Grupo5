@@ -1,10 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { createMock, DeepMocked } from '@golevelup/ts-jest';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 import { AvaliationService } from '../../avaliacao/avaliation.service';
 import { CreateAvaliationDto } from '../../avaliacao/dto/create-avaliation.dto';
 import { UpdateAvaliationDto } from '../../avaliacao/dto/update-avaliation.dto';
+import { ProfessorService } from '../../professor/professor.service';
+import { MateriaService } from '../../materia/materia.service';
 
 const AvaliationEntityList: AvaliationEntity[] = [
   new AvaliationEntity({
@@ -85,7 +88,13 @@ describe('AvaliationService', (): void => {
             update: jest.fn().mockResolvedValue(updatedAvaliation),
             delete: jest.fn().mockResolvedValue(undefined),
           },
-        },
+        },{
+          provide: ProfessorService,
+          useValue: createMock<ProfessorService>(),
+        },{
+          provide: MateriaService,
+          useValue: createMock<MateriaService>()
+        }
       ],
     }).compile();
 
@@ -269,7 +278,7 @@ describe('AvaliationService', (): void => {
   describe('deleteAvaliation', (): void => {
     it('should delete a professor successfully', async (): Promise<void> => {
       // Act
-      const result: DeleteResult = await avaliationService.deleteAvaliation(1);
+      const result: void = await avaliationService.deleteAvaliation(1);
 
       // Assert
       expect(result).toBeUndefined();

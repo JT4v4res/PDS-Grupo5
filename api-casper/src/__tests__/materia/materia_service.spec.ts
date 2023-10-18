@@ -5,6 +5,7 @@ import { MateriaEntity } from '../../materia/entity/materia.entity';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { CreateMateriaDto } from '../../materia/dto/create-materia.dto';
 import { UpdateMateriaDto } from '../../materia/dto/update-materia.dto';
+import { createMock, DeepMocked } from '@golevelup/ts-jest';
 
 const materiaEntityList: MateriaEntity[] = [
   new MateriaEntity({
@@ -27,6 +28,10 @@ const materiaEntityList: MateriaEntity[] = [
     nome: 'estruturas de dados',
     descricao:
       'disciplina com foco em implementacao e algoritmos de estruturas de dados',
+    nivelEsforco: 'medio',
+    label: 'lorem impsu',
+    curso: 'Ciência da Computação',
+    periodo: 3,
   }),
   new MateriaEntity({
     materiaId: 3,
@@ -37,6 +42,10 @@ const materiaEntityList: MateriaEntity[] = [
     areasRelevantes: null,
     nome: 'compiladores',
     descricao: 'disciplina com foco na teoria dos compiladores',
+    nivelEsforco: 'medio',
+    label: 'lorem impsu',
+    curso: 'Ciência da Computação',
+    periodo: 3,
   }),
 ];
 
@@ -65,7 +74,10 @@ describe('MateriaService', (): void => {
             update: jest.fn().mockResolvedValue(updatedMateria),
             delete: jest.fn().mockResolvedValue(undefined),
           },
-        },
+        },{
+          provide: MateriaService,
+          useValue: createMock<MateriaService>()
+        }
       ],
     }).compile();
 
@@ -137,6 +149,11 @@ describe('MateriaService', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao',
         descricao: 'disciplina com foco na maquina de turing',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       // Act
@@ -157,6 +174,11 @@ describe('MateriaService', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao',
         descricao: 'disciplina com foco na maquina de turing',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       jest.spyOn(materiaRepository, 'save').mockRejectedValueOnce(new Error());
@@ -175,9 +197,14 @@ describe('MateriaService', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao 2',
         descricao: 'disciplina com foco na maquina de turing e automatos',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
       // Act
-      const result: UpdateResult = await materiaService.updateMateria(data);
+      const result = await materiaService.updateMateria(data);
 
       // Arrange
       expect(result).toEqual(updatedMateria);
@@ -193,6 +220,11 @@ describe('MateriaService', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao 2',
         descricao: 'disciplina com foco na maquina de turing e automatos',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       jest
@@ -207,7 +239,7 @@ describe('MateriaService', (): void => {
   describe('deleteMateria', (): void => {
     it('should delete a materia successfully', async (): Promise<void> => {
       // Act
-      const result: DeleteResult = await materiaService.deleteMateria(1);
+      const result: void = await materiaService.deleteMateria(1);
 
       // Assert
       expect(result).toBeUndefined();

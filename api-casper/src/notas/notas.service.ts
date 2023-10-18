@@ -8,6 +8,9 @@ import { DeleteResult, UpdateResult } from 'typeorm';
 
 @Injectable()
 export class NotasService {
+  static getNotas(): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     @InjectRepository(NotaEntity)
     private notaRepository: Repository<NotaEntity>,

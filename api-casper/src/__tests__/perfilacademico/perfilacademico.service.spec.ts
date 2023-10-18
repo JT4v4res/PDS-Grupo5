@@ -1,6 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PerfilacademicoService } from '../../perfilacademico/perfilacademico.service';
-import { PerfilacademicoEntity } from 'src/perfilacademico/entities/perfilacademico.entity';
+import { PerfilacademicoEntity } from '../../perfilacademico/entities/perfilacademico.entity';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { getRepositoryToken } from '@nestjs/typeorm';
 
 const perfilacademicoList: PerfilacademicoEntity[] = [
   new PerfilacademicoEntity({
@@ -76,17 +78,29 @@ const updatedPerfilAcademico: PerfilacademicoEntity = new PerfilacademicoEntity(
 });
 
 describe('PerfilacademicoService', () => {
-  let service: PerfilacademicoService;
+  let perfilAcademicoService: PerfilacademicoService;
+  let perfilAcademicoRepository: Repository<PerfilacademicoEntity>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [PerfilacademicoService],
+      providers:  [{
+        provide: PerfilacademicoService,
+        useValue:{
+          createPerfil: jest.fn().mockResolvedValue(newPerfilacademico),
+          getPerfis: jest.fn().mockResolvedValue(perfilacademicoList),
+          getPerfilById: jest.fn().mockResolvedValue(perfilacademicoList[0]),
+          updatePerfil: jest.fn().mockResolvedValue(updatedPerfilAcademico),
+          //attPontuacao: jest.fn().mockResolvedValue(),
+          deletePerfil: jest.fn().mockResolvedValue(null),
+        }
+      }],
     }).compile();
 
-    service = module.get<PerfilacademicoService>(PerfilacademicoService);
+    perfilAcademicoService = module.get<PerfilacademicoService>(PerfilacademicoService);
   });
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
+    expect(perfilAcademicoService).toBeDefined();
+    expect(perfilAcademicoRepository).toBeDefined();
   });
 });

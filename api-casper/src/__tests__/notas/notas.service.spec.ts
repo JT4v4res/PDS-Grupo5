@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotasService } from '../../notas/notas.service';
 import { NotaEntity } from 'src/notas/entities/nota.entity';
+import { UpdateNotaDto } from 'src/notas/dto/update-nota.dto';
 
 const NotasEntityList: NotaEntity[] = [
   new NotaEntity({
@@ -52,18 +53,66 @@ const updatedNota: NotaEntity = new NotaEntity({
   materia: 'Calculo 2',
   ab1: 5,
 });
+
 describe('NotasService', () => {
-  let service: NotasService;
+  let notasService: NotasService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [NotasService],
+      providers: [{
+        provide: NotasService,
+        useValue: {
+          getNotas: jest.fn().mockResolvedValue(NotasEntityList),
+          createNota: jest.fn().mockResolvedValue(newNota),
+          getNotaById: jest.fn().mockResolvedValue(NotaEntity[0]),
+          updateNota: jest.fn().mockResolvedValue(updatedNota),
+          deleteNota: jest.fn().mockResolvedValue(null),}
+      }],
     }).compile();
 
-    service = module.get<NotasService>(NotasService);
+    notasService = module.get<NotasService>(NotasService);
   });
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
+    expect(notasService).toBeDefined();
   });
+
+  describe('getNotas', (): void => {
+    //Arrange
+
+    //Act
+
+    //Assert
+
+  });
+
+  describe('getNotaById', (): void => {
+    //Arrange
+
+    //Act
+
+    //Assert
+
+  });
+
+  describe('updateNota', (): void => {
+    it('should update a nota successfully and return it', async(): Promise<void> => {
+    //Arrange
+      const data: UpdateNotaDto = {
+        notaId: 3
+      }
+
+    //Act
+      const result: 
+    //Assert
+    
+    )
+
+
+  });
+
+  describe('deleteNota', (): void => {
+    
+  });
+   
 });

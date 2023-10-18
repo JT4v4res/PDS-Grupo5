@@ -1,10 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { createMock, DeepMocked } from '@golevelup/ts-jest';
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { UpdateAvaliationDto } from '../../avaliacao/dto/update-avaliation.dto';
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 import { AvaliationController } from '../../avaliacao/avaliation.controller';
 import { AvaliationService } from '../../avaliacao/avaliation.service';
 import { CreateAvaliationDto } from '../../avaliacao/dto/create-avaliation.dto';
+import { ProfessorService } from '../../professor/professor.service';
+import { MateriaService } from '../../materia/materia.service';
 
 const AvaliationEntityList: AvaliationEntity[] = [
   new AvaliationEntity({
@@ -99,7 +102,10 @@ describe('AvaliationController', (): void => {
             updateAvaliation: jest.fn().mockResolvedValue(updatedAvaliation),
             deleteAvaliation: jest.fn().mockResolvedValue(undefined),
           },
-        },
+        },{
+          provide: ProfessorService,
+          useValue: createMock<ProfessorService>(),
+        }
       ],
     }).compile();
 
@@ -277,7 +283,7 @@ describe('AvaliationController', (): void => {
   describe('deleteAvaliation', (): void => {
     it('should delete an relevant area successfully', async (): Promise<void> => {
       // Act
-      const result: DeleteResult =
+      const result: void =
         await avaliationController.deleteAvaliation(1);
 
       // Assert

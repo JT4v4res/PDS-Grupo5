@@ -136,6 +136,11 @@ describe('MateriaController', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao',
         descricao: 'disciplina com foco na maquina de turing',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       // Act
@@ -155,6 +160,11 @@ describe('MateriaController', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao',
         descricao: 'disciplina com foco na maquina de turing',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       jest
@@ -175,10 +185,15 @@ describe('MateriaController', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao 2',
         descricao: 'disciplina com foco na maquina de turing e automatos',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       // Act
-      const result: UpdateResult = await materiaController.updateMateria(body);
+      const result = await materiaController.updateMateria(body);
 
       // Assert
       expect(result).toEqual(updatedMateria);
@@ -196,6 +211,11 @@ describe('MateriaController', (): void => {
         tipo: 'teoria',
         nome: 'teoria da computacao 2',
         descricao: 'disciplina com foco na maquina de turing e automatos',
+        nivelEsforco: 'medio',
+        label: 'lorem impsu',
+        curso: 'Ciência da Computação',
+        periodo: 3,
+        professor: 'Eliana'
       };
 
       jest
@@ -210,7 +230,7 @@ describe('MateriaController', (): void => {
   describe('deleteMateria', (): void => {
     it('should delete a materia successfully', async (): Promise<void> => {
       // Act
-      const result: DeleteResult = await materiaController.deleteMateria(1);
+      const result: void = await materiaController.deleteMateria(1);
 
       // Assert
       expect(result).toBeUndefined();
