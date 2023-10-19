@@ -5,7 +5,9 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
+import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 
 @Entity()
 export class UserEntity {
@@ -30,4 +32,15 @@ export class UserEntity {
   })
   @JoinColumn()
   perfil: PerfilacademicoEntity;
+
+  @OneToMany(
+    () => AvaliationEntity,
+    (valuations: AvaliationEntity) => valuations.user,
+    {
+      cascade: true,
+      nullable: true,
+    },
+  )
+  @JoinColumn()
+  valuations: AvaliationEntity[];
 }

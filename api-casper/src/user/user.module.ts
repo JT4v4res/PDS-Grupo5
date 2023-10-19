@@ -7,10 +7,15 @@ import { PerfilacademicoEntity } from 'src/perfilacademico/entities/perfilacadem
 import { JwtModule } from '@nestjs/jwt';
 import * as process from 'process';
 import { PerfilacademicoModule } from '../perfilacademico/perfilacademico.module';
+import { AvaliationEntity } from '../avaliacao/entity/avaliation.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([UserEntity, PerfilacademicoEntity]),
+    TypeOrmModule.forFeature([
+      UserEntity,
+      PerfilacademicoEntity,
+      AvaliationEntity,
+    ]),
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,

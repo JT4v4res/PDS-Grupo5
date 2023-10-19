@@ -27,6 +27,7 @@ export class UserService {
   async createUser(user: CreateUserDto): Promise<UserEntity> {
     const userFound: UserEntity = await this.userRepository.findOneBy({
       nome: user.nome,
+      email: user.email,
     });
 
     if (userFound === null || userFound === undefined) {
@@ -63,6 +64,7 @@ export class UserService {
     const users: UserEntity[] = await this.userRepository.find({
       relations: {
         perfil: true,
+        valuations: true,
       },
     });
 
@@ -80,8 +82,14 @@ export class UserService {
       );
     }
 
-    const user: UserEntity = await this.userRepository.findOneBy({
-      id: userId,
+    const user: UserEntity = await this.userRepository.findOne({
+      where: {
+        id: userId,
+      },
+      relations: {
+        perfil: true,
+        valuations: true,
+      },
     });
 
     if (!user) {

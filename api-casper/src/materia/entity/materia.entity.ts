@@ -14,7 +14,8 @@ import {
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
 import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.entity';
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
-import {IsNotEmpty, IsString} from "class-validator";
+import { IsNotEmpty, IsString } from 'class-validator';
+import { PerfilacademicoEntity } from '../../perfilacademico/entities/perfilacademico.entity';
 
 @Entity()
 export class MateriaEntity extends BaseEntity {
@@ -65,15 +66,45 @@ export class MateriaEntity extends BaseEntity {
   @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
   avaliacoes: AvaliationEntity[];
 
-  @Column({ nullable: true})
+  @Column({ nullable: true })
   matExpositivo: string;
 
-  @Column({ nullable: true})
+  @Column({ nullable: true })
   questions: string;
 
-  @Column({ nullable: true})
+  @Column({ nullable: true })
   literatura: string;
 
-  @Column( {nullable: true})
+  @Column({ nullable: true })
   areaRelevante: string;
+
+  @ManyToMany(
+    () => PerfilacademicoEntity,
+    (perfil) => perfil.materias_restantes,
+    {
+      nullable: true,
+    },
+  )
+  @JoinTable()
+  perfilRestantes: PerfilacademicoEntity[];
+
+  @ManyToMany(
+    () => PerfilacademicoEntity,
+    (perfil) => perfil.materias_cursadas,
+    {
+      nullable: true,
+    },
+  )
+  @JoinTable()
+  perfilCursadas: PerfilacademicoEntity[];
+
+  @ManyToMany(
+    () => PerfilacademicoEntity,
+    (perfil) => perfil.disciplinas_matriculado,
+    {
+      nullable: true,
+    },
+  )
+  @JoinTable()
+  perfilMatriculadas: PerfilacademicoEntity[];
 }
