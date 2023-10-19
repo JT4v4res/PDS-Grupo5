@@ -4,6 +4,7 @@
   import React, { useState } from 'react';
   // import { useForm } from 'react-hook-form';
   import { useLocation } from 'react-router-dom';
+  import axios from 'axios';
   
   export default function SegundoCadastro(props){
       const [matricula, setMatricula] = useState('');
@@ -13,7 +14,7 @@
       const navigate = useNavigate();
 
       const location = useLocation();
-
+      
       // Acesso às informações
       const { name, mail, curso } = location.state;
       // console.log("Nome1", name);
@@ -29,10 +30,10 @@
           validateForm()
       };
 
-      const handleSubmit = (event) => {
-          navigate('/Login')
-          event.preventDefault();
-      };
+      // const handleSubmit = (event) => {
+      //     navigate('/Login')
+      //     event.preventDefault();
+      // };
 
       const validateForm = () => {
         setIsButtonEnabled(password);
@@ -43,7 +44,31 @@
         border: '1px solid red', // Adicione uma borda vermelha
       };
     
-
+      const handleSubmit = (event) => {
+        event.preventDefault();
+      
+        axios.post('http://localhost:8080/user/cadastro', {
+            nome: name,
+            email: mail,
+            senha: password,
+            perfilAcademico: {
+              curso: curso,
+              matricula: matricula,
+              universidade: '',
+            },
+          })
+          .then((response) => {
+            if (response.status === 201) {
+              navigate('/Login');
+            } else {
+              // Tratar possíveis erros
+              console.error('Erro no cadastro');
+            }
+          })
+          .catch((error) => {
+            console.error('Erro na chamada à API', error);
+          });
+      };
     return(
       <>
         <div className='page-content-1'>
