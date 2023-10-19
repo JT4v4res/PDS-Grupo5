@@ -7,6 +7,8 @@ import { UpdateAvaliationDto } from './dto/update-avaliation.dto';
 import { ProfessorService } from '../professor/professor.service';
 import { MateriaService } from '../materia/materia.service';
 import { ReturnAvaliationDto } from './dto/return-avaliation.dto';
+import { UserEntity } from '../user/entities/user.entity';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AvaliationService {
@@ -15,6 +17,7 @@ export class AvaliationService {
     private readonly avaliationRepository: Repository<AvaliationEntity>,
     private readonly professorService: ProfessorService,
     private readonly materiaService: MateriaService,
+    private readonly userService: UserService,
   ) {}
 
   async getAvaliations(): Promise<AvaliationEntity[]> {
@@ -104,13 +107,16 @@ export class AvaliationService {
 
     let rParam;
 
+    const user: UserEntity = await this.userService.getUserbyId(
+      avaliation.userId,
+    );
+
     if (avaliation.isMateria !== false) {
       rParam = await this.materiaService.getMateriasForValuation(
         avaliation.relationshipId,
       );
       if (rParam) {
         newAvaliation.materia = rParam;
-        console.log(rParam);
       }
     } else if (avaliation.isTeacher !== false) {
       rParam = await this.professorService.getProfessorPorId(
@@ -118,11 +124,14 @@ export class AvaliationService {
       );
       if (rParam) {
         newAvaliation.professor = rParam;
-        console.log(rParam);
       }
     }
 
-    if (newAvaliation) {
+    if (user !== null && user !== undefined) {
+      newAvaliation.user = user;
+    }
+
+    if (newAvaliation !== null && newAvaliation !== undefined) {
       return await this.avaliationRepository.save(newAvaliation);
     }
 
@@ -156,7 +165,7 @@ export class AvaliationService {
         avaliationId: avaliationId,
       });
 
-    if (!avaliation) {
+    if (avaliation === null || avaliation === undefined) {
       throw new HttpException(
         `Avaliation with ID ${avaliationId} not found`,
         HttpStatus.NOT_FOUND,

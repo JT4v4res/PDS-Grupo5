@@ -14,6 +14,8 @@ import { AvaliationController } from './avaliacao/avaliation.controller';
 import { APP_FILTER } from '@nestjs/core';
 import { ValidationExceptionFilter } from './core/infra/middlewares/logger/exceptionfilter.filter';
 import { UserModule } from './user/user.module';
+import { UserController } from './user/user.controller';
+import { PerfilacademicoController } from './perfilacademico/perfilacademico.controller';
 
 @Module({
   imports: [
@@ -43,6 +45,8 @@ export class AppModule {
         MateriaController,
         RelevantAreaController,
         AvaliationController,
+        UserController,
+        PerfilacademicoController,
       );
   }
 }

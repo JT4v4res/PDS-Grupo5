@@ -17,7 +17,7 @@ export class PerfilacademicoService {
     perfil: CreatePerfilacademicoDto,
   ): Promise<PerfilacademicoEntity> {
     const newPerfil: PerfilacademicoEntity =
-        this.perfilAcademicoRepository.create(perfil);
+      this.perfilAcademicoRepository.create(perfil);
 
     newPerfil.semestre = '';
     newPerfil.periodo = 1;
@@ -34,7 +34,13 @@ export class PerfilacademicoService {
 
   async getPerfis(): Promise<PerfilacademicoEntity[]> {
     const perfis: PerfilacademicoEntity[] =
-      await this.perfilAcademicoRepository.find();
+      await this.perfilAcademicoRepository.find({
+        relations: {
+          materias_cursadas: true,
+          materias_restantes: true,
+          disciplinas_matriculado: true,
+        },
+      });
 
     if (!perfis) {
       throw new HttpException('Perfis not found', HttpStatus.NOT_FOUND);
@@ -52,7 +58,14 @@ export class PerfilacademicoService {
     }
 
     const perfil: PerfilacademicoEntity =
-      await this.perfilAcademicoRepository.findOneBy({ id: id });
+      await this.perfilAcademicoRepository.findOne({
+        where: { id: id },
+        relations: {
+          materias_cursadas: true,
+          materias_restantes: true,
+          disciplinas_matriculado: true,
+        },
+      });
 
     if (!perfil) {
       throw new HttpException('Perfil not found', HttpStatus.NOT_FOUND);

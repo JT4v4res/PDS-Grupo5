@@ -6,9 +6,12 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  OneToMany,
+  JoinColumn,
 } from 'typeorm';
 import { MateriaEntity } from '../../materia/entity/materia.entity';
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
+import { UserEntity } from '../../user/entities/user.entity';
 
 @Entity()
 export class AvaliationEntity {
@@ -34,6 +37,11 @@ export class AvaliationEntity {
     },
   )
   professor: ProfessorEntity | null;
+
+  @ManyToOne(() => UserEntity, (user: UserEntity) => user.valuations, {
+    nullable: true,
+  })
+  user: UserEntity;
 
   @Column()
   semestre: string;

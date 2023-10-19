@@ -8,6 +8,10 @@ import {
 
 export class CreateAvaliationDto {
   @IsNotEmpty()
+  @IsInt()
+  userId: number;
+
+  @IsNotEmpty()
   @IsString()
   semestre: string;
 

@@ -6,6 +6,8 @@ import {
   OneToMany,
   OneToOne,
   JoinColumn,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
 
 import { MateriaEntity } from 'src/materia/entity/materia.entity';
@@ -31,21 +33,36 @@ export class PerfilacademicoEntity {
   @Column({ nullable: true })
   periodo: number;
 
-  // @OneToMany(() => MateriaEntity, (materia: MateriaEntity) => materia.codigo, {
-  //   nullable: true,
-  // })
-  // materias_cursadas: MateriaEntity[];
+  @ManyToMany(
+    () => MateriaEntity,
+    (materia: MateriaEntity) => materia.perfilCursadas,
+    {
+      nullable: true,
+    },
+  )
+  @JoinTable()
+  materias_cursadas: MateriaEntity[];
 
-  // @OneToMany(() => MateriaEntity, (materia: MateriaEntity) => materia.codigo, {
-  //   nullable: true,
-  // })
-  // materias_restantes: MateriaEntity[];
+  @ManyToMany(
+    () => MateriaEntity,
+    (materia: MateriaEntity) => materia.perfilRestantes,
+    {
+      nullable: true,
+    },
+  )
+  @JoinTable()
+  materias_restantes: MateriaEntity[];
 
   @Column({ nullable: true })
   pontuacao: number;
 
-  // @OneToMany(() => MateriaEntity, (materia: MateriaEntity) => materia.codigo)
-  // disciplinas_matriculado: MateriaEntity[];
+  @ManyToMany(
+    () => MateriaEntity,
+    (materia: MateriaEntity) => materia.perfilMatriculadas,
+    { nullable: true },
+  )
+  @JoinTable()
+  disciplinas_matriculado: MateriaEntity[];
 
   @Column({ nullable: true })
   progresso: number;
