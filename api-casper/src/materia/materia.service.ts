@@ -3,11 +3,10 @@ import { MateriaEntity } from './entity/materia.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ProfessorEntity } from '../professor/entity/professor.entity';
-import { RelevantAreaEntity } from '../relevant_area/entity/relevant_area.entity';
-import { AvaliationEntity } from '../avaliacao/entity/avaliation.entity';
 import { CreateMateriaDto } from './dto/create-materia.dto';
 import { UpdateMateriaDto } from './dto/update-materia.dto';
 import { ProfessorService } from '../professor/professor.service';
+import { DeleteResult, UpdateResult } from 'typeorm';
 
 @Injectable()
 export class MateriaService {
@@ -56,7 +55,7 @@ export class MateriaService {
       relations: {
         professores: true,
         avaliacoes: true,
-        areasRelevantes: true,
+        areasAtuacao: true,
       },
     });
 

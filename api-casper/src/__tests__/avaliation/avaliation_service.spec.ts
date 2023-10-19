@@ -105,7 +105,7 @@ describe('AvaliationService', (): void => {
   });
 
   it('should be defined', (): void => {
-    expect(AvaliationService).toBeDefined();
+    expect(avaliationService).toBeDefined();
     expect(avaliationRepository).toBeDefined();
   });
 
@@ -163,7 +163,7 @@ describe('AvaliationService', (): void => {
   });
 
   describe('createAvaliation', (): void => {
-    it('should create a new professor successfully and return it', async (): Promise<void> => {
+    it('should create a new avaliation successfully and return it', async (): Promise<void> => {
       // Arrange
       const data: CreateAvaliationDto = {
         dedicacao: 1,
@@ -183,17 +183,17 @@ describe('AvaliationService', (): void => {
       // Act
       const result: AvaliationEntity =
         await avaliationService.createAvaliation(data);
-
-      // Assert
+      
+        // Assert
       expect(result).toBeDefined();
       expect(result).toEqual(AvaliationEntityList[0]);
       expect(result).toBeInstanceOf(AvaliationEntity);
       expect(avaliationRepository.create).toHaveBeenCalledTimes(1);
       expect(avaliationRepository.save).toHaveBeenCalledTimes(1);
     });
-
     it('should throw an exception', (): void => {
       // Arrange
+
       const data: CreateAvaliationDto = {
         dedicacao: 1,
         metodologia: 3,
@@ -212,7 +212,6 @@ describe('AvaliationService', (): void => {
       jest
         .spyOn(avaliationRepository, 'save')
         .mockRejectedValueOnce(new Error());
-
       // Assert
       expect(avaliationService.createAvaliation(data)).rejects.toThrowError();
     });
@@ -282,13 +281,13 @@ describe('AvaliationService', (): void => {
 
       // Assert
       expect(result).toBeUndefined();
-      expect(avaliationRepository.delete).toHaveBeenCalledTimes(1);
+      expect(avaliationRepository.save).toHaveBeenCalledTimes(1);
     });
 
     it('should throw an exception', (): void => {
       // Arrange
       jest
-        .spyOn(avaliationRepository, 'delete')
+        .spyOn(avaliationRepository, 'save')
         .mockRejectedValueOnce(new Error());
 
       // Assert

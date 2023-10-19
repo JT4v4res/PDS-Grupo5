@@ -9,7 +9,7 @@ import {
 export class NotaEntity {
 
     @PrimaryGeneratedColumn()
-    notaId: number;
+    id_nota: number;
 
     @PrimaryColumn({ nullable: false })
     matricula: string;
@@ -28,8 +28,8 @@ export class NotaEntity {
     @Column({ nullable: false })
     final: number;
 
-    constructor(nota?:Partial<NotaEntity>){
-      this.notaId = nota?.notaId;
+   constructor(nota?:Partial<NotaEntity>){
+      this.id_nota = nota?.id_nota;
       this.matricula = nota?.matricula;
       this.materia = nota?.materia;
       this.ab1 = nota?.ab1;

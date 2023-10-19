@@ -3,7 +3,7 @@ import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
-    OneToMany
+    OneToOne
   } from 'typeorm';
 
 @Entity()
@@ -23,7 +23,7 @@ export class UserEntity {
     @Column()
     userType: string;
 
-    @OneToMany(() => PerfilacademicoEntity, (perfil: PerfilacademicoEntity) => perfil.matricula)
-    perfis: PerfilacademicoEntity[];
+    @OneToOne(() => PerfilacademicoEntity, (perfil: PerfilacademicoEntity) => perfil.matricula)
+    perfil: PerfilacademicoEntity;
 
 }

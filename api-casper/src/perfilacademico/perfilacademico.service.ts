@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { UpdateResult } from 'typeorm';
 import { CreatePerfilacademicoDto } from './dto/create-perfilacademico.dto';
 import { UpdatePerfilacademicoDto } from './dto/update-perfilacademico.dto';
 import { PerfilacademicoEntity } from './entities/perfilacademico.entity';
@@ -90,16 +90,21 @@ export class PerfilacademicoService {
     return await this.perfilAcademicoRepository.save(updated);
   }
 
-  async deletePerfil(idPerfil: number): Promise<DeleteResult> {
+  async deletePerfil(idPerfil: number): Promise<void> {
+    const deleted: PerfilacademicoEntity = await this.perfilAcademicoRepository.findOneBy({
+      id: idPerfil,
+    });
 
-    const deleted: DeleteResult = await this.perfilAcademicoRepository.delete({id: idPerfil});
-
-    if(deleted){
-      if(deleted.affected === 0){
-        throw new HttpException('Perfil not deleted', HttpStatus.INTERNAL_SERVER_ERROR,);
-      }
+    if (!deleted) {
+      throw new HttpException(
+        `Perfil with ID ${idPerfil} not found`,
+        HttpStatus.NOT_FOUND,
+      );
     }
 
-    return deleted;
+    deleted.deletedAt = new Date();
+    await this.perfilAcademicoRepository.save(deleted);
   }
+
+
 }

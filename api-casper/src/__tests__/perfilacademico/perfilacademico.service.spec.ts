@@ -104,3 +104,13 @@ describe('PerfilacademicoService', () => {
     expect(perfilAcademicoRepository).toBeDefined();
   });
 });
+
+
+
+describe('createPerfil'()
+getPerfis()
+getPerfilById()
+getPerfilByMatricula()
+updatePerfil()
+attPontuacao()
+deletePerfil()

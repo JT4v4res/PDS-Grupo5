@@ -10,12 +10,16 @@ const materiaEntityList: MateriaEntity[] = [
   new MateriaEntity({
     materiaId: 1,
     codigo: 'COMP378',
-    tipo: 'matematica',
+    tipo: 'Obrigatória',
+    nivelEsforco: 'Alto',
+    nome: 'calculo 1',
     professores: null,
     avaliacoes: null,
-    areasRelevantes: null,
-    nome: 'calculo 1',
+    areaRelevante: null,
     descricao: 'disciplina com foco em definicao de limites e derivadas',
+    matExpositivo: 'Lorem impsu',
+    questions:  'Lorem impsu',
+    literatura:  'Lorem impsu',
   }),
   new MateriaEntity({
     materiaId: 2,
@@ -23,10 +27,13 @@ const materiaEntityList: MateriaEntity[] = [
     tipo: 'programacao',
     professores: null,
     avaliacoes: null,
-    areasRelevantes: null,
+    areaRelevante: null,
     nome: 'estruturas de dados',
     descricao:
       'disciplina com foco em implementacao e algoritmos de estruturas de dados',
+    matExpositivo: 'Lorem impsu',
+    questions:  'Lorem impsu',
+    literatura:  'Lorem impsu',
   }),
   new MateriaEntity({
     materiaId: 3,
@@ -34,9 +41,12 @@ const materiaEntityList: MateriaEntity[] = [
     tipo: 'teoria',
     professores: null,
     avaliacoes: null,
-    areasRelevantes: null,
+    areaRelevante: null,
     nome: 'compiladores',
     descricao: 'disciplina com foco na teoria dos compiladores',
+    matExpositivo: 'Lorem impsu',
+    questions:  'Lorem impsu',
+    literatura:  'Lorem impsu',
   }),
 ];
 
@@ -140,7 +150,10 @@ describe('MateriaController', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       // Act
@@ -164,7 +177,10 @@ describe('MateriaController', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       jest
@@ -189,7 +205,10 @@ describe('MateriaController', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       // Act
@@ -215,7 +234,10 @@ describe('MateriaController', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       jest

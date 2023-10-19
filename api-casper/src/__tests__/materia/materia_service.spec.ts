@@ -14,7 +14,7 @@ const materiaEntityList: MateriaEntity[] = [
     tipo: 'matematica',
     professores: null,
     avaliacoes: null,
-    areasRelevantes: null,
+    areaRelevante: null,
     nome: 'calculo 1',
     descricao: 'disciplina com foco em definicao de limites e derivadas',
   }),
@@ -24,7 +24,7 @@ const materiaEntityList: MateriaEntity[] = [
     tipo: 'programacao',
     professores: null,
     avaliacoes: null,
-    areasRelevantes: null,
+    areaRelevante: null,
     nome: 'estruturas de dados',
     descricao:
       'disciplina com foco em implementacao e algoritmos de estruturas de dados',
@@ -32,6 +32,9 @@ const materiaEntityList: MateriaEntity[] = [
     label: 'lorem impsu',
     curso: 'Ciência da Computação',
     periodo: 3,
+    matExpositivo: 'Lorem impsu',
+    questions:  'Lorem impsu',
+    literatura:  'Lorem impsu',
   }),
   new MateriaEntity({
     materiaId: 3,
@@ -39,13 +42,16 @@ const materiaEntityList: MateriaEntity[] = [
     tipo: 'teoria',
     professores: null,
     avaliacoes: null,
-    areasRelevantes: null,
+    areaRelevante: null,
     nome: 'compiladores',
     descricao: 'disciplina com foco na teoria dos compiladores',
     nivelEsforco: 'medio',
     label: 'lorem impsu',
     curso: 'Ciência da Computação',
     periodo: 3,
+    matExpositivo: 'Lorem impsu',
+    questions:  'Lorem impsu',
+    literatura:  'Lorem impsu',
   }),
 ];
 
@@ -54,6 +60,9 @@ const updatedMateria: MateriaEntity = new MateriaEntity({
   tipo: 'teoria',
   nome: 'teoria da computacao 2',
   descricao: 'disciplina com foco na maquina de turing e automatos',
+  matExpositivo: 'Lorem impsu',
+  questions:  'Lorem impsu',
+  literatura:  'Lorem impsu',
 });
 
 describe('MateriaService', (): void => {
@@ -130,9 +139,7 @@ describe('MateriaService', (): void => {
 
     it('should throw an exception', (): void => {
       // Arrange
-      jest
-        .spyOn(materiaRepository, 'findOneBy')
-        .mockRejectedValueOnce(new Error());
+      jest.spyOn(materiaRepository, 'findOneBy').mockRejectedValueOnce(new Error());
 
       // Assert
       expect(
@@ -153,7 +160,10 @@ describe('MateriaService', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       // Act
@@ -178,7 +188,10 @@ describe('MateriaService', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       jest.spyOn(materiaRepository, 'save').mockRejectedValueOnce(new Error());
@@ -200,8 +213,11 @@ describe('MateriaService', (): void => {
         nivelEsforco: 'medio',
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
-        periodo: 3,
-        professor: 'Eliana'
+        periodo: 4,
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
       // Act
       const result = await materiaService.updateMateria(data);
@@ -224,7 +240,10 @@ describe('MateriaService', (): void => {
         label: 'lorem impsu',
         curso: 'Ciência da Computação',
         periodo: 3,
-        professor: 'Eliana'
+        professor: 'Eliana',
+        matExpositivo: 'Lorem impsu',
+        questions:  'Lorem impsu',
+        literatura:  'Lorem impsu',
       };
 
       jest
@@ -243,13 +262,13 @@ describe('MateriaService', (): void => {
 
       // Assert
       expect(result).toBeUndefined();
-      expect(materiaRepository.delete).toBeCalledTimes(1);
+      expect(materiaRepository.save).toHaveBeenCalledTimes(1);
     });
 
     it('should throw an exception', (): void => {
       // Arrange
       jest
-        .spyOn(materiaRepository, 'delete')
+        .spyOn(materiaRepository, 'save')
         .mockRejectedValueOnce(new Error());
 
       expect(materiaService.deleteMateria(1)).rejects.toThrowError();

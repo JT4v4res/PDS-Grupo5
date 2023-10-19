@@ -38,4 +38,16 @@ export class CreateMateriaDto {
   @IsString()
   @IsNotEmpty({ message: 'professor is mandatory' })
   professor: string;
+
+  @IsString()
+  @IsNotEmpty()
+  matExpositivo: string;
+
+  @IsString()
+  @IsNotEmpty()
+  questions: string;
+
+  @IsString()
+  @IsNotEmpty()
+  literatura: string;
 }

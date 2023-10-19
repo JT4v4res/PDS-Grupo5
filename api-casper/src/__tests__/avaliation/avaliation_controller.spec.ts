@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { createMock, DeepMocked } from '@golevelup/ts-jest';
-import { DeleteResult, UpdateResult } from 'typeorm';
+import { createMock } from '@golevelup/ts-jest';
+import { UpdateResult } from 'typeorm';
 import { UpdateAvaliationDto } from '../../avaliacao/dto/update-avaliation.dto';
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
 import { AvaliationController } from '../../avaliacao/avaliation.controller';

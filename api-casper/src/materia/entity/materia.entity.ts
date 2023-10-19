@@ -14,6 +14,7 @@ import {
 import { ProfessorEntity } from '../../professor/entity/professor.entity';
 import { RelevantAreaEntity } from '../../relevant_area/entity/relevant_area.entity';
 import { AvaliationEntity } from '../../avaliacao/entity/avaliation.entity';
+import {IsNotEmpty, IsString} from "class-validator";
 
 @Entity()
 export class MateriaEntity extends BaseEntity {
@@ -59,28 +60,43 @@ export class MateriaEntity extends BaseEntity {
 
   @ManyToMany(() => RelevantAreaEntity, (area) => area.materias)
   @JoinTable()
-  areasRelevantes: RelevantAreaEntity[];
+  areasAtuacao: RelevantAreaEntity[];
 
   @OneToMany(() => AvaliationEntity, (avaliacao) => avaliacao.materia)
-  @JoinTable()
   avaliacoes: AvaliationEntity[];
 
-  constructor(materia?:Partial<MateriaEntity>){
+  @Column({ nullable: true})
+  matExpositivo: string;
+
+  @Column({ nullable: true})
+  questions: string;
+
+  @Column({ nullable: true})
+  literatura: string;
+
+  @Column( {nullable: true})
+  areaRelevante: string;
+
+  constructor(materia?: Partial<MateriaEntity>){
     super();
-    this.materiaId = materia?.materiaId;
-    this.codigo = materia?.codigo;
-    this.tipo = materia?.tipo;
-    this.nivelEsforco = materia?.nivelEsforco;
-    this.label = materia?.label;
-    this.curso = materia?.curso;
-    this.periodo = materia?.periodo;
-    this.nome = materia?.nome;
-    this.descricao = materia?.descricao;
-    this.createdAt = materia?.createdAt;
-    this.updatedAt = materia?.updatedAt;
-    this.deletedAt = materia?.deletedAt;
-    this.professores = materia?.professores;
-    this.areasRelevantes = materia?.areasRelevantes;
-    this.avaliacoes = materia?.avaliacoes;
+    this.materiaId = materia.materiaId;
+    this.codigo  = materia.codigo;
+    this.tipo = materia.tipo;
+    this.nivelEsforco = materia.nivelEsforco;
+    this.label = materia.label;
+    this.curso = materia.curso;
+    this.periodo = materia.periodo;
+    this.nome = materia.nome;
+    this.descricao = materia.descricao;
+    this.createdAt = materia.createdAt;
+    this.updatedAt = materia.updatedAt;
+    this.deletedAt = materia.deletedAt;
+    this.professores = materia.professores;
+    this.areasAtuacao = materia.areasAtuacao;
+    this.avaliacoes = materia.avaliacoes;
+    this.matExpositivo = materia.matExpositivo;
+    this.questions = materia.questions;
+    this.literatura = materia.literatura;
+    this.areaRelevante = materia.areaRelevante;
   }
 }

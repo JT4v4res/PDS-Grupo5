@@ -3,7 +3,9 @@ import { CreateNotaDto } from './create-nota.dto';
 import { IsString, IsNotEmpty } from 'class-validator';
 
 export class UpdateNotaDto extends PartialType(CreateNotaDto) {
+    
     @IsNotEmpty()
     @IsString()
-    notaId: number;
-}
+    id_nota: number;
+
+    }

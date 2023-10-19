@@ -8,7 +8,7 @@ import { DeleteResult, UpdateResult } from 'typeorm';
 
 @Injectable()
 export class NotasService {
-  static getNotas(): any {
+ static getNotas(): any {
     throw new Error('Method not implemented.');
   }
   constructor(
@@ -16,7 +16,7 @@ export class NotasService {
     private notaRepository: Repository<NotaEntity>,
   ){}
 
-  async createNota(nota: CreateNotaDto): Promise<NotaEntity> {
+ /*  async createNota(nota: CreateNotaDto): Promise<NotaEntity> {
     
     const newNota: NotaEntity =
       this.notaRepository.create(nota);
@@ -67,5 +67,5 @@ export class NotasService {
     }
 
     return deleted;
-  }
+  }*/
 }

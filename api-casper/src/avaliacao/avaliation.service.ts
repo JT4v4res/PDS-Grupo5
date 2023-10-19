@@ -117,7 +117,7 @@ export class AvaliationService {
       }
     }
 
-    if (newAvaliation) {
+    if (newAvaliation !== null && newAvaliation !== undefined) {
       return await this.avaliationRepository.save(newAvaliation);
     }
 

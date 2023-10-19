@@ -46,7 +46,7 @@ export class PerfilacademicoController {
   }
 
   @Delete(':perfilID')
-  async deletePerfil(@Param('perfilID', ParseIntPipe) perfilID: number) {
+  async deletePerfil(@Param('perfilID', ParseIntPipe) perfilID: number): Promise<void> {
     return await this.service.deletePerfil(perfilID);
   }
 }

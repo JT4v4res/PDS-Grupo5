@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete,
+  ParseIntPipe, } from '@nestjs/common';
 import { NotaEntity } from './entities/nota.entity'
 import { NotasService } from '../../src/notas/notas.service';
 import { CreateNotaDto } from './dto/create-nota.dto';
@@ -7,7 +8,7 @@ import { UpdateNotaDto } from './dto/update-nota.dto';
 @Controller('/notas')
 export class NotasController {
   constructor(private notasService: NotasService) {}
-
+/*
   @Get()
   async getNotas(): Promise<NotaEntity[]> {
     return await this.notasService.getNotas();
@@ -19,17 +20,17 @@ export class NotasController {
   }
 
   @Get(':id')
-  getNotaById(@Param('id') id: string) {
+  getNotaById(@Param('id', ParseIntPipe) id: number) {
     return this.notasService.getNotaById(+id);
   }
 
   @Patch(':id')
-  updateNota(@Param('id') id: string) {
+  updateNota(@Param('id', ParseIntPipe) id: number) {
     return this.notasService.updateNota(+id);
   }
 
   @Delete(':id')
-  deleteNota(@Param('id') id: number) {
+  deleteNota(@Param('id', ParseIntPipe) id: number) {
     return this.notasService.deleteNota(:id);
-  }
+  }*/
 }
