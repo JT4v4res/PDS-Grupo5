@@ -7,11 +7,11 @@ import {AuthContext} from "../../context/context";
 import {Navigate} from "react-router-dom";
 
 function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
-  const { signed } = useContext(AuthContext);
+  // const { signed } = useContext(AuthContext);
 
-  if (!signed) {
-    return <Navigate to='/' />;
-  }
+  // if (!signed) {
+  //   return <Navigate to='/' />;
+  // }
 
   UserData = ["João Paulo", "Ciência da Computação", "Universidade Federal de Alagoas", "2024.1", '4']
   pontuacao_user = 320
