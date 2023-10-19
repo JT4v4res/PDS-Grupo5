@@ -127,11 +127,6 @@ Prof. Dr. Willy Tiengo <br />
 
 ## Equipe
 
-César Henrique Cicero <br />
-*Desenvolvedor Back-end* <br />
-*chc@ic.ufal.br* <br />
-[Github César]()
-
 João Vitor Santos Tavares <br />
 *Gerente do projeto e Desenvolvedor Fullstack* <br />
 *jvst@ic.ufal.br* <br />
