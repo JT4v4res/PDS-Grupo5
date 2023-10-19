@@ -8,25 +8,35 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class PerfilacademicoService {
-
   constructor(
     @InjectRepository(PerfilacademicoEntity)
     private readonly perfilAcademicoRepository: Repository<PerfilacademicoEntity>,
-  ){}
+  ) {}
 
-  async createPerfil(perfil: CreatePerfilacademicoDto): Promise<PerfilacademicoEntity> {
+  async createPerfil(
+    perfil: CreatePerfilacademicoDto,
+  ): Promise<PerfilacademicoEntity> {
+    const newPerfil: PerfilacademicoEntity =
+        this.perfilAcademicoRepository.create(perfil);
 
-    const newPerfil: PerfilacademicoEntity = this.perfilAcademicoRepository.create(perfil);
+    newPerfil.semestre = '';
+    newPerfil.periodo = 1;
+    newPerfil.pontuacao = 0;
+    newPerfil.progresso = 0;
 
-    await this.perfilAcademicoRepository.save<PerfilacademicoEntity>(newPerfil);
+    const profile =
+      await this.perfilAcademicoRepository.save<PerfilacademicoEntity>(
+        newPerfil,
+      );
 
-    return newPerfil;
+    return profile;
   }
 
   async getPerfis(): Promise<PerfilacademicoEntity[]> {
-    const perfis: PerfilacademicoEntity[] = await this.perfilAcademicoRepository.find();
+    const perfis: PerfilacademicoEntity[] =
+      await this.perfilAcademicoRepository.find();
 
-    if(!perfis){
+    if (!perfis) {
       throw new HttpException('Perfis not found', HttpStatus.NOT_FOUND);
     }
 
@@ -34,30 +44,37 @@ export class PerfilacademicoService {
   }
 
   async getPerfilById(id: number): Promise<PerfilacademicoEntity> {
-    if(!id){
+    if (!id) {
       throw new HttpException(
-        'Parameter undefined or null', HttpStatus.BAD_REQUEST
+        'Parameter undefined or null',
+        HttpStatus.BAD_REQUEST,
       );
     }
 
-    const perfil: PerfilacademicoEntity = await this.perfilAcademicoRepository.findOneBy({id: id});
+    const perfil: PerfilacademicoEntity =
+      await this.perfilAcademicoRepository.findOneBy({ id: id });
 
-    if(!perfil){
+    if (!perfil) {
       throw new HttpException('Perfil not found', HttpStatus.NOT_FOUND);
     }
 
     return perfil;
   }
 
-  async getPerfilByMatricula(matricula: string): Promise<PerfilacademicoEntity> {
-
-    if(!matricula){
-      throw new HttpException('Parameter undefined or null', HttpStatus.BAD_REQUEST);
+  async getPerfilByMatricula(
+    matricula: string,
+  ): Promise<PerfilacademicoEntity> {
+    if (!matricula) {
+      throw new HttpException(
+        'Parameter undefined or null',
+        HttpStatus.BAD_REQUEST,
+      );
     }
 
-    const perfil: PerfilacademicoEntity = await this.perfilAcademicoRepository.findOneBy({matricula: matricula});
+    const perfil: PerfilacademicoEntity =
+      await this.perfilAcademicoRepository.findOneBy({ matricula: matricula });
 
-    if(!perfil){
+    if (!perfil) {
       throw new HttpException('Perfil not found', HttpStatus.NOT_FOUND);
     }
 
@@ -65,12 +82,17 @@ export class PerfilacademicoService {
   }
 
   async updatePerfil(perfil: UpdatePerfilacademicoDto): Promise<UpdateResult> {
+    const updated: UpdateResult = await this.perfilAcademicoRepository.update(
+      { id: 1 },
+      perfil,
+    );
 
-    const updated: UpdateResult = await this.perfilAcademicoRepository.update({id: perfil.id}, perfil);
-
-    if(updated){
-      if(updated.affected === 0){
-        throw new HttpException('Perfil not edited', HttpStatus.INTERNAL_SERVER_ERROR,);
+    if (updated) {
+      if (updated.affected === 0) {
+        throw new HttpException(
+          'Perfil not edited',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
       }
     }
 
@@ -78,12 +100,16 @@ export class PerfilacademicoService {
   }
 
   async deletePerfil(idPerfil: number): Promise<DeleteResult> {
+    const deleted: DeleteResult = await this.perfilAcademicoRepository.delete({
+      id: idPerfil,
+    });
 
-    const deleted: DeleteResult = await this.perfilAcademicoRepository.delete({id: idPerfil});
-
-    if(deleted){
-      if(deleted.affected === 0){
-        throw new HttpException('Perfil not deleted', HttpStatus.INTERNAL_SERVER_ERROR,);
+    if (deleted) {
+      if (deleted.affected === 0) {
+        throw new HttpException(
+          'Perfil not deleted',
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
       }
     }
 

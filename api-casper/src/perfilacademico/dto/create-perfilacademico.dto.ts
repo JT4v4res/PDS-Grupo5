@@ -5,10 +5,6 @@ export class CreatePerfilacademicoDto {
     @IsNotEmpty()
     @IsString()
     matricula: string;
-
-    @IsNotEmpty()
-    @IsNumber()
-    id: number;
     
     @IsNotEmpty()
     @IsString()
@@ -17,5 +13,4 @@ export class CreatePerfilacademicoDto {
     @IsNotEmpty()
     @IsString()
     universidade: string;
-    
 }
