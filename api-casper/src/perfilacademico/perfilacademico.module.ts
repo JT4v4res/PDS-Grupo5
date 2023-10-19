@@ -8,6 +8,6 @@ import { PerfilacademicoEntity } from './entities/perfilacademico.entity';
   imports: [TypeOrmModule.forFeature([PerfilacademicoEntity])],
   controllers: [PerfilacademicoController],
   providers: [PerfilacademicoService],
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, PerfilacademicoService],
 })
 export class PerfilacademicoModule {}

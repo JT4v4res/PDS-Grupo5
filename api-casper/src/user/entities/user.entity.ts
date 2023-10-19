@@ -1,29 +1,33 @@
 import { PerfilacademicoEntity } from 'src/perfilacademico/entities/perfilacademico.entity';
 import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    OneToMany
-  } from 'typeorm';
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity()
 export class UserEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({length: 255})
-    nome: string;
+  @Column({ length: 255 })
+  nome: string;
 
-    @Column()
-    email: string;
+  @Column()
+  email: string;
 
-    @Column()
-    senha: string;
+  @Column()
+  senha: string;
 
-    @Column()
-    userType: string;
+  @Column({ nullable: true })
+  userType: string;
 
-    @OneToMany(() => PerfilacademicoEntity, (perfil: PerfilacademicoEntity) => perfil.matricula)
-    perfis: PerfilacademicoEntity[];
-
+  @OneToOne(() => PerfilacademicoEntity, (perfil) => perfil.user, {
+    cascade: true,
+    nullable: true,
+  })
+  @JoinColumn()
+  perfil: PerfilacademicoEntity;
 }

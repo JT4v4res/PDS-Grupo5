@@ -11,14 +11,16 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from './entities/user.entity';
 import { PerfilacademicoService } from 'src/perfilacademico/perfilacademico.service';
-import { UserLoginDto } from './dto/user-login.dto';
 import { JwtService } from '@nestjs/jwt';
+import { PerfilacademicoEntity } from '../perfilacademico/entities/perfilacademico.entity';
+import { CreatePerfilacademicoDto } from '../perfilacademico/dto/create-perfilacademico.dto';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(UserEntity)
-    private readonly userRepository: Repository<UserEntity>, //private readonly perfilAcademico: PerfilacademicoService,
+    private readonly userRepository: Repository<UserEntity>,
+    private readonly perfilAcademico: PerfilacademicoService,
     private readonly jwtService: JwtService,
   ) {}
 
@@ -27,8 +29,13 @@ export class UserService {
       nome: user.nome,
     });
 
-    if (!userFound) {
-      const newUser: UserEntity = this.userRepository.create(user);
+    if (userFound === null || userFound === undefined) {
+      const newProfile: PerfilacademicoEntity =
+        await this.perfilAcademico.createPerfil(user.perfilAcademico);
+
+      const newUser: UserEntity = await this.userRepository.create(user);
+
+      newUser.perfil = newProfile;
 
       await this.userRepository.save<UserEntity>(newUser);
 
@@ -53,7 +60,11 @@ export class UserService {
   }
 
   async findAllUsers(): Promise<UserEntity[]> {
-    const users: UserEntity[] = await this.userRepository.find();
+    const users: UserEntity[] = await this.userRepository.find({
+      relations: {
+        perfil: true,
+      },
+    });
 
     if (!users) {
       throw new HttpException('Users not found', HttpStatus.NOT_FOUND);

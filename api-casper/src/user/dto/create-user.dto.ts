@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
+import { CreatePerfilacademicoDto } from '../../perfilacademico/dto/create-perfilacademico.dto';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -12,4 +13,7 @@ export class CreateUserDto {
   @IsNotEmpty()
   @IsString()
   senha: string;
+
+  @IsNotEmpty()
+  perfilAcademico: CreatePerfilacademicoDto;
 }

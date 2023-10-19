@@ -6,6 +6,7 @@ import { UserEntity } from './entities/user.entity';
 import { PerfilacademicoEntity } from 'src/perfilacademico/entities/perfilacademico.entity';
 import { JwtModule } from '@nestjs/jwt';
 import * as process from 'process';
+import { PerfilacademicoModule } from '../perfilacademico/perfilacademico.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import * as process from 'process';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '21600s' },
     }),
+    PerfilacademicoModule,
   ],
   controllers: [UserController],
   providers: [UserService],
