@@ -10,8 +10,6 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
   const { signed } = useContext(AuthContext);
 
   if (!signed) {
-    alert('Usuário não logado!');
-
     return <Navigate to='/' />;
   }
 

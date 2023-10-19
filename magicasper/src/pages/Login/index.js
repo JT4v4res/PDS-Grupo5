@@ -55,7 +55,7 @@ export default function Login(){
         <div className='main-container'>
 
         <div className='img-container'>
-          <img src={userLogo}/>
+          <img alt="#" src={userLogo}/>
         </div>
 
         <div className='login-container'>
