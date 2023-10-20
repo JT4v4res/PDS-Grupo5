@@ -19,22 +19,29 @@ export default function Login() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     if (!username || !password) {
       setErrorMessage('Por favor, preencha todos os campos.');
       return;
     }
+  
+    try {
+      await signIn(username, password);
 
-    signIn(username, password);
-    console.log("signed: ", signed)
-    if (signed) {
-      navigate('/Home');
-    } else {
-      setErrorMessage('Usuário ou senha incorreto. Verifique suas credenciais.');
+      console.log(signed)
+      if (signed) {
+        navigate('/Home');
+      } else {
+        setErrorMessage('Usuário ou senha incorretos. Verifique suas credenciais.');
+      }
+    } catch (error) {
+      console.error('Erro de autenticação:', error);
+      setErrorMessage('Erro ao fazer login. Verifique suas credenciais e tente novamente.');
     }
   };
+  
 
   return (
     <>
