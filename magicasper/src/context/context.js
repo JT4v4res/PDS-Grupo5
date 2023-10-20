@@ -5,7 +5,7 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
     const [token, setToken] = useState('');
-    const [userId, setUserId] = useState(-2);
+    const [userId, setUserId] = useState('');
     const [signed, setSigned] = useState(false);
 
     async function signIn(email, password){
@@ -14,19 +14,20 @@ export const AuthProvider = ({children}) => {
             senha: password,
         })
         .then((response) => {
+            console.log("response", response)
             if (response !== undefined && response !== null) {
                 setToken(response.data.access_token);
                 setUserId(response.data.id);
                 setSigned(true);
             } else {
-                alert('Usuário não encontrado!');
+                console.error('Usuário não encontrado!');
             }
         })
         .catch((err) => {
             if (err.response) {
-                alert(`Ocorreu um erro: ${err.response.data}`);
+                console.error(`Ocorreu um erro: ${err.response.data}`);
             } else {
-                alert('Ocorreu um erro desconhecido.');
+                console.error('Ocorreu um erro desconhecido.');
             }
         });
     }
