@@ -34,8 +34,8 @@
 }
 .userlogout .icon-logout{
   cursor: pointer;
-  margin-top:5%;
-  margin-left: 2%;
+  margin-top:135%;
+  margin-left: 52%;
 }
 .userlogout .icon-logout:hover{
   color: gray;

@@ -2,7 +2,7 @@ import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
 import { Link } from "react-router-dom"
 import React, { useState, useRef,useEffect } from "react"; 
-import * as FiIcons from "react-icons/fi"
+// import * as FiIcons from "react-icons/fi"
 import Navbar from '../../Componentes/Navbar';
 import Trofeus from '../../Componentes/trofeus';
 import api from "../../Componentes/apis";
@@ -161,7 +161,10 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
         <div className='userlogout'>
           <SeletorUser texto={user[0]}/>
           <Trofeus pontos={pontuacao_user}/>
-          <FiIcons.FiLogOut className='icon-logout'/>
+          {/* <FiIcons.FiLogOut className='icon-logout'/> */}
+          {/* <Link to ='/Login'>
+            <FiIcons.FiLogOut className='icon-logout'/>
+          </Link> */}
         </div>
         <div className='user-details'>
           <label>{user[1]}</label>
