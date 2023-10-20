@@ -1,6 +1,7 @@
 import './index.css';
 import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import "@fontsource/reem-kufi";
+import * as FiIcons from "react-icons/fi"
 
 
 function Navbar  () {
@@ -29,6 +30,7 @@ return <header>
               <li><Link to="/Home">Home</Link></li>
               <li><Link to={"/Perfil"}>Perfil</Link></li>
               <li><Link to="/Materias">Materias</Link></li>
+              <li><Link to="/Login"><FiIcons.FiLogOut className='icon-logout'/></Link></li>
             </ul>
           </div>
         </nav>

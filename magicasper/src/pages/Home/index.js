@@ -5,7 +5,8 @@ import ProgressBar from "../../Componentes/ProgressBar"
 import {useContext, useState, useEffect} from "react";
 import {AuthContext} from "../../context/context";
 import api from "../../Componentes/apis";
-
+import * as FiIcons from "react-icons/fi"
+import { Link } from 'react-router-dom';
 function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
   // const { signed } = useContext(AuthContext);
 
@@ -95,7 +96,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
     BarraProgressoData = [
       { bgcolor: "#6a1b9a", completed: 60 },
     ];
-
+    
 
     return (
     <>
@@ -103,6 +104,9 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
       <div className='main-home'>
         <div className='left-side'>
           <div className='userInfo'>
+            {/* <Link to ='/Login'>
+              <FiIcons.FiLogOut className='icon-logout'/>
+            </Link> */}
             <header>Olá, {UserData[0]}</header>
             <p>Pontuação total:<span>{pontuacao_user}</span></p>
           </div>
