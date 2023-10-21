@@ -13,35 +13,38 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
   const [files, setFiles] = useState([]); // Alterei o nome de 'file' para 'files'
   const inputFile = useRef(null);
   const { userId } = useContext(AuthContext);
-  let [userData, setUser] = useState(null);
+  // let [userData, setUser] = useState();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   console.log("ID: ", userId)
 
-
-  const dadosasync = async () => {
-    try {
-        let {data} = await api.get(`/user/`)
-       
+  useEffect(() => {
+    const dadosasync = async () => {
+      try {
+        let { data } = await api.get(`/user`);
+  
         data.forEach(element => {
-          if(userId === element.id){
+          if (userId === element.id) {
             data = element;
           }
         });
-      
-        setUser(data);
-    }catch (e) {
-        console.log('erro: ', e);
-    }
   
-  }
-  useEffect(() => {
+        setUserData(data); // update o estado com os dados obtidos
+        setLoading(false);   // Defina o estado de carregamento como falso
+      } catch (e) {
+        console.log('erro: ', e);
+        setLoading(false); // Em caso de erro,  defina o estado de carregamento como falso
+      }
+    };
+  
     dadosasync();
-});
-
+  }, [userId]);
+  
 
   console.log("Api data: ",userData)
 
-  if (userData !== undefined && userData !== null)
+  if (!loading)
   {
     user = [userData.nome, userData.perfil.curso, userData.perfil.universidade, userData.semestre]
     pontuacao_user = userData.perfil.pontuacao 
@@ -221,7 +224,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
                       {
                           disciplinas_atual.map(disciplinas_atual => (
                               <li>
-                                  <a href='/'>{disciplinas_atual.nome}</a>
+                                  <a href='/#'>{disciplinas_atual.nome}</a>
                                   <label>{disciplinas_atual.codigo}</label>
                               </li>
                           ))
