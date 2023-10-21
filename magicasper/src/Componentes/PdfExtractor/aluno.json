@@ -1,0 +1,468 @@
+{
+  "xCabecalho": {
+    "Período": 30,
+    "Código": 89,
+    "Nome": 153,
+    "Média": 437,
+    "Conceito": 486,
+    "CH": 537
+  },
+  "periodos": {
+    "2019/2": {
+      "disciplinas": [
+        {
+          "Código": "COMP200",
+          "Nome": "INGLÊS INSTRUMENTAL",
+          "Média": "7,50",
+          "Conceito": "AP",
+          "CH": "60"
+        },
+        {
+          "Código": "COMP201",
+          "Nome": "PROGRAMAÇÃO 1",
+          "Média": "5,53",
+          "Conceito": "AP",
+          "CH": "60"
+        },
+        {
+          "Código": "COMP202",
+          "Nome": "LABORATÓRIO DE PROGRAMAÇÃO",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "30"
+        },
+        {
+          "Código": "COMP203",
+          "Nome": "FUNDAMENTOS DE MATEMÁTICA",
+          "Média": "7,63",
+          "Conceito": "AP",
+          "CH": "60"
+        },
+        {
+          "Código": "COMP204",
+          "Nome": "GEOMETRIA ANALÍTICA",
+          "Média": "7,00",
+          "Conceito": "AP",
+          "CH": "60"
+        },
+        {
+          "Código": "COMP205",
+          "Nome": "INTRODUÇÃO À COMPUTAÇÃO",
+          "Média": "8,90",
+          "Conceito": "AP",
+          "CH": "60"
+        },
+        {
+          "Código": "COMP206",
+          "Nome": "PARTICIPAÇÃO NA PRIMEIRA EDIÇÃO DA SEMANA DE COMPUTAÇÃO -",
+          "Média": "8,50",
+          "Conceito": "AP",
+          "CH": "30"
+        },
+        {
+          "Código": "FLX022 (FLX)",
+          "CH": "20",
+          "Nome": "SECOMP 2019"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "7,64",
+      "Número de Disciplinas": 8
+    },
+    "2020/Excepcional": {
+      "disciplinas": [
+        {
+          "Código": "COMP360",
+          "Nome": "LÓGICA PARA COMPUTAÇÃO",
+          "Média": "9,00",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP362",
+          "Nome": "MATEMÁTICA DISCRETA",
+          "Média": "9,35",
+          "Conceito": "AP",
+          "CH": "72"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "0,00",
+      "Número de Disciplinas": 2
+    },
+    "2020/1": {
+      "disciplinas": [
+        {
+          "Código": "COMP360",
+          "Nome": "LÓGICA PARA COMPUTAÇÃO",
+          "Média": "9,00",
+          "Conceito": "AE",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP361",
+          "Nome": "COMPUTAÇÃO, SOCIEDADE E ÉTICA",
+          "Média": "9,85",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP362",
+          "Nome": "MATEMÁTICA DISCRETA",
+          "Média": "9,35",
+          "Conceito": "AE",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP363",
+          "Nome": "CÁLCULO DIFERENCIAL E INTEGRAL",
+          "Média": "9,63",
+          "Conceito": "AP",
+          "CH": "144"
+        },
+        {
+          "Código": "COMP364",
+          "Nome": "ESTRUTURA DE DADOS",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP365",
+          "Nome": "BANCO DE DADOS",
+          "Média": "8,60",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP366",
+          "Nome": "ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES",
+          "Média": "8,00",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "FLX047 (FLX)",
+          "Nome": "PARTICIPAÇÃO NO MINICURSO DE INTRODUÇÃO AO LATEX",
+          "CH": "2"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "9,26",
+      "Número de Disciplinas": 8
+    },
+    "2020/2": {
+      "disciplinas": [
+        {
+          "Código": "COMP211",
+          "Nome": "ÁLGEBRA LINEAR",
+          "Média": "7,75",
+          "Conceito": "AP",
+          "CH": "60"
+        },
+        {
+          "Código": "COMP368",
+          "Nome": "REDES DE COMPUTADORES",
+          "Média": "8,27",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP369",
+          "Nome": "TEORIA DOS GRAFOS",
+          "Média": "8,75",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP370",
+          "Nome": "PROBABILIDADE E ESTATÍSTICA",
+          "Média": "7,50",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP373",
+          "Nome": "PARTICIPAÇÃO NO EVENTO CONVERSAS PEDAGÓGICAS – PALESTRA",
+          "Média": "8,70",
+          "Conceito": "AE",
+          "CH": "72"
+        },
+        {
+          "Código": "FLX022 (FLX)",
+          "CH": "2",
+          "Nome": "PARTICIPAÇÃO NO \"AQUECIMENTO DO XL CONGRESSO DA"
+        },
+        {
+          "Código": "FLX022 (FLX)",
+          "CH": "8",
+          "Nome": "PARTICIPAÇÃO NA ORGANIZAÇÃO DA MARATONA DE PROGRAMAÇÃO"
+        },
+        {
+          "Código": "FLX024 (FLX)",
+          "CH": "42",
+          "Nome": "PARTICIPAÇÃO NO GERAÇÃO Z : MENTE EMPREENDEDORA EM"
+        },
+        {
+          "Código": "FLX047 (FLX)",
+          "CH": "4",
+          "Nome": "PARTICIPAÇÃO NO MINICURSO DE ESCRITA DE TRABALHOS"
+        },
+        {
+          "Código": "FLX047 (FLX)",
+          "CH": "3",
+          "Nome": "CIENTÍFICOS - PET ENG. CIVIL/UFAL"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "8,21",
+      "Número de Disciplinas": 10
+    },
+    "2021/1": {
+      "disciplinas": [
+        {
+          "Código": "COMP372",
+          "Nome": "PROGRAMAÇÃO 2",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP374",
+          "Nome": "PROJETO E ANÁLISE DE ALGORITMOS",
+          "Média": "8,55",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP376",
+          "Nome": "TEORIA DA COMPUTAÇÃO",
+          "Média": "9,25",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP390 (ELT)",
+          "Nome": "APRENDIZAGEM DE MÁQUINA",
+          "Média": "8,40",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP403 (ELT)",
+          "Nome": "SEGURANÇA DE SISTEMAS COMPUTACIONAIS",
+          "Média": "8,50",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "FLX012 (FLX)",
+          "Nome": "PARTICIPAÇÃO NO I CONGRESSO NACIONAL DE COMPUTAÇÃO",
+          "CH": "100"
+        },
+        {
+          "Código": "FLX022 (FLX)",
+          "CH": "6",
+          "Nome": "ORGANIZAÇÃO DO WORKSHOP DE CIÊNCIA DE DADOS MINISTRADO"
+        },
+        {
+          "Código": "FLX022 (FLX)",
+          "CH": "10",
+          "Nome": "PELO KATIE/IC"
+        },
+        {
+          "Código": "FLX024 (FLX)",
+          "Nome": "PARTICIPAÇÃO NO PROJETO DE PESQUISA \"EXTENSOR 2.0 -",
+          "CH": "16"
+        },
+        {
+          "Código": "FLX033 (FLX)",
+          "CH": "90",
+          "Nome": "TRUCKS_EMBRAPII\""
+        },
+        {
+          "Código": "FLX047 (FLX)",
+          "Nome": "PARTICIPOU NO WORKSHOP DE CIÊNCIA DE DADOS - KATIE/IC",
+          "CH": "3"
+        },
+        {
+          "Código": "FLX047 (FLX)",
+          "Nome": "PARTICIPAÇÃO NO CURSO DE GIT E GITHUB - KATIE/IC",
+          "CH": "6"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "8,94",
+      "Número de Disciplinas": 12
+    },
+    "2021/2": {
+      "disciplinas": [
+        {
+          "Código": "COMP377 (ACE)",
+          "Nome": "ACE 1: PROJETO I",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "75"
+        },
+        {
+          "Código": "COMP378",
+          "Nome": "SISTEMAS OPERACIONAIS",
+          "Média": "9,25",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP380",
+          "Nome": "INTELIGÊNCIA ARTIFICIAL",
+          "Média": "7,38",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP381",
+          "Nome": "COMPUTAÇÃO GRÁFICA",
+          "Média": "5,70",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP383 (ACE)",
+          "Nome": "ACE 2: CONTINUIDADE DO PROJETO I",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "75"
+        },
+        {
+          "Código": "COMP385 (ACE)",
+          "Nome": "ACE 5: EVENTO",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "75"
+        },
+        {
+          "Código": "COMP386",
+          "Nome": "METODOLOGIA DE PESQUISA E TRABALHO INDIVIDUAL",
+          "Média": "9,50",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP395 (ELT)",
+          "Nome": "INTERAÇÃO HOMEM-MÁQUINA",
+          "Média": "9,75",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "FLX024 (FLX)",
+          "Nome": "PARTICIPAÇÃO NO EVENTO PIXEL INIT",
+          "CH": "8"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "8,96",
+      "Número de Disciplinas": 9
+    },
+    "2022/1": {
+      "disciplinas": [
+        {
+          "Código": "COMP379",
+          "Nome": "COMPILADORES",
+          "Média": "7,13",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP384 (ACE)",
+          "Nome": "ACE 3: PROJETO 2",
+          "Média": "10,00",
+          "Conceito": "AP",
+          "CH": "75"
+        },
+        {
+          "Código": "COMP387",
+          "Nome": "NOÇÕES DE DIREITO",
+          "Média": "9,00",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP389 (ELT)",
+          "Nome": "CONCEITOS DE LINGUAGEM DE PROGRAMAÇÃO",
+          "Média": "9,50",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP401 (ELT)",
+          "Nome": "CIÊNCIA DE DADOS",
+          "Média": "9,55",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP404 (ELT)",
+          "Nome": "CÁLCULO 3",
+          "Média": "8,66",
+          "Conceito": "AP",
+          "CH": "72"
+        },
+        {
+          "Código": "FLX041 (FLX)",
+          "Nome": "FORMAÇÃO \"ARTISAN THEMATIC SCHOOL (ROLE AND EFFECTS OF",
+          "CH": "100"
+        },
+        {
+          "Código": "FLX047 (FLX)",
+          "CH": "10",
+          "Nome": "INP-UGA"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "8,98",
+      "Número de Disciplinas": 8
+    },
+    "2022/2": {
+      "disciplinas": [
+        {
+          "Código": "COMP388 (ACE)",
+          "Nome": "ACE 4: CONTINUAÇÃO DO PROJETO 2",
+          "Conceito": "MA",
+          "CH": "75"
+        },
+        {
+          "Código": "COMP392 (ELT)",
+          "Nome": "SISTEMAS DISTRIBUÍDOS",
+          "Conceito": "MA",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP393 (ELT)",
+          "Nome": "REDES NEURAIS E APRENDIZADO PROFUNDO",
+          "Conceito": "MA",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP397 (ELT)",
+          "Nome": "COMPUTAÇÃO EVOLUCIONÁRIA",
+          "Conceito": "MA",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP399 (ELT)",
+          "Nome": "TÓPICOS EM ENGENHARIA DE SOFTWARE - PROJETANDO LINHAS DE",
+          "Conceito": "MA",
+          "CH": "72"
+        },
+        {
+          "Código": "COMP437 (ELT)",
+          "Conceito": "MA",
+          "CH": "40",
+          "Nome": "PRODUTO DE SOFTWARE"
+        }
+      ],
+      "COEFICIENTE SEMESTRAL": "0,00",
+      "Número de Disciplinas": 6
+    }
+  },
+  "Matricula": "19211606",
+  "Nome": "PALOMA DA SILVA LACERDA DOS SANTOS",
+  "Ingresso UFAL": "2019",
+  "Ingresso Curso": "2019",
+  "Curso": "CIÊNCIA DA COMPUTAÇÃO",
+  "Tipo de Ingresso": "EXAME NACIONAL DO ENSINO MÉDIO – ENEM",
+  "Modalidade": "BACHARELADO"
+}
