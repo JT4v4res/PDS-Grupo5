@@ -16,11 +16,19 @@ import { ValidationExceptionFilter } from './core/infra/middlewares/logger/excep
 import { UserModule } from './user/user.module';
 import { UserController } from './user/user.controller';
 import { PerfilacademicoController } from './perfilacademico/perfilacademico.controller';
+import { MulterModule } from '@nestjs/platform-express';
+import { PdfparserModule } from './pdfparser/pdfparser.module';
+import { PdfparserController } from './pdfparser/pdfparser.controller';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+    }),
+    MulterModule.registerAsync({
+      useFactory: () => ({
+        dest: './',
+      }),
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
     ProfessorModule,
@@ -28,6 +36,7 @@ import { PerfilacademicoController } from './perfilacademico/perfilacademico.con
     RelevantAreaModule,
     AvaliationModule,
     UserModule,
+    PdfparserModule,
   ],
   providers: [
     {
@@ -47,6 +56,7 @@ export class AppModule {
         AvaliationController,
         UserController,
         PerfilacademicoController,
+        PdfparserController,
       );
   }
 }
