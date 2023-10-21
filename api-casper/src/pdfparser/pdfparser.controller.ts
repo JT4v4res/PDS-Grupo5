@@ -8,6 +8,8 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { createWriteStream } from 'fs';
 import { join } from 'path';
 import { existsSync, mkdirSync } from 'fs';
+import { PDFExtraction } from './pdfparser';
+import * as fs from 'fs';
 
 @Controller('/pdf')
 export class PdfparserController {
@@ -20,11 +22,25 @@ export class PdfparserController {
       mkdirSync(uploadDir, { recursive: true });
     }
 
-    const fileStream = createWriteStream(file.originalname);
+    file.originalname = 'historico.pdf';
 
-    fileStream.write(file.buffer);
+    const fileStream: fs.WriteStream = createWriteStream(
+      `${uploadDir}/${file.originalname}`,
+    );
 
-    fileStream.end();
+    const writePromise = new Promise((resolve, reject): void => {
+      fileStream.write(file.buffer, (err: Error): void => {
+        if (err) {
+          reject(err);
+        } else {
+          fileStream.end(resolve);
+        }
+      });
+    });
+
+    await writePromise;
+
+    await PDFExtraction();
 
     return { message: 'file saved successfully!' };
   }
