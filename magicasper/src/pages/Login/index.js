@@ -32,7 +32,7 @@ export default function Login() {
 
       console.log(signed)
       if (signed) {
-        navigate('/Home');
+        navigate('/Perfil');
       } else {
         setErrorMessage('Usuário ou senha incorretos. Verifique suas credenciais.');
       }

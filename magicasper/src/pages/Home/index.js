@@ -11,33 +11,45 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
   // const { signed } = useContext(AuthContext);
 
   const { userId } = useContext(AuthContext);
-  let [userData, setUser] = useState(null);
+  // let [userData, setUser] = useState();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   console.log("ID: ", userId)
 
-
-  const dadosasync = async () => {
-    try {
-        let {data} = await api.get(`/user`)
-       
+  useEffect(() => {
+    const dadosasync = async () => {
+      try {
+        let { data } = await api.get(`/user`);
+  
         data.forEach(element => {
-          if(userId === element.id){
+          if (userId === element.id) {
             data = element;
           }
         });
-      
-        setUser(data);
-    }catch (e) {
-        console.log('erro: ', e);
-    }
   
-  }
-  useEffect(() => {
+        setUserData(data); // update o estado com os dados obtidos
+        setLoading(false);   // Defina o estado de carregamento como falso
+      } catch (e) {
+        console.log('erro: ', e);
+        setLoading(false); // Em caso de erro,  defina o estado de carregamento como falso
+      }
+    };
+  
     dadosasync();
-});
+  }, [userId]);
+  
 
+console.log("Api data: ",userData)
+// const myData = userData
+// let FinalUserData =''
+// myData.forEach(element => {
+//   if(userId === element.id){
+//     FinalUserData = element;
+//   }
+// });
 
-  console.log("Api data: ",userData)
-  if (userData !== undefined && userData !== null)
+  if (!loading)
   {
    
     UserData = [userData.nome, userData.perfil.curso, userData.perfil.universidade, userData.semestre, '']
