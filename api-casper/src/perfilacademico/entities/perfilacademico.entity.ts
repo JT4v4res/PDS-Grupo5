@@ -12,6 +12,7 @@ import {
 
 import { MateriaEntity } from 'src/materia/entity/materia.entity';
 import { UserEntity } from '../../user/entities/user.entity';
+import { PeriodDataEntity } from './periodData.entity';
 
 @Entity()
 export class PerfilacademicoEntity {
@@ -27,7 +28,7 @@ export class PerfilacademicoEntity {
   @Column({ length: 255 })
   universidade: string;
 
-  @Column({ length: 7, nullable: true })
+  @Column({ nullable: true })
   semestre: string;
 
   @Column({ nullable: true })
@@ -70,4 +71,9 @@ export class PerfilacademicoEntity {
   @OneToOne(() => UserEntity, (user) => user.perfil, { nullable: true })
   @JoinColumn()
   user: UserEntity;
+
+  @OneToMany(() => PeriodDataEntity, (periodD) => periodD.perfilac, {
+    nullable: true,
+  })
+  periodData: PeriodDataEntity[];
 }
