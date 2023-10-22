@@ -4,6 +4,7 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({children}) => {
+    // const storedToken = localStorage.getItem('token');
     const [token, setToken] = useState('');
     const [userId, setUserId] = useState('');
     const [signed, setSigned] = useState(false);
@@ -16,6 +17,7 @@ export const AuthProvider = ({children}) => {
         .then((response) => {
             console.log("response", response)
             if (response !== undefined && response !== null) {
+                localStorage.setItem('token', response.data.access_token);
                 setToken(response.data.access_token);
                 setUserId(response.data.id);
                 setSigned(true);
@@ -33,9 +35,12 @@ export const AuthProvider = ({children}) => {
     }
 
     function logOut() {
-        setToken('');
-        setUserId(-2);
-        setSigned(false);
+      //Remova o token do localStorage ao fazer logout
+      localStorage.removeItem('token');
+
+      setToken('');
+      setUserId('');
+      setSigned(false);
     }
 
     return (<AuthContext.Provider value={{signed: signed, userId: userId, authToken: token, signIn, logOut}}>
