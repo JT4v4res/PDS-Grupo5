@@ -5,39 +5,44 @@ import ProgressBar from "../../Componentes/ProgressBar"
 import {useContext, useState, useEffect} from "react";
 import {AuthContext} from "../../context/context";
 import api from "../../Componentes/apis";
+import {useNavigate } from "react-router-dom";
 import * as FiIcons from "react-icons/fi"
-import { Link } from 'react-router-dom';
 function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
-  // const { signed } = useContext(AuthContext);
-
-  const { userId } = useContext(AuthContext);
-  // let [userData, setUser] = useState();
+  const navigate = useNavigate(); // Use a função useNavigate para navegar entre as rotas
+  const { userId,storedToken,signed } = useContext(AuthContext);
+  const storedTokenLocal = useState(localStorage.getItem('token'))
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   console.log("ID: ", userId)
 
-  useEffect(() => {
-    const dadosasync = async () => {
-      try {
-        let { data } = await api.get(`/user`);
-  
-        data.forEach(element => {
-          if (userId === element.id) {
-            data = element;
-          }
+  const dadosasync = async () => {
+    try {
+      if (signed) {
+        const { data } = await api.get(`/user/${userId}`);
+        setUserData(data);
+      } else if (storedToken) {
+        // Se o usuário não estiver autenticado, mas o token estiver no localStorage
+        const { data } = await api.get(`/user`, {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
         });
-  
-        setUserData(data); // update o estado com os dados obtidos
-        setLoading(false);   // Defina o estado de carregamento como falso
-      } catch (e) {
-        console.log('erro: ', e);
-        setLoading(false); // Em caso de erro,  defina o estado de carregamento como falso
+        setUserData(data);
       }
-    };
-  
-    dadosasync();
-  }, [userId]);
+      setLoading(false);
+    } catch (e) {
+      console.log('erro: ', e);
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    if (!signed && !storedTokenLocal) {
+      navigate('/login');
+    } else {
+      dadosasync();
+    }
+  }, [signed, userId]);
   
 
 console.log("Api data: ",userData)
@@ -49,7 +54,7 @@ console.log("Api data: ",userData)
 //   }
 // });
 
-  if (!loading)
+  while (!loading && userData && userData.perfil)
   {
    
     UserData = [userData.nome, userData.perfil.curso, userData.perfil.universidade, userData.semestre, '']
@@ -116,16 +121,12 @@ console.log("Api data: ",userData)
       <div className='main-home'>
         <div className='left-side'>
           <div className='userInfo'>
-            {/* <Link to ='/Login'>
-              <FiIcons.FiLogOut className='icon-logout'/>
-            </Link> */}
             <header>Olá, {UserData[0]}</header>
             <p>Pontuação total:<span>{pontuacao_user}</span></p>
           </div>
           <div className='contribuicoesComunidade'>
             <div className='title-home'>
               <h2>Contribuições recentes à comunidade</h2>
-              {/* <div className='linha-rosa'/> */}
             </div>
             <div className='acoesPontuadas'>
                   <ul className='lista-acoes-esq'>
@@ -181,9 +182,10 @@ console.log("Api data: ",userData)
       </div>
     </>
   )}
-  else{
-    return("Carregando....")
-  }
+  
+    
+  return("Carregando....")
+  
 };
 
 export default Home;

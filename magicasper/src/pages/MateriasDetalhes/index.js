@@ -42,8 +42,8 @@ export default function MateriaDetalhes (){
     console.log("Post:", post)
 
     if (data !== undefined && data !== null) {
-        const relevant = [data.areaRelevante.split(',')]
-
+       
+        console.log("area", data.areaRelevancia)
         return (
             <>
                 <Navbar/>
@@ -71,15 +71,17 @@ export default function MateriaDetalhes (){
                         </div>
 
                         <div className="cards">
-                            <ul className="lista-de-relevancia">
-                                {
-                                    relevant[0].map(areaRelevancia => (
-                                        <li style={{marginBottom: 30}}>
-                                            {areaRelevancia}
-                                        </li>
-                                    ))
-                                }
-                            </ul>
+                            {data.areaRelevancia && data.data.areaRelevancia.length > 0 ? (
+                                    <ul className="lista-de-relevancia">
+                                        {data.areaRelevancia.map((areaRelevancia, index) => (
+                                            <li style={{ marginBottom: 30 }} key={index}>
+                                                {areaRelevancia}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p>Sem áreas relevantes</p>
+                                )}
                         </div>
 
                     </div>
