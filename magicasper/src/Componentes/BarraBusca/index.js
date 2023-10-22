@@ -5,12 +5,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/esm/Form'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import getMaterias from "../../pages/Materias/MateriasService";
+// import getMaterias from "../../pages/Materias/MateriasService";
 
 function BarraBusca(props) {
     const [search, setSearch] = useState('');
     const [selectedCourse, setSelectedCourse] = useState('');
-    const [resultCount, setResultCount] = useState(0); // Estado para armazenar o número de resultados
+    const [resultCount, setResultCount] = useState(props.length); // Estado para armazenar o número de resultados
     const [results, setResults] = useState([]); // Estado para armazenar os resultados
 
     useEffect(() => {
@@ -20,10 +20,13 @@ function BarraBusca(props) {
 
     function handleOnSubmit(event) {
         event.preventDefault();
-        const materias = getMaterias();
+        const materias = props.setMaterias;
+        console.log("Materias props: ", props)
+        
+        console.log("Materias repassadas: ", materias)
         let filteredResults = materias;
 
-        if (selectedCourse && selectedCourse != 'Filtrar por curso...'){
+        if (selectedCourse && selectedCourse !== 'Filtrar por curso...'){
             filteredResults = materias.filter(materia => materia.curso.includes(selectedCourse));
         }
 
@@ -31,8 +34,8 @@ function BarraBusca(props) {
             filteredResults = filteredResults.filter(materia => materia.nome.toLowerCase().indexOf(search) !== -1);
 
         }
-
-        props.setMaterias(results);
+        console.log("Materias encontrada: ",filteredResults )
+        setSelectedCourse(filteredResults)
         setResults(filteredResults);
     }
 
