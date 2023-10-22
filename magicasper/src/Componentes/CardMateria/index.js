@@ -13,10 +13,11 @@ export default function CardMateria (props){
                 <li key={props.codigo}><label className='code'>Código: {props.codigo}</label></li>
                 <li key={props.periodo}><label className='code'>Período: {props.periodo}</label></li>
                 </ul>
-                <label className='button'>
-                {/* <Link to='/MateriaDetalhes/'>Saber mais</Link> */}
-                <Link to={`/MateriaDetalhes/${props.MateriaId}`}>Saber Mais</Link>
-                </label>
+                <div className='button-config-mat'>
+                    <label className='button'>
+                        <Link to={`/MateriaDetalhes/${props.MateriaId}`}>Saber Mais</Link>
+                    </label>
+                </div>
             </div>
         </div>
     );

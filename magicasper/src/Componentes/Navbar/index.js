@@ -1,41 +1,41 @@
 import './index.css';
-import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
-import "@fontsource/reem-kufi";
-import * as FiIcons from "react-icons/fi"
+import { Link, useNavigate } from 'react-router-dom'; // Importe o useNavigate
+import React, { useContext } from 'react';
+import * as FiIcons from 'react-icons/fi';
+import { AuthContext } from '../../context/context';
 
+function Navbar() {
+  const { logOut, signed } = useContext(AuthContext); // Importe 'signed' do contexto
+  const navigate = useNavigate(); // Use useNavigate para navegar entre as rotas
 
-function Navbar  () {
-  const UserLogged = true;
+  const handleLogout = () => {
+    logOut(); // Chame a função logOut do contexto
+    navigate('/login'); // Redirecione o usuário para a página de login
+  };
 
-return <header>
-        <nav id="navbar">
-          <div className="container">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  UserLogged ? (
-                    <h1 className="logo">
-                      <Link to="/Home">Magi Casper</Link>
-                    </h1>
-                  ) : (
-                    <h1 className="logo">
-                      <Link to="/">Magi Casper</Link>
-                    </h1>
-                  )
-                }
-              />
-            </Routes>
-            <ul>
-              <li><Link to="/Home">Home</Link></li>
-              <li><Link to={"/Perfil"}>Perfil</Link></li>
-              <li><Link to="/Materias">Materias</Link></li>
-              <li><Link to="/Login"><FiIcons.FiLogOut className='icon-logout'/></Link></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+  return (
+    <header>
+      <nav id="navbar">
+        <div className="container">
+          <h1 className="logo">
+            <Link to={signed ? '/Home' : '/'}>Magi Casper</Link>
+          </h1>
+          <ul>
+            <li><Link to="/Home">Home</Link></li>
+            <li><Link to="/Perfil">Perfil</Link></li>
+            <li><Link to="/Materias">Materias</Link></li>
+           
+            <li className='navbar-link'>
+              <div className='logout'>
+                <FiIcons.FiLogOut onClick={handleLogout} />
+              </div>
+            </li>
+      
+          </ul>
+        </div>
+      </nav>
+    </header>
+  );
 }
 
 export default Navbar;
-

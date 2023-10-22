@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/context';
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { signed, signIn } = useContext(AuthContext);
+  const { signed, signIn, storedToken } = useContext(AuthContext);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(''); // Variável de estado para mensagem de erro
 

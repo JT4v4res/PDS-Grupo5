@@ -1,7 +1,8 @@
 import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
-import { Link } from "react-router-dom"
+// import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useRef,useEffect } from "react"; 
+import { Link, useNavigate } from "react-router-dom";
 // import * as FiIcons from "react-icons/fi"
 import Navbar from '../../Componentes/Navbar';
 import Trofeus from '../../Componentes/trofeus';
@@ -9,51 +10,58 @@ import api from "../../Componentes/apis";
 import alunoJSON from "../../Componentes/PdfExtractor/aluno.json";
 import {AuthContext} from "../../context/context";
 import {useContext} from "react";
-// import extrairInfoDePDF from "../../Componentes/PdfExtractor/pdfAnalyser"; // Importe o módulo pdfAnalyser
+import axios from 'axios';
 
+// import extrairInfoDePDF from "../../Componentes/PdfExtractor/pdfAnalyser"; // Importe o módulo pdfAnalyser
 
 
 
 function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, disciplinas_atual, pontuacoes_ganhas, diciplinas_avaliar){
   const [files, setFiles] = useState([]); // Alterei o nome de 'file' para 'files'
-  
+  const { signed } = useContext(AuthContext);
+  const { storedToken } = useContext(AuthContext);
+  const storedTokenLocal = useState(localStorage.getItem('token'))
   const inputFile = useRef(null);
   const { userId } = useContext(AuthContext);
   // let [userData, setUser] = useState();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const periodos = alunoJSON.periodos;
-  
+  const navigate = useNavigate(); // Use a função useNavigate para navegar entre as rotas
   // const cargaHoraria = alunoJSON.semestre
 
-  console.log("ID: ", userId)
-
-  useEffect(() => {
-    const dadosasync = async () => {
-      try {
-        let { data } = await api.get(`/user`);
-  
-        data.forEach(element => {
-          if (userId === element.id) {
-            data = element;
-          }
+  const dadosasync = async () => {
+    try {
+      if (signed) {
+        const { data } = await api.get(`/user/${userId}`);
+        setUserData(data);
+      } else if (storedToken) {
+        // Se o usuário não estiver autenticado, mas o token estiver no localStorage
+        const { data } = await api.get(`/user`, {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
         });
-  
-        setUserData(data); // update o estado com os dados obtidos
-        setLoading(false);   // Defina o estado de carregamento como falso
-      } catch (e) {
-        console.log('erro: ', e);
-        setLoading(false); // Em caso de erro,  defina o estado de carregamento como falso
+        setUserData(data);
       }
-    };
-  
-    dadosasync();
-  }, [userId]);
-  
+      setLoading(false);
+    } catch (e) {
+      console.log('erro: ', e);
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    if (!signed && !storedTokenLocal) {
+      navigate('/login');
+    } else {
+      dadosasync();
+    }
+  }, [signed, userId]);
 
-  console.log("Api data: ",userData)
+  console.log("userdata:",userData)
 
-  if (!loading)
+
+  while (!loading && userData && userData.perfil)
   {
         
     console.log("Periodos:",periodos)
@@ -175,7 +183,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     //   },
     // ]
   
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
       const selectedFile = e.target.files[0];
       const allowedExtensions = ["pdf"];
       const fileExtension = selectedFile.name.split(".").pop().toLowerCase();
@@ -185,8 +193,20 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
           ...prevFiles,
           { id: Date.now(), file: selectedFile },
         ]);
-        //Chamando a função pra criar o json
-        // extrairInfoDePDF(selectedFile); 
+
+        try {
+          const formData = new FormData();
+          formData.append('file', selectedFile);
+    
+          // Fazer a solicitação POST usando Axios
+          const response = await axios.post('http://localhost:8080/pdf/upload', formData);
+    
+          // Se a solicitação foi bem-sucedida, você pode lidar com a resposta do servidor aqui
+          console.log('Resposta do servidor:', response.data);
+        } catch (error) {
+          // Se ocorrer um erro durante a solicitação POST, você pode lidar com ele aqui
+          console.error('Erro ao enviar o arquivo:', error);
+        }
       } else {
         alert("Erro no tipo de arquivo, precisa ser um arquivo PDF");
       }
@@ -213,6 +233,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     //   console.log("nomeDoArquivo:", nomeDoArquivo)
     //   console.log("tipodeArquivo:", tipoDeArquivo)
     // }
+    
     
   return (
     <>
@@ -355,9 +376,12 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
         </div>
       </div>
     </>
-)}else{
+)}
+
+    console.log("ID do usuário :", userId)
+    console.log("token do usuário :", storedToken)
     return("Carregando...")
-  }
+
 };
 
 export default Perfil;

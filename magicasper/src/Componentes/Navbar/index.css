@@ -1,15 +1,9 @@
-
-a{
+a, #navbar a {
   color: #333;
   text-decoration: none;
 }
 
-Link{
-  color: #333;
-  text-decoration: none;
-}
-
-#navbar{
+#navbar {
   align-items: center;
   background: linear-gradient(180deg, #8E64BF 16.15%, rgba(156, 34, 214, 0.00) 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -20,57 +14,60 @@ Link{
   width: 100%;
 }
 
-#navbar a{
+#navbar a, #navbar .navbar-link {
   color: #fff;
 }
 
-#navbar Link{
-  color: #fff;
-}
-
-#navbar .logo{
+#navbar .logo {
   float: left;
   padding-top: 24px;
-  padding-left:36px;
+  padding-left: 36px;
 }
 
-#navbar ul{
+#navbar ul {
   list-style: none;
   float: right;
 }
 
-#navbar ul li{
+#navbar ul li {
   float: left;
 }
 
-#navbar ul li a{
+#navbar ul li a {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: block;
   padding: 28px;
   text-align: center;
 }
+.navbar-link{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+  text-align: center;
+  padding: 23px 28px;
+}
 
 #navbar ul li a:hover,
-#navbar ul li a.current{
+#navbar ul li a.current,
+#navbar ul li .navbar-link:hover,
+#navbar ul li .navbar-link.current {
   background-color: #4444;
 }
-
-
-#navbar ul li Link:hover,
-#navbar ul li Link.current{
+.navbar-link:hover{
   background-color: #4444;
-}
 
-#navbar .setting-icon{
+}
+#navbar .setting-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin:10px;
+  margin: 10px;
   padding-top: 15px;
 }
 
-.setting-icon svg{
+.setting-icon svg, .navbar-link svg {
   font-size: 1.5rem;
   cursor: pointer;
-  /* color: #fff; */
+}
+.navbar-link {
+  cursor: pointer;
 }
