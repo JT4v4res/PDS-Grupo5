@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
         senha: password,
       });
 
-      if (response.data.access_token) {
+      if (response !== undefined && response !== null) {
         // Armazene o token no localStorage
         localStorage.setItem('token', response.data.access_token);
 
