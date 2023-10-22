@@ -1,5 +1,5 @@
 import {
-  Controller,
+  Controller, Param,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -10,12 +10,18 @@ import { join } from 'path';
 import { existsSync, mkdirSync } from 'fs';
 import { PDFExtraction } from './pdfparser';
 import * as fs from 'fs';
+import { PerfilacademicoService } from '../perfilacademico/perfilacademico.service';
 
 @Controller('/pdf')
 export class PdfparserController {
-  @Post('upload')
+  constructor(
+    private readonly perfilAcademicoService: PerfilacademicoService,
+  ) {}
+
+  @Post('upload/:profileId')
   @UseInterceptors(FileInterceptor('file'))
-  async uploadPdf(@UploadedFile() file: Express.Multer.File): Promise<any> {
+  async uploadPdf(@UploadedFile() file: Express.Multer.File,
+                  @Param('profileId') id: number): Promise<any> {
     const uploadDir = join(__dirname, '..', '..', 'historico');
 
     if (!existsSync(uploadDir)) {
@@ -41,6 +47,8 @@ export class PdfparserController {
     await writePromise;
 
     await PDFExtraction();
+
+    await this.perfilAcademicoService.updateByPdf(id);
 
     return { message: 'file saved successfully!' };
   }

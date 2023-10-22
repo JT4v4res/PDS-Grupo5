@@ -5,12 +5,19 @@ import { CreatePerfilacademicoDto } from './dto/create-perfilacademico.dto';
 import { UpdatePerfilacademicoDto } from './dto/update-perfilacademico.dto';
 import { PerfilacademicoEntity } from './entities/perfilacademico.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import * as fs from 'fs';
+import { PeriodDataEntity } from './entities/periodData.entity';
+import { MateriaPeriodoEntity } from './entities/materiaperiodo.entity';
 
 @Injectable()
 export class PerfilacademicoService {
   constructor(
     @InjectRepository(PerfilacademicoEntity)
     private readonly perfilAcademicoRepository: Repository<PerfilacademicoEntity>,
+    @InjectRepository(PeriodDataEntity)
+    private readonly periodDataRepository: Repository<PeriodDataEntity>,
+    @InjectRepository(MateriaPeriodoEntity)
+    private readonly materiaPeriodoRepository: Repository<MateriaPeriodoEntity>,
   ) {}
 
   async createPerfil(
@@ -64,6 +71,7 @@ export class PerfilacademicoService {
           materias_cursadas: true,
           materias_restantes: true,
           disciplinas_matriculado: true,
+          periodData: true,
         },
       });
 
@@ -92,6 +100,84 @@ export class PerfilacademicoService {
     }
 
     return perfil;
+  }
+
+  async updateByPdf(id: number): Promise<void> {
+    const jsonFile = fs.readFileSync('./update/update.json', 'utf-8');
+
+    const json = JSON.parse(jsonFile);
+
+    const resultado = {};
+
+    for (const propriedade in json) {
+      if (json.hasOwnProperty(propriedade)) {
+        if (propriedade === 'periodos') {
+          resultado[propriedade] = {};
+          for (const periodo in json[propriedade]) {
+            if (json[propriedade].hasOwnProperty(periodo)) {
+              resultado[propriedade][periodo] = {};
+
+              const disciplinasArray = [];
+
+              for (
+                let i = 0;
+                i < json[propriedade][periodo].disciplinas.length;
+                i++
+              ) {
+                resultado[propriedade][periodo][i] =
+                  json[propriedade][periodo].disciplinas[i];
+
+                disciplinasArray.push(
+                  json[propriedade][periodo].disciplinas[i],
+                );
+              }
+
+              const newMateriaPeriodo: MateriaPeriodoEntity[] =
+                this.materiaPeriodoRepository.create(disciplinasArray);
+
+              await this.materiaPeriodoRepository.save(newMateriaPeriodo);
+
+              resultado[propriedade][periodo]['coeficiente'] =
+                json[propriedade][periodo]['COEFICIENTE SEMESTRAL'];
+              resultado[propriedade][periodo]['qntDisciplinas'] =
+                json[propriedade][periodo]['Número de Disciplinas'];
+
+              resultado[propriedade][periodo].periodo = periodo;
+              resultado[propriedade][periodo].materiasPeriodo =
+                newMateriaPeriodo;
+
+              delete json[propriedade][periodo].disciplinas;
+
+              const newPeriodData: PeriodDataEntity[] =
+                this.periodDataRepository.create(
+                  resultado[propriedade][periodo],
+                );
+
+              console.log('new period', newPeriodData);
+
+              await this.periodDataRepository.save(newPeriodData);
+
+              const profile = await this.perfilAcademicoRepository.findOneBy({
+                id: id,
+              });
+
+              if (
+                profile.periodData !== null &&
+                profile.periodData !== undefined
+              ) {
+                profile.periodData = newPeriodData;
+              }
+
+              await this.perfilAcademicoRepository.save(profile);
+            }
+          }
+        }
+      }
+    }
+
+    console.log(json['periodos']['2019/1']);
+
+    return;
   }
 
   async updatePerfil(perfil: UpdatePerfilacademicoDto): Promise<UpdateResult> {
