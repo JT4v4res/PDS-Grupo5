@@ -13,7 +13,6 @@ import { UserEntity } from './entities/user.entity';
 import { PerfilacademicoService } from 'src/perfilacademico/perfilacademico.service';
 import { JwtService } from '@nestjs/jwt';
 import { PerfilacademicoEntity } from '../perfilacademico/entities/perfilacademico.entity';
-import { CreatePerfilacademicoDto } from '../perfilacademico/dto/create-perfilacademico.dto';
 
 @Injectable()
 export class UserService {
