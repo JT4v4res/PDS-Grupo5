@@ -72,8 +72,9 @@ export class PerfilacademicoEntity {
   @JoinColumn()
   user: UserEntity;
 
-  @OneToMany(() => PeriodDataEntity, (periodD) => periodD.perfilac, {
+  @OneToMany(() => PeriodDataEntity, (periodData) => periodData.perfilac, {
     nullable: true,
   })
+  @JoinColumn()
   periodData: PeriodDataEntity[];
 }

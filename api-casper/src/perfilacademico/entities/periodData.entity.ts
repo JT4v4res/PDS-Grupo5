@@ -2,12 +2,13 @@ import {
   Column,
   Entity,
   JoinColumn,
+  JoinTable,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { PerfilacademicoEntity } from './perfilacademico.entity';
-import {MateriaPeriodoEntity} from "./materiaperiodo.entity";
+import { MateriaPeriodoEntity } from './materiaperiodo.entity';
 
 @Entity()
 export class PeriodDataEntity {
@@ -30,8 +31,9 @@ export class PeriodDataEntity {
   @Column({ nullable: true })
   coeficiente: string;
 
-  @ManyToOne(() => PerfilacademicoEntity, (perfil) => perfil.periodData, {
+  @ManyToOne(() => PerfilacademicoEntity, (perfilac) => perfilac.periodData, {
     nullable: true,
   })
+  @JoinColumn()
   perfilac: PerfilacademicoEntity;
 }

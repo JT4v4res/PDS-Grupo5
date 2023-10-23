@@ -1,5 +1,6 @@
 import {
-  Controller, Param,
+  Controller,
+  Param,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -20,8 +21,10 @@ export class PdfparserController {
 
   @Post('upload/:profileId')
   @UseInterceptors(FileInterceptor('file'))
-  async uploadPdf(@UploadedFile() file: Express.Multer.File,
-                  @Param('profileId') id: number): Promise<any> {
+  async uploadPdf(
+    @UploadedFile() file: Express.Multer.File,
+    @Param('profileId') profileId: number,
+  ): Promise<any> {
     const uploadDir = join(__dirname, '..', '..', 'historico');
 
     if (!existsSync(uploadDir)) {
@@ -48,7 +51,7 @@ export class PdfparserController {
 
     await PDFExtraction();
 
-    await this.perfilAcademicoService.updateByPdf(id);
+    await this.perfilAcademicoService.updateByPdf(profileId);
 
     return { message: 'file saved successfully!' };
   }

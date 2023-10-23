@@ -16,7 +16,13 @@ export class MateriaService {
   ) {}
 
   async getMaterias(): Promise<MateriaEntity[]> {
-    const materias: MateriaEntity[] = await this.materiaRepository.find();
+    const materias: MateriaEntity[] = await this.materiaRepository.find({
+      relations: {
+        professores: true,
+        avaliacoes: true,
+        areasAtuacao: true,
+      },
+    });
     if (!materias) {
       throw new HttpException('Materias not found', HttpStatus.NOT_FOUND);
     }

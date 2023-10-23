@@ -114,12 +114,12 @@ export async function PDFExtraction(): Promise<void> {
                 inPeriodo = false;
               }
             } else {
-              console.log('fora periodo:');
-              console.log(element);
+              // console.log('fora periodo:');
+              // console.log(element);
             }
           });
       }
-      console.log('PDF tratado!');
+      // console.log('PDF tratado!');
 
       const JSONOBJ = JSON.stringify(aluno);
 

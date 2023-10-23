@@ -14,8 +14,9 @@ export class ProfessorService {
   ) {}
 
   async getProfessores(): Promise<ProfessorEntity[]> {
-    const professores: ProfessorEntity[] =
-      await this.professorRepository.find();
+    const professores: ProfessorEntity[] = await this.professorRepository.find({
+      relations: ['materias', 'avaliacoes'],
+    });
     if (!professores) {
       throw new HttpException('Professores not found', HttpStatus.NOT_FOUND);
     }
@@ -29,9 +30,10 @@ export class ProfessorService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    const professor: ProfessorEntity = await this.professorRepository.findOneBy(
-      { id: idProfessor },
-    );
+    const professor: ProfessorEntity = await this.professorRepository.findOne({
+      where: { id: idProfessor },
+      relations: ['materias', 'avaliacoes'],
+    });
     if (!professor) {
       throw new HttpException('Professor not found', HttpStatus.NOT_FOUND);
     }
