@@ -42,11 +42,13 @@ export class PerfilacademicoService {
   async getPerfis(): Promise<PerfilacademicoEntity[]> {
     const perfis: PerfilacademicoEntity[] =
       await this.perfilAcademicoRepository.find({
-        relations: {
-          materias_cursadas: true,
-          materias_restantes: true,
-          disciplinas_matriculado: true,
-        },
+        relations: [
+          'materias_cursadas',
+          'materias_restantes',
+          'disciplinas_matriculado',
+          'periodData',
+          'periodData.materiasPeriodo',
+        ],
       });
 
     if (!perfis) {
@@ -67,12 +69,13 @@ export class PerfilacademicoService {
     const perfil: PerfilacademicoEntity =
       await this.perfilAcademicoRepository.findOne({
         where: { id: id },
-        relations: {
-          materias_cursadas: true,
-          materias_restantes: true,
-          disciplinas_matriculado: true,
-          periodData: true,
-        },
+        relations: [
+          'materias_cursadas',
+          'materias_restantes',
+          'disciplinas_matriculado',
+          'periodData',
+          'periodData.materiasPeriodo',
+        ],
       });
 
     if (!perfil) {
@@ -124,9 +127,6 @@ export class PerfilacademicoService {
                 i < json[propriedade][periodo].disciplinas.length;
                 i++
               ) {
-                resultado[propriedade][periodo][i] =
-                  json[propriedade][periodo].disciplinas[i];
-
                 disciplinasArray.push(
                   json[propriedade][periodo].disciplinas[i],
                 );
@@ -137,36 +137,39 @@ export class PerfilacademicoService {
 
               await this.materiaPeriodoRepository.save(newMateriaPeriodo);
 
-              resultado[propriedade][periodo]['coeficiente'] =
+              resultado['coeficiente'] =
                 json[propriedade][periodo]['COEFICIENTE SEMESTRAL'];
-              resultado[propriedade][periodo]['qntDisciplinas'] =
+              resultado['qntDisciplinas'] =
                 json[propriedade][periodo]['Número de Disciplinas'];
 
-              resultado[propriedade][periodo].periodo = periodo;
-              resultado[propriedade][periodo].materiasPeriodo =
-                newMateriaPeriodo;
+              resultado['periodo'] = periodo;
+              resultado['materiasPeriodo'] = newMateriaPeriodo;
 
               delete json[propriedade][periodo].disciplinas;
 
-              const newPeriodData: PeriodDataEntity[] =
-                this.periodDataRepository.create(
-                  resultado[propriedade][periodo],
-                );
-
-              console.log('new period', newPeriodData);
+              const newPeriodData: PeriodDataEntity =
+                this.periodDataRepository.create(resultado);
 
               await this.periodDataRepository.save(newPeriodData);
 
-              const profile = await this.perfilAcademicoRepository.findOneBy({
-                id: id,
-              });
+              const profile: PerfilacademicoEntity =
+                await this.perfilAcademicoRepository.findOne({
+                  where: { id: id },
+                  relations: ['periodData', 'periodData.materiasPeriodo'],
+                });
+
+              console.log(newPeriodData);
 
               if (
                 profile.periodData !== null &&
                 profile.periodData !== undefined
               ) {
-                profile.periodData = newPeriodData;
+                profile.periodData.push(newPeriodData);
+              } else {
+                profile.periodData = [newPeriodData];
               }
+
+              profile.pontuacao += 10;
 
               await this.perfilAcademicoRepository.save(profile);
             }
@@ -174,8 +177,6 @@ export class PerfilacademicoService {
         }
       }
     }
-
-    console.log(json['periodos']['2019/1']);
 
     return;
   }
