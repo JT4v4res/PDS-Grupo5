@@ -19,30 +19,50 @@ api
 
 function Materias (){
   const [materias, setMaterias] = useState([]);
+  const [filteredMaterias, setFilteredMaterias] = useState([]);
 
+  const handleResultChange = (filteredResults) => {
+    setFilteredMaterias(filteredResults);
+  }
+    // console.log('API.data: ',data);
+    console.log(materias);
 
   if(data !== undefined || data !== null){
     return (
     <>
       <Navbar/>
       <SeletorCurso texto={'Catálogo de matérias'}/>
-      <BarraBusca setMaterias={data}/>
-    
+      <BarraBusca setMaterias={res.data} onResultChange={handleResultChange}/>
+      
       <div id='container-cards'>
-        {data.map(materia => {
-          return (
-            <CardMateria
-              MateriaId={materia.materiaId}
-              materia={materia.nome}
-              codigo={materia.codigo}
-              periodo={materia.periodo}
-              descricao = {materia.descricao}
-              nivelEsforco = {materia.nivelEsforco}
-              professor ={materia.professores}
-              curso = {materia.curso}
-            />
-          )
-        })}
+        {filteredMaterias && filteredMaterias.length > 0 ? filteredMaterias.map(materia => (
+          <CardMateria
+            MateriaId={materia.materiaId}
+            materia={materia.nome}
+            codigo={materia.codigo}
+            periodo={materia.periodo}
+            descricao={materia.descricao}
+            nivelEsforco={materia.nivelEsforco}
+            professor={materia.professores}
+            curso={materia.curso}
+          />
+        )) : (
+          data.map(materia => {
+            return (
+              <CardMateria
+                MateriaId={materia.materiaId}
+                materia={materia.nome}
+                codigo={materia.codigo}
+                periodo={materia.periodo}
+                descricao={materia.descricao}
+                nivelEsforco={materia.nivelEsforco}
+                professor={materia.professores}
+                curso={materia.curso}
+              />
+            );
+          })
+        )}
+
       </div>
     </>
     )
@@ -53,7 +73,7 @@ function Materias (){
           <Navbar/>
           <SeletorCurso texto={'Catálogo de matérias'}/>
           <BarraBusca setMaterias={setMaterias}/>
-        
+
           <div id='container-cards'>
             <p>Nenhuma Materia Cadastrada</p>
           </div>

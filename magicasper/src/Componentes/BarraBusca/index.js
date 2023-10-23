@@ -37,6 +37,7 @@ function BarraBusca(props) {
         console.log("Materias encontrada: ",filteredResults )
         setSelectedCourse(filteredResults)
         setResults(filteredResults);
+        props.onResultChange(filteredResults);
     }
 
     function handleCourseChange(event) {

@@ -31,7 +31,7 @@ export default function Login() {
       await signIn(username, password);
 
       console.log(signed)
-      if (signed) {
+      if (signed !== undefined || signed !== null) {
         navigate('/Perfil');
       } else {
         setErrorMessage('Usuário ou senha incorretos. Verifique suas credenciais.');
