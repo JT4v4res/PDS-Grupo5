@@ -14,8 +14,6 @@ function AvaliacaoMateria(){
 
   disciplinas.forEach(element => {
     if(element.id === Materiaid){
-        // console.log('Id da avaliação:', Materiaid)
-        // console.log("element: ",element)
         post = element;
     }
   });
@@ -26,7 +24,7 @@ function AvaliacaoMateria(){
       <div className='materia-title'>
         <div className='conteiner-top'>
           <div className='linha-lilas'/>
-              <h2>{post.nome}</h2>
+              <h2>{post['Nome']}</h2>
           <div className='linha-rosa'/>
         </div>
       </div>
@@ -34,8 +32,8 @@ function AvaliacaoMateria(){
         <div className='left-info'>
           <div className='post-info'>
                 <ul className='detail-posts'>
-                  <li><label>Código: {post.codigo}</label><br></br></li>
-                  <li><label>Professor: {post.professor}</label><br></br></li>
+                  <li><label>Código: {post['código']}</label><br></br></li>
+                  <li><label>Professor: Fulano</label><br></br></li>
                   <li><label>Semestre: {post.semestre}</label></li>
                 </ul>
           </div>
