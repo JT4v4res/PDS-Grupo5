@@ -6,14 +6,18 @@ import {useContext, useState, useEffect} from "react";
 import {AuthContext} from "../../context/context";
 import api from "../../Componentes/apis";
 import {useNavigate } from "react-router-dom";
-import * as FiIcons from "react-icons/fi"
+import axios from 'axios';
+
+
 function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
   const navigate = useNavigate(); // Use a função useNavigate para navegar entre as rotas
   const { userId,storedToken,signed } = useContext(AuthContext);
   const storedTokenLocal = useState(localStorage.getItem('token'))
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [perfilAcademico, setPerfilAcademico] = useState('');
+  let periodos = '';
+  let periodoAtual = 1;
   console.log("ID: ", userId)
 
   const dadosasync = async () => {
@@ -45,75 +49,86 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
   }, [signed, userId]);
   
 
-console.log("Api data: ",userData)
-// const myData = userData
-// let FinalUserData =''
-// myData.forEach(element => {
-//   if(userId === element.id){
-//     FinalUserData = element;
-//   }
-// });
+  useEffect(() => {
+    axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+      .then(response => {
+        setPerfilAcademico(response.data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar perfil acadêmico:', error);
+      });
+  }, []);
 
+
+  if(perfilAcademico.periodData !== null || perfilAcademico.periodData !== undefined){ //Pegando os dados do pdf e jogando em periodos
+    periodos = perfilAcademico.periodData
+  }
+  
   while (!loading && userData && userData.perfil)
   {
-   
-    UserData = [userData.nome, userData.perfil.curso, userData.perfil.universidade, userData.semestre, '']
+    let ultimoAno = 0;
+    let ultimoSemestre = 0;
+    let materiasPagas = [];
+    let matriculaAtualFinal = ''
+
+    if(periodos  !== null || periodos != undefined){
+      for (const periodo in periodos) {
+        if (periodos.hasOwnProperty(periodo)) {
+          const [ano, semestre] = periodos[periodo]['periodo'].split('/');
+          const anoInt = parseInt(ano);
+          const semestreInt = parseInt(semestre);
+
+          if (anoInt > ultimoAno || (anoInt === ultimoAno && semestreInt > ultimoSemestre)) {
+            ultimoAno = anoInt;
+            ultimoSemestre = semestreInt;
+          }
+        }
+      }
+      ultimoAno = `${ultimoAno}.${ultimoSemestre}`;
+
+
+      for (const periodo in periodos) {
+        if (periodos.hasOwnProperty(periodo)) {
+          const Materias = periodos[periodo]['materiasPeriodo'];
+          // Adicione as matérias deste período à lista de matérias
+          materiasPagas.push(...Materias);
+        }
+      }
+  
+      // Remova a última matéria da lista (se houver alguma)
+      if (materiasPagas.length > 0) {
+        materiasPagas.pop();
+      }
+      
+      console.log("materias Já pagas:", materiasPagas)
+      console.log("materias Já pagas tam:", materiasPagas.length)
+      for (const periodo in periodos) {
+        if (periodos.hasOwnProperty(periodo)) {
+          const matriculaAtual = periodos[periodo]['materiasPeriodo'];
+          matriculaAtualFinal = matriculaAtual
+        }
+      }
+    }
+
+    UserData = [userData.nome, userData.perfil.curso, userData.perfil.universidade, userData.semestre, periodoAtual]
     pontuacao_user =  userData.perfil.pontuacao
-    materias_cursadas = 10
+    materias_cursadas = materiasPagas.length
     materias_fazer = 20
-    pontuacoes_ganhas =[
-      {
-        dataAvaliacao:'28/09/2023',
-        disciplina:'Inteligência artificial',
-        nota: 4,
-        dificuldade: 'média',
-        pontosRecebidos:10
-      },
-      {
-        dataAvaliacao:'28/09/2023',
-        disciplina:'Compiladores',
-        nota: 5,
-        dificuldade: 'facil',
-        pontosRecebidos:15
-      },
-    ]
-    disciplinas_atual =[
-      {
-        nome: 'Teoria da Computação',
-        codigo: 'COMP321',
-        bgcolor: "#6a1b9a",
-        completed: 60 
-      },
-      {
-        nome: 'Programação 2',
-        codigo: 'COMP321',
-        bgcolor: "#00695c", 
-        completed: 30
-      },
-      {
-        nome: 'Matemática Discreta',
-        codigo: 'COMP321',
-        bgcolor: "#38a7ff", 
-        completed: 93
-      },
-      {
-        nome: 'Sistemas distribuidos',
-        codigo: 'COMP321',
-        bgcolor: "#ef6c00", 
-        completed: 53
-      },
-      {
-        nome: 'Lógica para Computação',
-        codigo: 'COMP321',
-        bgcolor: "#afcd00", 
-        completed: 73   
-      },
-    ]
+    pontuacoes_ganhas = ''
+
+    const bgcolor = "#6a1b9a";
+    disciplinas_atual = Object.values(matriculaAtualFinal);
+    disciplinas_atual.forEach((disciplina) => {
+      disciplina.bgcolor = bgcolor;
+      disciplina.completed = disciplina.Média !== null ? parseFloat(disciplina.Média) : 0;
+    });
+    
+    console.log("ATUAIS", disciplinas_atual)
 
     BarraProgressoData = [
-      { bgcolor: "#6a1b9a", completed: 60 },
+      { bgcolor: "#6a1b9a", completed: userData.perfil.progresso},
     ];
-    
+    console.log("Cursos cadastrados para progressão:", userData.perfil.universidade)
 
     return (
     <>
@@ -128,25 +143,27 @@ console.log("Api data: ",userData)
             <div className='title-home'>
               <h2>Contribuições recentes à comunidade</h2>
             </div>
-            <div className='acoesPontuadas'>
-                  <ul className='lista-acoes-esq'>
-                        {
-                            pontuacoes_ganhas.map(pontuacoes_ganhas => (
-                                <li>
-                                  <div className='content-left'>
-                                    <a href='/#'>Avaliação {pontuacoes_ganhas.dataAvaliacao}</a>
-                                    <a href='/#'>Disciplina: {pontuacoes_ganhas.disciplina}</a>
-                                  </div>
-                                  <div className='content-rigth'>
-                                    <label>Nota: {pontuacoes_ganhas.nota}</label>
-                                    <label>Dificuldade: {pontuacoes_ganhas.dificuldade}</label>
-                                    <label>+{pontuacoes_ganhas.pontosRecebidos} pontos</label> 
-                                  </div>
-                                </li>
-                            ))
-                        }
-                    </ul>
-              </div>
+            {pontuacoes_ganhas.length === 0 ? (
+                      <p className="centered-text">Ainda não contribuiu para a comunidade</p>
+                    ) : (
+                      <div className='acoesPontuadas'>
+                        <ul className='lista-acoes-esq'>
+                          {pontuacoes_ganhas.map((pontuacao, index) => (
+                            <li key={index}>
+                              <div className='content-left'>
+                                <a href='/#'>Avaliação {pontuacao.dataAvaliacao}</a>
+                                <a href='/#'>Disciplina: {pontuacao.disciplina}</a>
+                              </div>
+                              <div className='content-rigth'>
+                                <label>Nota: {pontuacao.nota}</label>
+                                <label>Dificuldade: {pontuacao.dificuldade}</label>
+                                <label>+{pontuacao.pontosRecebidos} pontos</label>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
               <div className='graph-container'>
                 <BarGraph/>
               </div>
@@ -166,16 +183,21 @@ console.log("Api data: ",userData)
           <div className='DesempenhoDisciplina'>
                 <header>Desempenho por disciplina<br></br><span>{UserData[4]}ª Período</span> </header>
                 <div className='disciplinasAtual'>
-                  <ul className='lista-disciplinas'>
-                        {
-                            disciplinas_atual.map(disciplinas_atual => (
-                                <li>
-                                    {disciplinas_atual.nome}
-                                    <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual.bgcolor} completed={disciplinas_atual.completed} />
-                                </li>
-                            ))
-                        }
+                {disciplinas_atual.length === 0 ? (
+                  <p className="centered-message">
+                    Insira seu <span className="highlighted-text">Histórico Analítico</span> e complete o cadastro para que as informações sejam carregadas.
+                  </p>
+                  ) : (
+                    <ul className="lista-disciplinas">
+                      {disciplinas_atual.map((disciplinas_atual) => (
+                        <li>
+                         
+                          {disciplinas_atual['Nome']}
+                          <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual['bgcolor']} completed={disciplinas_atual['id']} />
+                        </li>
+                      ))}
                     </ul>
+                  )}
               </div>
           </div>
         </div>
