@@ -3,6 +3,17 @@ import Dropdown from '../Dropdown';
 import React, { useState } from 'react';
 import { Link,useParams} from 'react-router-dom';
 import {diciplinas_avaliar} from './data'
+import api from "../../Componentes/apis";
+
+let materiasDoBanco;
+let post;
+
+api.get(`/materia`)
+    .then((res) => {
+      materiasDoBanco = res.data;
+    });
+    
+
 const items = [
   {
     id: 1,
@@ -25,19 +36,19 @@ const items = [
     value: '5ª',
   },
 ];
+
+
 const FormularioAvaliacao= ({history})=>{
   const {Materiaid} = useParams();
-
-  diciplinas_avaliar.forEach(element => {
-  if(diciplinas_avaliar.id === Materiaid){
-    // console.log('Id da avaliação:', Materiaid)
-    // console.log("element: ",element)
-    diciplinas_avaliar = element;
-    // console.log('post: ', diciplinas_avaliar)
-}
-
-});
-
+  console.log('ID', Materiaid)
+  
+  materiasDoBanco.map((element) => {
+    if(element.materiaId == Materiaid){
+      console.log("Iguakl")
+      post = element.id;
+    }
+  }
+);  
   const [formData, setFormData] = useState({
     didatica: '',
     tempo: '',
@@ -254,17 +265,6 @@ const FormularioAvaliacao= ({history})=>{
                         onChange={handleChange}
                   />
                 <label  className='resposta' for="limitado">limitado</label>
-              </div>
-              <div className='item'>
-                  <input
-                        type="radio"
-                        id="adptável"
-                        name="avaliacao"
-                        value="adaptável"
-                        checked={formData.avaliacao === 'adaptável'}
-                        onChange={handleChange}
-                  />
-                <label  className='resposta' for="adaptável">adaptável</label>
               </div>
               <div className='item'>
                   <input

@@ -9,6 +9,14 @@ import {AuthContext} from "../../context/context";
 import {useContext} from "react";
 import axios from 'axios';
 
+let materiasDoBanco;
+
+api
+    .get(`/materia`)
+    .then((res) => {
+      materiasDoBanco = res.data;
+    });
+    
 
 
 
@@ -127,6 +135,10 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
 
     pontuacoes_ganhas =''
     console.log("Para avaliar:", diciplinas_avaliar)
+    const disciplinasCadastradas =  materiasDoBanco.map((disciplina) => ({
+      id: disciplina.materiaId,
+     nome: disciplina.nome,
+   }));
 
   
     const handleChange = async (e) => {
@@ -170,8 +182,26 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
           });
   
       setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
-    }; 
-  
+    };
+
+    const lookMateria = (disciplina) => {
+      let disciplinaEncontrada = null;
+      for (const disciplinaCadastrada of disciplinasCadastradas) {
+        if (disciplina['Nome'] === disciplinaCadastrada.nome) {
+          disciplinaEncontrada = disciplinaCadastrada;
+          break;
+        }
+      }
+    
+      if (disciplinaEncontrada) {
+        const Materiaid = disciplinaEncontrada.id;
+        navigate(`./../AvaliacaoMateria/${Materiaid}`);
+      } else {
+        // Mostra um alerta se a disciplina não for encontrada
+        alert("Matéria não cadastrada no sistema.");
+      }
+    };
+
   return (
     <>
     <Navbar/>
@@ -302,7 +332,8 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
                 ) : (
                   diciplinas_avaliar.map(disciplina => (
                     <li key={disciplina['id']}>
-                      <Link to={`./../AvaliacaoMateria/${disciplina['id']}`}>{disciplina['Nome']}</Link>
+                      {/* <Link to={`./../AvaliacaoMateria/${disciplina['id']}`}>{disciplina['Nome']}</Link> */}
+                      <button onClick={() => lookMateria(disciplina)}>{disciplina['Nome']}</button>
                     </li>
                   ))
                 )}

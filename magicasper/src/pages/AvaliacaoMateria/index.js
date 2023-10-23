@@ -1,9 +1,16 @@
 import './index.css';
 import FormularioAvaliacao from '../../Componentes/FormularioAvaliacao';
 import Navbar from '../../Componentes/Navbar';
-// import { getPost, getPosts } from "./api";
-import { disciplinas } from "./data";
 import {useParams} from "react-router-dom"
+import api from "../../Componentes/apis";
+
+let materiasDoBanco;
+
+api.get(`/materia`)
+    .then((res) => {
+      materiasDoBanco = res.data;
+    });
+    
 
 
 function AvaliacaoMateria(){
@@ -11,12 +18,16 @@ function AvaliacaoMateria(){
   const {Materiaid} = useParams();
   
   let post;
-
-  disciplinas.forEach(element => {
-    if(element.id === Materiaid){
-        post = element;
+  
+  materiasDoBanco.map((element) => {
+    if(element.materiaId == Materiaid){
+      console.log("Iguakl")
+      post = element;
     }
   });
+
+
+  console.log("Materia final:", materiasDoBanco)
 
   return(
     <>
@@ -24,7 +35,7 @@ function AvaliacaoMateria(){
       <div className='materia-title'>
         <div className='conteiner-top'>
           <div className='linha-lilas'/>
-              <h2>{post['Nome']}</h2>
+              <h2>{post.nome}</h2>
           <div className='linha-rosa'/>
         </div>
       </div>
@@ -32,9 +43,9 @@ function AvaliacaoMateria(){
         <div className='left-info'>
           <div className='post-info'>
                 <ul className='detail-posts'>
-                  <li><label>Código: {post['código']}</label><br></br></li>
-                  <li><label>Professor: Fulano</label><br></br></li>
-                  <li><label>Semestre: {post.semestre}</label></li>
+                  <li><label>Código: {post.codigo}</label><br></br></li>
+                  {/* <li><label>Professor: {materiasDoBanco.professor}</label><br></br></li> */}
+                  {/* <li><label>Semestre: {materiasDoBanco.semestre}</label></li> */}
                 </ul>
           </div>
           <div className='card-claro-form'>
@@ -43,7 +54,7 @@ function AvaliacaoMateria(){
         </div>
         <div className='form-side'>
               <div className='formulario'>
-                <FormularioAvaliacao/>
+                <FormularioAvaliacao  />
               </div>
         </div>
       </div>

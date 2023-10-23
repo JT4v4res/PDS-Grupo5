@@ -193,7 +193,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
                         <li>
                          
                           {disciplinas_atual['Nome']}
-                          <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual['bgcolor']} completed={disciplinas_atual['id']} />
+                          <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual['bgcolor']} completed={disciplinas_atual['média']} />
                         </li>
                       ))}
                     </ul>
