@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from '../../Componentes/Navbar';
 import Trofeus from '../../Componentes/trofeus';
 import api from "../../Componentes/apis";
-import alunoJSON from "../../Componentes/PdfExtractor/aluno.json";
 import {AuthContext} from "../../context/context";
 import {useContext} from "react";
 import axios from 'axios';
