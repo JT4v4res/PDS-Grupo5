@@ -1,18 +1,22 @@
 import './index.css';
 import SeletorUser from '../../Componentes/Seletor-User';
-// import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useRef,useEffect } from "react"; 
 import { Link, useNavigate } from "react-router-dom";
-// import * as FiIcons from "react-icons/fi"
 import Navbar from '../../Componentes/Navbar';
 import Trofeus from '../../Componentes/trofeus';
 import api from "../../Componentes/apis";
-import alunoJSON from "../../Componentes/PdfExtractor/aluno.json";
 import {AuthContext} from "../../context/context";
 import {useContext} from "react";
 import axios from 'axios';
 
-// import extrairInfoDePDF from "../../Componentes/PdfExtractor/pdfAnalyser"; // Importe o módulo pdfAnalyser
+let materiasDoBanco;
+
+api
+    .get(`/materia`)
+    .then((res) => {
+      materiasDoBanco = res.data;
+    });
+    
 
 
 
@@ -23,12 +27,12 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
   const storedTokenLocal = useState(localStorage.getItem('token'))
   const inputFile = useRef(null);
   const { userId } = useContext(AuthContext);
-  // let [userData, setUser] = useState();
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const periodos = alunoJSON.periodos;
+  let periodos = '';
   const navigate = useNavigate(); // Use a função useNavigate para navegar entre as rotas
-  // const cargaHoraria = alunoJSON.semestre
+  const [perfilAcademico, setPerfilAcademico] = useState('');
+
 
   const dadosasync = async () => {
     try {
@@ -59,129 +63,83 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
   }, [signed, userId]);
 
   console.log("userdata:",userData)
+  useEffect(() => {
+    axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+      .then(response => {
+        setPerfilAcademico(response.data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar perfil acadêmico:', error);
+      });
+  }, []);
 
-
-  while (!loading && userData && userData.perfil)
+  if(perfilAcademico.periodData !== null || perfilAcademico.periodData !== undefined){ //Pegando os dados do pdf e jogando em periodos
+    periodos = perfilAcademico.periodData
+  }
+  
+  console.log("PDF DATA:", perfilAcademico)
+  while (!loading && userData!== null && userData.perfil)
   {
         
     console.log("Periodos:",periodos)
-   
 
     let ultimoAno = 0;
     let ultimoSemestre = 0;
-    
-    for (const periodo in periodos) {
-      if (periodos.hasOwnProperty(periodo)) {
-        const [ano, semestre] = periodo.split('/');
-        const anoInt = parseInt(ano);
-        const semestreInt = parseInt(semestre);
-    
-        if (anoInt > ultimoAno || (anoInt === ultimoAno && semestreInt > ultimoSemestre)) {
-          ultimoAno = anoInt;
-          ultimoSemestre = semestreInt;
+    let materiasPagas = [];
+    let matriculaAtualFinal = ''
+
+    if(periodos  !== null){
+        for (const periodo in periodos) {
+          if (periodos.hasOwnProperty(periodo)) {
+            const [ano, semestre] = periodos[periodo]['periodo'].split('/');
+            const anoInt = parseInt(ano);
+            const semestreInt = parseInt(semestre);
+        
+            if (anoInt > ultimoAno || (anoInt === ultimoAno && semestreInt > ultimoSemestre)) {
+              ultimoAno = anoInt;
+              ultimoSemestre = semestreInt;
+            }
+          }
+        }
+      ultimoAno = `${ultimoAno}.${ultimoSemestre}`
+
+
+      for (const periodo in periodos) {
+        if (periodos.hasOwnProperty(periodo)) {
+          const Materias = periodos[periodo]['materiasPeriodo'];
+          // Adicione as matérias deste período à lista de matérias
+          materiasPagas.push(...Materias);
+        }
+      }
+  
+      // Remova a última matéria da lista (se houver alguma)
+      if (materiasPagas.length > 0) {
+        materiasPagas.pop();
+      }
+      
+      console.log("materias Já pagas:", materiasPagas)
+      console.log("materias Já pagas tam:", materiasPagas.length)
+      for (const periodo in periodos) {
+        if (periodos.hasOwnProperty(periodo)) {
+          const matriculaAtual = periodos[periodo]['materiasPeriodo'];
+          matriculaAtualFinal = matriculaAtual
         }
       }
     }
-    ultimoAno = `${ultimoAno}.${ultimoSemestre}`
-
-
     user = [userData.nome, userData.perfil.curso, userData.perfil.universidade, ultimoAno]
     pontuacao_user = userData.perfil.pontuacao
     materias_fazer = 20
-    materias_cursadas = 0
-    diciplinas_avaliar=''
-    // diciplinas_avaliar =[
-    //   {
-    //     id: '001',
-    //     nome: 'Programação 1',
-    //     codigo: 'Comp445',
-    //     professor: 'Ferreira',
-    //     semestre: '2024.1'
-    //   },
-    //   {
-    //     id: '002',
-    //     nome: 'Cálculo 1',
-    //     codigo: 'Comp445',
-    //     professor: 'Matheus',
-    //     semestre: '2024.1'
-    //   },
-    //   {
-    //     id: '003',
-    //     nome: 'Introdução a computação',
-    //     codigo: 'Comp445',
-    //     professor: 'Ferreira',
-    //     semestre: '2024.1'
-    //   },
-    //   {
-    //     id: '004',
-    //     nome: 'Ciência de dados',
-    //     codigo: 'Comp445',
-    //     professor: 'Ferreira',
-    //     semestre: '2024.1'
-    //   },
-    //   {
-    //     id: '005',
-    //     nome: 'Geometria Analitica',
-    //     codigo: 'Comp445',
-    //     professor: 'Ferreira',
-    //     semestre: '2024.1'
-    //   },
-    //   {
-    //     id: '006',
-    //     nome:  'Computação e ética',
-    //     codigo: 'Comp445',
-    //     professor: 'Ferreira',
-    //     semestre: '2024.1'
-    //   },
-    // ]
-    disciplinas_atual = ''
-    // disciplinas_atual =[
-    //   {
-    //     nome: 'Teoria da Computação',
-    //     codigo: 'COMP321'
-    //   },
-    //   {
-    //     nome: 'Programação 2',
-    //     codigo: 'COMP321'
-    //   },
-    //   {
-    //     nome: 'Matemática Discreta',
-    //     codigo: 'COMP321'
-    //   },
-    //   {
-    //     nome: 'Sistemas distribuidos',
-    //     codigo: 'COMP321'
-    //   },
-    //   {
-    //     nome: 'Lógica para Computação',
-    //     codigo: 'COMP321'
-    //   },
-    // ]
-    pontuacoes_ganhas =''
+    materias_cursadas = materiasPagas.length
+    diciplinas_avaliar= materiasPagas
+    disciplinas_atual = matriculaAtualFinal
 
-    // pontuacoes_ganhas =[
-    //   {
-    //     dataAvaliacao:'28/09/2023',
-    //     disciplina:'Compiladores',
-    //     nota: 4,
-    //     dificuldade: 'média',
-    //     pontosRecebidos:10
-    //   },
-    //   {
-    //     dataAvaliacao:'28/09/2023',
-    //     disciplina:'Inteligência Artificial',
-    //     nota: 5,
-    //     dificuldade: 'facil',
-    //     pontosRecebidos:15
-    //   },
-    //   {
-    //     dataAvaliacao:'28/09/2023',
-    //     disciplina:'Estruturas de Dados',
-    //     nota: 4,
-    //     dificuldade: 'média',
-    //     pontosRecebidos:10
-    //   },
-    // ]
+    pontuacoes_ganhas =''
+    console.log("Para avaliar:", diciplinas_avaliar)
+    const disciplinasCadastradas =  materiasDoBanco.map((disciplina) => ({
+      id: disciplina.materiaId,
+     nome: disciplina.nome,
+   }));
+
   
     const handleChange = async (e) => {
       const selectedFile = e.target.files[0];
@@ -193,13 +151,14 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
           ...prevFiles,
           { id: Date.now(), file: selectedFile },
         ]);
+        let profileId = userId
 
         try {
           const formData = new FormData();
           formData.append('file', selectedFile);
     
           // Fazer a solicitação POST usando Axios
-          const response = await axios.post('http://localhost:8080/pdf/upload', formData);
+          const response = await axios.post(`http://localhost:8080/pdf/upload/${profileId}`, formData);
     
           // Se a solicitação foi bem-sucedida, você pode lidar com a resposta do servidor aqui
           console.log('Resposta do servidor:', response.data);
@@ -213,28 +172,36 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     };
     
     const removeFile = (id) => {
+     
+        axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+          .then(response => {
+            setPerfilAcademico(response.data);
+          })
+          .catch(error => {
+            console.error('Erro ao buscar perfil acadêmico:', error);
+          });
+  
       setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
-    }; 
-    for (const periodo in periodos) {
-      if (periodos.hasOwnProperty(periodo)) {
-        const numDisciplinas = periodos[periodo]['Número de Disciplinas'];
-        console.log("num:",numDisciplinas)
-        materias_cursadas += numDisciplinas;
+    };
+
+    const lookMateria = (disciplina) => {
+      let disciplinaEncontrada = null;
+      for (const disciplinaCadastrada of disciplinasCadastradas) {
+        if (disciplina['Nome'] === disciplinaCadastrada.nome) {
+          disciplinaEncontrada = disciplinaCadastrada;
+          break;
+        }
       }
-    }
-
-    console.log("materias:",materias_cursadas)
-    //infos do json do pdf
-    console.log("Arquivo PDF", files[0])
-    // if(files !== undefined){
-
-    //   const nomeDoArquivo = files[0].file.name; // "historico-analitico-19211606.pdf"
-    //   const tipoDeArquivo = files[0].file;
-    //   console.log("nomeDoArquivo:", nomeDoArquivo)
-    //   console.log("tipodeArquivo:", tipoDeArquivo)
-    // }
     
-    
+      if (disciplinaEncontrada) {
+        const Materiaid = disciplinaEncontrada.id;
+        navigate(`./../AvaliacaoMateria/${Materiaid}`);
+      } else {
+        // Mostra um alerta se a disciplina não for encontrada
+        alert("Matéria não cadastrada no sistema.");
+      }
+    };
+
   return (
     <>
     <Navbar/>
@@ -304,8 +271,8 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
                     <ul className="lista-disciplinas">
                       {disciplinas_atual.map((disciplinas_atual) => (
                         <li>
-                          <a href="/#">{disciplinas_atual.nome}</a>
-                          <label>{disciplinas_atual.codigo}</label>
+                          <a href="/#">{disciplinas_atual['Nome']}</a>
+                          <label>{disciplinas_atual['Código']}</label>
                         </li>
                       ))}
                     </ul>
@@ -364,8 +331,9 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
                   <p className="centered-text">Insira seu histórico analítico para que os dados sejam carregados</p>
                 ) : (
                   diciplinas_avaliar.map(disciplina => (
-                    <li key={disciplina.id}>
-                      <Link to={`./../AvaliacaoMateria/${disciplina.id}`}>{disciplina.nome}</Link>
+                    <li key={disciplina['id']}>
+                      {/* <Link to={`./../AvaliacaoMateria/${disciplina['id']}`}>{disciplina['Nome']}</Link> */}
+                      <button onClick={() => lookMateria(disciplina)}>{disciplina['Nome']}</button>
                     </li>
                   ))
                 )}

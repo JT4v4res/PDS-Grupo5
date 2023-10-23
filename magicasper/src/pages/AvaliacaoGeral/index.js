@@ -2,66 +2,28 @@ import './index.css';
 import Navbar from '../../Componentes/Navbar';
 import { useState } from "react";
 import Star from '../../Componentes/Star'
+import api from "../../Componentes/apis";
+
 import { Link,useParams } from "react-router-dom"
 // Tela de avaliação geral que aparecerá as estrelas pro usuário avaliar
+let materiasDoBanco;
+
+api.get(`/materia`)
+    .then((res) => {
+      materiasDoBanco = res.data;
+    });
+    
+
 
 const items = [...new Array(5).keys()];
 
 function AvaliacaoGeral(materias){
-
-  
-   materias =[
-    {
-      id: '001',
-      nome: 'Programação 1',
-      codigo: 'Comp445',
-      professor: 'Ferreira',
-      semestre: '2024.1'
-    },
-    {
-      id: '002',
-      nome: 'Cálculo 1',
-      codigo: 'Comp445',
-      professor: 'Matheus',
-      semestre: '2024.1'
-    },
-    {
-      id: '003',
-      nome: 'Introdução a computação',
-      codigo: 'Comp445',
-      professor: 'Ferreira',
-      semestre: '2024.1'
-    },
-    {
-      id: '004',
-      nome: 'Ciência de dados',
-      codigo: 'Comp445',
-      professor: 'Ferreira',
-      semestre: '2024.1'
-    },
-    {
-      id: '005',
-      nome: 'Geometria Analitica',
-      codigo: 'Comp445',
-      professor: 'Ferreira',
-      semestre: '2024.1'
-    },
-    {
-      id: '006',
-      nome:  'Computação e ética',
-      codigo: 'Comp445',
-      professor: 'Ferreira',
-      semestre: '2024.1'
-    },
-]
 const {Materiaid} = useParams();
 let materia;
-materias.forEach(element => {
-  if(element.id === Materiaid){
-      console.log('Id da avaliação:', Materiaid)
-      console.log("element: ",element)
-      materia = element;
-      console.log('post: ', materia)
+materiasDoBanco.map((element) => {
+  if(element.materiaId == Materiaid){
+    console.log("Iguakl")
+    materia = element;
   }
 });
 const [activeIndex, setActiveIndex] = useState();
