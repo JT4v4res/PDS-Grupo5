@@ -22,7 +22,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   useEffect(() => {
     const dadosasync = async () => {
       const dados = await api
-      .get(`/avaliation`)
+      .get(`/materia/${Materiaid}`)
       .then((res) => {
         setData(res.data);
         console.log('Resquest data: ', res.data);
@@ -43,26 +43,18 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   
   if (data !== undefined && data !== null)
   {
-      data.forEach(element => {
-        console.log("ELEMENT", element)
-          if (element.materia !== null && element.materia !== undefined) {
-            if(element['materia'].materiaId === parseInt(Materiaid)){
-              post = element;
-            }
-          }
-      });
-      console.log('post:', post);
-    materia =post['materia'].nome;
-    codigo =post['materia'].codigo;
-    nivelEsforco = post.materia.nivelEsforco;
-    ratingStar = post.nota_avaliacao;
-    dadosIndicadores = [`Cerca de ${(post.didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
-        `${(post.metodologia)*5}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
-        `${(post.nota_materia)*5}% afirmam que o seu professor foi didático`,
-        `${(post.metodologia)*5}% dos usuários já concluíram essa matéria`,
-        `${(post.presenca)*5}% dos alunos recomendam essa matéria no inicio do curso`,
-        `${(post.periodo)*5}% afirmam que essa matéria requer muito tempo de dedicação`];
-    informativos = [`Última avaliação: ${post.updatedAt.slice(0, 10)}`, `Cerca de ${(post.metodologia)*3} alunos avaliaram esta materia`];
+
+    materia =data.nome;
+    codigo =data.codigo;
+    nivelEsforco = data.avaliacoes[0].nivelEsforco;
+    ratingStar = data.avaliacoes[0].nota_avaliacao;
+    dadosIndicadores = [`Cerca de ${(data.avaliacoes[0].didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
+        `${(data.avaliacoes[0].metodologia)*5}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
+        `${(data.avaliacoes[0].nota_materia)*5}% afirmam que o seu professor foi didático`,
+        `${(data.avaliacoes[0].metodologia)*5}% dos usuários já concluíram essa matéria`,
+        `${(data.avaliacoes[0].presenca)*5}% dos alunos recomendam essa matéria no inicio do curso`,
+        `${(data.avaliacoes[0].periodo)*5}% afirmam que essa matéria requer muito tempo de dedicação`];
+    informativos = [`Última avaliação: ${data.avaliacoes[0].updatedAt.slice(0, 10)}`, `Cerca de ${(data.avaliacoes[0].metodologia)*3} alunos avaliaram esta materia`];
     return (
         <>
           <Navbar/>
