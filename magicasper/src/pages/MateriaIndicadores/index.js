@@ -45,15 +45,15 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   {
     materia = data.nome;
     codigo = data.codigo;
-    nivelEsforco = data['avaliacoes'].nivelEsforco;
-    ratingStar = data['avaliacoes'].nota_avaliacao;
-    dadosIndicadores = [`Cerca de ${(data['avaliacoes'].didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
-        `${(data['avaliacoes'].metodologia)*5}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
-        `${(data['avaliacoes'].nota_materia)*5}% afirmam que o seu professor foi didático`,
-        `${(data['avaliacoes'].metodologia)*5}% dos usuários já concluíram essa matéria`,
-        `${(data['avaliacoes'].presenca)*5}% dos alunos recomendam essa matéria no inicio do curso`,
-        `${(data['avaliacoes'].periodo)*5}% afirmam que essa matéria requer muito tempo de dedicação`];
-    informativos = [`Última avaliação: ${data['avaliacoes'].updatedAt.slice(0, 10)}`, `Cerca de ${(data['avaliacoes'].metodologia)*3} alunos avaliaram esta materia`];
+    nivelEsforco = data['avaliacoes'][0].nivelEsforco;
+    ratingStar = data['avaliacoes'][0].nota_avaliacao;
+    dadosIndicadores = [`Cerca de ${(data['avaliacoes'][0].didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
+        `${(data['avaliacoes'][0].metodologia)*5}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
+        `${(data['avaliacoes'][0].nota_materia)*5}% afirmam que o seu professor foi didático`,
+        `${(data['avaliacoes'][0].metodologia)*5}% dos usuários já concluíram essa matéria`,
+        `${(data['avaliacoes'][0].presenca)*5}% dos alunos recomendam essa matéria no inicio do curso`,
+        `${(data['avaliacoes'][0].periodo)*5}% afirmam que essa matéria requer muito tempo de dedicação`];
+    informativos = [`Última avaliação: ${data['avaliacoes'][0].updatedAt.slice(0, 10)}`, `Cerca de ${(data['avaliacoes'][0].metodologia)*3} alunos avaliaram esta materia`];
     return (
         <>
           <Navbar/>
