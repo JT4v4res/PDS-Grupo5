@@ -17,12 +17,12 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   console.log("Id url indicadores:", Materiaid)
   
   const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   
   useEffect(() => {
     const dadosasync = async () => {
       const dados = await api
-      .get(`/avaliation/`)
+      .get(`/avaliation`)
       .then((res) => {
         setData(res.data);
         console.log('Resquest data: ', res.data);
@@ -45,8 +45,10 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   {
       data.forEach(element => {
         console.log("ELEMENT", element)
-          if(element[Materiaid]['materia'].materiaId === parseInt(Materiaid)){
-            post = element[Materiaid];
+          if (element.hasOwnProperty('materia')) {
+            if(element['materia'].materiaId === parseInt(Materiaid)){
+              post = element[Materiaid];
+            }
           }
       });
     materia =post['materia'].nome;

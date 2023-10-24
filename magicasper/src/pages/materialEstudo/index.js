@@ -33,7 +33,7 @@ function MaterialEstudo (materia, codigo, textoBase){
   useEffect(() => {
     const dadosasync = async () => {
       const dados = await api
-          .get(`/avaliation/`)
+          .get(`/materia/${Materiaid}`)
           .then((res) => {
             setData(res.data);
             console.log('Resquest data: ', res.data);
@@ -50,7 +50,7 @@ function MaterialEstudo (materia, codigo, textoBase){
   }, [Materiaid]);
 
   if (data !== undefined && data !== null) {
-    materia = data[0].materia[0].nome;
+    materia = data.nome;
     // textoBase = "Lorem ipsum dolor sit amet\n" +
     //     "consectetur adipiscing elit,\n" +
     //     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n" +
@@ -66,7 +66,7 @@ function MaterialEstudo (materia, codigo, textoBase){
             </div>
 
             <div className='codigo'>
-              <label>Código: {data[0].materia.codigo}</label>
+              <label>Código: {data.codigo}</label>
             </div>
 
             <div className='superior-block'>
@@ -77,7 +77,7 @@ function MaterialEstudo (materia, codigo, textoBase){
                 </div>
                 <div className='material-expositivo'>
                   <p>
-                    {data[0].materia.matExpositivo}
+                    {data.matExpositivo}
                   </p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ function MaterialEstudo (materia, codigo, textoBase){
                 </div>
                 <div className='questoes'>
                   <p>
-                    {data[0].materia.questions}
+                    {data.questions}
                   </p>
                 </div>
               </div>
@@ -103,7 +103,7 @@ function MaterialEstudo (materia, codigo, textoBase){
                 </div>
                 <div className='materiais-literat'>
                   <p>
-                    {data[0].materia.literatura}
+                    {data.literatura}
                   </p>
                   {/* <PontosBckgrd/> */}
                 </div>

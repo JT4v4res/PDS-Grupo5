@@ -43,7 +43,7 @@ export default function MateriaDetalhes (){
 
     if (data !== undefined && data !== null) {
        
-        console.log("area", data.areaRelevancia)
+        console.log("area", data.areaRelevante)
         return (
             <>
                 <Navbar/>
@@ -71,9 +71,9 @@ export default function MateriaDetalhes (){
                         </div>
 
                         <div className="cards">
-                            {data.areaRelevancia && data.data.areaRelevancia.length > 0 ? (
+                            {data.areaRelevante ? (
                                     <ul className="lista-de-relevancia">
-                                        {data.areaRelevancia.map((areaRelevancia, index) => (
+                                        {data.areaRelevante.map((areaRelevancia, index) => (
                                             <li style={{ marginBottom: 30 }} key={index}>
                                                 {areaRelevancia}
                                             </li>
