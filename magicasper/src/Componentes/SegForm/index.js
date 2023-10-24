@@ -4,7 +4,7 @@
   import React, { useState } from 'react';
   // import { useForm } from 'react-hook-form';
   import { useLocation } from 'react-router-dom';
-  import axios from 'axios';
+  import api from "../apis";
   
   export default function SegundoCadastro(props){
       const [matricula, setMatricula] = useState('');
@@ -47,7 +47,7 @@
       const handleSubmit = (event) => {
         event.preventDefault();
       
-        axios.post('http://localhost:8080/user/cadastro', {
+        api.post('/user/cadastro', {
             nome: name,
             email: mail,
             senha: password,
