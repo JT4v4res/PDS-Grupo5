@@ -50,4 +50,8 @@ export class CreateMateriaDto {
   @IsString()
   @IsNotEmpty()
   literatura: string;
+
+  @IsString()
+  @IsNotEmpty()
+  areaRelevante: string;
 }

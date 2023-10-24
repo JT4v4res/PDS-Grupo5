@@ -60,7 +60,6 @@ export class MateriaService {
       relations: {
         professores: true,
         avaliacoes: true,
-        areasAtuacao: true,
       },
     });
 
@@ -94,6 +93,11 @@ export class MateriaService {
     const materiaToUpdt: MateriaEntity = await this.getMateriaPorId(
       materia.materiaId,
     );
+
+    materiaToUpdt.areaRelevante = materia.areaRelevante;
+    materiaToUpdt.literatura = materia.literatura;
+    materiaToUpdt.questions = materia.questions;
+    materiaToUpdt.matExpositivo = materia.matExpositivo;
 
     const teacher: ProfessorEntity =
       await this.professorService.getTeacherByName(materia.professor);
