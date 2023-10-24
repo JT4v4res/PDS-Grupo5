@@ -39,7 +39,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   
 
   
-  console.log('Dados requisição atualizada: ', post);
+  console.log('Dados requisição atualizada: ', data);
   
   if (data !== undefined && data !== null)
   {
