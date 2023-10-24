@@ -127,9 +127,29 @@ export class PerfilacademicoService {
                 i < json[propriedade][periodo].disciplinas.length;
                 i++
               ) {
-                disciplinasArray.push(
-                  json[propriedade][periodo].disciplinas[i],
-                );
+                const materiaExist: MateriaPeriodoEntity =
+                  await this.materiaPeriodoRepository.findOne({
+                    where: {
+                      Nome: json[propriedade][periodo],
+                    },
+                  });
+
+                if (
+                  materiaExist !== undefined &&
+                  materiaExist !== null &&
+                  materiaExist.Conceito !== 'AP'
+                ) {
+                  disciplinasArray.push(
+                    json[propriedade][periodo].disciplinas[i],
+                  );
+                } else if (
+                  materiaExist === null ||
+                  materiaExist === undefined
+                ) {
+                  disciplinasArray.push(
+                    json[propriedade][periodo].disciplinas[i],
+                  );
+                }
               }
 
               const newMateriaPeriodo: MateriaPeriodoEntity[] =
