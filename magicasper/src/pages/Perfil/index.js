@@ -87,8 +87,10 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     let ultimoSemestre = 0;
     let materiasPagas = [];
     let matriculaAtualFinal = ''
+    let materiasAfazer = 0
 
-    if(periodos  !== null){
+    if(periodos !== null ){
+
         for (const periodo in periodos) {
           if (periodos.hasOwnProperty(periodo)) {
             const [ano, semestre] = periodos[periodo]['periodo'].split('/');
@@ -117,18 +119,37 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
         materiasPagas.pop();
       }
       
-      console.log("materias Já pagas:", materiasPagas)
-      console.log("materias Já pagas tam:", materiasPagas.length)
+      // console.log("materias Já pagas:", materiasPagas)
+      // console.log("materias Já pagas tam:", materiasPagas.length)
       for (const periodo in periodos) {
         if (periodos.hasOwnProperty(periodo)) {
           const matriculaAtual = periodos[periodo]['materiasPeriodo'];
           matriculaAtualFinal = matriculaAtual
         }
       }
+    
+  
+    for (const periodo in periodos) {
+      if (periodos.hasOwnProperty(periodo)) {
+        const materias = periodos[periodo]['materiasPeriodo'];
+
+        
+        for(const materia in materias){
+          console.log("asdasdasd", materia)
+            if(materias[materia]['Conceito'] === 'AP')
+            {
+              materiasAfazer+=1;
+            }
+        }
+      }
     }
+    materiasAfazer -= 25;
+  }
+
+    if(materiasAfazer < 0){materiasAfazer = 0}
     user = [userData.nome, userData.perfil.curso, userData.perfil.universidade, ultimoAno]
     pontuacao_user = userData.perfil.pontuacao
-    materias_fazer = 20
+    materias_fazer = materiasAfazer
     materias_cursadas = materiasPagas.length
     diciplinas_avaliar= materiasPagas
     disciplinas_atual = matriculaAtualFinal
@@ -141,7 +162,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
    }));
 
   
-    const handleChange = async (e) => {
+      const handleChange = async (e) => {
       const selectedFile = e.target.files[0];
       const allowedExtensions = ["pdf"];
       const fileExtension = selectedFile.name.split(".").pop().toLowerCase();
@@ -161,6 +182,13 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
           const response = await axios.post(`http://localhost:8080/pdf/upload/${profileId}`, formData);
     
           // Se a solicitação foi bem-sucedida, você pode lidar com a resposta do servidor aqui
+          axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+          .then(response => {
+            setPerfilAcademico(response.data);
+          })
+          .catch(error => {
+            console.error('Erro ao buscar perfil acadêmico:', error);
+          });
           console.log('Resposta do servidor:', response.data);
         } catch (error) {
           // Se ocorrer um erro durante a solicitação POST, você pode lidar com ele aqui
@@ -173,13 +201,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     
     const removeFile = (id) => {
      
-        axios.get(`http://localhost:8080/perfilacademico/${userId}`)
-          .then(response => {
-            setPerfilAcademico(response.data);
-          })
-          .catch(error => {
-            console.error('Erro ao buscar perfil acadêmico:', error);
-          });
+       
   
       setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
     };
@@ -200,7 +222,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
         // Mostra um alerta se a disciplina não for encontrada
         alert("Matéria não cadastrada no sistema.");
       }
-    };
+    }
 
   return (
     <>

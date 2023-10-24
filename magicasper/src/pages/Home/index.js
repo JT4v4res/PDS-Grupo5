@@ -17,7 +17,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
   const [loading, setLoading] = useState(true);
   const [perfilAcademico, setPerfilAcademico] = useState('');
   let periodos = '';
-  let periodoAtual = 1;
+  let periodoAtual = 0;
   console.log("ID: ", userId)
 
   const dadosasync = async () => {
@@ -70,8 +70,9 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
     let ultimoSemestre = 0;
     let materiasPagas = [];
     let matriculaAtualFinal = ''
+    let materiasAfazer =0
 
-    if(periodos  !== null || periodos != undefined){
+    if(periodos  !== null || periodos !== undefined){
       for (const periodo in periodos) {
         if (periodos.hasOwnProperty(periodo)) {
           const [ano, semestre] = periodos[periodo]['periodo'].split('/');
@@ -82,8 +83,12 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
             ultimoAno = anoInt;
             ultimoSemestre = semestreInt;
           }
+          else{
+            periodoAtual +=1;
+          }
         }
       }
+      if(periodoAtual < 0) {periodoAtual=0}
       ultimoAno = `${ultimoAno}.${ultimoSemestre}`;
 
 
@@ -95,26 +100,48 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
         }
       }
   
-      // Remova a última matéria da lista (se houver alguma)
       if (materiasPagas.length > 0) {
         materiasPagas.pop();
       }
-      
-      console.log("materias Já pagas:", materiasPagas)
-      console.log("materias Já pagas tam:", materiasPagas.length)
+
+      let penultima =''
+      let matriculaAtual=''
       for (const periodo in periodos) {
         if (periodos.hasOwnProperty(periodo)) {
-          const matriculaAtual = periodos[periodo]['materiasPeriodo'];
-          matriculaAtualFinal = matriculaAtual
+          penultima = matriculaAtual
+          matriculaAtual = periodos[periodo]['materiasPeriodo'];
+          console.log("matricula a cada interação: ", matriculaAtual)
+          matriculaAtualFinal = penultima
+        }
+      }
+
+    
+    }
+    
+    for (const periodo in periodos) {
+      if (periodos.hasOwnProperty(periodo)) {
+        const materias = periodos[periodo]['materiasPeriodo'];
+
+        
+        for(const materia in materias){
+          console.log("asdasdasd", materia)
+            if(materias[materia]['Conceito'] === 'AP')
+            {
+              materiasAfazer+=1;
+            }
         }
       }
     }
 
+    materiasAfazer -= 25;
+    if(materiasAfazer < 0){materiasAfazer = 0}
+
     UserData = [userData.nome, userData.perfil.curso, userData.perfil.universidade, userData.semestre, periodoAtual]
     pontuacao_user =  userData.perfil.pontuacao
     materias_cursadas = materiasPagas.length
-    materias_fazer = 20
+    materias_fazer = materiasAfazer
     pontuacoes_ganhas = ''
+    let totalMaterias = materias_fazer+materias_cursadas
 
     const bgcolor = "#6a1b9a";
     disciplinas_atual = Object.values(matriculaAtualFinal);
@@ -126,9 +153,9 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
     console.log("ATUAIS", disciplinas_atual)
 
     BarraProgressoData = [
-      { bgcolor: "#6a1b9a", completed: userData.perfil.progresso},
+      { bgcolor: "#6a1b9a", completed: ((materias_cursadas/totalMaterias)*100).toFixed(1)},
     ];
-    console.log("Cursos cadastrados para progressão:", userData.perfil.universidade)
+    console.log("Cursos cadastrados para progressão:",  (materias_cursadas/totalMaterias)*100)
 
     return (
     <>
@@ -181,7 +208,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
               <header>Restam: {materias_fazer}</header>
           </div>
           <div className='DesempenhoDisciplina'>
-                <header>Desempenho por disciplina<br></br><span>{UserData[4]}ª Período</span> </header>
+                <header>Desempenho por disciplina<br></br><span>{UserData[4]}ª Período (Semestre passado)</span> </header>
                 <div className='disciplinasAtual'>
                 {disciplinas_atual.length === 0 ? (
                   <p className="centered-message">
@@ -193,7 +220,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
                         <li>
                          
                           {disciplinas_atual['Nome']}
-                          <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual['bgcolor']} completed={disciplinas_atual['média']} />
+                          <ProgressBar key={disciplinas_atual} bgcolor={disciplinas_atual['bgcolor']} completed={(parseFloat((disciplinas_atual['Média'])))*10 } />
                         </li>
                       ))}
                     </ul>
