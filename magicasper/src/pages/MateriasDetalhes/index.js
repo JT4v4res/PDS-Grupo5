@@ -8,6 +8,8 @@ import {getMateriasDetalhes}  from '../../Componentes/CardMateria/data';
 import {useEffect, useState} from "react";
 // Primeira tela dos detalhes da matéria aparecendo descrição damatéria e áreas de relevancia
 
+let data;
+
 export default function MateriaDetalhes (){
     const {Materiaid} = useParams();
 
@@ -40,7 +42,7 @@ export default function MateriaDetalhes (){
     console.log("Post:", post)
 
     if (data !== undefined && data !== null) {
-       
+       const areaString = data.areaRelevante.split(', ')
         console.log("area", data.areaRelevante)
         return (
             <>
@@ -69,9 +71,13 @@ export default function MateriaDetalhes (){
                         </div>
 
                         <div className="cards">
-                            {data.areaRelevante ? (
+                            {areaString ? (
                                     <ul className="lista-de-relevancia">
-                                        {data.areaRelevancia}
+                                        {areaString.map((areaRelevancia, index) => (
+                                            <li style={{ marginBottom: 30 }} key={index}>
+                                                {areaRelevancia}
+                                            </li>
+                                        ))}
                                     </ul>
                                 ) : (
                                     <p>Sem áreas relevantes</p>

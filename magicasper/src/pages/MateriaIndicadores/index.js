@@ -46,12 +46,12 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
       data.forEach(element => {
         console.log("ELEMENT", element)
           if (element.hasOwnProperty('materia')) {
-            if(element['materia'].materiaId === parseInt(Materiaid)){
+            if(element['materia'].materiaId === parseInt(Materiaid) && element.materia !== null && element.materia !== undefined){
               post = element;
             }
           }
       });
-      console.log(post);
+      console.log('post:', post);
     materia =post['materia'].nome;
     codigo =post['materia'].codigo;
     nivelEsforco = post.materia.nivelEsforco;
