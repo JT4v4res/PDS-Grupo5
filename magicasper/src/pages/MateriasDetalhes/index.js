@@ -8,8 +8,6 @@ import {getMateriasDetalhes}  from '../../Componentes/CardMateria/data';
 import {useEffect, useState} from "react";
 // Primeira tela dos detalhes da matéria aparecendo descrição damatéria e áreas de relevancia
 
-let data;
-
 export default function MateriaDetalhes (){
     const {Materiaid} = useParams();
 
@@ -73,11 +71,7 @@ export default function MateriaDetalhes (){
                         <div className="cards">
                             {data.areaRelevante ? (
                                     <ul className="lista-de-relevancia">
-                                        {data.areaRelevante.map((areaRelevancia, index) => (
-                                            <li style={{ marginBottom: 30 }} key={index}>
-                                                {areaRelevancia}
-                                            </li>
-                                        ))}
+                                        {data.areaRelevancia}
                                     </ul>
                                 ) : (
                                     <p>Sem áreas relevantes</p>

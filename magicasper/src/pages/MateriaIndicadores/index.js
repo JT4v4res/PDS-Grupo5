@@ -47,10 +47,11 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
         console.log("ELEMENT", element)
           if (element.hasOwnProperty('materia')) {
             if(element['materia'].materiaId === parseInt(Materiaid)){
-              post = element[Materiaid];
+              post = element;
             }
           }
       });
+      console.log(post);
     materia =post['materia'].nome;
     codigo =post['materia'].codigo;
     nivelEsforco = post.materia.nivelEsforco;
