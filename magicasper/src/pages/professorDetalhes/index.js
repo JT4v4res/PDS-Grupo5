@@ -42,7 +42,7 @@ function ProfessorDetalhes (professor, materia, lattes, codigo, desc_materia, te
     const dadosasyncprof = async () => {
       try {
           const {data } = await api
-              .get(`localhost:8080/professor`)
+              .get(`/professor`)
 
           const {professores} = data
           setprofessorData(professores)

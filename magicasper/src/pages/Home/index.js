@@ -6,8 +6,6 @@ import {useContext, useState, useEffect} from "react";
 import {AuthContext} from "../../context/context";
 import api from "../../Componentes/apis";
 import {useNavigate } from "react-router-dom";
-import axios from 'axios';
-
 
 function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,DesempenhoDisciplinaData, materias_fazer, BarraProgressoData, pontuacoes_ganhas){
   const navigate = useNavigate(); // Use a função useNavigate para navegar entre as rotas
@@ -50,7 +48,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
   
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+    api.get(`/perfilacademico/${userId}`)
       .then(response => {
         setPerfilAcademico(response.data);
       })

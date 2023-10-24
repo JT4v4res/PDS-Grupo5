@@ -7,7 +7,7 @@
 # You can add other services your application may depend on here, such as a
 # database or a cache. For examples, see the Awesome Compose repository:
 # https://github.com/docker/awesome-compose
-version: '3'
+version: '3.8'
 services:
   react-app:
     build:
@@ -16,10 +16,10 @@ services:
     container_name: magicasper
     ports:
       - "3000:3000"
-    volumes:
-      - ./dist:/usr/src/app/dist
     depends_on:
       - nestjs-app
+    networks:
+      - pds-gp5
 
   nestjs-app:
     build:
@@ -36,8 +36,8 @@ services:
       - DB_HOST=postgres
       - JWT_SECRET=2d0bce40dfbeb4b28fead52dc37fec14677b3d3089304c4fcc573597c6005766
       - postgres
-    volumes:
-      - ./dist:/usr/src/app/dist
+    networks:
+      - pds-gp5
 
   postgres:
     image: postgres:15
@@ -48,6 +48,8 @@ services:
       - POSTGRES_DB=magi_casper
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=5657
+    networks:
+      - pds-gp5
 
   pgadmin:
     image: dpage/pgadmin4
@@ -59,6 +61,9 @@ services:
       - '5050:80'
     depends_on:
       - postgres
+
+networks:
+  pds-gp5:
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

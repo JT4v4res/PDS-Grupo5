@@ -4,7 +4,6 @@ import React, {useContext, useState} from 'react';
 import { Link,useParams, useNavigate} from 'react-router-dom';
 import {diciplinas_avaliar} from './data'
 import api from "../../Componentes/apis";
-import axios from 'axios';
 import {AuthContext} from "../../context/context";
 
 let materiasDoBanco;
