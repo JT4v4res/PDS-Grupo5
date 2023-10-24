@@ -17,7 +17,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   console.log("Id url indicadores:", Materiaid)
   
   const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   
   useEffect(() => {
     const dadosasync = async () => {
