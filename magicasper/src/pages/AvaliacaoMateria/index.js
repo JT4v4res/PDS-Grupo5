@@ -44,8 +44,6 @@ function AvaliacaoMateria(){
           <div className='post-info'>
                 <ul className='detail-posts'>
                   <li><label>Código: {post.codigo}</label><br></br></li>
-                  {/* <li><label>Professor: {materiasDoBanco.professor}</label><br></br></li> */}
-                  {/* <li><label>Semestre: {materiasDoBanco.semestre}</label></li> */}
                 </ul>
           </div>
           <div className='card-claro-form'>

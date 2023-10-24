@@ -1,13 +1,14 @@
 import './index.css';
 import Dropdown from '../Dropdown';
 import React, { useState } from 'react';
-import { Link,useParams} from 'react-router-dom';
+import { Link,useParams, useNavigate} from 'react-router-dom';
 import {diciplinas_avaliar} from './data'
 import api from "../../Componentes/apis";
+import axios from 'axios';
 
 let materiasDoBanco;
 let post;
-
+let avaliacaoDidatica = ['desorganizada', 'monótona', 'adaptável', 'claro', 'envolvente']
 api.get(`/materia`)
     .then((res) => {
       materiasDoBanco = res.data;
@@ -38,57 +39,65 @@ const items = [
 ];
 
 
-const FormularioAvaliacao= ({history})=>{
-  const {Materiaid} = useParams();
-  console.log('ID', Materiaid)
-  
+const FormularioAvaliacao = () => {
+  const { Materiaid } = useParams();
+  const history = useNavigate();
+  console.log('ID', Materiaid);
+
   materiasDoBanco.map((element) => {
     if(element.materiaId == Materiaid){
       console.log("Iguakl")
       post = element.id;
     }
   }
-);  
+);
   const [formData, setFormData] = useState({
-    didatica: '',
-    tempo: '',
-    presenca: '',
-    avaliacao: '',
-    periodo: '',
+    didatica: 0,
+    tempo: 0,
+    presenca: 0,
+    avaliacao: 0,
+    periodo: 0,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-  };
 
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Envie os dados do formulário para o backend
-      const response = await fetch('URL_DO_BACKEND', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        // Sucesso no envio, redirecione para a próxima página
-        history.push('/AvaliacaoGeral');
+    axios.post('http://localhost:8080/avaliation', {
+      userId: 1,
+      semestre: '2023.1',
+      nota_avaliacao: 5,
+      nota_materia: 4,
+      passou_sem_final: true,
+      didatica: formData.didatica,
+      dedicacao: formData.tempo,
+      presenca: formData.presenca,
+      metodologia: formData.avaliacao,
+      periodo: formData.periodo,
+      recomenda_no_inicio: false,
+      isMateria: true,
+      isTeacher: false,
+      relationshipId: 1,
+      primeira_aprovacao: true,
+    })
+    .then((response) => {
+      if (response.status === 201) {
+        history(`../../AvaliacaoGeral/${Materiaid}`); 
       } else {
-        // Lida com erros no envio
-        console.error('Erro ao enviar o formulário');
+        console.error('Erro no post do formulário');
       }
-    } catch (error) {
-      // Lida com erros de rede ou outros erros
-      console.error('Erro de rede:', error);
-    }
+    })
+    .catch((error) => {
+      console.error('Erro na chamada à API', error);
+    });
   };
   
   return(
@@ -313,10 +322,10 @@ const FormularioAvaliacao= ({history})=>{
       </div>
     
       <div className='btn-form'>
-        <button type='submit'><Link to={`../../AvaliacaoGeral/${Materiaid}`}>Continuar</Link></button>
+        <button type='submit'>Continuar</button>
       </div>
     </form>
   )
-}
+};
 
 export default FormularioAvaliacao;
