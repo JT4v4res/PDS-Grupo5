@@ -38,17 +38,17 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   }, [Materiaid]);
   
 
-  data.forEach(element => {
-    console.log("ELEMENT", element)
-      if(element['materia'].materiaId === parseInt(Materiaid)){
-        post = element;
-      }
-  });
-
+  
   console.log('Dados requisição atualizada: ', post);
-
+  
   if (data !== undefined && data !== null)
   {
+      data.forEach(element => {
+        console.log("ELEMENT", element)
+          if(element['materia'].materiaId === parseInt(Materiaid)){
+            post = element;
+          }
+      });
     materia =post['materia'].nome;
     codigo =post['materia'].codigo;
     nivelEsforco = post['materia'].nivelEsforco;
@@ -59,7 +59,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
         `${(post.metodologia)*10}% dos usuários já concluíram essa matéria`,
         `${(post.presenca)*10}% dos alunos recomendam essa matéria no inicio do curso`,
         `${(post.periodo)*10}% afirmam que essa matéria requer muito tempo de dedicação`];
-    informativos = [`Última avaliação: ${post.updatedAt}`, `Cerca de ${(post.metodologia)*10}alunos avaliaram esta materia`];
+    informativos = [`Última avaliação: ${post.updatedAt}`, `Cerca de ${(post.metodologia)*10} alunos avaliaram esta materia`];
     return (
         <>
           <Navbar/>

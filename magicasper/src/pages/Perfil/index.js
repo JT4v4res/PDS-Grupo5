@@ -119,8 +119,8 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
         materiasPagas.pop();
       }
       
-      console.log("materias Já pagas:", materiasPagas)
-      console.log("materias Já pagas tam:", materiasPagas.length)
+      // console.log("materias Já pagas:", materiasPagas)
+      // console.log("materias Já pagas tam:", materiasPagas.length)
       for (const periodo in periodos) {
         if (periodos.hasOwnProperty(periodo)) {
           const matriculaAtual = periodos[periodo]['materiasPeriodo'];
@@ -182,6 +182,13 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
           const response = await axios.post(`http://localhost:8080/pdf/upload/${profileId}`, formData);
     
           // Se a solicitação foi bem-sucedida, você pode lidar com a resposta do servidor aqui
+          axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+          .then(response => {
+            setPerfilAcademico(response.data);
+          })
+          .catch(error => {
+            console.error('Erro ao buscar perfil acadêmico:', error);
+          });
           console.log('Resposta do servidor:', response.data);
         } catch (error) {
           // Se ocorrer um erro durante a solicitação POST, você pode lidar com ele aqui
@@ -194,13 +201,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     
     const removeFile = (id) => {
      
-        axios.get(`http://localhost:8080/perfilacademico/${userId}`)
-          .then(response => {
-            setPerfilAcademico(response.data);
-          })
-          .catch(error => {
-            console.error('Erro ao buscar perfil acadêmico:', error);
-          });
+       
   
       setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id));
     };

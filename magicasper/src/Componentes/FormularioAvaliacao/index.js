@@ -38,11 +38,32 @@ const items = [
   },
 ];
 
+const opcoesParaNumeros = {
+  desorganizada: 1,
+  monotona: 2,
+  adaptavel: 3,
+  clara: 4,
+  envolvente: 5,
+  baixo: 6,
+  medio: 7,
+  alto: 8,
+  sim: 9,
+  nao:10,
+  asvezes:11,
+  desconexo: 12,
+  limitado: 13,
+  justo: 14,
+  formativo: 15,
+  abrangente: 16,
+  Periodo: 6
+};
+
 
 const FormularioAvaliacao = () => {
   const { Materiaid } = useParams();
+  let userId = Materiaid
   const history = useNavigate();
-  console.log('ID', Materiaid);
+  const [errorMessage, setErrorMessage] = useState(''); // Variável de estado para mensagem de erro
 
   materiasDoBanco.map((element) => {
     if(element.materiaId == Materiaid){
@@ -52,11 +73,12 @@ const FormularioAvaliacao = () => {
   }
 );
   const [formData, setFormData] = useState({
-    didatica: 0,
-    tempo: 0,
-    presenca: 0,
-    avaliacao: 0,
-    periodo: 0,
+    didatica: '',
+    tempo: '',
+    presenca: '',
+    avaliacao: '',
+    periodo: '',
+    
   });
 
   const handleChange = (e) => {
@@ -70,32 +92,34 @@ const FormularioAvaliacao = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     axios.post('http://localhost:8080/avaliation', {
-      userId: 1,
-      semestre: '2023.1',
-      nota_avaliacao: 5,
+      userId: parseInt(userId),
+      semestre: "2023.1",
+      nota_avaliacao: 3,
       nota_materia: 4,
       passou_sem_final: true,
-      didatica: formData.didatica,
-      dedicacao: formData.tempo,
-      presenca: formData.presenca,
-      metodologia: formData.avaliacao,
-      periodo: formData.periodo,
+      didatica: opcoesParaNumeros[formData.didatica],
+      dedicacao: opcoesParaNumeros[formData.tempo],
+      presenca: opcoesParaNumeros[formData.presenca],
+      metodologia: opcoesParaNumeros[formData.avaliacao],
+      periodo: 3,
       recomenda_no_inicio: false,
       isMateria: true,
       isTeacher: false,
       relationshipId: 1,
-      primeira_aprovacao: true,
+      primeira_aprovacao: true
     })
     .then((response) => {
       if (response.status === 201) {
         history(`../../AvaliacaoGeral/${Materiaid}`); 
       } else {
+        setErrorMessage('Todos os itens do formulário são obrigatórios');
         console.error('Erro no post do formulário');
       }
     })
     .catch((error) => {
+      setErrorMessage('Todos os itens do formulário são obrigatórios');
+
       console.error('Erro na chamada à API', error);
     });
   };
@@ -124,25 +148,24 @@ const FormularioAvaliacao = () => {
               <div className='item'>
                 <input
                 type="radio"
-                id="monótona"
+                id="monotona"
                 name="didatica"
-                value="monótona"
-                checked={formData.didatica === 'monótona'}
+                value="monotona"
+                checked={formData.didatica === 'monotona'}
                 onChange={handleChange}
               />
-                <label  className='resposta' for="monótona">monótona</label>
+                <label  className='resposta' htmlFor="monotona">monótona</label>
               </div>
               <div className='item'>
                 <input
                   type="radio"
-                  id="adaptável"
+                  id="adaptavel"
                   name="didatica"
-                  value="adaptável"
-                  checked={formData.didatica === 'adaptável'}
+                  value="adaptavel"
+                  checked={formData.didatica === 'adaptavel'}
                   onChange={handleChange}
                 />
-                {/* <input type="radio" id="adaptável" name="didatica" value="adaptável"/> */}
-                <label  className='resposta' for="adaptável">adaptável</label>
+                <label  className='resposta' htmlFor="adaptavel">adaptável</label>
               </div>
               <div className='item'>
                 <input
@@ -153,8 +176,7 @@ const FormularioAvaliacao = () => {
                     checked={formData.didatica === 'clara'}
                     onChange={handleChange}
                   />
-                {/* <input type="radio" id="clara" name="didatica" value="clara"/> */}
-                <label  className='resposta' for="clara">clara</label>
+                <label  className='resposta' htmlFor="clara">clara</label>
               </div>
               <div className='item'>
                   <input
@@ -165,8 +187,7 @@ const FormularioAvaliacao = () => {
                     checked={formData.didatica === 'envolvente'}
                     onChange={handleChange}
                   />
-                {/* <input type="radio" id="envolvente" name="didatica" value="envolvente"/> */}
-                <label  className='resposta' for="envolvente">envolvente</label>
+                <label  className='resposta' htmlFor="envolvente">envolvente</label>
               </div>
             </div>
         </div>
@@ -182,19 +203,18 @@ const FormularioAvaliacao = () => {
                     checked={formData.tempo === 'baixo'}
                     onChange={handleChange}
                   />
-                {/* <input type="radio" id="baixo" name="tempo" value="baixo"/> */}
-                <label  className='resposta' for="baixo"> baixo</label>
+                <label  className='resposta' htmlFor="baixo"> baixo</label>
               </div>
               <div className='item'>
                 <input
                       type="radio"
-                      id="médio"
+                      id="medio"
                       name="tempo"
-                      value="médio"
-                      checked={formData.tempo === 'médio'}
+                      value="medio"
+                      checked={formData.tempo === 'medio'}
                       onChange={handleChange}
                 />
-                <label  className='resposta' for="médio"> médio</label>
+                <label  className='resposta' htmlFor="medio"> médio</label>
               </div>
               <div className='item'>
                 <input
@@ -205,7 +225,7 @@ const FormularioAvaliacao = () => {
                       checked={formData.tempo === 'alto'}
                       onChange={handleChange}
                 />
-                <label  className='resposta' for="alto"> alto</label>
+                <label  className='resposta' htmlFor="alto"> alto</label>
               </div>
             </div>
         </div>
@@ -221,30 +241,29 @@ const FormularioAvaliacao = () => {
                         checked={formData.presenca === 'sim'}
                         onChange={handleChange}
                   />
-                {/* <input type="radio" id="sim" name="presenca" value="sim"/> */}
-                <label  className='resposta' for="sim"> sim</label>
+                <label  className='resposta' htmlFor="sim"> sim</label>
               </div>
               <div className='item'>
                   <input
                         type="radio"
-                        id="ás vezes"
+                        id="asvezes"
                         name="presenca"
-                        value="ás vezes"
-                        checked={formData.presenca === 'ás vezes'}
+                        value="asvezes"
+                        checked={formData.presenca === 'asvezes'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="ás vezes"> ás vezes</label>
+                <label  className='resposta' htmlFor="asvezes"> ás vezes</label>
               </div>
               <div className='item'>
                   <input
                         type="radio"
-                        id="não"
+                        id="nao"
                         name="presenca"
-                        value="não"
-                        checked={formData.presenca === 'não'}
+                        value="nao"
+                        checked={formData.presenca === 'nao'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="não"> não</label>
+                <label  className='resposta' htmlFor="nao"> não</label>
               </div>
             </div>
         </div>
@@ -261,8 +280,7 @@ const FormularioAvaliacao = () => {
                         checked={formData.avaliacao === 'desconexo'}
                         onChange={handleChange}
                   />
-                {/* <input type="radio" id="desconexo" name="avaliacao" value="desconexo"/> */}
-                <label  className='resposta' for="desconexo">desconexo</label>
+                <label  className='resposta' htmlFor="desconexo">desconexo</label>
               </div>
               <div className='item'>
                   <input
@@ -273,7 +291,7 @@ const FormularioAvaliacao = () => {
                         checked={formData.avaliacao === 'limitado'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="limitado">limitado</label>
+                <label  className='resposta' htmlFor="limitado">limitado</label>
               </div>
               <div className='item'>
                   <input
@@ -284,7 +302,7 @@ const FormularioAvaliacao = () => {
                         checked={formData.avaliacao === 'justo'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="justo">justo</label>
+                <label  className='resposta' htmlFor="justo">justo</label>
               </div>
               <div className='item'>
                   <input
@@ -295,7 +313,7 @@ const FormularioAvaliacao = () => {
                         checked={formData.avaliacao === 'formativo'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="formativo">formativo</label>
+                <label  className='resposta' htmlFor="formativo">formativo</label>
               </div>
               <div className='item'>
                   <input
@@ -306,21 +324,20 @@ const FormularioAvaliacao = () => {
                         checked={formData.avaliacao === 'abrangente'}
                         onChange={handleChange}
                   />
-                <label  className='resposta' for="abrangente">abrangente</label>
+                <label  className='resposta' htmlFor="abrangente">abrangente</label>
               </div>
             </div>
         </div>
         <div className='form-group'>
             <label>Em qual periodo  é recomendável pagar essa disciplina? </label><br></br>
-            {/* <select
-          name="periodo"
-          value={formData.periodo}
-          onChange={handleChange}
-        > */}
             <Dropdown title="Período" items={items} />
         </div>
       </div>
-    
+      {errorMessage && (
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                        <p style={{ color: 'red', margin: '0' }}>{errorMessage}</p>
+                    </div>
+                )}
       <div className='btn-form'>
         <button type='submit'>Continuar</button>
       </div>
