@@ -7,7 +7,6 @@ import PontosBckgrd from '../../Componentes/PontosBckgrd';
 import {getMateriasDetalhes} from '../MateriaIndicadores/data'
 import {useParams} from "react-router-dom"
 import {useEffect, useState} from "react";
-let data;
 
 // api
 //     .get(`/materialEstudo/:Materiaid/${1}`)
@@ -51,7 +50,7 @@ function MaterialEstudo (materia, codigo, textoBase){
   }, [Materiaid]);
 
   if (data !== undefined && data !== null) {
-    materia = data[0].materia.nome;
+    materia = data[0].materia[0].nome;
     // textoBase = "Lorem ipsum dolor sit amet\n" +
     //     "consectetur adipiscing elit,\n" +
     //     "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n" +
