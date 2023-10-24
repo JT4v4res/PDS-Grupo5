@@ -45,7 +45,7 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   {
     materia = data.nome;
     codigo = data.codigo;
-    nivelEsforco = data['avaliacoes'][0].nivelEsforco;
+    nivelEsforco = data.nivelEsforco;
     ratingStar = data['avaliacoes'][0].nota_avaliacao;
     dadosIndicadores = [`Cerca de ${(data['avaliacoes'][0].didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
         `${(data['avaliacoes'][0].metodologia)*5}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
