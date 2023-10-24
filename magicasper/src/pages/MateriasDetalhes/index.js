@@ -42,7 +42,7 @@ export default function MateriaDetalhes (){
     console.log("Post:", post)
 
     if (data !== undefined && data !== null) {
-       const areaString = [data.areaRelevante.split(',')]
+       const areaString = [data.areaRelevante.split(', ')]
         console.log("area", data.areaRelevante)
         return (
             <>

@@ -43,9 +43,9 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
   
   if (data !== undefined && data !== null)
   {
-
-    materia =data.nome;
-    codigo =data.codigo;
+    console.log(data)
+    materia = data.nome;
+    codigo = data.codigo;
     nivelEsforco = data.avaliacoes[0].nivelEsforco;
     ratingStar = data.avaliacoes[0].nota_avaliacao;
     dadosIndicadores = [`Cerca de ${(data.avaliacoes[0].didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
