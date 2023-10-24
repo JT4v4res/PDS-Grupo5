@@ -1,0 +1,37 @@
+kind: pipeline
+type: kubernetes
+name: standard-pipeline
+
+steps:
+- name: build-image-backend
+  image: plugins/ecr
+  settings:
+    repo: pds-2023-1-05
+    registry: 716814888065.dkr.ecr.us-east-2.amazonaws.com
+    region: us-east-2
+    context: ./api-casper
+    dockerfile: ./api-casper/Dockerfile
+    tags:
+      - backend
+      
+- name: build-image-frontend
+  image: plugins/ecr
+  settings:
+    repo: pds-2023-1-05
+    registry: 716814888065.dkr.ecr.us-east-2.amazonaws.com
+    region: us-east-2
+    context: ./magicasper
+    dockerfile: ./magicasper/Dockerfile
+    tags:
+      - frontend      
+
+tolerations:
+- dedicated: jenkinsAgents
+  operator: Exists
+  effect: NoSchedule
+
+trigger:
+  branch:
+    - main
+  event:
+    - push
