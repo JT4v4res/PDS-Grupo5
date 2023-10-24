@@ -1,10 +1,11 @@
 import './index.css';
 import Dropdown from '../Dropdown';
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import { Link,useParams, useNavigate} from 'react-router-dom';
 import {diciplinas_avaliar} from './data'
 import api from "../../Componentes/apis";
 import axios from 'axios';
+import {AuthContext} from "../../context/context";
 
 let materiasDoBanco;
 let post;
@@ -61,12 +62,12 @@ const opcoesParaNumeros = {
 
 const FormularioAvaliacao = () => {
   const { Materiaid } = useParams();
-  let userId = Materiaid
+  const {userId} = useContext(AuthContext);
   const history = useNavigate();
   const [errorMessage, setErrorMessage] = useState(''); // Variável de estado para mensagem de erro
 
   materiasDoBanco.map((element) => {
-    if(element.materiaId == Materiaid){
+    if(element.materiaId === Materiaid){
       console.log("Iguakl")
       post = element.id;
     }
@@ -92,7 +93,7 @@ const FormularioAvaliacao = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8080/avaliation', {
+    api.post('/avaliation', {
       userId: parseInt(userId),
       semestre: "2023.1",
       nota_avaliacao: 3,
@@ -106,7 +107,7 @@ const FormularioAvaliacao = () => {
       recomenda_no_inicio: false,
       isMateria: true,
       isTeacher: false,
-      relationshipId: 1,
+      relationshipId: parseInt(Materiaid),
       primeira_aprovacao: true
     })
     .then((response) => {
