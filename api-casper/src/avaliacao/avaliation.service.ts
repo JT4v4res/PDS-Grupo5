@@ -18,6 +18,8 @@ export class AvaliationService {
     private readonly professorService: ProfessorService,
     private readonly materiaService: MateriaService,
     private readonly userService: UserService,
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>,
   ) {}
 
   async getAvaliations(): Promise<AvaliationEntity[]> {
@@ -30,8 +32,14 @@ export class AvaliationService {
   }
 
   async getAvaliationsById(avaliationId: number): Promise<AvaliationEntity> {
-    return await this.avaliationRepository.findOneBy({
-      avaliationId: avaliationId,
+    return await this.avaliationRepository.findOne({
+      where: {
+        avaliationId: avaliationId,
+      },
+      relations: {
+        materia: true,
+        professor: true,
+      },
     });
   }
 
@@ -129,6 +137,9 @@ export class AvaliationService {
 
     if (user !== null && user !== undefined) {
       newAvaliation.user = user;
+      user.perfil.pontuacao += 50;
+
+      await this.userRepository.save(user);
     }
 
     if (newAvaliation !== null && newAvaliation !== undefined) {

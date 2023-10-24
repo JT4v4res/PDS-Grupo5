@@ -85,10 +85,12 @@ export class UserService {
       where: {
         id: userId,
       },
-      relations: {
-        perfil: true,
-        valuations: true,
-      },
+      relations: [
+        'perfil',
+        'valuations',
+        'valuations.materia',
+        'valuations.professor',
+      ],
     });
 
     if (!user) {

@@ -60,7 +60,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
   }, []);
 
 
-  if(perfilAcademico.periodData !== null || perfilAcademico.periodData !== undefined){ //Pegando os dados do pdf e jogando em periodos
+  if(perfilAcademico.periodData !== null && perfilAcademico.periodData !== undefined){ //Pegando os dados do pdf e jogando em periodos
     periodos = perfilAcademico.periodData
   }
   
@@ -72,7 +72,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
     let matriculaAtualFinal = ''
     let materiasAfazer =0
 
-    if(periodos  !== null || periodos !== undefined){
+    if(periodos  !== null && periodos !== undefined){
       for (const periodo in periodos) {
         if (periodos.hasOwnProperty(periodo)) {
           const [ano, semestre] = periodos[periodo]['periodo'].split('/');
@@ -140,7 +140,7 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
     pontuacao_user =  userData.perfil.pontuacao
     materias_cursadas = materiasPagas.length
     materias_fazer = materiasAfazer
-    pontuacoes_ganhas = ''
+    pontuacoes_ganhas = userData.valuations
     let totalMaterias = materias_fazer+materias_cursadas
 
     const bgcolor = "#6a1b9a";
@@ -178,13 +178,13 @@ function Home (UserData, pontuacao_user, materias_cursadas,disciplinas_atual,Des
                           {pontuacoes_ganhas.map((pontuacao, index) => (
                             <li key={index}>
                               <div className='content-left'>
-                                <a href='/#'>Avaliação {pontuacao.dataAvaliacao}</a>
-                                <a href='/#'>Disciplina: {pontuacao.disciplina}</a>
+                                <a href='/#'>Avaliação {pontuacao.createdAt.slice(0,10)}</a>
+                                <a href='/#'>Disciplina: {pontuacao.materia.nome}</a>
                               </div>
                               <div className='content-rigth'>
-                                <label>Nota: {pontuacao.nota}</label>
-                                <label>Dificuldade: {pontuacao.dificuldade}</label>
-                                <label>+{pontuacao.pontosRecebidos} pontos</label>
+                                <label>Nota: {pontuacao.nota_avaliacao}</label>
+                                <label>Dificuldade: {pontuacao.materia.nivelEsforco}</label>
+                                <label>+{50} pontos</label>
                               </div>
                             </li>
                           ))}

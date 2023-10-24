@@ -64,7 +64,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
 
   console.log("userdata:",userData)
   useEffect(() => {
-    axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+    api.get(`/perfilacademico/${userId}`)
       .then(response => {
         setPerfilAcademico(response.data);
       })
@@ -154,7 +154,7 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
     diciplinas_avaliar= materiasPagas
     disciplinas_atual = matriculaAtualFinal
 
-    pontuacoes_ganhas =''
+    pontuacoes_ganhas = userData.valuations
     console.log("Para avaliar:", diciplinas_avaliar)
     const disciplinasCadastradas =  materiasDoBanco.map((disciplina) => ({
       id: disciplina.materiaId,
@@ -179,10 +179,10 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
           formData.append('file', selectedFile);
     
           // Fazer a solicitação POST usando Axios
-          const response = await axios.post(`http://localhost:8080/pdf/upload/${profileId}`, formData);
+          const response = await api.post(`/pdf/upload/${profileId}`, formData);
     
           // Se a solicitação foi bem-sucedida, você pode lidar com a resposta do servidor aqui
-          axios.get(`http://localhost:8080/perfilacademico/${userId}`)
+          api.get(`/perfilacademico/${userId}`)
           .then(response => {
             setPerfilAcademico(response.data);
           })
@@ -313,13 +313,13 @@ function Perfil (user, pontuacao_user, materias_cursadas, materias_fazer, discip
                           {pontuacoes_ganhas.map((pontuacao, index) => (
                             <li key={index}>
                               <div className='content-left'>
-                                <a href='/#'>Avaliação {pontuacao.dataAvaliacao}</a>
-                                <a href='/#'>Disciplina: {pontuacao.disciplina}</a>
+                                <a href='/#'>Avaliação {pontuacao.createdAt.slice(0, 10)}</a>
+                                <a href='/#'>Disciplina: {pontuacao.materia.nome}</a>
                               </div>
                               <div className='content-rigth'>
                                 <label>Nota: {pontuacao.nota}</label>
-                                <label>Dificuldade: {pontuacao.dificuldade}</label>
-                                <label>+{pontuacao.pontosRecebidos} pontos</label>
+                                <label>Dificuldade: {pontuacao.materia.nivelEsforco}</label>
+                                <label>+{50} pontos</label>
                               </div>
                             </li>
                           ))}

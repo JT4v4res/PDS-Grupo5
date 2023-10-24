@@ -51,15 +51,15 @@ function MateriaIndicadores (materia, codigo, dadosIndicadores, nivelEsforco, ra
       });
     materia =post['materia'].nome;
     codigo =post['materia'].codigo;
-    nivelEsforco = post['materia'].nivelEsforco;
+    nivelEsforco = post.materia.nivelEsforco;
     ratingStar = post.nota_avaliacao;
-    dadosIndicadores = [`Cerca de ${(post.didatica)*10}% dos alunos são aprovados na 1ª tentativa`,
-        `${(post.metodologia)*10}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
-        `${(post.nota_materia)*10}% afirmam que o seu professor foi didático`,
-        `${(post.metodologia)*10}% dos usuários já concluíram essa matéria`,
-        `${(post.presenca)*10}% dos alunos recomendam essa matéria no inicio do curso`,
-        `${(post.periodo)*10}% afirmam que essa matéria requer muito tempo de dedicação`];
-    informativos = [`Última avaliação: ${post.updatedAt}`, `Cerca de ${(post.metodologia)*10} alunos avaliaram esta materia`];
+    dadosIndicadores = [`Cerca de ${(post.didatica)*5}% dos alunos são aprovados na 1ª tentativa`,
+        `${(post.metodologia)*5}%  não recomendam pegar  essa matéria se não viu o básico de programação`,
+        `${(post.nota_materia)*5}% afirmam que o seu professor foi didático`,
+        `${(post.metodologia)*5}% dos usuários já concluíram essa matéria`,
+        `${(post.presenca)*5}% dos alunos recomendam essa matéria no inicio do curso`,
+        `${(post.periodo)*5}% afirmam que essa matéria requer muito tempo de dedicação`];
+    informativos = [`Última avaliação: ${post.updatedAt.slice(0, 10)}`, `Cerca de ${(post.metodologia)*3} alunos avaliaram esta materia`];
     return (
         <>
           <Navbar/>
