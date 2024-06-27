@@ -142,7 +142,6 @@ Thalyssa de Almeida Monteiro <br />
 *tam@ic.ufal.br* <br />
 [Github Thalyssa](https://github.com/thalyssa)
 
-Yanka Raíssa Ribeiro da Silva <br />
+Yanka Ribeiro<br />
 *Desenvolvedora Front-End* <br />
-*yrrs@ic.ufal.br* <br />
 [Github Yanka](https://github.com/yrribeiro)
